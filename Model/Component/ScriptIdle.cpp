@@ -9,7 +9,7 @@ ScriptIdle::ScriptIdle(std::string strName, models::GameObject* pOwner, sf::Vect
     this->vecMaxBounds = vecMaxBounds;
     this->fSpeed = fSpeed;
 
-    this->vecDir = {1.f, 0.f};
+    this->vecDir = {1.f, 1.f};
 }
 
 void ScriptIdle::perform(){

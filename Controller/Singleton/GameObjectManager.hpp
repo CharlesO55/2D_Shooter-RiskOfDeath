@@ -17,7 +17,7 @@ namespace singletons{
             void deleteObject(GameObject* pObject);
             void deleteAllObjects();
 
-            void listenObjects(sf::Event EEvent);
+            void processEvents(sf::Event EEvent);
             void updateObjects(sf::Time CTime);
             void drawObjects(sf::RenderWindow *pWindow);
 

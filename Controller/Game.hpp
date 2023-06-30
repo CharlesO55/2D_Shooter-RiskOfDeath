@@ -8,6 +8,8 @@
 #include "../Model/GameObject.hpp"
 #include "../Model/Entity/Monster.hpp"
 
+#include "../View/UI/TextButton.hpp"
+
 namespace controllers {
     class Game{
         private:

@@ -8,6 +8,8 @@ using namespace singletons;
 using namespace entities;
 
 Game::Game() : CWindow(sf::VideoMode(SCREEN_WIDTH, SCREEN_HEIGHT), "MP [Ursua, Ong]", sf::Style::Titlebar | sf::Style::Close) {
+    this->CWindow.setFramerateLimit(FRAME_LIMIT);
+
     //SINGLETONS
     
     
@@ -24,7 +26,7 @@ Game::Game() : CWindow(sf::VideoMode(SCREEN_WIDTH, SCREEN_HEIGHT), "MP [Ursua, O
     Monster* pMonster = new Monster(TextureManager::getInstance()->getTexture(EnumTextures::TEST_MONSTER), "Blunt");
     GameObjectManager::getInstance()->registerObject(pMonster);
 
-    this->CWindow.setFramerateLimit(FRAME_LIMIT);
+    GameObjectManager::getInstance()->registerObject(new ui::TextButton("TESSSSSSST", "NAEEEEEEEE"));
 }
 
 Game::~Game(){}
@@ -55,7 +57,7 @@ void Game::processEvents(){
             this->bEndGame = true;
             break;
         }
-        GameObjectManager::getInstance()->listenObjects(eEvent);
+        GameObjectManager::getInstance()->processEvents(eEvent);
     };
 }
 

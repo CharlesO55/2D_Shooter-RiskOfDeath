@@ -28,8 +28,13 @@ void GameObjectManager::deleteAllObjects(){
 
 
 
-void GameObjectManager::listenObjects(sf::Event EEvent){
-
+void GameObjectManager::processEvents(sf::Event EEvent){
+    for (GameObject* pObject : this->vecObjects){
+        pObject->processEvent(EEvent);
+        for (GameObject* pChild : pObject->getChildren()){
+            pChild->processEvent(EEvent);
+        }
+    }
 }
 
 void GameObjectManager::updateObjects(sf::Time CTime){

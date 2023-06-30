@@ -10,14 +10,30 @@ GameObject::GameObject(sf::Texture* pTexture, std::string strName, GameObject* p
     pSprite->setPosition(fX, fY);
 
     this->pDrawable = pSprite;
-    this->eType = EnumObjTypes::SPRITE;
+    this->EType = EnumObjTypes::SPRITE;
 
     if (pParent){
-        pParent->vecChildren.push_back(this);
-        this->pParent = pParent;
-        this->initialize();
+        this->addChild(pParent);
     }
 }
+
+GameObject::GameObject(std::string strName, EnumObjTypes EType, EnumObjSubTypes ESubtype, GameObject* pParent, float fX, float fY){
+    this->strName = strName;
+    this->EType = EType;
+    this->ESubtype = ESubtype;
+
+    if (pParent){
+        this->addChild(pParent);
+    }
+    //REMEMBER TO ADD MANUALLY DRAWABLE IN CHILD 
+}
+
+void GameObject::addChild(GameObject* pParent){
+    pParent->vecChildren.push_back(this);
+    this->pParent = pParent;
+    this->initialize();
+}
+
 
 void GameObject::initialize(){
     this->bEnabled = true;
@@ -27,6 +43,15 @@ void GameObject::initialize(){
     this->vecComponents.push_back(pRenderer);
     std::cout << "INITIALIZE SUCCESS";
 }
+
+
+void GameObject::processEvent(sf::Event EEvent){
+    for (auto pComp : this->getComponents(EnumComponentType::INPUT)){
+        ((InputBase*) pComp)->assignOnProcessInput(EEvent);
+        ((InputBase*) pComp)->perform();
+    }
+}
+
 
 
 void GameObject::draw(sf::RenderWindow* pWindow) {
@@ -40,7 +65,7 @@ void GameObject::draw(sf::RenderWindow* pWindow) {
     }
     
 
-    CTransform.transform = this->getSprite()->getTransform() * CTransform.transform;
+    CTransform.transform = this->getGenericTransform() * CTransform.transform;
     for (Component* pComp : this->getChildrenComponents(EnumComponentType::RENDERER)){
         pRenderer = (CompRenderer*) pComp;
         pRenderer->assignOnDraw(pWindow, CTransform);
@@ -78,10 +103,52 @@ sf::Drawable* GameObject::getDrawable(){
 }
 
 sf::Sprite* GameObject::getSprite(){
-    if (this->eType == EnumObjTypes::SPRITE)
+    if (this->EType == EnumObjTypes::SPRITE)
         return static_cast <sf::Sprite*> (this->pDrawable);
     else{ 
         std::cout << std::endl << this->strName << "::getSprite() DRAWABLE TYPE MISMATCH: NOT A SPRITE\n";
         throw "GAMEOBJECT DRAWABLE IS NOT SPRITE";
+    }
+}
+
+
+const sf::Transform GameObject::getGenericTransform(){
+    switch (this->EType){
+        case EnumObjTypes::SPRITE :
+            return ((sf::Sprite*) this->pDrawable)->getTransform();
+
+        case EnumObjTypes::TEXT :
+            return ((sf::Text*) this->pDrawable)->getTransform();
+
+        case EnumObjTypes::SHAPE :
+            return ((sf::Shape*) this->pDrawable)->getTransform();
+
+        case EnumObjTypes::NONE :
+            return sf::Transform();
+        
+        default:
+            std::cout << this->strName << "WARNING FAILED TO GET TRANSFORM";
+            throw "WARNING FAILED TO GET TRANSFORM";
+    }
+}
+
+
+const sf::FloatRect GameObject::getGenericGlobalBounds(){
+    switch (this->EType){
+        case EnumObjTypes::SPRITE :
+            return ((sf::Sprite*) this->pDrawable)->getGlobalBounds();
+
+        case EnumObjTypes::TEXT :
+            return ((sf::Text*) this->pDrawable)->getGlobalBounds();
+
+        case EnumObjTypes::SHAPE :
+            return ((sf::Shape*) this->pDrawable)->getGlobalBounds();
+
+        case EnumObjTypes::NONE :
+            return sf::FloatRect();
+        
+        default:
+            std::cout << this->strName << "WARNING FAILED TO GET GLOBALBGOUNDS";
+            throw "WARNING FAILED TO GET GLOBALBGOUNDS"; 
     }
 }

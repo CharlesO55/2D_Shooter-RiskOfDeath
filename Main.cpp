@@ -5,8 +5,12 @@
 #include "Model/GameObject.cpp"
 #include "Model/Entity/Monster.cpp"
 
+#include "View/UI/TextButton.cpp"
+
 #include "Model/Component/Component.cpp"
 #include "Model/Component/CompRenderer.cpp"
+#include "Model/Component/InputBase.cpp"
+#include "Model/Component/InputButton.cpp"
 #include "Model/Component/ScriptIdle.cpp"
 
 
