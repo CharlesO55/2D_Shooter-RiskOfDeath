@@ -12,6 +12,7 @@
 #include "Model/Component/InputBase.cpp"
 #include "Model/Component/InputButton.cpp"
 #include "Model/Component/ScriptIdle.cpp"
+#include "Model/Component/ScriptBlocker.cpp"
 
 
 #include "Controller/Singleton/TextureManager.cpp"

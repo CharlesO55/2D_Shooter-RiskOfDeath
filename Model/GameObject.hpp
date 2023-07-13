@@ -9,6 +9,7 @@
 #include "Component/CompRenderer.hpp"
 #include "Component/InputBase.hpp"
 #include "Component/ScriptIdle.hpp"
+#include "Component/ScriptBlocker.hpp"
 
 
 
@@ -43,6 +44,7 @@ namespace models{
             virtual void processEvent(sf::Event EEvent);
             virtual void update(sf::Time CTime){};
             void draw(sf::RenderWindow* pWindow);
+            //void centerSpriteOrigin();
 
         protected:
             void addChild(GameObject* pParent);

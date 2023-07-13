@@ -73,6 +73,18 @@ void GameObject::draw(sf::RenderWindow* pWindow) {
     }
 }
 
+// void GameObject::centerSpriteOrigin() {
+//     if(this->pTexture != NULL) {
+//         int nWidth = this->pSprite->getTexture()->getSize().x;
+//         int nHeight = this->pSprite->getTexture()->getSize().y;
+
+//         float fHalfWidth = nWidth / 2.0f;
+//         float fHalfHeight = nHeight / 2.0f;
+
+//         this->pSprite->setOrigin(fHalfWidth, fHalfHeight);
+//     }
+// }
+
 std::vector <Component*> GameObject::getComponents(EnumComponentType EType){
     std::vector <Component*> vecFound;
 
