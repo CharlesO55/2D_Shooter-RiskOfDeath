@@ -1,0 +1,1 @@
+Base SFML/ECS Template from Ms. Candy Espulgar
