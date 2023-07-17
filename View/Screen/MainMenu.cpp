@@ -1,4 +1,4 @@
-#include "MenuBar.hpp"
+#include "MainMenu.hpp"
 
 using namespace views;
 
@@ -37,6 +37,9 @@ void MainMenu::onClick(Button* pButton) {
      * making the START [Button] into a
      * field. */
     /* * * * * * * * * * * * * * * * * * * * */
+    if (pButton->getName() == this->strName + " Start Button"){
+        systems::SceneManager::getInstance()->loadScene(SceneTag::GAME_SCENE);
+    }
 }
 
 void MainMenu::onRelease(Button* pButton) {}

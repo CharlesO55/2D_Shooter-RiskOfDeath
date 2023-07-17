@@ -17,7 +17,7 @@ using namespace scenes;
  * must create and register the [MainMenu]
  * [View] on your own.*/
 
-MainMenuScene::MainMenuScene() {}
+MainMenuScene::MainMenuScene() : Scene(SceneTag::MAIN_MENU) {}
 
 MainMenuScene::~MainMenuScene() {}
 
@@ -28,6 +28,17 @@ void MainMenuScene::createBackground() {
     Background* pBackground = new Background("Main Menu Scene Background", pTexture);
     /* Don't forget to REGISTER your [Background]
      * after you have properly setup this class. */
+    this->registerObject(pBackground);
 }
 
 /* * * * * * * * * * * * * * * * * * * * */
+void MainMenuScene::onLoadResources(){
+
+}
+void MainMenuScene::onLoadObjects(){
+    this->createBackground();
+    this->registerObject(new MainMenu());
+}
+void MainMenuScene::onUnloadResources(){
+
+}

@@ -17,6 +17,7 @@
 #include "../../Controller/Singleton/TextureManager.hpp"
 #include "../../Controller/Singleton/FontManager.hpp"
 #include "../../Controller/System/ViewManager.hpp"
+#include "../../Controller/System/SceneManager.hpp"
 
 namespace views {
     using namespace controllers;

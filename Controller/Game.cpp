@@ -21,6 +21,7 @@ Game::Game() : rwWindow(sf::VideoMode(SCREEN_WIDTH, SCREEN_HEIGHT), "Title", sf:
     /* Create ALL your scenes. Once you have
      * properly implemented [MainMenuScene],
      * remember to register it here. */
+    SceneManager::getInstance()->registerScene(new MainMenuScene());
     SceneManager::getInstance()->registerScene(new GameScene());
     /* * * * * * * * * * * * * * * * * * * * */
     
@@ -30,7 +31,7 @@ Game::Game() : rwWindow(sf::VideoMode(SCREEN_WIDTH, SCREEN_HEIGHT), "Title", sf:
      * code such that the first scene loaded
      * is [MainMenuScene] as opposed to the
      * [GameScene]. */
-    SceneManager::getInstance()->loadScene(SceneTag::GAME_SCENE);
+    SceneManager::getInstance()->loadScene(SceneTag::MAIN_MENU);
     /* * * * * * * * * * * * * * * * * * * * */
 }
 
