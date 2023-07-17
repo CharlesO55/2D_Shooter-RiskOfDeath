@@ -1,0 +1,7 @@
+git add .
+git commit -m "My_Msg"
+git push -u origin Candy_Engine
+git pull -u origin Candy_Engine
+
+git status
+git log
