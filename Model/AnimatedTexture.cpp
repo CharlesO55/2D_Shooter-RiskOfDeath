@@ -8,9 +8,6 @@ AnimatedTexture::AnimatedTexture(std::vector<sf::Texture*> vecFrames) {
 }
 
 AnimatedTexture::~AnimatedTexture(){
-    std::cout << "\nCLEARAED";
-
-    // for (this->vecFrames.)
 }
 
 

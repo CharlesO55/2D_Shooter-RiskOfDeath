@@ -2,13 +2,14 @@
 
 using namespace views;
 
-Text::Text(std::string strName, std::string strText, sf::Font* pFont, int nSize) : GameObject(strName, NULL) {
+Text::Text(std::string strName, std::string strText, sf::Vector2f vecPos, FontType EFont, int nSize, sf::Color CColor) : GameObject(strName, NULL) {
     this->pText = new sf::Text();
     this->pText->setString(strText);
-    this->pText->setFont(*pFont);
+    this->pText->setFont(*controllers::FontManager::getInstance()->getFont(EFont));
     this->pText->setCharacterSize(nSize);
-    this->pText->setFillColor(sf::Color(0, 0, 0, 255));
+    this->pText->setFillColor(CColor);
     this->pText->setStyle(sf::Text::Bold);
+    this->pText->setPosition(vecPos);
 }
 
 void Text::initialize() {
@@ -20,6 +21,13 @@ void Text::initialize() {
 
 sf::Text* Text::getText() {
     return this->pText;
+}
+
+void Text::centerTextOrigin(){
+    this->pText->setOrigin(
+        pText->getLocalBounds().width / 2.f + this->pText->getLocalBounds().left,
+        pText->getLocalBounds().height / 2.f + this->pText->getLocalBounds().top
+    );
 }
 
 void Text::setText(std::string strText) {

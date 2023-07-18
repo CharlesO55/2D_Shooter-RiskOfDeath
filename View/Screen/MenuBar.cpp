@@ -23,7 +23,7 @@ void MenuBar::initialize() {
         fX = fX + fWidth + fSpacing;
     }
 
-    this->pText = new Text(this->strName + " Score", "00000", FontManager::getInstance()->getFont(FontType::DEFAULT), 47);
+    this->pText = new Text(this->strName + " Score", "00000", {0,0}, FontType::DEFAULT, 47);
     this->pText->getText()->setPosition(535, 35);
     this->attachChild(pText);
 }

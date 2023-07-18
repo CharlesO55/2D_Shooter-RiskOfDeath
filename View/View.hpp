@@ -6,6 +6,9 @@
 #include "../Model/Enum/EnumViewTag.hpp"
 
 #include "Image.hpp"
+#include "../Config/Settings.hpp"
+#include "../Controller/Singleton/TextureManager.hpp"
+#include "Interface/ButtonListener.hpp"
 
 namespace views {
     using namespace models;
@@ -20,6 +23,7 @@ namespace views {
 
         protected:
             void createImage(std::string strName, AnimatedTexture* pTexture, float fScale = 1.0f, float fX = 0.0f, float fY = 0.0f);
+            void createButton(listeners::ButtonListener* pListener, std::string strName, AssetType EAsset, sf::Vector2f vecPos, float fScale = 1.f);
 
         public:
             ViewTag getTag();

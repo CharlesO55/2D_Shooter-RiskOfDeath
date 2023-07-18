@@ -29,7 +29,7 @@ void TextureManager::unloadAll(){
 void TextureManager::loadTexture(AssetType ETag, std::string strAddress){
     sf::Texture* pTexture = new sf::Texture();
     if (!pTexture->loadFromFile(strAddress)){
-        pTexture->loadFromFile("View/Image/Background/game_space.png");
+        pTexture->loadFromFile("View/Image/error.png");
     }    
     this->mapTexture[ETag].push_back(pTexture);
 }
@@ -60,63 +60,48 @@ void TextureManager::loadBackgroundFolder() {
 }
 
 void TextureManager::loadUIFolder() {
-    sf::Texture* pTexture = NULL;
 
-    pTexture = new sf::Texture();
-    pTexture->loadFromFile("View/Image/UI/bullet_logo.png");
-    this->mapTexture[AssetType::BULLET_LOGO].push_back(pTexture);
-
-    pTexture = new sf::Texture();
-    pTexture->loadFromFile("View/Image/UI/bullet_tick.png");
-    this->mapTexture[AssetType::BULLET_TICK].push_back(pTexture);
-
-    pTexture = new sf::Texture();
-    pTexture->loadFromFile("View/Image/UI/heart.png");
-    this->mapTexture[AssetType::HEART].push_back(pTexture);
-
-    pTexture = new sf::Texture();
-    pTexture->loadFromFile("View/Image/UI/button_start.png");
-    this->mapTexture[AssetType::BUTTON_START].push_back(pTexture);
-    
-    pTexture = new sf::Texture();
-    pTexture->loadFromFile("View/Image/UI/button_start.png");
-    this->mapTexture[AssetType::BUTTON_START].push_back(pTexture);
+    switch (this->EScene) {
+        case SceneTag::MAIN_MENU:
+            this->loadTexture(AssetType::BUTTON_START, "View/Image/UI/button_start.png");
+            break;
+        case SceneTag::GAME_SCENE:
+            this->loadTexture(AssetType::BULLET_LOGO, "View/Image/UI/bullet_logo.png");
+            this->loadTexture(AssetType::BULLET_TICK, "View/Image/UI/bullet_tick.png");
+            this->loadTexture(AssetType::HEART, "View/Image/UI/heart.png");
+            break;
+        default:
+            break;
+    }
 }
 
 void TextureManager::loadPlayerFolder() {
-    sf::Texture* pTexture = NULL;
-
-    pTexture = new sf::Texture();
-    pTexture->loadFromFile("View/Image/Player/this_ship_be_otp.png");
-    this->mapTexture[AssetType::SHIP].push_back(pTexture);
-
-    pTexture = new sf::Texture();
-    pTexture->loadFromFile("View/Image/Player/bullet.png");
-    this->mapTexture[AssetType::BULLET].push_back(pTexture);
+    switch (this->EScene) {
+        case SceneTag::MAIN_MENU:
+            break;
+        case SceneTag::GAME_SCENE:
+            this->loadTexture(AssetType::SHIP, "View/Image/Player/this_ship_be_otp.png");
+            this->loadTexture(AssetType::BULLET, "View/Image/Player/bullet.png");
+            break;
+        default:
+            break;
+    }
 }
 
 void TextureManager::loadMrAlienFolder() {
-    sf::Texture* pTexture = NULL;
-
-    pTexture = new sf::Texture();
-    pTexture->loadFromFile("View/Image/Mr. Alien/mr_alien_base.png");
-    this->mapTexture[AssetType::MR_ALIEN_BASE].push_back(pTexture);
-
-    pTexture = new sf::Texture();
-    pTexture->loadFromFile("View/Image/Mr. Alien/mr_alien_top_stamen.png");
-    this->mapTexture[AssetType::MR_ALIEN_TOP_STAMEN].push_back(pTexture);
-
-    pTexture = new sf::Texture();
-    pTexture->loadFromFile("View/Image/Mr. Alien/mr_alien_bottom_stamen.png");
-    this->mapTexture[AssetType::MR_ALIEN_BOTTOM_STAMEN].push_back(pTexture);
-
-    pTexture = new sf::Texture();
-    pTexture->loadFromFile("View/Image/Mr. Alien/mr_alien_top_tentacle.png");
-    this->mapTexture[AssetType::MR_ALIEN_TOP_TENTACLE].push_back(pTexture);
-
-    pTexture = new sf::Texture();
-    pTexture->loadFromFile("View/Image/Mr. Alien/mr_alien_bottom_tentacle.png");
-    this->mapTexture[AssetType::MR_ALIEN_BOTTOM_TENTACLE].push_back(pTexture);
+    switch (this->EScene) {
+        case SceneTag::MAIN_MENU:
+            break;
+        case SceneTag::GAME_SCENE:
+            this->loadTexture(AssetType::MR_ALIEN_BASE, "View/Image/Mr. Alien/mr_alien_base.png");
+            this->loadTexture(AssetType::MR_ALIEN_TOP_STAMEN, "View/Image/Mr. Alien/mr_alien_top_stamen.png");
+            this->loadTexture(AssetType::MR_ALIEN_BOTTOM_STAMEN, "View/Image/Mr. Alien/mr_alien_bottom_stamen.png");
+            this->loadTexture(AssetType::MR_ALIEN_TOP_TENTACLE, "View/Image/Mr. Alien/mr_alien_top_tentacle.png");
+            this->loadTexture(AssetType::MR_ALIEN_BOTTOM_TENTACLE, "View/Image/Mr. Alien/mr_alien_bottom_tentacle.png");
+            break;
+        default:
+            break;
+    }
 }
 
 std::vector<sf::Texture*> TextureManager::getTexture(AssetType EType, int nStart, int nEnd) {

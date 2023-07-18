@@ -14,7 +14,7 @@ GameScene::~GameScene() {}
 /* Nothing to do here, but take note of the
  * [IMPORTANT] comment in the [Game] class. */
 void GameScene::onLoadResources() {
-    TextureManager::getInstance()->loadAll(SceneTag::MAIN_MENU);
+    TextureManager::getInstance()->loadAll(SceneTag::GAME_SCENE);
 }
 
 

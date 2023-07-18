@@ -2,9 +2,12 @@
 #define CONTROLLERS_TEXTURE_MANAGER_HPP
 
 #include "../../Model/Enum/EnumAssetType.hpp"
+#include "../../Model/Enum/EnumSceneTag.hpp"
 
-#include <unordered_map>
-#include <SFML/Graphics.hpp>
+#   ifndef DISABLE_INTELLISENSE_INCLUDES
+#   include <unordered_map>
+#   include <SFML/Graphics.hpp>
+#   endif
 
 namespace controllers {
     class TextureManager {

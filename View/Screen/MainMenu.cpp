@@ -15,7 +15,7 @@ MainMenu::~MainMenu() {}
 /* Creates the [Background] and [Button],
  * and layouts it in the screen. */
 void MainMenu::initialize() {
-    AnimatedTexture* pTexture = new AnimatedTexture(TextureManager::getInstance()->getTexture(AssetType::BUTTON_START));
+    /* AnimatedTexture* pTexture = new AnimatedTexture(TextureManager::getInstance()->getTexture(AssetType::BUTTON_START));
     Button* pButton = new Button(this->getName() + " Start Button", pTexture);
     
     pButton->getSprite()->setScale(0.6f, 0.6f);
@@ -23,7 +23,22 @@ void MainMenu::initialize() {
     pButton->centerSpriteOrigin();
 
     pButton->setListener(this);
-    this->attachChild(pButton);
+    this->attachChild(pButton); */
+    this->createButton(this, 
+        this->strName + " Start Button", 
+        AssetType::BUTTON_START, 
+        {SCREEN_WIDTH / 2, SCREEN_HEIGHT / 2}
+    );
+
+    this->pText = new views::Text(
+        "Title",
+        "Risk of Death",
+        {SCREEN_WIDTH / 2, SCREEN_HEIGHT / 2.8},
+        FontType::DEFAULT,
+        DEFAULT_TEXT_SIZE * 3
+    );
+    this->pText->centerTextOrigin();
+    this->attachChild(pText);
 }
 
 void MainMenu::onClick(Button* pButton) {
@@ -37,7 +52,7 @@ void MainMenu::onClick(Button* pButton) {
      * making the START [Button] into a
      * field. */
     /* * * * * * * * * * * * * * * * * * * * */
-    if (pButton->getName() == this->strName + " Start Button"){
+    if (pButton->getName().find("Start Button") != std::string::npos){
         systems::SceneManager::getInstance()->loadScene(SceneTag::GAME_SCENE);
     }
 }
