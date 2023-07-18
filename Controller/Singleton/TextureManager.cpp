@@ -2,15 +2,41 @@
 
 using namespace controllers;
 
-void TextureManager::loadAll() {
+void TextureManager::loadAll(SceneTag EScene) {
+    this->EScene = EScene;
+
     this->loadBackgroundFolder();
     this->loadUIFolder();
     this->loadPlayerFolder();
     this->loadMrAlienFolder();
 }
 
+void TextureManager::unloadAll(){
+    std::cout << "UNLOADING TEXTURE_MANAGER: ";
+    //CLEAR THE MAP OF VECTORS
+    for (auto [EAsset, vecTex] : this->mapTexture){
+        //DELETE THE VECTOR OF TEXTURES
+        for (auto tex : vecTex){
+            delete tex;
+        }
+        vecTex.clear();
+    }
+    this->mapTexture.clear();
+    std::cout << "SUCCESS\n";
+}
+
+
+void TextureManager::loadTexture(AssetType ETag, std::string strAddress){
+    sf::Texture* pTexture = new sf::Texture();
+    if (!pTexture->loadFromFile(strAddress)){
+        pTexture->loadFromFile("View/Image/Background/game_space.png");
+    }    
+    this->mapTexture[ETag].push_back(pTexture);
+}
+
+
 void TextureManager::loadBackgroundFolder() {
-    sf::Texture* pTexture = NULL;
+    /* sf::Texture* pTexture = NULL;
 
     pTexture = new sf::Texture();
     pTexture->loadFromFile("View/Image/Background/main_menu.png");
@@ -18,7 +44,19 @@ void TextureManager::loadBackgroundFolder() {
 
     pTexture = new sf::Texture();
     pTexture->loadFromFile("View/Image/Background/game_space.png");
-    this->mapTexture[AssetType::BACKGROUND].push_back(pTexture);
+    this->mapTexture[AssetType::BACKGROUND].push_back(pTexture); */
+    
+
+    switch (this->EScene){
+        case SceneTag::MAIN_MENU:
+            this->loadTexture(AssetType::BACKGROUND, "View/Image/Background/test_bg.png");
+            break;
+        case SceneTag::GAME_SCENE:
+            this->loadTexture(AssetType::BACKGROUND, "View/Image/Background/game_space.png");
+            break;
+        default:
+            break;
+    }
 }
 
 void TextureManager::loadUIFolder() {

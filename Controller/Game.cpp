@@ -13,7 +13,7 @@ Game::Game() : rwWindow(sf::VideoMode(SCREEN_WIDTH, SCREEN_HEIGHT), "Title", sf:
      * sample project is small, there's no need
      * to do that yet. However, remember to do
      * so in your MP. */
-    TextureManager::getInstance()->loadAll();
+    // TextureManager::getInstance()->loadAll();
     SFXManager::getInstance()->loadAll();
     FontManager::getInstance()->loadAll();
 

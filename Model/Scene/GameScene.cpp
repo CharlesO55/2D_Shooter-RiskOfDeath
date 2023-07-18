@@ -13,7 +13,10 @@ GameScene::~GameScene() {}
 
 /* Nothing to do here, but take note of the
  * [IMPORTANT] comment in the [Game] class. */
-void GameScene::onLoadResources() {}
+void GameScene::onLoadResources() {
+    TextureManager::getInstance()->loadAll(SceneTag::MAIN_MENU);
+}
+
 
 /* We transferred ALL object creation which
  * was previously in [Game], into this
@@ -61,7 +64,8 @@ void GameScene::createUserInterface() {
 
 void GameScene::createBackground() {
     AssetType EType = AssetType::BACKGROUND;
-    AnimatedTexture* pTexture = new AnimatedTexture(TextureManager::getInstance()->getTexture(EType, 1));
+    // AnimatedTexture* pTexture = new AnimatedTexture(TextureManager::getInstance()->getTexture(EType, 1));
+    AnimatedTexture* pTexture = new AnimatedTexture(TextureManager::getInstance()->getTexture(EType, 0));
 
     Background* pBackground = new Background("Game Scene Background", pTexture);
     this->registerObject(pBackground);

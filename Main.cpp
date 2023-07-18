@@ -34,13 +34,13 @@
         [>] Controller/Game.cpp + .hpp
  * * * * * * * * * * * * * * * * * * * * */
 
-#include "iostream"
-#include "unordered_map"
-#include "vector"
-#include "cmath"
+#include <iostream>
+#include <unordered_map>
+#include <vector>
+#include <cmath>
 
-#include "SFML/Graphics.hpp"
-#include "SFML/Audio.hpp"
+#include <SFML/Graphics.hpp>
+#include <SFML/Audio.hpp>
 #include "Controller/Game.cpp"
 
 #include "Controller/Singleton/GameObjectManager.cpp"
@@ -68,6 +68,7 @@
 #include "Model/Entity/Mr. Alien/Part/TopStamen.cpp"
 #include "Model/Entity/Mr. Alien/Part/TopTentacle.cpp"
 #include "Model/Entity/Border/Border.cpp"
+#include "Model/Entity/Blocker.cpp"
 
 #include "Model/Scene/MainMenuScene.cpp"
 #include "Model/Scene/GameScene.cpp"
@@ -84,6 +85,7 @@
 #include "Model/Component/Script/IdleMovement.cpp"
 #include "Model/Component/Script/PlayerBulletMovement.cpp"
 #include "Model/Component/Script/ShipControls.cpp"
+#include "Model/Component/Script/ScriptBlocker.cpp"
 
 #include "Model/Component/Renderer/Renderer.cpp"
 #include "Model/Component/Physics/Collider.cpp"

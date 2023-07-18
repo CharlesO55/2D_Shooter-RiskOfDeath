@@ -12,6 +12,7 @@ namespace components {
     
     class Component {
         protected:
+            bool bComponentEnabled = true;
             GameObject* pOwner;
             ComponentType EType;
             std::string strName;
@@ -33,6 +34,9 @@ namespace components {
             ComponentType getType();
             std::string getName();
             void setDeltaTime(sf::Time tDeltaTime);
+
+            bool isComponentEnabled();
+            void setComponentEnabled(bool ToF);
     };
 }
 

@@ -37,7 +37,9 @@ void GameObject::update(sf::Time tDeltaTime) {
     for(Component* pComponent : vecScriptComponents) {
         if(pComponent->getOwner()->isEnabled()) {
             pComponent->setDeltaTime(tDeltaTime);
-            pComponent->perform();
+            if (pComponent->isComponentEnabled()){
+                pComponent->perform();
+            }
         }
     }
 }

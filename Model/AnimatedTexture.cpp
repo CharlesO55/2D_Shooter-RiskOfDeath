@@ -7,6 +7,13 @@ AnimatedTexture::AnimatedTexture(std::vector<sf::Texture*> vecFrames) {
     this->nCurrentFrame = 0;
 }
 
+AnimatedTexture::~AnimatedTexture(){
+    std::cout << "\nCLEARAED";
+
+    // for (this->vecFrames.)
+}
+
+
 void AnimatedTexture::incrementFrame() {
     this->setCurrentFrame(this->nCurrentFrame + 1);
 }

@@ -36,3 +36,11 @@ std::string Component::getName() {
 void Component::setDeltaTime(sf::Time tDeltaTime) {
     this->tDeltaTime = tDeltaTime;
 }
+
+bool components::Component::isComponentEnabled(){
+    return this->bComponentEnabled;
+}
+
+void components::Component::setComponentEnabled(bool ToF){
+    this->bComponentEnabled = ToF;
+}

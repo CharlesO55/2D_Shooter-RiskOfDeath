@@ -11,6 +11,7 @@ namespace models {
         
         public:
             AnimatedTexture(std::vector<sf::Texture*> vecFrames = {});
+            ~AnimatedTexture();
 
         public:
             void incrementFrame();

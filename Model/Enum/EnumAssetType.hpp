@@ -3,6 +3,12 @@
 
 enum class AssetType : int {
     NONE = -1,
+
+    TEST_BG,
+    TEST_S,
+    TEST_M,
+    TEST_L,
+
     BACKGROUND,
     BUTTON_START,
     
