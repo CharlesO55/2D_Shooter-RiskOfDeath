@@ -5,7 +5,9 @@ enum class ViewTag : int {
     NONE = -1,
     MAIN_MENU,
     MENU_BAR,
-    LEADERBOARD
+    LEADERBOARD,
+    FRONTVIEW_UI,
+    SIDEVIEW_UI
 };
 
 #endif

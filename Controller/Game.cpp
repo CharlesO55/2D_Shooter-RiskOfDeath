@@ -23,6 +23,7 @@ Game::Game() : rwWindow(sf::VideoMode(SCREEN_WIDTH, SCREEN_HEIGHT), "Title", sf:
      * remember to register it here. */
     SceneManager::getInstance()->registerScene(new MainMenuScene());
     SceneManager::getInstance()->registerScene(new GameScene());
+    SceneManager::getInstance()->registerScene(new GameProper());
     SceneManager::getInstance()->registerScene(new scenes::LeaderboardScene());
     /* * * * * * * * * * * * * * * * * * * * */
     

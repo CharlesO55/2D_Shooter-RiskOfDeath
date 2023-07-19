@@ -10,6 +10,7 @@ Text::Text(std::string strName, std::string strText, sf::Vector2f vecPos, FontTy
     this->pText->setFillColor(CColor);
     this->pText->setStyle(sf::Text::Bold);
     this->pText->setPosition(vecPos);
+    this->pText->setOutlineThickness(3);
 
     if (bCenterAlign){
         this->centerTextOrigin();

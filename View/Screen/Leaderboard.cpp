@@ -7,7 +7,7 @@ Leaderboard::Leaderboard() : View(ViewTag::LEADERBOARD, "Leaderboard"){}
 Leaderboard::~Leaderboard(){}
 
 void Leaderboard::initialize(){
-    this->createTextButton(this, "Main Menu Button", "Return", {SCREEN_WIDTH / 2, SCREEN_HEIGHT - 50.f});
+    this->createTextButton(this, "Main Menu Button", "Return", {SCREEN_WIDTH / 2, SCREEN_HEIGHT - 100.f});
 }
 
 void Leaderboard::onClick(Button* pButton){

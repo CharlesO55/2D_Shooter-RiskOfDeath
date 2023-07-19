@@ -13,7 +13,12 @@
 
 #include "../Model/Scene/MainMenuScene.hpp"
 #include "../Model/Scene/GameScene.hpp"
+#include "../Model/Scene/GameProper.hpp"
 #include "../Model/Scene/LeaderboardScene.hpp"
+
+#   ifndef DISABLE_INTELLISENSE_INCLUDES
+#   include <SFML/Graphics.hpp>
+#   endif
 
 namespace controllers {
     using namespace models;

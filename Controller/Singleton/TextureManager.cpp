@@ -53,11 +53,21 @@ void TextureManager::loadBackgroundFolder() {
             break;
         case SceneTag::LEADERBOARD:
             {
-                for (int i = 0; i <= 13; i++){
-                    this->loadTexture(AssetType::BACKGROUND, "View/Image/Background/" + std::to_string(i) + ".png");
+                for (int i = 0; i <= 64; i++){
+                    std::string strNum = std::to_string(i);
+                    if(i < 10){
+                        strNum.insert(0, 1, '0');
+                    }
+                    this->loadTexture(AssetType::BACKGROUND, "View/Image/Background/Omedetou/" + strNum + ".png");
                 }
             }
             break;
+        case SceneTag::GAME_PROPER:
+            this->loadTexture(AssetType::BACKGROUND, "View/Image/Background/test_bg3.png");
+            break;
+        
+
+        //OBSOLETE
         case SceneTag::GAME_SCENE:
             this->loadTexture(AssetType::BACKGROUND, "View/Image/Background/game_space.png");
             break;

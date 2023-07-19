@@ -16,6 +16,5 @@ namespace views{
             void initialize();
             void onClick(Button* pButton);
             void onRelease(Button* pButton);
-
     };
 }

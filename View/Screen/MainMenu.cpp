@@ -48,6 +48,7 @@ void MainMenu::initialize() {
     this->createTextButton(this, "Start Button", "Start", {SCREEN_WIDTH / 2, SCREEN_HEIGHT / 2 + fOffset}, DEFAULT_TEXT_SIZE * 1.5);
     this->createTextButton(this, "Leaderboard Button", "Leaderboard", {SCREEN_WIDTH / 2, SCREEN_HEIGHT / 2 + fOffset * 2}, DEFAULT_TEXT_SIZE * 1.5);
     this->createTextButton(this, "Quit Button", "Quit Game", {SCREEN_WIDTH / 2, SCREEN_HEIGHT / 2 + fOffset * 3}, DEFAULT_TEXT_SIZE * 1.5);
+    this->createTextButton(this, "Debug Button", "Old Debug", {150.f, 50.f});
 }
 
 void MainMenu::onClick(Button* pButton) {
@@ -62,13 +63,16 @@ void MainMenu::onClick(Button* pButton) {
      * field. */
     /* * * * * * * * * * * * * * * * * * * * */
     if (pButton->getName() == "Start Button"){
-        systems::SceneManager::getInstance()->loadScene(SceneTag::GAME_SCENE);
+        systems::SceneManager::getInstance()->loadScene(SceneTag::GAME_PROPER);
     }
     else if (pButton->getName() == "Leaderboard Button"){
         systems::SceneManager::getInstance()->loadScene(SceneTag::LEADERBOARD);
     }
     else if (pButton->getName() == "Quit Button"){
         bCloseGame = true;
+    }
+    else if (pButton->getName() == "Debug Button"){
+        systems::SceneManager::getInstance()->loadScene(SceneTag::GAME_SCENE);
     }
 }
 

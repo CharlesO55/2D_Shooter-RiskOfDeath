@@ -73,6 +73,7 @@
 
 #include "Model/Scene/MainMenuScene.cpp"
 #include "Model/Scene/GameScene.cpp"
+#include "Model/Scene/GameProper.cpp"
 #include "Model/Scene/LeaderboardScene.cpp"
 
 #include "Model/Pooling/PoolableObject.cpp"
@@ -100,6 +101,7 @@
 #include "View/Screen/MainMenu.cpp"
 #include "View/Screen/MenuBar.cpp"
 #include "View/Screen/Leaderboard.cpp"
+#include "View/Screen/FrontViewUI.cpp"
 
 using namespace controllers;
 

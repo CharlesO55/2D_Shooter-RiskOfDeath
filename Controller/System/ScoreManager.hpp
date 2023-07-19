@@ -7,11 +7,15 @@
 namespace systems{
     class ScoreManager {
         private:
-            sf::Clock CClock;
+            sf::Time CTime;
 
         public:
-            void logStartTime();
-            void logEndTime();
+            void resetScore();
+            void incrementScore(sf::Time CDeltaTime);
+
+        public:
+            const std::string getScoreAsString();
+
 
         private:
             static ScoreManager* P_SHARED_INSTANCE;

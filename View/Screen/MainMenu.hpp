@@ -18,7 +18,7 @@
 #include "../../Controller/Singleton/FontManager.hpp"
 #include "../../Controller/System/ViewManager.hpp"
 #include "../../Controller/System/SceneManager.hpp"
-#include "../../Controller/System/ScoreManager.hpp"
+// #include "../../Controller/System/ScoreManager.hpp"
 
 
 #   ifndef DISABLE_INTELLISENSE_INCLUDES

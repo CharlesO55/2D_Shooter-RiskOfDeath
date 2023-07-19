@@ -9,6 +9,6 @@ LeaderboardScene::~LeaderboardScene() {}
 
 
 void LeaderboardScene::onLoadObjects(){
-    this->createBackground("Leaderboard Backgroud", -1);
+    this->createBackground("Leaderboard Backgroud");
     this->registerObject(new views::Leaderboard());
 }

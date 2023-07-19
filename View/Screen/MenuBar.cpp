@@ -31,7 +31,7 @@ void MenuBar::initialize() {
 
 
 
-    ScoreManager::getInstance()->logStartTime();
+    // systems::ScoreManager::getInstance()->resetScore();
 }
 
 void MenuBar::incrementScore() {
@@ -71,7 +71,7 @@ void MenuBar::decrementHeart() {
 
 void MenuBar::onClick(Button* pButton){
     if (pButton->getName() == "Quit Button"){
-        ScoreManager::getInstance()->logEndTime();
+        // systems::ScoreManager::getInstance()->getScoreAsString();
         systems::SceneManager::getInstance()->loadScene(SceneTag::LEADERBOARD);
     }
 }
