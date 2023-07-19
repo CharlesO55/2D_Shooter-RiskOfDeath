@@ -37,6 +37,60 @@ const std::string ScoreManager::getScoreAsString() {
     return strScore;
 }
 
+
+const std::vector <Pair_nScore_strName> ScoreManager::getLeaderboard(){
+    this->vecLeaderboard.clear();
+    int nScore;
+    std::string strName;
+
+    std::ifstream fp("Scores.txt");
+    
+    if(!fp.is_open()){
+        std::cout << "\nFAILED TO OPEN SCORES TXT FILE";
+        throw 0;
+    }
+
+    int nLine = 0;
+    while (!fp.fail()){
+        if (nLine == 0){
+            fp >> nScore;
+            nLine++;
+        }
+        else {
+            fp >> strName;
+            this->vecLeaderboard.push_back(std::make_pair(nScore, strName));
+            nLine = 0;
+        }
+    }
+    fp.close();
+
+    this->sortScores();
+    return this->vecLeaderboard;
+}
+
+void ScoreManager::sortScores(){
+    std::sort(this->vecLeaderboard.begin(), this->vecLeaderboard.end(), std::greater<>());
+}
+
+
+void ScoreManager::logScoreOnEnd(std::string strPlayerName){
+    this->getLeaderboard();
+    Pair_nScore_strName pairScore(this->CTime.asSeconds(), strPlayerName);
+    this->vecLeaderboard.push_back(pairScore);
+    this->sortScores();
+
+    std::ofstream fp("Scores.txt");
+
+    for (Pair_nScore_strName itr : this->vecLeaderboard){
+        fp << itr.first << std::endl;
+        fp << itr.second << std::endl;
+    }
+    fp.close();
+
+    this->resetScore();
+}
+
+
 ScoreManager* ScoreManager::P_SHARED_INSTANCE = NULL;
 
 ScoreManager::ScoreManager(){}

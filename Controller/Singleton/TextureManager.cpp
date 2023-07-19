@@ -53,7 +53,7 @@ void TextureManager::loadBackgroundFolder() {
             break;
         case SceneTag::LEADERBOARD:
             {
-                for (int i = 0; i <= 64; i++){
+                for (int i = 0; i <= 20/*64*/; i++){
                     std::string strNum = std::to_string(i);
                     if(i < 10){
                         strNum.insert(0, 1, '0');

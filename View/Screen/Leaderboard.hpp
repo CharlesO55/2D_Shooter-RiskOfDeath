@@ -1,8 +1,10 @@
 #pragma once
 
 #include "../View.hpp"
+#include "../Text.hpp"
 #include "../Interface/ButtonListener.hpp"
 #include "../../Controller/System/SceneManager.hpp"
+#include "../../Controller/System/ScoreManager.hpp"
 
 namespace views{
     using namespace listeners;

@@ -23,7 +23,7 @@ void FrontViewUI::update(sf::Time tDeltaTime){
 
 void FrontViewUI::onClick(Button* pButton){
     if (pButton->getName() == "Surrender Button"){
-        std::cout << "TIME: " << ScoreManager::getInstance()->getScoreAsString();
+        ScoreManager::getInstance()->logScoreOnEnd("NEWWWWW");
         SceneManager::getInstance()->loadScene(SceneTag::LEADERBOARD);
     }
 }
