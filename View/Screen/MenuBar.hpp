@@ -14,11 +14,14 @@
 #include "../../Controller/Singleton/FontManager.hpp"
 #include "../../Controller/System/ViewManager.hpp"
 
+#include "../Interface/ButtonListener.hpp"
+
 namespace views {
     using namespace controllers;
     using namespace models;
+    using namespace listeners;
 
-    class MenuBar : public View {
+    class MenuBar : public View , public ButtonListener{
         private:
             Text* pText;
             int nScore;
@@ -34,6 +37,10 @@ namespace views {
         public:
             void incrementScore();
             void decrementHeart();
+
+        public:
+            void onClick(Button* pButton);
+            void onRelease(Button* pButton){};
     };
 }
 

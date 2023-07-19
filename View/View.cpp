@@ -28,6 +28,15 @@ void View::createButton(listeners::ButtonListener* pListener, std::string strNam
     this->attachChild(pButton);
 }
 
+void View::createTextButton(listeners::ButtonListener* pListener, std::string strName, std::string strText, sf::Vector2f vecPos,  int nSize, FontType EFont){
+    views::Text* pQuitText = new views::Text(strName + "Text", strText, vecPos, EFont, nSize, true);
+    Button* pQuitButton = new Button(strName, pQuitText->getText());
+    pQuitButton->setListener(pListener);
+    
+    this->attachChild(pQuitButton);
+}
+
+
 
 ViewTag View::getTag() {
     return this->ETag;

@@ -17,12 +17,14 @@ namespace models {
             ~Scene();
 
         public:
-            virtual void onLoadResources() = 0;
+            virtual void onLoadResources();
             virtual void onLoadObjects() = 0;
-            virtual void onUnloadResources() = 0;
+            virtual void onUnloadResources();
             virtual void onUnloadObjects();
 
         protected:
+            virtual void createBackground();
+            
             void registerObject(GameObject* pGameObject);
 
         public:

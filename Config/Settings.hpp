@@ -9,4 +9,6 @@ const float FRAME_RATE_LIMIT = 60.0f;
 
 const int DEFAULT_TEXT_SIZE = 24;
 
+bool bCloseGame = false;
+
 #endif

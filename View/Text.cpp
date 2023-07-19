@@ -2,7 +2,7 @@
 
 using namespace views;
 
-Text::Text(std::string strName, std::string strText, sf::Vector2f vecPos, FontType EFont, int nSize, sf::Color CColor) : GameObject(strName, NULL) {
+Text::Text(std::string strName, std::string strText, sf::Vector2f vecPos, FontType EFont, int nSize, bool bCenterAlign, sf::Color CColor) : GameObject(strName, NULL) {
     this->pText = new sf::Text();
     this->pText->setString(strText);
     this->pText->setFont(*controllers::FontManager::getInstance()->getFont(EFont));
@@ -10,6 +10,10 @@ Text::Text(std::string strName, std::string strText, sf::Vector2f vecPos, FontTy
     this->pText->setFillColor(CColor);
     this->pText->setStyle(sf::Text::Bold);
     this->pText->setPosition(vecPos);
+
+    if (bCenterAlign){
+        this->centerTextOrigin();
+    }
 }
 
 void Text::initialize() {

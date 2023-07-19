@@ -11,6 +11,10 @@
 
 #include "../View/Interface/ButtonListener.hpp"
 
+#   ifndef DISABLE_INTELLISENSE_INCLUDES
+#   include <SFML/Graphics.hpp>
+#   endif
+
 namespace views {
     using namespace components;
     using namespace listeners;
@@ -19,9 +23,11 @@ namespace views {
     class Button : public GameObject {
         private:
             ButtonListener* pListener;
+            sf::Text* pText;    //ALTERNATIVE FOR TEXT BUTTONS
 
         public:
             Button(std::string strName, AnimatedTexture* pTexture);
+            Button(std::string strName, sf::Text* pText);
             ~Button();
 
         public:
@@ -29,6 +35,8 @@ namespace views {
             void changeState(ButtonState EState);
 
         public:
+            sf::FloatRect getGlobalBounds();
+
             void setListener(ButtonListener* pListener);
     };
 }

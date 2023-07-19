@@ -3,7 +3,8 @@
 
 enum class SceneTag : int {
     MAIN_MENU = 0,
-    GAME_SCENE
+    GAME_SCENE,
+    LEADERBOARD
 };
 
 #endif

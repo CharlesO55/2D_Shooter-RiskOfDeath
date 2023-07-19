@@ -26,6 +26,8 @@ void MenuBar::initialize() {
     this->pText = new Text(this->strName + " Score", "00000", {0,0}, FontType::DEFAULT, 47);
     this->pText->getText()->setPosition(535, 35);
     this->attachChild(pText);
+
+    this->createTextButton(this, "Quit Button", "Give Up", {SCREEN_WIDTH - 90, DEFAULT_TEXT_SIZE}, DEFAULT_TEXT_SIZE);
 }
 
 void MenuBar::incrementScore() {
@@ -59,5 +61,12 @@ void MenuBar::decrementHeart() {
         }
 
         this->nHeart--;
+    }
+}
+
+
+void MenuBar::onClick(Button* pButton){
+    if (pButton->getName().find("Quit Button") != std::string::npos){
+        systems::SceneManager::getInstance()->loadScene(SceneTag::MAIN_MENU);
     }
 }

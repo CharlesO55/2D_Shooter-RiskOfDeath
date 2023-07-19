@@ -1,5 +1,4 @@
-#ifndef SCENES_MAIN_MENU_SCENE_HPP
-#define SCENES_MAIN_MENU_SCENE_HPP
+#pragma once
 
 #include "../../View/Screen/MainMenu.hpp"
 #include "../Scene.hpp"
@@ -9,17 +8,15 @@ namespace scenes {
     using namespace models;
     using namespace views;
 
-    class MainMenuScene : public Scene {
+    class LeaderboardScene : public Scene {
         public:
-            MainMenuScene();
-            ~MainMenuScene();
+            LeaderboardScene();
+            ~LeaderboardScene();
 
         private:
-            // void createBackground();
+            void createBackground(){};
 
         public:
             void onLoadObjects();
     };
 }
-
-#endif

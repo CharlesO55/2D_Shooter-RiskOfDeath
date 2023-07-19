@@ -13,6 +13,7 @@
 
 #include "../Model/Scene/MainMenuScene.hpp"
 #include "../Model/Scene/GameScene.hpp"
+#include "../Model/Scene/LeaderboardScene.hpp"
 
 namespace controllers {
     using namespace models;

@@ -44,15 +44,14 @@ namespace scenes {
             ~GameScene();
 
         public:
-            void onLoadResources();
+            // void onLoadResources();
             void onLoadObjects();
-            void onUnloadResources();
         
         private:
             void createNullObjectComponents();
             void createObjectPools();
             void createUserInterface();
-            void createBackground();
+            // void createBackground();
             void createShip();
             void createAlien();
             void createBorders();

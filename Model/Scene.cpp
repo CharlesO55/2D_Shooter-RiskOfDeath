@@ -12,11 +12,29 @@ Scene::Scene(SceneTag ETag) {
 
 Scene::~Scene() {}
 
+void Scene::onLoadResources(){
+    TextureManager::getInstance()->loadAll(this->ETag);
+}
+
+
 /* Unloading a scene involves DELETING all
  * objects in the [GameObjectManager]. */
 void Scene::onUnloadObjects() {
     GameObjectManager::getInstance()->deleteAllObjects();
 }
+
+void Scene::onUnloadResources(){
+    TextureManager::getInstance()->unloadAll();
+}
+
+
+void models::Scene::createBackground(){
+    AnimatedTexture* pTexture = new AnimatedTexture(TextureManager::getInstance()->getTexture(AssetType::BACKGROUND, 0));
+
+    Background* pBackground = new Background(" Background", pTexture);
+    this->registerObject(pBackground);
+}
+
 
 /* Registering [GameObjects] to a scene involves
  * adding them to the [GameObjectManager]. */

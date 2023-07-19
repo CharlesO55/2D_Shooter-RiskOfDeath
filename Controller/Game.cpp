@@ -23,6 +23,7 @@ Game::Game() : rwWindow(sf::VideoMode(SCREEN_WIDTH, SCREEN_HEIGHT), "Title", sf:
      * remember to register it here. */
     SceneManager::getInstance()->registerScene(new MainMenuScene());
     SceneManager::getInstance()->registerScene(new GameScene());
+    SceneManager::getInstance()->registerScene(new scenes::LeaderboardScene());
     /* * * * * * * * * * * * * * * * * * * * */
     
     /* * * * *  [PRACTICE EXERCISE]  * * * * */
@@ -60,6 +61,10 @@ void Game::run() {
 
 void Game::processEvents() {
     sf::Event eEvent;
+    if(bCloseGame){
+        std::cout << "\nQUIT";
+        this->rwWindow.close();
+    }
 
     while(this->rwWindow.pollEvent(eEvent)) {
         switch(eEvent.type) {

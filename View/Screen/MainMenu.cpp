@@ -24,21 +24,30 @@ void MainMenu::initialize() {
 
     pButton->setListener(this);
     this->attachChild(pButton); */
-    this->createButton(this, 
+    /* this->createButton(this, 
         this->strName + " Start Button", 
         AssetType::BUTTON_START, 
         {SCREEN_WIDTH / 2, SCREEN_HEIGHT / 2}
-    );
+    ); */
 
-    this->pText = new views::Text(
-        "Title",
-        "Risk of Death",
-        {SCREEN_WIDTH / 2, SCREEN_HEIGHT / 2.8},
-        FontType::DEFAULT,
-        DEFAULT_TEXT_SIZE * 3
+    //GAME TITLE 
+    this->attachChild (new 
+        views::Text("Title", "Risk of Death",
+            {SCREEN_WIDTH / 2, SCREEN_HEIGHT / 2.8},
+            FontType::DEFAULT,
+            DEFAULT_TEXT_SIZE * 3,
+            true
+        )
     );
-    this->pText->centerTextOrigin();
-    this->attachChild(pText);
+/* 
+    views::Text* pQuitText = new views::Text("Quit Text", "QUIT", {SCREEN_WIDTH / 2, SCREEN_HEIGHT / 1.5}, FontType::DEFAULT, DEFAULT_TEXT_SIZE * 2, true);
+    Button* pQuitButton = new Button("Quit Button", pQuitText->getText());
+    pQuitButton->setListener(this);
+    this->attachChild(pQuitButton); */
+    float fOffset = 100;
+    this->createTextButton(this, "Start Button", "Start", {SCREEN_WIDTH / 2, SCREEN_HEIGHT / 2 + fOffset}, DEFAULT_TEXT_SIZE * 1.5);
+    this->createTextButton(this, "Leaderboard Button", "Leaderboard", {SCREEN_WIDTH / 2, SCREEN_HEIGHT / 2 + fOffset * 2}, DEFAULT_TEXT_SIZE * 1.5);
+    this->createTextButton(this, "Quit Button", "Quit Game", {SCREEN_WIDTH / 2, SCREEN_HEIGHT / 2 + fOffset * 3}, DEFAULT_TEXT_SIZE * 1.5);
 }
 
 void MainMenu::onClick(Button* pButton) {
@@ -54,6 +63,12 @@ void MainMenu::onClick(Button* pButton) {
     /* * * * * * * * * * * * * * * * * * * * */
     if (pButton->getName().find("Start Button") != std::string::npos){
         systems::SceneManager::getInstance()->loadScene(SceneTag::GAME_SCENE);
+    }
+    else if (pButton->getName().find("Leaderboard Button") != std::string::npos){
+        systems::SceneManager::getInstance()->loadScene(SceneTag::LEADERBOARD);
+    }
+    else if (pButton->getName().find("Quit Button") != std::string::npos){
+        bCloseGame = true;
     }
 }
 

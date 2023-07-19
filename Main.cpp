@@ -72,6 +72,7 @@
 
 #include "Model/Scene/MainMenuScene.cpp"
 #include "Model/Scene/GameScene.cpp"
+#include "Model/Scene/LeaderboardScene.cpp"
 
 #include "Model/Pooling/PoolableObject.cpp"
 #include "Model/Pooling/Bullet/PlayerBullet.cpp"

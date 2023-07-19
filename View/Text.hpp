@@ -19,7 +19,7 @@ namespace views {
             sf::Text* pText;
             
         public:
-            Text(std::string strName, std::string strText, sf::Vector2f vecPos, FontType EFont = FontType::DEFAULT, int nSize = DEFAULT_TEXT_SIZE, sf::Color CColor = sf::Color::White);
+            Text(std::string strName, std::string strText, sf::Vector2f vecPos, FontType EFont = FontType::DEFAULT, int nSize = DEFAULT_TEXT_SIZE, bool bCenterAlign = false, sf::Color CColor = sf::Color::White);
 
         public:
             void initialize();

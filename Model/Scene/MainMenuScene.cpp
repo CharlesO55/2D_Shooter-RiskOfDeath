@@ -21,7 +21,7 @@ MainMenuScene::MainMenuScene() : Scene(SceneTag::MAIN_MENU) {}
 
 MainMenuScene::~MainMenuScene() {}
 
-void MainMenuScene::createBackground() {
+//  void MainMenuScene::createBackground() {
 /*     AssetType EType = AssetType::BACKGROUND;
     AnimatedTexture* pTexture = new AnimatedTexture(TextureManager::getInstance()->getTexture(EType, 0));
 
@@ -30,22 +30,14 @@ void MainMenuScene::createBackground() {
     /* Don't forget to REGISTER your [Background]
      * after you have properly setup this class. */
 
-    AnimatedTexture *pTexture = new AnimatedTexture(TextureManager::getInstance()->getTexture(AssetType::BACKGROUND, 0));
+   /* AnimatedTexture *pTexture = new AnimatedTexture(TextureManager::getInstance()->getTexture(AssetType::BACKGROUND, 0));
     Background* pBackground = new Background("SAs", pTexture);
     this->registerObject(pBackground);
-}
+} */
 
-/* * * * * * * * * * * * * * * * * * * * */
-void MainMenuScene::onLoadResources(){
-    TextureManager::getInstance()->loadAll(SceneTag::MAIN_MENU);
-}
 
 
 void MainMenuScene::onLoadObjects(){
     this->createBackground();
     this->registerObject(new MainMenu());
-}
-
-void MainMenuScene::onUnloadResources(){
-    TextureManager::getInstance()->unloadAll();
 }

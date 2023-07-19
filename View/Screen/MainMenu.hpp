@@ -19,15 +19,17 @@
 #include "../../Controller/System/ViewManager.hpp"
 #include "../../Controller/System/SceneManager.hpp"
 
+
+#   ifndef DISABLE_INTELLISENSE_INCLUDES
+#   include <SFML/Graphics.hpp>
+#   endif
+
 namespace views {
     using namespace controllers;
     using namespace models;
     using namespace systems;
 
     class MainMenu : public View, public ButtonListener {
-        private:
-            Text* pText;
-
         public:
             MainMenu();
             ~MainMenu();

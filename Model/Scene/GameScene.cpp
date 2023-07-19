@@ -11,12 +11,6 @@ GameScene::GameScene() : Scene(SceneTag::GAME_SCENE) {}
 
 GameScene::~GameScene() {}
 
-/* Nothing to do here, but take note of the
- * [IMPORTANT] comment in the [Game] class. */
-void GameScene::onLoadResources() {
-    TextureManager::getInstance()->loadAll(SceneTag::GAME_SCENE);
-}
-
 
 /* We transferred ALL object creation which
  * was previously in [Game], into this
@@ -32,8 +26,10 @@ void GameScene::onLoadObjects() {
 }
 
 /* Nothing to do here, but take note of the
- * [IMPORTANT] comment in the [Game] class. */
-void GameScene::onUnloadResources() {}
+ * [IMPORTANT] comment in the [Game] class. 
+void GameScene::onUnloadResources() {
+    TextureManager::getInstance()->unloadAll();
+}*/
 
 /* ALL functions below are the helper methods 
  * that were previously in the [Game] class. */
@@ -62,14 +58,14 @@ void GameScene::createUserInterface() {
     this->registerObject(pMenuBar);
 }
 
-void GameScene::createBackground() {
+/* void GameScene::createBackground() {
     AssetType EType = AssetType::BACKGROUND;
     // AnimatedTexture* pTexture = new AnimatedTexture(TextureManager::getInstance()->getTexture(EType, 1));
     AnimatedTexture* pTexture = new AnimatedTexture(TextureManager::getInstance()->getTexture(EType, 0));
 
     Background* pBackground = new Background("Game Scene Background", pTexture);
     this->registerObject(pBackground);
-}
+} */
 
 void GameScene::createShip() {
     AnimatedTexture* pTexture = new AnimatedTexture(TextureManager::getInstance()->getTexture(AssetType::SHIP));
