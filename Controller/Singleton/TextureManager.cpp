@@ -52,7 +52,11 @@ void TextureManager::loadBackgroundFolder() {
             this->loadTexture(AssetType::BACKGROUND, "View/Image/Background/test_bg.png");
             break;
         case SceneTag::LEADERBOARD:
-            this->loadTexture(AssetType::BACKGROUND, "View/Image/Background/test_bg.png");
+            {
+                for (int i = 0; i <= 13; i++){
+                    this->loadTexture(AssetType::BACKGROUND, "View/Image/Background/" + std::to_string(i) + ".png");
+                }
+            }
             break;
         case SceneTag::GAME_SCENE:
             this->loadTexture(AssetType::BACKGROUND, "View/Image/Background/game_space.png");

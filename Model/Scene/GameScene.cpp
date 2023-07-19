@@ -17,7 +17,7 @@ GameScene::~GameScene() {}
  * class. */
 void GameScene::onLoadObjects() {
     this->createNullObjectComponents();
-    this->createBackground();
+    this->createBackground("Game Scene Background");
     this->createShip();
     this->createAlien();
     this->createUserInterface();

@@ -28,6 +28,10 @@ void MenuBar::initialize() {
     this->attachChild(pText);
 
     this->createTextButton(this, "Quit Button", "Give Up", {SCREEN_WIDTH - 90, DEFAULT_TEXT_SIZE}, DEFAULT_TEXT_SIZE);
+
+
+
+    ScoreManager::getInstance()->logStartTime();
 }
 
 void MenuBar::incrementScore() {
@@ -66,7 +70,8 @@ void MenuBar::decrementHeart() {
 
 
 void MenuBar::onClick(Button* pButton){
-    if (pButton->getName().find("Quit Button") != std::string::npos){
-        systems::SceneManager::getInstance()->loadScene(SceneTag::MAIN_MENU);
+    if (pButton->getName() == "Quit Button"){
+        ScoreManager::getInstance()->logEndTime();
+        systems::SceneManager::getInstance()->loadScene(SceneTag::LEADERBOARD);
     }
 }

@@ -28,10 +28,10 @@ void Scene::onUnloadResources(){
 }
 
 
-void models::Scene::createBackground(){
-    AnimatedTexture* pTexture = new AnimatedTexture(TextureManager::getInstance()->getTexture(AssetType::BACKGROUND, 0));
+void models::Scene::createBackground(std::string strName, int nStart){
+    AnimatedTexture* pTexture = new AnimatedTexture(TextureManager::getInstance()->getTexture(AssetType::BACKGROUND, -1));
 
-    Background* pBackground = new Background(" Background", pTexture);
+    Background* pBackground = new Background(strName, pTexture);
     this->registerObject(pBackground);
 }
 

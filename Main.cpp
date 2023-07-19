@@ -52,6 +52,7 @@
 #include "Controller/System/ObjectPoolManager.cpp"
 #include "Controller/System/PhysicsManager.cpp"
 #include "Controller/System/SceneManager.cpp"
+#include "Controller/System/ScoreManager.cpp"
 #include "Controller/System/ViewManager.cpp"
 #include "Controller/Pooling/GameObjectPool.cpp"
 
@@ -89,6 +90,7 @@
 #include "Model/Component/Script/ScriptBlocker.cpp"
 
 #include "Model/Component/Renderer/Renderer.cpp"
+#include "Model/Component/Renderer/Animator.cpp"
 #include "Model/Component/Physics/Collider.cpp"
 
 #include "View/Button.cpp"
@@ -97,6 +99,7 @@
 #include "View/View.cpp"
 #include "View/Screen/MainMenu.cpp"
 #include "View/Screen/MenuBar.cpp"
+#include "View/Screen/Leaderboard.cpp"
 
 using namespace controllers;
 

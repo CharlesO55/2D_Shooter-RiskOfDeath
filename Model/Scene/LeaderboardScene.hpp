@@ -1,6 +1,6 @@
 #pragma once
 
-#include "../../View/Screen/MainMenu.hpp"
+#include "../../View/Screen/Leaderboard.hpp"
 #include "../Scene.hpp"
 
 
@@ -12,9 +12,6 @@ namespace scenes {
         public:
             LeaderboardScene();
             ~LeaderboardScene();
-
-        private:
-            void createBackground(){};
 
         public:
             void onLoadObjects();

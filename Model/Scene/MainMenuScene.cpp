@@ -38,6 +38,6 @@ MainMenuScene::~MainMenuScene() {}
 
 
 void MainMenuScene::onLoadObjects(){
-    this->createBackground();
+    this->createBackground("Main Menu Background");
     this->registerObject(new MainMenu());
 }

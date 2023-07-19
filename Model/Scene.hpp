@@ -23,7 +23,7 @@ namespace models {
             virtual void onUnloadObjects();
 
         protected:
-            virtual void createBackground();
+            virtual void createBackground(std::string strName, int nStart = -1);
             
             void registerObject(GameObject* pGameObject);
 

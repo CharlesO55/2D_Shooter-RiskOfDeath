@@ -61,13 +61,13 @@ void MainMenu::onClick(Button* pButton) {
      * making the START [Button] into a
      * field. */
     /* * * * * * * * * * * * * * * * * * * * */
-    if (pButton->getName().find("Start Button") != std::string::npos){
+    if (pButton->getName() == "Start Button"){
         systems::SceneManager::getInstance()->loadScene(SceneTag::GAME_SCENE);
     }
-    else if (pButton->getName().find("Leaderboard Button") != std::string::npos){
+    else if (pButton->getName() == "Leaderboard Button"){
         systems::SceneManager::getInstance()->loadScene(SceneTag::LEADERBOARD);
     }
-    else if (pButton->getName().find("Quit Button") != std::string::npos){
+    else if (pButton->getName() == "Quit Button"){
         bCloseGame = true;
     }
 }

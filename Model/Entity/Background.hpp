@@ -5,6 +5,11 @@
 #include "../AnimatedTexture.hpp"
 
 #include "../Component/Renderer/Renderer.hpp"
+#include "../Component/Renderer/Animator.hpp"
+
+#   ifndef DISABLE_INTELLISENSE_INCLUDES
+#   include <SFML/Graphics.hpp>
+#   endif
 
 namespace models {
     using namespace components;
@@ -16,6 +21,7 @@ namespace models {
             
         public:
             void initialize();
+            // void draw(sf::RenderWindow* pWindow, sf::RenderStates CRenderStates);
     };
 }
 
