@@ -51,6 +51,7 @@
 
 #include "Controller/System/ObjectPoolManager.cpp"
 #include "Controller/System/PhysicsManager.cpp"
+#include "Controller/System/PoolableKillerSystem.cpp"
 #include "Controller/System/SceneManager.cpp"
 #include "Controller/System/ScoreManager.cpp"
 #include "Controller/System/ViewManager.cpp"
@@ -70,6 +71,7 @@
 #include "Model/Entity/Mr. Alien/Part/TopTentacle.cpp"
 #include "Model/Entity/Border/Border.cpp"
 #include "Model/Entity/Blocker.cpp"
+#include "Model/Entity/Crosshair.cpp"
 
 #include "Model/Scene/MainMenuScene.cpp"
 #include "Model/Scene/GameScene.cpp"
@@ -81,11 +83,14 @@
 #include "Model/Component/Component.cpp"
 
 #include "Model/Component/Input/ButtonInput.cpp"
+#include "Model/Component/Input/CrosshairMouseInput.cpp"
+#include "Model/Component/Input/CrosshairMovement.cpp"
 #include "Model/Component/Input/GeneralInput.cpp"
 #include "Model/Component/Input/ShipInput.cpp"
 
 #include "Model/Component/Script/Blinker.cpp"
 #include "Model/Component/Script/IdleMovement.cpp"
+#include "Model/Component/Script/Killable.cpp"
 #include "Model/Component/Script/PlayerBulletMovement.cpp"
 #include "Model/Component/Script/ShipControls.cpp"
 #include "Model/Component/Script/ScriptBlocker.cpp"

@@ -82,10 +82,14 @@ void TextureManager::loadUIFolder() {
         case SceneTag::MAIN_MENU:
             this->loadTexture(AssetType::BUTTON_START, "View/Image/UI/button_start.png");
             break;
-        case SceneTag::GAME_SCENE:
-            this->loadTexture(AssetType::BULLET_LOGO, "View/Image/UI/bullet_logo.png");
-            this->loadTexture(AssetType::BULLET_TICK, "View/Image/UI/bullet_tick.png");
+        case SceneTag::GAME_PROPER:
+            //this->loadTexture(AssetType::BULLET_LOGO, "View/Image/UI/bullet_logo.png");
+            //this->loadTexture(AssetType::BULLET_TICK, "View/Image/UI/bullet_tick.png");
+            this->loadTexture(AssetType::BULLET, "View/Image/UI/Bullet.png");
+            this->loadTexture(AssetType::BULLET_CASE, "View/Image/UI/Bullet_Case.png");
+
             this->loadTexture(AssetType::HEART, "View/Image/UI/heart.png");
+            this->loadTexture(AssetType::HEART_CASE, "View/Image/UI/Heart_Case.png");
             break;
         default:
             break;
@@ -96,9 +100,10 @@ void TextureManager::loadPlayerFolder() {
     switch (this->EScene) {
         case SceneTag::MAIN_MENU:
             break;
-        case SceneTag::GAME_SCENE:
+        case SceneTag::GAME_PROPER:
             this->loadTexture(AssetType::SHIP, "View/Image/Player/this_ship_be_otp.png");
-            this->loadTexture(AssetType::BULLET, "View/Image/Player/bullet.png");
+            //this->loadTexture(AssetType::BULLET, "View/Image/Player/bullet.png");
+            this->loadTexture(AssetType::CROSSHAIR, "View/Image/Player/Crosshair.png");
             break;
         default:
             break;

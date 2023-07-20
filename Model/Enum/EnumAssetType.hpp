@@ -12,12 +12,14 @@ enum class AssetType : int {
     BACKGROUND,
     BUTTON_START,
     
-    BULLET_LOGO,
-    BULLET_TICK,
+    BULLET,
+    BULLET_CASE,
     HEART,
+    HEART_CASE,
 
     SHIP,
-    BULLET,
+    CROSSHAIR,
+    //BULLET,
     
     MR_ALIEN_BASE,
     MR_ALIEN_TOP_STAMEN,

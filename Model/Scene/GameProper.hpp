@@ -1,6 +1,7 @@
 #pragma once
 
 #include "../Scene.hpp"
+#include "../Entity/Crosshair.hpp"
 
 #include "../../View/Screen/FrontViewUI.hpp"
 
@@ -16,5 +17,8 @@ namespace scenes{
 
         public:
             void onLoadObjects();
+
+        public:
+            void createCrosshair();
     };
 }

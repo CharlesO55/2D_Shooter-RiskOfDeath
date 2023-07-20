@@ -25,6 +25,9 @@ namespace views{
             void initialize();
             void update(sf::Time tDeltaTime);
 
+            void createHearts();
+            void createBullets();
+
             void onClick(Button* pButton);
             void onRelease(Button* pButton);
     };
