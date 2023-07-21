@@ -2,7 +2,7 @@
 
 using namespace controllers;
 
-Game::Game() : rwWindow(sf::VideoMode(SCREEN_WIDTH, SCREEN_HEIGHT), "Title", sf::Style::Titlebar | sf::Style::Close) {
+Game::Game() : rwWindow(sf::VideoMode(SCREEN_WIDTH, SCREEN_HEIGHT), "GALURA, URSUA, ONG | RISK OF DEATH", sf::Style::Titlebar | sf::Style::Close) {
     this->rwWindow.setFramerateLimit(FRAME_RATE_LIMIT);
     AnimatedTexture* pTexture;
     /* [IMPORTANT] : Typically, we add a TAG to

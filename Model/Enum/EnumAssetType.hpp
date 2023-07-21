@@ -20,6 +20,11 @@ enum class AssetType : int {
     SHIP,
     CROSSHAIR,
     //BULLET,
+
+    //The slimes are simply a placeholder. Replace sprites when possible
+    SLIME_1,
+    SLIME_2,
+    SLIME_3,
     
     MR_ALIEN_BASE,
     MR_ALIEN_TOP_STAMEN,

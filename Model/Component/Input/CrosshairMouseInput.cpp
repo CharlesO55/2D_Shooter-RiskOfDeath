@@ -38,7 +38,7 @@ void CrosshairMouseInput::processMouseInput(sf::Mouse::Button inMouse, bool bPre
             this->bLeftClick = bPressed;
             if (bPressed) {
                 //Can also add an additional condition about the bullet count
-                //MenuBar can be accessed via ViewManager. decrement bullets here
+                //Adjust this function as needed for screen partitioning
                 //Implement an input for keyboard buttons that can also reload the bullets in a separate component
                 SFXManager::getInstance()->getSound(SFXType::PLAYER_BULLET)->play();
                 std::cout << "[LMB] : Pressed" << std::endl;

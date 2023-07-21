@@ -49,6 +49,7 @@
 #include "Controller/Singleton/TextureManager.cpp"
 #include "Controller/Singleton/FontManager.cpp"
 
+#include "Controller/System/EnemyManager.cpp"
 #include "Controller/System/ObjectPoolManager.cpp"
 #include "Controller/System/PhysicsManager.cpp"
 #include "Controller/System/PoolableKillerSystem.cpp"
@@ -80,6 +81,8 @@
 
 #include "Model/Pooling/PoolableObject.cpp"
 #include "Model/Pooling/Bullet/PlayerBullet.cpp"
+#include "Model/Pooling/Enemy/BaseEnemy.cpp"
+#include "Model/Pooling/Enemy/EnemySlime.cpp"
 #include "Model/Component/Component.cpp"
 
 #include "Model/Component/Input/ButtonInput.cpp"

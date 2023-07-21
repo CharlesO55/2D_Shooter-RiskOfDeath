@@ -3,7 +3,12 @@
 
 enum class PoolTag : int {
     NONE = -1,
-    PLAYER_BULLET
+    PLAYER_BULLET,
+
+    //Temporary, can replace sprites at any time
+    SLIME_1,
+    SLIME_2,
+    SLIME_3
 };
 
 #endif

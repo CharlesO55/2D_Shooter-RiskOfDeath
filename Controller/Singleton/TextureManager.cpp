@@ -8,6 +8,7 @@ void TextureManager::loadAll(SceneTag EScene) {
     this->loadBackgroundFolder();
     this->loadUIFolder();
     this->loadPlayerFolder();
+    this->loadEnemyFolder();
     this->loadMrAlienFolder();
 }
 
@@ -105,6 +106,21 @@ void TextureManager::loadPlayerFolder() {
             //this->loadTexture(AssetType::BULLET, "View/Image/Player/bullet.png");
             this->loadTexture(AssetType::CROSSHAIR, "View/Image/Player/Crosshair.png");
             break;
+        default:
+            break;
+    }
+}
+
+void TextureManager::loadEnemyFolder() {
+    switch (this->EScene) {
+        case SceneTag::MAIN_MENU:
+            break;
+
+        case SceneTag::GAME_PROPER:
+            this->loadTexture(AssetType::SLIME_1, "View/Image/Enemy/Slime1.png");
+            this->loadTexture(AssetType::SLIME_2, "View/Image/Enemy/Slime2.png");
+            this->loadTexture(AssetType::SLIME_3, "View/Image/Enemy/Slime3.png");
+
         default:
             break;
     }
