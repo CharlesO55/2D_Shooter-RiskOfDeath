@@ -12,14 +12,14 @@ void GameProper::onLoadObjects() {
     this->createNullObjectComponents();
     this->createObjectPools();
  
-    //LOAD THE FRONT VIEW
-    this->registerObject(new FrontViewUI());
+    //LOAD THE SCREEN VIEWS
+    this->registerObject(new FrontViewScreen());
+    this->registerObject(new SideViewScreen());
+    this->registerObject(new PlayerUI());
 
     //DISABLE THE SIDE VIEW UNTIL SWITCHED TO BY KEY PRESS
-    this->registerObject(new SideViewScreen());
     ViewManager::getInstance()->getView(ViewTag::SIDEVIEW_SCREEN)->setEnabled(false);
 
-    this->registerObject(new PlayerUI());
 
     this->createCrosshair();
 

@@ -1,15 +1,15 @@
-#include "FrontViewUI.hpp"
+#include "FrontViewScreen.hpp"
 
 using namespace views;
 using namespace systems;
 
-FrontViewUI::FrontViewUI() : View(ViewTag::FRONTVIEW_UI, "Front View UI") {
+FrontViewScreen::FrontViewScreen() : View(ViewTag::FRONTVIEW_SCREEN, "Front View UI") {
     ViewManager::getInstance()->registerView(this);
 }
 
-FrontViewUI::~FrontViewUI() {}
+FrontViewScreen::~FrontViewScreen() {}
 
-void FrontViewUI::initialize(){
+void FrontViewScreen::initialize(){
     this->createBackground(AssetType::BACKGROUND, 0, 0);
 
     views::Text* pFrontText = new views::Text("Front Header Text", "Front", {SCREEN_WIDTH / 2, 50}, FontType::DEFAULT, 15, true);
@@ -25,14 +25,14 @@ void FrontViewUI::initialize(){
     this->createBullets(); */
 }
 
-void FrontViewUI::update(sf::Time tDeltaTime){
+void FrontViewScreen::update(sf::Time tDeltaTime){
     /* ScoreManager::getInstance()->incrementScore(tDeltaTime);
     this->pScoreText->setText(ScoreManager::getInstance()->getScoreAsString());
  */
     GameObject::update(tDeltaTime);
 }
 /* 
-void FrontViewUI::createHearts() {
+void FrontViewScreen::createHearts() {
     std::string strName = "Heart ";
     AnimatedTexture* pTexture = new AnimatedTexture(TextureManager::getInstance()->getTexture(AssetType::HEART)); 
 
@@ -45,7 +45,7 @@ void FrontViewUI::createHearts() {
     }
 }
 
-void FrontViewUI::createBullets() {
+void FrontViewScreen::createBullets() {
     std::string strName = "Bullet ";
     AnimatedTexture* pTexture = new AnimatedTexture(TextureManager::getInstance()->getTexture(AssetType::BULLET)); 
 
@@ -58,11 +58,11 @@ void FrontViewUI::createBullets() {
     }
 }
 
-void FrontViewUI::onClick(Button* pButton){
+void FrontViewScreen::onClick(Button* pButton){
     if (pButton->getName() == "Surrender Button"){
         ScoreManager::getInstance()->logScoreOnEnd("Test_Player");
         SceneManager::getInstance()->loadScene(SceneTag::LEADERBOARD);
     }
 } */
 /* 
-void FrontViewUI::onRelease(Button* pButton) {} */
+void FrontViewScreen::onRelease(Button* pButton) {} */

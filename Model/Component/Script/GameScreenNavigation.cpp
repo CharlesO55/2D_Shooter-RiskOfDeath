@@ -21,7 +21,7 @@ void GameScreenNavigation::perform(){
         this->nCooldownTicker = 0;
         
         std::cout << "\n [VIEW]: FRONT";
-        ViewManager::getInstance()->getView(ViewTag::FRONTVIEW_UI)->setEnabled(true);     
+        ViewManager::getInstance()->getView(ViewTag::FRONTVIEW_SCREEN)->setEnabled(true);     
         ViewManager::getInstance()->getView(ViewTag::SIDEVIEW_SCREEN)->setEnabled(false);     
     }
     else if(this->pNavInputRef->isNeedChangeRight()){
@@ -29,7 +29,7 @@ void GameScreenNavigation::perform(){
         this->nCooldownTicker = 0;
 
         std::cout << "\n [VIEW]: RIGHT";
-        ViewManager::getInstance()->getView(ViewTag::FRONTVIEW_UI)->setEnabled(false);
+        ViewManager::getInstance()->getView(ViewTag::FRONTVIEW_SCREEN)->setEnabled(false);
         ViewManager::getInstance()->getView(ViewTag::SIDEVIEW_SCREEN)->setEnabled(true);     
     }
 }

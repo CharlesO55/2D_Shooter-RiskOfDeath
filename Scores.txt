@@ -14,6 +14,8 @@ Lucy
 Lasti
 40
 Test_Player
+27
+Test_Player
 21
 Test_Player
 20

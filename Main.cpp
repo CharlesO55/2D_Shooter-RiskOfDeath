@@ -112,7 +112,7 @@
 #include "View/Screen/MenuBar.cpp"
 #include "View/Screen/Leaderboard.cpp"
 #include "View/Screen/PlayerUI.cpp"
-#include "View/Screen/FrontViewUI.cpp"
+#include "View/Screen/FrontViewScreen.cpp"
 #include "View/Screen/SideViewScreen.cpp"
 
 using namespace controllers;

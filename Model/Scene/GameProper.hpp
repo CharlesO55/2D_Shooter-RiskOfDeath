@@ -12,7 +12,7 @@
 
 
 #include "../../View/Screen/PlayerUI.hpp"
-#include "../../View/Screen/FrontViewUI.hpp"
+#include "../../View/Screen/FrontViewScreen.hpp"
 #include "../../View/Screen/SideViewScreen.hpp"
 
 #include "../../Controller/System/ObjectPoolManager.hpp"

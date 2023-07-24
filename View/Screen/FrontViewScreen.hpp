@@ -14,13 +14,13 @@
 namespace views{
     using namespace listeners;
 
-    class FrontViewUI : public View/* , public ButtonListener */ {
+    class FrontViewScreen : public View/* , public ButtonListener */ {
    /*      private:
             views::Text* pScoreText;
  */
         public:
-            FrontViewUI();
-            ~FrontViewUI();
+            FrontViewScreen();
+            ~FrontViewScreen();
 
         public:
             void initialize();
