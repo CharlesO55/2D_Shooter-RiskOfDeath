@@ -64,7 +64,8 @@ void TextureManager::loadBackgroundFolder() {
             }
             break;
         case SceneTag::GAME_PROPER:
-            this->loadTexture(AssetType::BACKGROUND, "View/Image/Background/test_bg3.png");
+            this->loadTexture(AssetType::BACKGROUND, "View/Image/Background/test_front.png");
+            this->loadTexture(AssetType::BACKGROUND, "View/Image/Background/test_side.png");
             break;
         
 

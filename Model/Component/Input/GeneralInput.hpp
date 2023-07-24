@@ -5,6 +5,10 @@
 
 #include "../Component.hpp"
 
+#   ifndef DISABLE_INTELLISENSE_INCLUDES
+#   include <SFML/Graphics.hpp>
+#   endif
+
 namespace components {
     class GeneralInput : public Component {
         protected:

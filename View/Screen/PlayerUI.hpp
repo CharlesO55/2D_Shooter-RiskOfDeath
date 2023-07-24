@@ -14,22 +14,24 @@
 namespace views{
     using namespace listeners;
 
-    class FrontViewUI : public View/* , public ButtonListener */ {
-   /*      private:
-            views::Text* pScoreText;
- */
+    class PlayerUI : public View, public ButtonListener {
+        private:
+            views::Text *pScoreText;
+
         public:
-            FrontViewUI();
-            ~FrontViewUI();
+            PlayerUI();
+            ~PlayerUI();
 
         public:
             void initialize();
             void update(sf::Time tDeltaTime);
 
-/*             void createHearts();
+        private:
+            void createHearts();
             void createBullets();
 
+        public:
             void onClick(Button* pButton);
-            void onRelease(Button* pButton); */
+            void onRelease(Button* pButton);
     };
 }

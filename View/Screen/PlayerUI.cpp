@@ -1,20 +1,15 @@
-#include "FrontViewUI.hpp"
+#include "PlayerUI.hpp"
 
 using namespace views;
 using namespace systems;
 
-FrontViewUI::FrontViewUI() : View(ViewTag::FRONTVIEW_UI, "Front View UI") {
+PlayerUI::PlayerUI() : View(ViewTag::PLAYER_UI, "Player UI") {
     ViewManager::getInstance()->registerView(this);
 }
 
-FrontViewUI::~FrontViewUI() {}
+PlayerUI::~PlayerUI() {}
 
-void FrontViewUI::initialize(){
-    this->createBackground(AssetType::BACKGROUND, 0, 0);
-
-    views::Text* pFrontText = new views::Text("Front Header Text", "Front", {SCREEN_WIDTH / 2, 50}, FontType::DEFAULT, 15, true);
-    this->attachChild(pFrontText);
-/* 
+void PlayerUI::initialize(){
     this->createTextButton(this, "Surrender Button", "Give Up", {SCREEN_WIDTH - 100.f, DEFAULT_TEXT_SIZE});
 
     this->pScoreText = new views::Text("Score Text", ScoreManager::getInstance()->getScoreAsString(), {SCREEN_WIDTH / 2, DEFAULT_TEXT_SIZE}, FontType::DEFAULT, DEFAULT_TEXT_SIZE, true);
@@ -22,17 +17,17 @@ void FrontViewUI::initialize(){
 
 
     this->createHearts();
-    this->createBullets(); */
+    this->createBullets();
 }
 
-void FrontViewUI::update(sf::Time tDeltaTime){
-    /* ScoreManager::getInstance()->incrementScore(tDeltaTime);
+void PlayerUI::update(sf::Time tDeltaTime){
+    ScoreManager::getInstance()->incrementScore(tDeltaTime);
     this->pScoreText->setText(ScoreManager::getInstance()->getScoreAsString());
- */
+
     GameObject::update(tDeltaTime);
 }
-/* 
-void FrontViewUI::createHearts() {
+
+void PlayerUI::createHearts() {
     std::string strName = "Heart ";
     AnimatedTexture* pTexture = new AnimatedTexture(TextureManager::getInstance()->getTexture(AssetType::HEART)); 
 
@@ -45,7 +40,7 @@ void FrontViewUI::createHearts() {
     }
 }
 
-void FrontViewUI::createBullets() {
+void PlayerUI::createBullets() {
     std::string strName = "Bullet ";
     AnimatedTexture* pTexture = new AnimatedTexture(TextureManager::getInstance()->getTexture(AssetType::BULLET)); 
 
@@ -58,11 +53,12 @@ void FrontViewUI::createBullets() {
     }
 }
 
-void FrontViewUI::onClick(Button* pButton){
+
+void PlayerUI::onClick(Button* pButton){
     if (pButton->getName() == "Surrender Button"){
         ScoreManager::getInstance()->logScoreOnEnd("Test_Player");
         SceneManager::getInstance()->loadScene(SceneTag::LEADERBOARD);
     }
-} */
-/* 
-void FrontViewUI::onRelease(Button* pButton) {} */
+}
+
+void PlayerUI::onRelease(Button* pButton) {}

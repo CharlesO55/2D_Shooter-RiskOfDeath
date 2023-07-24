@@ -1,12 +1,13 @@
 #pragma once
 
+#include "../../Config/Settings.hpp"
+
 #   ifndef DISABLE_INTELLISENSE_INCLUDES
 #   include <SFML/Graphics.hpp>
 #   include <iostream>
 #   endif
 
 #include <fstream>
-#include <sstream>
 
 using Pair_nScore_strName = std::pair<int, std::string>;
 
@@ -19,7 +20,7 @@ namespace systems{
         public:
             void resetScore();
             void incrementScore(sf::Time CDeltaTime);
-            void logScoreOnEnd(std::string strPlayerName = "Player");
+            void logScoreOnEnd(std::string strPlayerName = DEFAULT_PLAYER_NAME);
 
         public:
             const std::string getScoreAsString();

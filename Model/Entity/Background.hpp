@@ -21,7 +21,6 @@ namespace models {
             
         public:
             void initialize();
-            // void draw(sf::RenderWindow* pWindow, sf::RenderStates CRenderStates);
     };
 }
 

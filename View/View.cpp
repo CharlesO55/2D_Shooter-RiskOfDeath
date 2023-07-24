@@ -29,13 +29,20 @@ void View::createButton(listeners::ButtonListener* pListener, std::string strNam
 }
 
 void View::createTextButton(listeners::ButtonListener* pListener, std::string strName, std::string strText, sf::Vector2f vecPos,  int nSize, FontType EFont){
-    views::Text* pQuitText = new views::Text(strName + "Text", strText, vecPos, EFont, nSize, true);
-    Button* pQuitButton = new Button(strName, pQuitText->getText());
-    pQuitButton->setListener(pListener);
+    views::Text* pButtonText = new views::Text(strName + "Text", strText, vecPos, EFont, nSize, true);
+    Button* pButton = new Button(strName, pButtonText->getText());
+    pButton->setListener(pListener);
     
-    this->attachChild(pQuitButton);
+    this->attachChild(pButton);
 }
 
+void View::createBackground(AssetType EAsset, int nStartFrame, int nEndFrame){
+    AnimatedTexture* pTex = new AnimatedTexture(controllers::TextureManager::getInstance()->getTexture(EAsset, nStartFrame, nEndFrame));
+    Background* pBackground = new Background(this->strName, pTex);
+
+    this->setFrame(0);
+    this->attachChild(pBackground);
+}
 
 
 ViewTag View::getTag() {

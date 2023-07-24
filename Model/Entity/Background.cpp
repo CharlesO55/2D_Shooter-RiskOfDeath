@@ -13,7 +13,6 @@ void Background::initialize() {
     pRendererComponent->assignDrawable(this->pSprite);
     this->attachComponent(pRendererComponent);
 
-
     if (this->pTexture->getFrameSize() > 1){
         Animator* pAnimator = new Animator(this->strName + " Animator");
         this->attachComponent(pAnimator);

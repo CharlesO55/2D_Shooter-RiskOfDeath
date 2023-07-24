@@ -7,7 +7,8 @@ const float FRAME_RATE_LIMIT = 60.0f;
 
 #define DISABLE_INTELLISENSE_INCLUDES
 
-const int DEFAULT_TEXT_SIZE = 24;
+const int           DEFAULT_TEXT_SIZE = 24;
+const std::string   DEFAULT_PLAYER_NAME = "PLAYER";
 
 bool bCloseGame = false;
 

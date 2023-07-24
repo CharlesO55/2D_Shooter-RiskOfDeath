@@ -90,6 +90,7 @@
 #include "Model/Component/Input/CrosshairMovement.cpp"
 #include "Model/Component/Input/GeneralInput.cpp"
 #include "Model/Component/Input/ShipInput.cpp"
+#include "Model/Component/Input/GameNavigationInput.cpp"
 
 #include "Model/Component/Script/Blinker.cpp"
 #include "Model/Component/Script/IdleMovement.cpp"
@@ -97,6 +98,7 @@
 #include "Model/Component/Script/PlayerBulletMovement.cpp"
 #include "Model/Component/Script/ShipControls.cpp"
 #include "Model/Component/Script/ScriptBlocker.cpp"
+#include "Model/Component/Script/GameScreenNavigation.cpp"
 
 #include "Model/Component/Renderer/Renderer.cpp"
 #include "Model/Component/Renderer/Animator.cpp"
@@ -109,7 +111,9 @@
 #include "View/Screen/MainMenu.cpp"
 #include "View/Screen/MenuBar.cpp"
 #include "View/Screen/Leaderboard.cpp"
+#include "View/Screen/PlayerUI.cpp"
 #include "View/Screen/FrontViewUI.cpp"
+#include "View/Screen/SideViewScreen.cpp"
 
 using namespace controllers;
 

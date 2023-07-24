@@ -7,7 +7,8 @@ enum class ViewTag : int {
     MENU_BAR,
     LEADERBOARD,
     FRONTVIEW_UI,
-    SIDEVIEW_UI
+    SIDEVIEW_SCREEN,
+    PLAYER_UI
 };
 
 #endif

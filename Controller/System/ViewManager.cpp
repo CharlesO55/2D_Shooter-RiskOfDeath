@@ -11,6 +11,11 @@ void ViewManager::unregisterView(View* pView) {
 }
 
 View* ViewManager::getView(ViewTag ETag) {
+    if (this->mapView[ETag] == NULL){
+        std::cout << "[ERROR] ViewManager getView failed to find ViewTag";
+        throw 0;
+    }
+
     return this->mapView[ETag];
 }
 
