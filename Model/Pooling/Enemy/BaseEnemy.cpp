@@ -2,10 +2,12 @@
 
 using namespace models;
 
-BaseEnemy::BaseEnemy(std::string strName, AnimatedTexture* pTexture, PoolTag ETag, int nHealth, float fSpeed, float fKillableSpeed) : PoolableObject(ETag, strName, pTexture) {
+BaseEnemy::BaseEnemy(std::string strName, AnimatedTexture* pTexture, PoolTag ETag, int nHealth, float fScale, float fSpeed, float fKillableSpeed) : PoolableObject(ETag, strName, pTexture) {
     this->nHealth = nHealth;
     this->fSpeed = fSpeed;
     this->fKillableSpeed = fKillableSpeed;
+    this->fDefaultScale = fScale;
+
     this->vecScenePos = {0.f, 0.f, 0.f};
 }
 
@@ -22,9 +24,12 @@ void BaseEnemy::initialize() {
 
     ScenePosInterpreter* pPosInterpreter = new ScenePosInterpreter(this->strName + " Interpreter");
 
+    MoveForward* pMoveForward = new MoveForward(this->strName + " MoveForward");
+
     this->attachComponent(pRendererComponent);
     this->attachComponent(pKillableComponent);   
     this->attachComponent(pPosInterpreter);
+    this->attachComponent(pMoveForward);
 }
 
 void BaseEnemy::onActivate() {
@@ -59,6 +64,14 @@ void BaseEnemy::setHealth(int nHealth) {
     this->nHealth = nHealth;
 }
 
+float BaseEnemy::getDefaultScale(){
+    return this->fDefaultScale;
+}
+
 sf::Vector3f BaseEnemy::getScenePos(){
     return this->vecScenePos;
+}
+
+void BaseEnemy::setZPos(float fZ){
+    this->vecScenePos.z = fZ;
 }

@@ -7,6 +7,7 @@
 #include "../../Component/Renderer/Renderer.hpp"
 #include "../../Component/Renderer/ScenePosInterpreter.hpp"
 #include "../../Component/Script/Killable.hpp"
+#include "../../Component/Script/MoveForward.hpp"
 
 #include "../PoolableObject.hpp"
 
@@ -29,11 +30,13 @@ namespace models {
             int nHealth;
             float fSpeed;
             float fKillableSpeed;
+            
+            float fDefaultScale;        //DEFAULT SCALE IS BASED ON THE NORMAL SIZE AS SEEN FROM SIDE VIEW
             sf::Vector3f vecScenePos;   //TRUE POSITION IN THE GAME WORLD. vecPos will be display pos dependent on Screen/Renderer
             //z = 0 is at player; z = 100 is away from player
 
         public:
-            BaseEnemy(std::string strName, AnimatedTexture* pTexture, PoolTag ETag, int nHealth = 1, float fSpeed = 1.f, float fKillableSpeed = 0.1f);
+            BaseEnemy(std::string strName, AnimatedTexture* pTexture, PoolTag ETag, int nHealth = 1, float fScale = 1.f, float fSpeed = 1.f, float fKillableSpeed = 0.1f);
 
         public:
             virtual void initialize();
@@ -48,7 +51,10 @@ namespace models {
             float getSpeed();
             int getHealth();
             void setHealth(int nHealth);
+
+            float getDefaultScale();
             sf::Vector3f getScenePos();
+            void setZPos(float fZ);
     };
 }
 
