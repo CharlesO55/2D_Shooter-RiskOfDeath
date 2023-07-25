@@ -9,9 +9,6 @@ GameProper::GameProper() : Scene(SceneTag::GAME_PROPER){}
 GameProper::~GameProper(){}
 
 void GameProper::onLoadObjects() {
-    this->createNullObjectComponents();
-    this->createObjectPools();
- 
     //LOAD THE SCREEN VIEWS
     this->registerObject(new FrontViewScreen());
     this->registerObject(new SideViewScreen());
@@ -21,6 +18,8 @@ void GameProper::onLoadObjects() {
     ViewManager::getInstance()->getView(ViewTag::SIDEVIEW_SCREEN)->setEnabled(false);
 
 
+    this->createNullObjectComponents();
+    this->createObjectPools();
     this->createCrosshair();
 
     ScoreManager::getInstance()->resetScore();
@@ -62,16 +61,3 @@ void GameProper::createObjectPools() {
     pSlimePool->initialize();
     ObjectPoolManager::getInstance()->registerObjectPool(pSlimePool);
 }
-
-/* 
-void GameProper::createNullObjects(){
-    EmptyGameObject* pHolder = new EmptyGameObject("Game Proper");
-    
-    GameNavigationInput* pNavInput = new GameNavigationInput("Game Navigation Input"); 
-    GameScreenNavigation* pNavScreen = new GameScreenNavigation(pNavInput);
-
-    pHolder->attachComponent(pNavInput);
-    pHolder->attachComponent(pNavScreen);
-
-    this->registerObject(pHolder);
-}; */

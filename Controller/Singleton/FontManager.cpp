@@ -3,7 +3,8 @@
 using namespace controllers;
 
 void FontManager::loadAll() {
-    this->create(FontType::DEFAULT, "PressStart2P");
+    this->create(FontType::DEFAULT, "Anton");
+    // this->create(FontType::DEFAULT, "PressStart2P");
 }
 
 sf::Font* FontManager::getFont(FontType EType) {

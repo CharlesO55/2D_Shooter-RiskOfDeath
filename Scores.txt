@@ -10,6 +10,8 @@ Jack
 Loss
 87
 Lucy
+73
+Test_Player
 53
 Lasti
 40
