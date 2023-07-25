@@ -52,7 +52,6 @@
 #include "Controller/System/EnemyManager.cpp"
 #include "Controller/System/ObjectPoolManager.cpp"
 #include "Controller/System/PhysicsManager.cpp"
-#include "Controller/System/PoolableKillerSystem.cpp"
 #include "Controller/System/SceneManager.cpp"
 #include "Controller/System/ScoreManager.cpp"
 #include "Controller/System/ViewManager.cpp"
@@ -83,6 +82,8 @@
 #include "Model/Pooling/Bullet/PlayerBullet.cpp"
 #include "Model/Pooling/Enemy/BaseEnemy.cpp"
 #include "Model/Pooling/Enemy/EnemySlime.cpp"
+#include "Model/Pooling/Enemy/EnemyBat.cpp"
+#include "Model/Pooling/Enemy/EnemyGhost.cpp"
 #include "Model/Component/Component.cpp"
 
 #include "Model/Component/Input/ButtonInput.cpp"

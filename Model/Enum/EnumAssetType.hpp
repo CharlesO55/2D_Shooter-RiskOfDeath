@@ -25,6 +25,8 @@ enum class AssetType : int {
     SLIME_1,
     SLIME_2,
     SLIME_3,
+    BAT,
+    GHOST,
     
     MR_ALIEN_BASE,
     MR_ALIEN_TOP_STAMEN,

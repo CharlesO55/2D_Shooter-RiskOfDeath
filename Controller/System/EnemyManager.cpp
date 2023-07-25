@@ -42,13 +42,13 @@ void EnemyManager::perform() {
     }
 
     //This spawns a wave of enemies for every 8 seconds.
-    if (this->fTime > SPAWN_TIME) {
+    if (this->fTime > 1.0f) {
         this->fTime = 0.0f;
 
         //This spawns the wave. Replace with the formula for enemy count per wave.
         for (int i = 0; i < DEFAULT_WAVE_AMOUNT; i++) {
             PoolTag ETag = this->getRandomPool();
-            ObjectPoolManager::getInstance()->getPool(PoolTag::SLIME_1)->requestPoolable();
+            ObjectPoolManager::getInstance()->getPool(ETag)->requestPoolable();
         }
     }
 }
@@ -58,13 +58,13 @@ PoolTag EnemyManager::getRandomPool() {
     int nPool = (std::rand() % 3) + 1;
 
     if (nPool == 1)
-        return PoolTag::SLIME_1;
+        return PoolTag::SLIME;
 
     else if (nPool == 2)
-        return PoolTag::SLIME_2;
+        return PoolTag::BAT;
 
     else if (nPool == 3)
-        return PoolTag::SLIME_3;
+        return PoolTag::GHOST;
 
     else
         return PoolTag::NONE;

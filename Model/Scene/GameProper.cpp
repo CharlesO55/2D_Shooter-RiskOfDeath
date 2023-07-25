@@ -32,8 +32,6 @@ void GameProper::createNullObjectComponents() {
     EnemyManager::initialize("Enemy Manager System", pComponentHolder);
     GameObjectManager::getInstance()->addObject(pComponentHolder);
 
-
-
     //View Screen Changer Components
     EmptyGameObject* pHolder = new EmptyGameObject("Game Proper");
     
@@ -56,8 +54,19 @@ void GameProper::createCrosshair() {
 
 void GameProper::createObjectPools() {
     AnimatedTexture* pTexture = new AnimatedTexture(TextureManager::getInstance()->getTexture(AssetType::SLIME_1));
-    GameObjectPool* pSlimePool = new GameObjectPool(PoolTag::SLIME_1, 10, new EnemySlime("Enemy Slime", pTexture), NULL);
+    GameObjectPool* pSlimePool = new GameObjectPool(PoolTag::SLIME, 10, new EnemySlime("Enemy Slime", pTexture), NULL);
+
+    pTexture = new AnimatedTexture(TextureManager::getInstance()->getTexture(AssetType::BAT));
+    GameObjectPool* pBatPool = new GameObjectPool(PoolTag::BAT, 10, new EnemyBat("Enemy Bat", pTexture), NULL);
+
+    pTexture = new AnimatedTexture(TextureManager::getInstance()->getTexture(AssetType::GHOST));
+    GameObjectPool* pGhostPool = new GameObjectPool(PoolTag::GHOST, 10, new EnemyGhost("Enemy Ghost", pTexture), NULL);
 
     pSlimePool->initialize();
+    pBatPool->initialize();
+    pGhostPool->initialize();
+
     ObjectPoolManager::getInstance()->registerObjectPool(pSlimePool);
+    ObjectPoolManager::getInstance()->registerObjectPool(pBatPool);
+    ObjectPoolManager::getInstance()->registerObjectPool(pGhostPool);
 }

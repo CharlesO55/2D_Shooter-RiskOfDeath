@@ -4,6 +4,8 @@
 #include "../Entity/Crosshair.hpp"
 #include "../Pooling/Enemy/BaseEnemy.hpp"
 #include "../Pooling/Enemy/EnemySlime.hpp"
+#include "../Pooling/Enemy/EnemyBat.hpp"
+#include "../Pooling/Enemy/EnemyGhost.hpp"
 
 #include "../EmptyGameObject.hpp"
 

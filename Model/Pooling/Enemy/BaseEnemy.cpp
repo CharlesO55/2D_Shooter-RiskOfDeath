@@ -22,7 +22,6 @@ void BaseEnemy::initialize() {
 
     ScenePosInterpreter* pPosInterpreter = new ScenePosInterpreter(this->strName + " Interpreter");
 
-
     this->attachComponent(pRendererComponent);
     this->attachComponent(pKillableComponent);   
     this->attachComponent(pPosInterpreter);
@@ -34,31 +33,7 @@ void BaseEnemy::onActivate() {
 
 void BaseEnemy::onRelease() {}
 
-
-//Can be redone for a cleaner implementation
 void BaseEnemy::randomizePosition() { 
-    /* float fX = std::rand() % (SCREEN_WIDTH);
-    float fY = std::rand() % (SCREEN_HEIGHT);
-
-    float fWidth = this->pSprite->getTexture()->getSize().x;
-    float fHeight = this->pSprite->getTexture()->getSize().y;
-
-    float fHalfWidth = fWidth / 2.0f;
-    float fHalfHeight = fHeight / 2.0f;
-
-    if(fX < fHalfWidth)
-        fX = fHalfWidth;
-
-    else if(fX > (SCREEN_WIDTH - fHalfWidth))
-        fX = (SCREEN_WIDTH - fHalfWidth);
-    
-    if(fY < fHalfHeight)
-        fY = fHalfHeight;
-
-    else if(fY > (SCREEN_HEIGHT - fHalfHeight))
-        fY = (SCREEN_HEIGHT - fHalfHeight);
-     */    
-    
     float fHalfWidth = this->pSprite->getTexture()->getSize().x / 2.0f;
     float fHalfHeight = this->pSprite->getTexture()->getSize().y / 2.0f;
     int nMinZSpawn = 80;
