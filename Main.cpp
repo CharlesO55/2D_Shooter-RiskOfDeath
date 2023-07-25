@@ -94,6 +94,7 @@
 
 #include "Model/Component/Script/Blinker.cpp"
 #include "Model/Component/Script/IdleMovement.cpp"
+#include "Model/Component/Script/MoveForward.cpp"
 #include "Model/Component/Script/Killable.cpp"
 #include "Model/Component/Script/PlayerBulletMovement.cpp"
 #include "Model/Component/Script/ShipControls.cpp"
