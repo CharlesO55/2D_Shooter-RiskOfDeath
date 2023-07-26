@@ -29,6 +29,13 @@ void FrontViewScreen::update(sf::Time tDeltaTime){
     /* ScoreManager::getInstance()->incrementScore(tDeltaTime);
     this->pScoreText->setText(ScoreManager::getInstance()->getScoreAsString());
  */
+    // float fScale = this->pBackgroundRef->getSprite()->getScale().x + 0.001f;
+    // this->pBackgroundRef->getSprite()->setScale(fScale, fScale);
+    
+    // sf::Vector2f vecOrigin = pBackgroundRef->getSprite()->getOrigin() + sf::Vector2f(1, 1);
+    // sf::Vector2f vecOrigin = sf::Vector2f(SCREEN_WIDTH / 2, SCREEN_HEIGHT / 2);
+    // pBackgroundRef->getSprite()->setOrigin(vecOrigin);
+
     GameObject::update(tDeltaTime);
 }
 /* 

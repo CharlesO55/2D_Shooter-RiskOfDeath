@@ -107,6 +107,18 @@ void GameObject::detachComponent(Component* pComponent) {
     }
 }
 
+
+GameObject* GameObject::findChildByName(std::string strName){
+    for (GameObject* pChild : this->vecChildren){
+        if (pChild->getName() == strName){
+            return pChild;
+        }
+    }
+    std::cout << "\nFAILED TO LOCATE CHILD BY NAME:" << strName;
+    throw 0;
+}
+
+
 Component* GameObject::findComponentByName(std::string strName) {
     for(Component* pComponent : this->vecComponent) {
         if(pComponent->getName() == strName)

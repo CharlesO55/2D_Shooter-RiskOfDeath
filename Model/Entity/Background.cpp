@@ -8,7 +8,10 @@ Background::~Background() {}
 
 void Background::initialize() {
     this->setFrame(0);
+    this->centerSpriteOrigin();
+    this->pSprite->setPosition(this->pSprite->getLocalBounds().width / 2, this->pSprite->getLocalBounds().height / 2 );
 
+    
     Renderer* pRendererComponent = new Renderer(this->strName + " Sprite");
     pRendererComponent->assignDrawable(this->pSprite);
     this->attachComponent(pRendererComponent);

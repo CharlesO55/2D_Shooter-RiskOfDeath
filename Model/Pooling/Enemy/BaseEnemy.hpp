@@ -5,6 +5,7 @@
 #include "../../GameObject.hpp"
 
 #include "../../Component/Renderer/Renderer.hpp"
+#include "../../Component/Renderer/RendererSpawnable.hpp"
 #include "../../Component/Renderer/ScenePosInterpreter.hpp"
 #include "../../Component/Script/Killable.hpp"
 #include "../../Component/Script/MoveForward.hpp"

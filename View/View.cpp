@@ -38,7 +38,8 @@ void View::createTextButton(listeners::ButtonListener* pListener, std::string st
 
 void View::createBackground(AssetType EAsset, int nStartFrame, int nEndFrame){
     AnimatedTexture* pTex = new AnimatedTexture(controllers::TextureManager::getInstance()->getTexture(EAsset, nStartFrame, nEndFrame));
-    Background* pBackground = new Background(this->strName, pTex);
+    Background* pBackground = new Background(this->strName + " Background", pTex);
+    this->pBackgroundRef = pBackground;
 
     this->setFrame(0);
     this->attachChild(pBackground);
@@ -47,4 +48,12 @@ void View::createBackground(AssetType EAsset, int nStartFrame, int nEndFrame){
 
 ViewTag View::getTag() {
     return this->ETag;
+}
+
+Background* View::getBackground(){
+    if(this->pBackgroundRef == NULL){
+        std::cout << "\n[ERROR] VIEW BACKGROUND NOT SET";
+        throw 0;
+    }
+    return this->pBackgroundRef;
 }

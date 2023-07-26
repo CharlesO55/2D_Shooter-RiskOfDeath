@@ -12,7 +12,6 @@ void GameProper::onLoadObjects() {
     //LOAD THE SCREEN VIEWS
     this->registerObject(new FrontViewScreen());
     this->registerObject(new SideViewScreen());
-    this->registerObject(new PlayerUI());
 
     //DISABLE THE SIDE VIEW UNTIL SWITCHED TO BY KEY PRESS
     ViewManager::getInstance()->getView(ViewTag::SIDEVIEW_SCREEN)->setEnabled(false);
@@ -20,7 +19,12 @@ void GameProper::onLoadObjects() {
 
     this->createNullObjectComponents();
     this->createObjectPools();
+
+    //KEEP ON TOP
+    
     this->createCrosshair();
+    this->registerObject(new PlayerUI());
+
 
     ScoreManager::getInstance()->resetScore();
 }
@@ -33,11 +37,10 @@ void GameProper::createNullObjectComponents() {
     GameObjectManager::getInstance()->addObject(pComponentHolder);
 
     //View Screen Changer Components
-    EmptyGameObject* pHolder = new EmptyGameObject("Game Proper");
-    
-    GameNavigationInput* pNavInput = new GameNavigationInput("Game Navigation Input"); 
+    EmptyGameObject* pHolder = new EmptyGameObject("Game Proper Navigation");
+    GameNavigationInput* pNavInput = new GameNavigationInput("Game Navigation Input");
     GameScreenNavigation* pNavScreen = new GameScreenNavigation(pNavInput);
-
+    
     pHolder->attachComponent(pNavInput);
     pHolder->attachComponent(pNavScreen);
 

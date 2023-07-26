@@ -103,6 +103,7 @@
 #include "Model/Component/Script/GameScreenNavigation.cpp"
 
 #include "Model/Component/Renderer/Renderer.cpp"
+#include "Model/Component/Renderer/RendererSpawnable.cpp"
 #include "Model/Component/Renderer/Animator.cpp"
 #include "Model/Component/Renderer/ScenePosInterpreter.cpp"
 #include "Model/Component/Physics/Collider.cpp"

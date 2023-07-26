@@ -36,6 +36,7 @@ namespace models {
 
             void attachComponent(Component* pComponent);
             void detachComponent(Component* pComponent);
+            GameObject* findChildByName(std::string strName);
             Component* findComponentByName(std::string strName);
             std::vector<Component*> getComponents(ComponentType EType);
             std::vector<Component*> getComponentsRecursively(ComponentType EType, bool bInclusive = true);

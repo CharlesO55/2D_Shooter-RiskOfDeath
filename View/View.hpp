@@ -19,6 +19,7 @@ namespace views {
     class View : public GameObject {
         protected:
             ViewTag ETag;
+            Background* pBackgroundRef;
 
         public:
             View(ViewTag ETag, std::string strName);
@@ -32,6 +33,7 @@ namespace views {
 
         public:
             ViewTag getTag();
+            Background* getBackground();
     };
 }
 

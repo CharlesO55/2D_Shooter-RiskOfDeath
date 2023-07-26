@@ -7,7 +7,7 @@
 
 namespace components {
     class Renderer : public Component {
-        private:
+        protected:
             sf::RenderWindow* pWindow;
             sf::Drawable* pDrawable;
             sf::RenderStates CRenderStates;
@@ -16,7 +16,7 @@ namespace components {
             Renderer(std::string strName);
 
         public:
-            void perform();
+            virtual void perform();
             void flip();
             void assignTargetWindow(sf::RenderWindow* pWindow);
             void assignDrawable(sf::Drawable* pDrawable);

@@ -15,9 +15,11 @@ void BaseEnemy::initialize() {
     this->setFrame(0);
     this->getSprite()->setScale(3.0f, 3.0f);
     this->centerSpriteOrigin();
-
+/* 
     Renderer* pRendererComponent = new Renderer(this->strName + " Sprite");
-    pRendererComponent->assignDrawable(this->pSprite);
+    pRendererComponent->assignDrawable(this->pSprite); */
+    RendererSpawnable* pRendererSpawanable = new RendererSpawnable(this->strName + " Sprite");
+    pRendererSpawanable->assignDrawable(this->pSprite);
 
     Killable* pKillableComponent = new Killable(this->strName + " Killable", this->fKillableSpeed);
     systems::EnemyManager::getInstance()->registerComponent(pKillableComponent);
@@ -26,7 +28,8 @@ void BaseEnemy::initialize() {
 
     MoveForward* pMoveForward = new MoveForward(this->strName + " MoveForward");
 
-    this->attachComponent(pRendererComponent);
+    // this->attachComponent(pRendererComponent);
+    this->attachComponent(pRendererSpawanable);
     this->attachComponent(pKillableComponent);   
     this->attachComponent(pPosInterpreter);
     this->attachComponent(pMoveForward);
