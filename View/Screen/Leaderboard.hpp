@@ -20,5 +20,9 @@ namespace views{
             void initialize();
             void onClick(Button* pButton);
             void onRelease(Button* pButton);
+
+        private:
+            std::string convertToScoreString(int nValue);
+            std::string convertToTenthsString(int nValue);
     };
 }

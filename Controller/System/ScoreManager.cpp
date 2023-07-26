@@ -75,8 +75,10 @@ void ScoreManager::sortScores(){
 
 void ScoreManager::logScoreOnEnd(std::string strPlayerName){
     this->getLeaderboard();
-    Pair_nScore_strName pairScore(this->CTime.asSeconds(), strPlayerName);
-    this->vecLeaderboard.push_back(pairScore);
+
+    this->pairCurrPlayerScore = Pair_nScore_strName(this->CTime.asSeconds(), strPlayerName);
+    // Pair_nScore_strName pairScore(this->CTime.asSeconds(), strPlayerName);
+    this->vecLeaderboard.push_back(pairCurrPlayerScore);
     this->sortScores();
 
     std::ofstream fp("Scores.txt");
@@ -89,6 +91,13 @@ void ScoreManager::logScoreOnEnd(std::string strPlayerName){
 
     this->resetScore();
 }
+
+
+const Pair_nScore_strName ScoreManager::getCurrPlayerScore(){
+    return this->pairCurrPlayerScore;
+}
+
+
 
 
 ScoreManager* ScoreManager::P_SHARED_INSTANCE = NULL;

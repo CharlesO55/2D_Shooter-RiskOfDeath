@@ -16,6 +16,8 @@ namespace systems{
         private:
             sf::Time CTime;
             std::vector <Pair_nScore_strName> vecLeaderboard;
+            Pair_nScore_strName pairCurrPlayerScore = Pair_nScore_strName(0, "NONE");
+
 
         public:
             void resetScore();
@@ -25,6 +27,7 @@ namespace systems{
         public:
             const std::string getScoreAsString();
             const std::vector <Pair_nScore_strName> getLeaderboard();
+            const Pair_nScore_strName getCurrPlayerScore(); 
 
         private:
             void sortScores();

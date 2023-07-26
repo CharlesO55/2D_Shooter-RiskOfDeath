@@ -47,9 +47,6 @@ void BaseEnemy::randomizePosition() {
     this->vecScenePos.x = std::rand() % (int)(SCREEN_WIDTH - fHalfWidth + 1 - fHalfWidth) + fHalfWidth;
     this->vecScenePos.y = std::rand() % (int)(SCREEN_HEIGHT - fHalfHeight + 1 - fHalfHeight) + fHalfHeight;
     this->vecScenePos.z = std::rand() % (nMaxZSpawn + 1 - nMinZSpawn) + nMinZSpawn;
-
-    //REMOVE WHEN RENDERER
-    // this->pSprite->setPosition(vecScenePos.x, vecScenePos.y);
 }
 
 float BaseEnemy::getSpeed() {
