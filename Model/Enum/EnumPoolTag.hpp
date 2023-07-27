@@ -8,7 +8,13 @@ enum class PoolTag : int {
     //Temporary, can replace sprites at any time
     SLIME,
     BAT,
-    GHOST
+    GHOST,
+
+    HEALTH_BOOST,
+    DAMAGE_BOOST,
+    PIERCING_SHOT,
+    INFINITY_AMMO,
+    NUKE //Replaceable, not sure if overpowered
 };
 
 #endif

@@ -32,9 +32,13 @@ void GameProper::onLoadObjects() {
 void GameProper::createNullObjectComponents() {
     std::srand(std::time(NULL));
 
-    EmptyGameObject* pComponentHolder = new EmptyGameObject("Enemy Manager Holder");
-    EnemyManager::initialize("Enemy Manager System", pComponentHolder);
-    GameObjectManager::getInstance()->addObject(pComponentHolder);
+    EmptyGameObject* pEnemyManagerHolder = new EmptyGameObject("Enemy Manager Holder");
+    EnemyManager::initialize("Enemy Manager System", pEnemyManagerHolder);
+    GameObjectManager::getInstance()->addObject(pEnemyManagerHolder);
+
+    EmptyGameObject* pItemManagerHolder = new EmptyGameObject("Item Manager Holder");
+    ItemManager::initialize("Item Manager System", pItemManagerHolder);
+    GameObjectManager::getInstance()->addObject(pItemManagerHolder);
 
     //View Screen Changer Components
     EmptyGameObject* pHolder = new EmptyGameObject("Game Proper Navigation");
@@ -56,6 +60,7 @@ void GameProper::createCrosshair() {
 }
 
 void GameProper::createObjectPools() {
+    //Enemy Pools
     AnimatedTexture* pTexture = new AnimatedTexture(TextureManager::getInstance()->getTexture(AssetType::SLIME_1));
     GameObjectPool* pSlimePool = new GameObjectPool(PoolTag::SLIME, 10, new EnemySlime("Enemy Slime", pTexture), NULL);
 
@@ -72,4 +77,22 @@ void GameProper::createObjectPools() {
     ObjectPoolManager::getInstance()->registerObjectPool(pSlimePool);
     ObjectPoolManager::getInstance()->registerObjectPool(pBatPool);
     ObjectPoolManager::getInstance()->registerObjectPool(pGhostPool);
+
+    //Buff Pools - TEMPORARY ASSETS, REPLACE LATER
+    pTexture = new AnimatedTexture(TextureManager::getInstance()->getTexture(AssetType::BULLET_CASE));
+    GameObjectPool* pDamageBuffPool = new GameObjectPool(PoolTag::DAMAGE_BOOST, 5, new DamageBoost("Damage Buff", pTexture), NULL);
+
+    pTexture = new AnimatedTexture(TextureManager::getInstance()->getTexture(AssetType::HEART_CASE));
+    GameObjectPool* pHealthBuffPool = new GameObjectPool(PoolTag::HEALTH_BOOST, 5, new HealthBoost("Health Buff", pTexture), NULL);
+
+    pTexture = new AnimatedTexture(TextureManager::getInstance()->getTexture(AssetType::BULLET));
+    GameObjectPool* pPiercingBuffPool = new GameObjectPool(PoolTag::PIERCING_SHOT, 5, new PiercingShot("Piercing Buff", pTexture), NULL);
+
+    pDamageBuffPool->initialize();
+    pHealthBuffPool->initialize();
+    pPiercingBuffPool->initialize();
+
+    ObjectPoolManager::getInstance()->registerObjectPool(pDamageBuffPool);
+    ObjectPoolManager::getInstance()->registerObjectPool(pHealthBuffPool);
+    ObjectPoolManager::getInstance()->registerObjectPool(pPiercingBuffPool);
 }

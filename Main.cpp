@@ -50,6 +50,7 @@
 #include "Controller/Singleton/FontManager.cpp"
 
 #include "Controller/System/EnemyManager.cpp"
+#include "Controller/System/ItemManager.cpp"
 #include "Controller/System/ObjectPoolManager.cpp"
 #include "Controller/System/PhysicsManager.cpp"
 #include "Controller/System/SceneManager.cpp"
@@ -80,10 +81,17 @@
 
 #include "Model/Pooling/PoolableObject.cpp"
 #include "Model/Pooling/Bullet/PlayerBullet.cpp"
+
 #include "Model/Pooling/Enemy/BaseEnemy.cpp"
 #include "Model/Pooling/Enemy/EnemySlime.cpp"
 #include "Model/Pooling/Enemy/EnemyBat.cpp"
 #include "Model/Pooling/Enemy/EnemyGhost.cpp"
+
+#include "Model/Pooling/Items/BaseItem.cpp"
+#include "Model/Pooling/Items/DamageBoost.cpp"
+#include "Model/Pooling/Items/HealthBoost.cpp"
+#include "Model/Pooling/Items/PiercingShot.cpp"
+
 #include "Model/Component/Component.cpp"
 
 #include "Model/Component/Input/ButtonInput.cpp"
@@ -97,6 +105,7 @@
 #include "Model/Component/Script/IdleMovement.cpp"
 #include "Model/Component/Script/MoveForward.cpp"
 #include "Model/Component/Script/Killable.cpp"
+#include "Model/Component/Script/Obtainable.cpp"
 #include "Model/Component/Script/PlayerBulletMovement.cpp"
 #include "Model/Component/Script/ShipControls.cpp"
 #include "Model/Component/Script/ScriptBlocker.cpp"
