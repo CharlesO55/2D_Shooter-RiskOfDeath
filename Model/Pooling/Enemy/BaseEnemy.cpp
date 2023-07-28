@@ -39,8 +39,6 @@ void BaseEnemy::onActivate() {
     this->randomizePosition();
 }
 
-void BaseEnemy::onRelease() {}
-
 void BaseEnemy::randomizePosition() { 
     float fHalfWidth = this->pSprite->getTexture()->getSize().x / 2.0f;
     float fHalfHeight = this->pSprite->getTexture()->getSize().y / 2.0f;

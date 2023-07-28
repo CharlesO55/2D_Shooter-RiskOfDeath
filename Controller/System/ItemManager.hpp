@@ -23,6 +23,7 @@ namespace systems {
 
         public:
             void obtain(sf::Vector2f vecLocation);
+            void spawn();
 
             void perform();
             PoolTag getRandomPool();

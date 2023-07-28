@@ -50,8 +50,9 @@ void EnemyManager::perform() {
         
         else {
             if(pCrosshairMouseInput->isLeftClick()) {
+                std::cout << "[EnemyManager] : Left Click Detected" << std::endl;
                 this->kill(pCrosshairMouseInput->getLocation());
-                pCrosshairMouseInput->resetLeftClick();
+                //pCrosshairMouseInput->resetLeftClick();
             }
         }
     }

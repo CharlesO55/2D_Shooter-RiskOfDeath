@@ -12,6 +12,7 @@ namespace models {
             EnemyGhost(std::string strName, AnimatedTexture* pTexture);
 
         public:
+            void onRelease();
             PoolableObject* clone();
     };
 }

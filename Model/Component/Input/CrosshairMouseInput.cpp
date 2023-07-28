@@ -32,6 +32,10 @@ void CrosshairMouseInput::resetLeftClick() {
     this->bLeftClick = false;
 }
 
+void CrosshairMouseInput::resetRightClick() {
+    this->bRightClick = false;
+}
+
 void CrosshairMouseInput::processMouseInput(sf::Mouse::Button inMouse, bool bPressed) {
     switch(inMouse) {
         case sf::Mouse::Left:

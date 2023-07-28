@@ -22,6 +22,7 @@ namespace components {
         public:
             void perform();
             void resetLeftClick();
+            void resetRightClick();
             
         private:
             void processMouseInput(sf::Mouse::Button inMouse, bool bPressed);

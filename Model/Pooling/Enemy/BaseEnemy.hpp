@@ -42,7 +42,7 @@ namespace models {
         public:
             virtual void initialize();
             void onActivate();
-            void onRelease();
+            virtual void onRelease() = 0;
             virtual PoolableObject* clone() = 0;
 
         protected:

@@ -19,6 +19,11 @@ void ItemManager::obtain(sf::Vector2f vecLocation) {
     }
 }
 
+void ItemManager::spawn() {
+    PoolTag ETag = this->getRandomPool();
+    ObjectPoolManager::getInstance()->getPool(ETag)->requestPoolable();
+}
+
 void ItemManager::perform() {
     this->fTime += this->tDeltaTime.asSeconds();
 
@@ -33,24 +38,20 @@ void ItemManager::perform() {
             std::cout << "[ERROR] : One or more dependencies are missing." << std::endl;
         
         else {
-            if(pCrosshairMouseInput->isLeftClick()) { //Not registering
+            
+
+            if(pCrosshairMouseInput->isLeftClick()) { 
+                std::cout << "[ItemManager] : Left click Detected" << std::endl;
+
                 this->obtain(pCrosshairMouseInput->getLocation());
                 pCrosshairMouseInput->resetLeftClick();
             }
         }
     }
-
-    //Adjust spawning. Make it in line with the killables, so that when they are killed, spawn according to chance
-    //DISABLED FOR NOW, determining hte cause of isLeftClick() not registering
-    // if (this->fTime > 1.0f) {
-    //     this->fTime = 0.0f;
-    //     PoolTag ETag = this->getRandomPool();
-    //     ObjectPoolManager::getInstance()->getPool(ETag)->requestPoolable();
-    // }
 }
 
 PoolTag ItemManager::getRandomPool() {
-    int nPool = (std::rand() % 3) + 1; //Adjust later when other powerups are introduced
+    int nPool = (std::rand() % 3) + 1; //ONLY BASE POWERUPS ARE INCLUDED - Adjust later when other powerups are introduced
 
     if (nPool == 1)
         return PoolTag::HEALTH_BOOST;
