@@ -4,21 +4,36 @@ using namespace systems;
 
 void EnemyManager::kill(sf::Vector2f vecLocation) {
     int nIndex = -1;
-    GameObject* pOwner;
+    GameObject* pTarget;
     
     //Modify this function for piercing bullets later on.
     for (int i = (this->vecKillable.size()) - 1; i > -1 && nIndex == -1; i--) {
-        pOwner = this->vecKillable[i]->getOwner();
+        pTarget = this->vecKillable[i]->getOwner();
 
-        if(!this->vecKillable[i]->isKilled() && pOwner->isEnabled() && pOwner->getSprite()->getGlobalBounds().contains(vecLocation)) 
+        if(!this->vecKillable[i]->isKilled() && pTarget->isEnabled() /*&& pTarget->getSprite()->getGlobalBounds().contains(vecLocation)*/ && this->isLocInSprite(pTarget, vecLocation)){
             nIndex = i;
+        }
     }
 
     if(nIndex != -1) {
-        pOwner = this->vecKillable[nIndex]->getOwner();
+        pTarget = this->vecKillable[nIndex]->getOwner();
         this->vecKillable[nIndex]->setKilled(true);
     }
 }
+
+bool EnemyManager::isLocInSprite(GameObject* pTarget, sf::Vector2f vecLocation){
+    //CONVERT THE SPRITE TO MATCH FRONT VIEW ZOOM 
+    if (ViewManager::getInstance()->getView(ViewTag::FRONTVIEW_SCREEN)->isEnabled()){
+        sf::FloatRect CInitialBounds = pTarget->getSprite()->getGlobalBounds();
+        sf::Transform CViewTransform = ViewManager::getInstance()->getView(ViewTag::FRONTVIEW_SCREEN)->getBackground()->getSprite()->getTransform();
+        sf::FloatRect CFinalBounds = CViewTransform.transformRect(CInitialBounds);
+
+        return CFinalBounds.contains(vecLocation);
+    }
+
+    return false;
+}
+
 
 void EnemyManager::perform() {
     this->fTime += this->tDeltaTime.asSeconds();

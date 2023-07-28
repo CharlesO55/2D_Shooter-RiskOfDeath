@@ -14,7 +14,7 @@ void ScenePosInterpreter::perform(){
     sf::Vector2f vecSpritePos;
     float fScale;
     
-    
+    //USE SIDEVIEW WITH NORMAL SIZE
     if (ViewManager::getInstance()->getView(ViewTag::SIDEVIEW_SCREEN)->isEnabled()){
         vecSpritePos = {
             pOwnerEnemy->getScenePos().z * (SCREEN_WIDTH / 100.f),
@@ -23,13 +23,15 @@ void ScenePosInterpreter::perform(){
         fScale = pOwnerEnemy->getDefaultScale();
     }
 
-
+    //USE FRONTVIEW WITH CORRESPONDING SIZE
     else {
         vecSpritePos = {
             pOwnerEnemy->getScenePos().x, 
             pOwnerEnemy->getScenePos().y
         }; 
-        fScale = pOwnerEnemy->getDefaultScale() * ((100 - pOwnerEnemy->getScenePos().z) / 25);
+        fScale = pOwnerEnemy->getDefaultScale() * ((100 - pOwnerEnemy->getScenePos().z) / 90);
+        if(fScale > 5)
+        {fScale = 5.f;}
     }
 
 

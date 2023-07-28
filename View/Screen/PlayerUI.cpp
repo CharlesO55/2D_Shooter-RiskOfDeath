@@ -18,6 +18,10 @@ void PlayerUI::initialize(){
 
     this->createHearts();
     this->createBullets();
+
+    //TESTING ONLY
+    // this->pSprite->setPosition(50, 0);
+    // this->pSprite->setScale(0.3, 0.3);
 }
 
 void PlayerUI::update(sf::Time tDeltaTime){

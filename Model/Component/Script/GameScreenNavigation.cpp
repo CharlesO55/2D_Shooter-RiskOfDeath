@@ -42,13 +42,23 @@ void GameScreenNavigation::perform(){
 
     else if (this->pNavInputRef->isZoomClick()){
         std::cout << "\n [VIEW] ZOOM";
+        float fZoom = 2.f;
+
 
         //UPDATE FRONT VIEW
         sf::Sprite* pViewSprite = ViewManager::getInstance()->getView(ViewTag::FRONTVIEW_SCREEN)->getBackground()->getSprite();
 
-        
-        float fZoom = 1.25f;
+        //ZOOM 
         sf::Vector2f vecOrigin = pNavInputRef->getMouseLoc();
+        sf::Vector2f vecMaxOffset = {SCREEN_WIDTH/4, SCREEN_HEIGHT/4};  //BASED ON 2X ZOOM
+        this->keepInBounds(&(vecOrigin.x), SCREEN_WIDTH/2 - vecMaxOffset.x, SCREEN_WIDTH/2 + vecMaxOffset.x);
+        this->keepInBounds(&(vecOrigin.y), SCREEN_HEIGHT/2 - vecMaxOffset.y, SCREEN_HEIGHT/2 + vecMaxOffset.y);
+
+        //1.x 640   :   640-0
+        //1.25 510  :   640-130
+        //1.5x 430  :   640-210
+        //2.x 320   :   640-320
+        //3.x 215   :   640-425
 
         std::cout << vecOrigin.x << " : " << vecOrigin.y << std::endl;
 
@@ -70,4 +80,12 @@ void GameScreenNavigation::perform(){
 void GameScreenNavigation::resetInputFlags(){
     this->pNavInputRef->resetAllFlags();
     this->nCooldownTicker = 0;
+}
+
+
+void GameScreenNavigation::keepInBounds(float *pValue, float fMin, float fMax){
+    if(*pValue < fMin)
+        { *pValue = fMin;}
+    else if(*pValue > fMax)
+        { *pValue = fMax;}
 }

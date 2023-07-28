@@ -35,10 +35,47 @@ void Button::changeState(ButtonState EState) {/*
 }
 
 sf::FloatRect Button::getGlobalBounds(){
+    //GOAL: OFFSET THE CURR BOUNDS BY THE PARENT VIEW'S TRANSFORM
+    sf::FloatRect CInitialBounds;
+
+    //DETERMINE IF TEXT OR SPRITE BUTTON
     if (pText){
-        return this->pText->getGlobalBounds();
+        CInitialBounds = this->pText->getGlobalBounds();
     }
-    return this->pSprite->getGlobalBounds();
+    else{
+        CInitialBounds = this->pSprite->getGlobalBounds();
+    }
+
+    if(pParent == NULL){
+        std::cout << "\n[ERROR] GetGlobalBounds failed. Requires button to be parented to a view";
+        throw 0;
+    }
+    //THE TRANSFORM OF ITS VIEW
+    sf::Transform CTransform = this->pParent->getSprite()->getTransform();
+
+    //OFFSET BY ITS VIEW's TRANSFORM
+    sf::FloatRect CFinalBounds = CTransform.transformRect(CInitialBounds);
+    return CFinalBounds;
+
+/* 
+    if (pText){
+        // CRenderStates.transform = this->pText->getTransform() * CRenderStates.transform;
+        // CRenderStates.transform.getMatrix()
+        // sf::FloatRect CBounds = this->pText->getGlobalBounds();
+        // CBounds *= CRenderStates.transform
+
+        //GOAL: OFFSET THE CURR BOUNDS BY THE PARENT VIEW'S TRANSFORM
+        //THE INITIAL RECT OF THE TEXT
+        sf::FloatRect CInitialBounds = this->pText->getGlobalBounds();
+        //THE TRANSFORM OF ITS VIEW
+        sf::Transform CTransform = this->pParent->getSprite()->getTransform();
+        //OFFSET BY ITS VIEW's TRANSFORM
+        sf::FloatRect CFinalBounds = CTransform.transformRect(CInitialBounds);
+        return CFinalBounds;
+
+    //     return this->pText->getGlobalBounds();
+    }
+    return this->pSprite->getGlobalBounds(); */
 }
 
 

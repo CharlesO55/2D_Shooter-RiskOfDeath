@@ -12,6 +12,12 @@
 
 #include "../Pooling/GameObjectPool.hpp"
 
+#include "ViewManager.hpp"
+
+// #   ifndef DISABLE_INTELLISENSE_INCLUDES
+#   include <SFML/Graphics.hpp>
+// #   endif
+
 namespace systems {
     using namespace components;
     using namespace models;
@@ -29,6 +35,9 @@ namespace systems {
 
             void registerComponent(Killable* pKillable);
             void unregisterComponent(Killable* pKillable);
+
+            bool isLocInSprite(GameObject* pTarget, sf::Vector2f vecLocation);
+            
 
         private:
             static EnemyManager* P_SHARED_INSTANCE;

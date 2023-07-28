@@ -11,6 +11,8 @@
 
 #include "../View/Interface/ButtonListener.hpp"
 
+#include "../../../Controller/System/ViewManager.hpp"
+
 #   ifndef DISABLE_INTELLISENSE_INCLUDES
 #   include <SFML/Graphics.hpp>
 #   endif
