@@ -18,6 +18,7 @@ void PlayerUI::initialize(){
 
     this->createHearts();
     this->createBullets();
+    this->createInventory();
 
     //TESTING ONLY
     // this->pSprite->setPosition(50, 0);
@@ -54,6 +55,35 @@ void PlayerUI::createBullets() {
     for (int i = 0; i < 5; i++) {
         this->createImage(strName + std::to_string(i + 1), pTexture, 2.5f, xPos, yPos);
         xPos += 35.0f;
+    }
+}
+
+void PlayerUI::createInventory() {
+    std::string strName = "Inventory ";
+    AssetType EAssetType;
+
+    float xPos = 50.0f;
+    float yPos = SCREEN_HEIGHT - 50.0f;
+
+    for (int i = 0; i < 3; i++) {
+        switch(i) {
+            case 0:
+                EAssetType = AssetType::INVENTORY_1;
+                break;
+
+            case 1:
+                EAssetType = AssetType::INVENTORY_2;
+                break;
+
+            case 2:
+                EAssetType = AssetType::INVENTORY_3;
+                break;
+        }
+
+        AnimatedTexture* pTexture = new AnimatedTexture(TextureManager::getInstance()->getTexture(EAssetType));
+
+        this->createImage(strName + std::to_string(i + 1), pTexture, 4.0f, xPos, yPos);
+        xPos += 90.0f;
     }
 }
 

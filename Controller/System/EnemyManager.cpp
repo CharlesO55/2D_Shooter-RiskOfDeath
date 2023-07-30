@@ -6,12 +6,16 @@ void EnemyManager::kill(sf::Vector2f vecLocation) {
     int nIndex = -1;
     GameObject* pTarget;
     
+    //Allows all enemies in the proximity of the crosshair to be damaged
     if (ItemManager::getInstance()->isItemActive(ItemType::PIERCING_SHOT)) {
         for (int i = 0; i < vecKillable.size(); i++) {
             pTarget = this->vecKillable[i]->getOwner();
 
-            if(!this->vecKillable[i]->isKilled() && pTarget->isEnabled() && this->isLocInSprite(pTarget, vecLocation))
+            if(!this->vecKillable[i]->isKilled() && this->vecKillable[i]->getCurrentHealth() <= 1 && pTarget->isEnabled() && this->isLocInSprite(pTarget, vecLocation))
                 this->vecKillable[i]->setKilled(true);
+
+            else if (!this->vecKillable[i]->isKilled() && pTarget->isEnabled() && this->isLocInSprite(pTarget, vecLocation))
+                this->vecKillable[i]->damage();
         }
     }
 
@@ -19,13 +23,18 @@ void EnemyManager::kill(sf::Vector2f vecLocation) {
         for (int i = (this->vecKillable.size()) - 1; i > -1 && nIndex == -1; i--) {
             pTarget = this->vecKillable[i]->getOwner();
 
-            if(!this->vecKillable[i]->isKilled() && pTarget->isEnabled() && this->isLocInSprite(pTarget, vecLocation))
+            if(!this->vecKillable[i]->isKilled()  && pTarget->isEnabled() && this->isLocInSprite(pTarget, vecLocation))
                 nIndex = i;
         }
 
         if(nIndex != -1) {
             pTarget = this->vecKillable[nIndex]->getOwner();
-            this->vecKillable[nIndex]->setKilled(true);
+            
+            if (this->vecKillable[nIndex]->getCurrentHealth() <= 1)
+                this->vecKillable[nIndex]->setKilled(true);
+
+            else
+                this->vecKillable[nIndex]->damage();
         }
     }
 }

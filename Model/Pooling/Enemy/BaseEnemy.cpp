@@ -2,8 +2,9 @@
 
 using namespace models;
 
-BaseEnemy::BaseEnemy(std::string strName, AnimatedTexture* pTexture, PoolTag ETag, int nHealth, float fScale, float fSpeed, float fKillableSpeed) : PoolableObject(ETag, strName, pTexture) {
-    this->nHealth = nHealth;
+BaseEnemy::BaseEnemy(std::string strName, AnimatedTexture* pTexture, PoolTag ETag, int nMaxHealth, float fScale, float fSpeed, float fKillableSpeed) : PoolableObject(ETag, strName, pTexture) {
+    this->nHealth = nMaxHealth;
+    this->nMaxHealth = nMaxHealth;
     this->fSpeed = fSpeed;
     this->fKillableSpeed = fKillableSpeed;
     this->fDefaultScale = fScale;
@@ -15,9 +16,7 @@ void BaseEnemy::initialize() {
     this->setFrame(0);
     this->getSprite()->setScale(3.0f, 3.0f);
     this->centerSpriteOrigin();
-/* 
-    Renderer* pRendererComponent = new Renderer(this->strName + " Sprite");
-    pRendererComponent->assignDrawable(this->pSprite); */
+
     RendererSpawnable* pRendererSpawanable = new RendererSpawnable(this->strName + " Sprite");
     pRendererSpawanable->assignDrawable(this->pSprite);
 
@@ -28,7 +27,6 @@ void BaseEnemy::initialize() {
 
     MoveForward* pMoveForward = new MoveForward(this->strName + " MoveForward");
 
-    // this->attachComponent(pRendererComponent);
     this->attachComponent(pRendererSpawanable);
     this->attachComponent(pKillableComponent);   
     this->attachComponent(pPosInterpreter);
@@ -37,6 +35,7 @@ void BaseEnemy::initialize() {
 
 void BaseEnemy::onActivate() {
     this->randomizePosition();
+    this->nHealth = this->nMaxHealth;
 }
 
 void BaseEnemy::randomizePosition() { 

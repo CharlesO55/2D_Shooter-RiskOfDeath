@@ -29,6 +29,7 @@ namespace models {
     class BaseEnemy : public PoolableObject {
         protected:
             int nHealth;
+            int nMaxHealth;
             float fSpeed;
             float fKillableSpeed;
             

@@ -29,12 +29,13 @@ namespace components {
 
         public:
             void perform();
+            void damage();
 
         public:
             bool isKilled();
             void setKilled(bool bKilled);
 
-
+            int getCurrentHealth();
     };
 }
 

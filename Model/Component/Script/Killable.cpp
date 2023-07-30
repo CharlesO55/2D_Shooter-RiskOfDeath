@@ -19,10 +19,26 @@ void Killable::perform() {
     }
 }
 
+void Killable::damage() {
+    BaseEnemy* pEnemy = (BaseEnemy*)this->pOwner;
+
+    if (!ItemManager::getInstance()->isItemActive(ItemType::DAMAGE_BOOST))
+        pEnemy->setHealth(pEnemy->getHealth() - 1);
+
+    else
+        pEnemy->setHealth(pEnemy->getHealth() - 2);
+}
+
 bool Killable::isKilled() {
     return this->bKilled;
 }
 
 void Killable::setKilled(bool bKilled) {
     this->bKilled = bKilled;
+}
+
+int Killable::getCurrentHealth() {
+    BaseEnemy* pEnemy = (BaseEnemy*)this->pOwner;
+
+    return pEnemy->getHealth();
 }

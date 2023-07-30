@@ -17,16 +17,30 @@ enum class AssetType : int {
     HEART,
     HEART_CASE,
 
+    INVENTORY_1,
+    INVENTORY_2,
+    INVENTORY_3,
+
+    HEALTH_BOOST,
+    DAMAGE_BOOST,
+    PIERCING_AMMO,
+    INFINITY_AMMO,
+    NUKE,
+
+    STATUS_DAMAGE,
+    STATUS_PIERCE,
+    STATUS_INFINITE,
+
     SHIP,
     CROSSHAIR,
-    //BULLET,
 
-    //The slimes are simply a placeholder. Replace sprites when possible
-    SLIME_1,
-    SLIME_2,
-    SLIME_3,
+    SLIME,
     BAT,
     GHOST,
+
+    SLIME_SIDE,
+    BAT_SIDE,
+    GHOST_SIDE,
     
     MR_ALIEN_BASE,
     MR_ALIEN_TOP_STAMEN,

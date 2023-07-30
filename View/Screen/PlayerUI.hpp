@@ -29,6 +29,7 @@ namespace views{
         private:
             void createHearts();
             void createBullets();
+            void createInventory();
 
         public:
             void onClick(Button* pButton);
