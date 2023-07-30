@@ -45,6 +45,7 @@
 
 #include "Controller/Singleton/GameObjectManager.cpp"
 #include "Controller/Singleton/GameStateManager.cpp"
+#include "Controller/Singleton/MusicManager.cpp"
 #include "Controller/Singleton/SFXManager.cpp"
 #include "Controller/Singleton/TextureManager.cpp"
 #include "Controller/Singleton/FontManager.cpp"

@@ -14,6 +14,7 @@ Game::Game() : rwWindow(sf::VideoMode(SCREEN_WIDTH, SCREEN_HEIGHT), "GALURA, URS
      * to do that yet. However, remember to do
      * so in your MP. */
     // TextureManager::getInstance()->loadAll();
+    MusicManager::getInstance()->loadAll();
     SFXManager::getInstance()->loadAll();
     FontManager::getInstance()->loadAll();
 
@@ -70,6 +71,7 @@ void Game::processEvents() {
     while(this->rwWindow.pollEvent(eEvent)) {
         switch(eEvent.type) {
             case sf::Event::Closed:
+                MusicManager::getInstance()->unloadAll();
                 SFXManager::getInstance()->unloadAll();
                 this->rwWindow.close();
                 break;

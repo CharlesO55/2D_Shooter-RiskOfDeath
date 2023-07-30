@@ -6,6 +6,7 @@
 
 #include "Singleton/GameObjectManager.hpp"
 #include "Singleton/TextureManager.hpp"
+#include "Singleton/MusicManager.hpp"
 #include "Singleton/SFXManager.hpp"
 #include "Singleton/FontManager.hpp"
 

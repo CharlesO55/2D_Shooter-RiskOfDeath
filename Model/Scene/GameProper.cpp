@@ -16,7 +16,6 @@ void GameProper::onLoadObjects() {
     //DISABLE THE SIDE VIEW UNTIL SWITCHED TO BY KEY PRESS
     ViewManager::getInstance()->getView(ViewTag::SIDEVIEW_SCREEN)->setEnabled(false);
 
-
     this->createNullObjectComponents();
     this->createObjectPools();
 

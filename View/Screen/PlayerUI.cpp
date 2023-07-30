@@ -62,6 +62,11 @@ void PlayerUI::onClick(Button* pButton){
     if (pButton->getName() == "Surrender Button"){
         ScoreManager::getInstance()->logScoreOnEnd("Test_Player");
         SceneManager::getInstance()->loadScene(SceneTag::LEADERBOARD);
+
+        MusicManager::getInstance()->getMusic(MusicType::GAME_PROPER)->stop();
+        MusicManager::getInstance()->getMusic(MusicType::LEADERBOARDS)->setVolume(40.0f);
+        MusicManager::getInstance()->getMusic(MusicType::LEADERBOARDS)->play();
+        MusicManager::getInstance()->getMusic(MusicType::LEADERBOARDS)->setLoop(true);
     }
 }
 

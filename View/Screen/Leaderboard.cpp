@@ -34,6 +34,11 @@ void Leaderboard::initialize(){
 void Leaderboard::onClick(Button* pButton){
     if (pButton->getName() == "Main Menu Button"){
         SceneManager::getInstance()->loadScene(SceneTag::MAIN_MENU);
+
+        MusicManager::getInstance()->getMusic(MusicType::LEADERBOARDS)->stop();
+        MusicManager::getInstance()->getMusic(MusicType::MAIN_MENU)->setVolume(40.0f);
+        MusicManager::getInstance()->getMusic(MusicType::MAIN_MENU)->play();
+        MusicManager::getInstance()->getMusic(MusicType::MAIN_MENU)->setLoop(true);
     }
 }
 
