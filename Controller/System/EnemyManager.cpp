@@ -6,18 +6,27 @@ void EnemyManager::kill(sf::Vector2f vecLocation) {
     int nIndex = -1;
     GameObject* pTarget;
     
-    //Modify this function for piercing bullets later on.
-    for (int i = (this->vecKillable.size()) - 1; i > -1 && nIndex == -1; i--) {
-        pTarget = this->vecKillable[i]->getOwner();
+    if (ItemManager::getInstance()->isItemActive(ItemType::PIERCING_SHOT)) {
+        for (int i = 0; i < vecKillable.size(); i++) {
+            pTarget = this->vecKillable[i]->getOwner();
 
-        if(!this->vecKillable[i]->isKilled() && pTarget->isEnabled() /*&& pTarget->getSprite()->getGlobalBounds().contains(vecLocation)*/ && this->isLocInSprite(pTarget, vecLocation)){
-            nIndex = i;
+            if(!this->vecKillable[i]->isKilled() && pTarget->isEnabled() && this->isLocInSprite(pTarget, vecLocation))
+                this->vecKillable[i]->setKilled(true);
         }
     }
 
-    if(nIndex != -1) {
-        pTarget = this->vecKillable[nIndex]->getOwner();
-        this->vecKillable[nIndex]->setKilled(true);
+    else {
+        for (int i = (this->vecKillable.size()) - 1; i > -1 && nIndex == -1; i--) {
+            pTarget = this->vecKillable[i]->getOwner();
+
+            if(!this->vecKillable[i]->isKilled() && pTarget->isEnabled() && this->isLocInSprite(pTarget, vecLocation))
+                nIndex = i;
+        }
+
+        if(nIndex != -1) {
+            pTarget = this->vecKillable[nIndex]->getOwner();
+            this->vecKillable[nIndex]->setKilled(true);
+        }
     }
 }
 
@@ -58,7 +67,7 @@ void EnemyManager::perform() {
     }
 
     //This spawns a wave of enemies for every 8 seconds.
-    if (this->fTime > 1.0f) {
+    if (this->fTime > 0.3f) { //Adjust later, spawn set to this for testing
         this->fTime = 0.0f;
 
         //This spawns the wave. Replace with the formula for enemy count per wave.

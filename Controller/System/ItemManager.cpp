@@ -9,19 +9,31 @@ void ItemManager::obtain(sf::Vector2f vecLocation) {
     for (int i = (this->vecObtainable.size()) - 1; i > -1 && nIndex == -1; i--) {
         pOwner = this->vecObtainable[i]->getOwner();
 
-        if(!this->vecObtainable[i]->isObtained() && pOwner->isEnabled() && pOwner->getSprite()->getGlobalBounds().contains(vecLocation)) 
+        if(!this->vecObtainable[i]->isObtained() && pOwner->isEnabled() && this->isLocInSprite(pOwner, vecLocation)) 
             nIndex = i;
     }
 
     if(nIndex != -1) {
         pOwner = this->vecObtainable[nIndex]->getOwner();
-        this->vecObtainable[nIndex]->setObtained(true); //Adjust later on when applying the buff
+        this->vecObtainable[nIndex]->setObtained(true);
     }
 }
 
 void ItemManager::spawn() {
     PoolTag ETag = this->getRandomPool();
     ObjectPoolManager::getInstance()->getPool(ETag)->requestPoolable();
+}
+
+bool ItemManager::isLocInSprite(GameObject* pTarget, sf::Vector2f vecLocation) {
+    if (ViewManager::getInstance()->getView(ViewTag::FRONTVIEW_SCREEN)->isEnabled()){
+        sf::FloatRect CInitialBounds = pTarget->getSprite()->getGlobalBounds();
+        sf::Transform CViewTransform = ViewManager::getInstance()->getView(ViewTag::FRONTVIEW_SCREEN)->getBackground()->getSprite()->getTransform();
+        sf::FloatRect CFinalBounds = CViewTransform.transformRect(CInitialBounds);
+
+        return CFinalBounds.contains(vecLocation);
+    }
+
+    return false;
 }
 
 void ItemManager::perform() {
@@ -48,28 +60,72 @@ void ItemManager::perform() {
             }
         }
     }
+
+    //UNCOMMENT FOR TESTING
+    // if (this->fTime > 1.0f) {
+    //     this->fTime = 0.0f;
+
+
+    //         PoolTag ETag = this->getRandomPool();
+    //         ObjectPoolManager::getInstance()->getPool(ETag)->requestPoolable();
+        
+    // }
 }
 
 PoolTag ItemManager::getRandomPool() {
     int nPool = (std::rand() % 3) + 1; //ONLY BASE POWERUPS ARE INCLUDED - Adjust later when other powerups are introduced
 
-    if (nPool == 1)
-        return PoolTag::HEALTH_BOOST;
+    switch (nPool) {
+        case 1:
+            return PoolTag::HEALTH_BOOST;
 
-    else if (nPool == 2)
-        return PoolTag::DAMAGE_BOOST;
+        case 2:
+            return PoolTag::DAMAGE_BOOST;
 
-    else if (nPool == 3)
-        return PoolTag::PIERCING_SHOT;
+        case 3:
+            return PoolTag::PIERCING_SHOT;
+        
+        case 4:
+            return PoolTag::INFINITY_AMMO;
+        
+        case 5:
+            return PoolTag::NUKE;
 
-    else if (nPool == 4)
-        return PoolTag::INFINITY_AMMO;
+        default:
+            return PoolTag::NONE;
+    }
+}
 
-    else if (nPool == 5)
-        return PoolTag::NUKE;
+bool ItemManager::isItemActive(ItemType EType) {
+    switch (EType) {
+        case ItemType::DAMAGE_BOOST:
+            return this->bDamageBoost;
 
-    else
-        return PoolTag::NONE;
+        case ItemType::PIERCING_SHOT:
+            return this->bPiercingAmmo;
+
+        case ItemType::INFINITY_AMMO:
+            return this->bInfiniteAmmo;
+
+        default:
+            return false;
+    }
+}
+
+void ItemManager::setItemState(ItemType EType, bool bState) {
+    switch (EType) {
+        case ItemType::DAMAGE_BOOST:
+            this->bDamageBoost = bState;
+
+        case ItemType::PIERCING_SHOT:
+            this->bPiercingAmmo = bState;
+
+        case ItemType::INFINITY_AMMO:
+            this->bInfiniteAmmo = bState;
+
+        default:
+            break;
+    }
 }
 
 void ItemManager::registerComponent(Obtainable* pObtainable) {

@@ -7,6 +7,7 @@
 
 #include "../../Model/Pooling/Items/BaseItem.hpp"
 #include "../../Model/Enum/EnumPoolTag.hpp"
+#include "../../Model/Enum/EnumItemType.hpp"
 #include "../../Model/Entity/Crosshair.hpp"
 #include "../../Model/GameObject.hpp"
 
@@ -21,13 +22,25 @@ namespace systems {
             float fTime = 0.0f;
             std::vector<Obtainable*> vecObtainable;
 
+        private:
+            bool bDamageBoost = false;
+            bool bPiercingAmmo = false;
+            bool bInfiniteAmmo = false;
+
         public:
             void obtain(sf::Vector2f vecLocation);
             void spawn();
 
+            bool isLocInSprite(GameObject* pTarget, sf::Vector2f vecLocation);
+
             void perform();
             PoolTag getRandomPool();
 
+        public:
+            bool isItemActive(ItemType EType);
+            void setItemState(ItemType EType, bool bState);
+
+        public:
             void registerComponent(Obtainable* pObtainable);
             void unregisterComponent(Obtainable* pObtainable);
 

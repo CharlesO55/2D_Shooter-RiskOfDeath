@@ -9,13 +9,13 @@ void BaseItem::initialize() {
     this->getSprite()->setScale(3.0f, 3.0f);
     this->centerSpriteOrigin();
 
-    Renderer* pRendererComponent = new Renderer(this->strName + " Sprite");
-    pRendererComponent->assignDrawable(this->pSprite);
+    RendererSpawnable* pSpawnableComponent = new RendererSpawnable(this->strName + " Sprite");
+    pSpawnableComponent->assignDrawable(this->pSprite);
 
     Obtainable* pObtainableComponent = new Obtainable(this->strName + " Obtainable");
     ItemManager::getInstance()->registerComponent(pObtainableComponent);
 
-    this->attachComponent(pRendererComponent);
+    this->attachComponent(pSpawnableComponent);
     this->attachComponent(pObtainableComponent);   
 }
 

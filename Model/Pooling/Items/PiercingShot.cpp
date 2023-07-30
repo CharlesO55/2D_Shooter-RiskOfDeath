@@ -2,7 +2,7 @@
 
 using namespace models;
 
-PiercingShot::PiercingShot(std::string strName, AnimatedTexture* pTexture) : BaseItem(strName, pTexture, PoolTag::PIERCING_SHOT, 3.0f){}
+PiercingShot::PiercingShot(std::string strName, AnimatedTexture* pTexture) : BaseItem(strName, pTexture, PoolTag::PIERCING_SHOT, 2.0f){}
 
 PoolableObject* PiercingShot::clone() {
     PoolableObject* pClone = new PiercingShot(this->strName, new AnimatedTexture(*this->pTexture));
