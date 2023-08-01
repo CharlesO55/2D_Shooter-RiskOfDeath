@@ -96,9 +96,11 @@ void TextureManager::loadUIFolder() {
             this->loadTexture(AssetType::INVENTORY_2, "View/Image/UI/Inventory_2.png");
             this->loadTexture(AssetType::INVENTORY_3, "View/Image/UI/Inventory_3.png");
 
-            this->loadTexture(AssetType::STATUS_DAMAGE, "View/Image/UI/Damage_Boost.png");
-            this->loadTexture(AssetType::STATUS_PIERCE, "View/Image/UI/Piercing_Ammo.png");
-            this->loadTexture(AssetType::STATUS_INFINITE, "View/Image/UI/Infinity_Ammo.png");
+            this->loadTexture(AssetType::DAMAGE_BOOST, "View/Image/UI/Damage_Boost.png");
+            this->loadTexture(AssetType::PIERCING_AMMO, "View/Image/UI/Piercing_Ammo.png");
+            this->loadTexture(AssetType::INFINITY_AMMO, "View/Image/UI/Infinity_Ammo.png");
+            this->loadTexture(AssetType::HEALTH_BOOST, "View/Image/UI/Health_Boost.png");
+            this->loadTexture(AssetType::NUKE, "View/Image/UI/Instant_Kill.png");
             break;
             
         default:

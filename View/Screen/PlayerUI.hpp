@@ -16,6 +16,8 @@ namespace views{
 
     class PlayerUI : public View, public ButtonListener {
         private:
+            int nHearts;
+            int nBullets;
             views::Text *pScoreText;
 
         public:
@@ -29,7 +31,25 @@ namespace views{
         private:
             void createHearts();
             void createBullets();
+
+            void createHeartCases();
+            void createBulletCases();
+
             void createInventory();
+            void createStatus();
+
+        public:
+            void incrementHealth(int nHealth);
+            void decrementHealth();
+
+            void reloadBullets();
+            void decrementBullets();
+
+            void updateActiveEffects();
+
+        public:
+            int getHealth();
+            int getBullets();
 
         public:
             void onClick(Button* pButton);

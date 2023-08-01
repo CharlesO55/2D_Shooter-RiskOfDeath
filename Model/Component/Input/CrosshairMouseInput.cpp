@@ -37,15 +37,16 @@ void CrosshairMouseInput::resetRightClick() {
 }
 
 void CrosshairMouseInput::processMouseInput(sf::Mouse::Button inMouse, bool bPressed) {
+    PlayerUI* pUI = (PlayerUI*)GameObjectManager::getInstance()->findObjectByName("Player UI");
+
     switch(inMouse) {
         case sf::Mouse::Left:
             this->bLeftClick = bPressed;
             if (bPressed) {
-                //Can also add an additional condition about the bullet count
-                //Adjust this function as needed for screen partitioning
-                //Implement an input for keyboard buttons that can also reload the bullets in a separate component
-                SFXManager::getInstance()->getSound(SFXType::PLAYER_BULLET)->play();
                 std::cout << "[LMB] : Pressed" << std::endl;
+
+                pUI->decrementBullets();
+                SFXManager::getInstance()->getSound(SFXType::PLAYER_BULLET)->play();
             }
             break;
 
@@ -53,6 +54,8 @@ void CrosshairMouseInput::processMouseInput(sf::Mouse::Button inMouse, bool bPre
             this->bRightClick = bPressed;
             if (bPressed) {
                 std::cout << "[RMB] : Pressed" << std::endl;
+
+                pUI->reloadBullets(); //MAINLY FOR TEST PURPOSES. REMOVE AFTER
             }
             break;
 

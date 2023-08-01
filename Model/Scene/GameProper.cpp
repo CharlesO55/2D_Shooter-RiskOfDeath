@@ -78,13 +78,13 @@ void GameProper::createObjectPools() {
     ObjectPoolManager::getInstance()->registerObjectPool(pGhostPool);
 
     //Buff Pools - TEMPORARY ASSETS, REPLACE LATER
-    pTexture = new AnimatedTexture(TextureManager::getInstance()->getTexture(AssetType::BULLET_CASE));
+    pTexture = new AnimatedTexture(TextureManager::getInstance()->getTexture(AssetType::DAMAGE_BOOST));
     GameObjectPool* pDamageBuffPool = new GameObjectPool(PoolTag::DAMAGE_BOOST, 5, new DamageBoost("Damage Buff", pTexture), NULL);
 
-    pTexture = new AnimatedTexture(TextureManager::getInstance()->getTexture(AssetType::HEART_CASE));
+    pTexture = new AnimatedTexture(TextureManager::getInstance()->getTexture(AssetType::HEALTH_BOOST));
     GameObjectPool* pHealthBuffPool = new GameObjectPool(PoolTag::HEALTH_BOOST, 5, new HealthBoost("Health Buff", pTexture), NULL);
 
-    pTexture = new AnimatedTexture(TextureManager::getInstance()->getTexture(AssetType::BULLET));
+    pTexture = new AnimatedTexture(TextureManager::getInstance()->getTexture(AssetType::PIERCING_AMMO));
     GameObjectPool* pPiercingBuffPool = new GameObjectPool(PoolTag::PIERCING_SHOT, 5, new PiercingShot("Piercing Buff", pTexture), NULL);
 
     pDamageBuffPool->initialize();

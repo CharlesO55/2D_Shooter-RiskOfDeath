@@ -20,6 +20,8 @@ namespace systems {
     class ItemManager : public Component {
         private:
             float fTime = 0.0f;
+            float fDamageCooldown = 0.0f;
+            float fInfinityCooldown = 0.0f;
             std::vector<Obtainable*> vecObtainable;
 
         private:
@@ -32,15 +34,14 @@ namespace systems {
             void spawn();
 
             bool isLocInSprite(GameObject* pTarget, sf::Vector2f vecLocation);
-
             void perform();
+            void cooldown(float fTime);
+
             PoolTag getRandomPool();
 
         public:
             bool isItemActive(ItemType EType);
             void setItemState(ItemType EType, bool bState);
-
-        public:
             void registerComponent(Obtainable* pObtainable);
             void unregisterComponent(Obtainable* pObtainable);
 

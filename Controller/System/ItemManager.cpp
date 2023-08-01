@@ -38,8 +38,8 @@ bool ItemManager::isLocInSprite(GameObject* pTarget, sf::Vector2f vecLocation) {
 
 void ItemManager::perform() {
     this->fTime += this->tDeltaTime.asSeconds();
-
     Crosshair* pCrosshair = (Crosshair*)GameObjectManager::getInstance()->findObjectByName("Crosshair");
+
     if(pCrosshair == NULL) 
         std::cout << "[ERROR] : One or more dependencies are missing." << std::endl;
     
@@ -50,8 +50,6 @@ void ItemManager::perform() {
             std::cout << "[ERROR] : One or more dependencies are missing." << std::endl;
         
         else {
-            
-
             if(pCrosshairMouseInput->isLeftClick()) { 
                 std::cout << "[ItemManager] : Left click Detected" << std::endl;
 
@@ -61,15 +59,37 @@ void ItemManager::perform() {
         }
     }
 
+    this->cooldown(this->tDeltaTime.asSeconds());
+
     //UNCOMMENT FOR TESTING
-    // if (this->fTime > 1.0f) {
-    //     this->fTime = 0.0f;
+     if (this->fTime > 1.0f) {
+         this->fTime = 0.0f;
 
 
-    //         PoolTag ETag = this->getRandomPool();
-    //         ObjectPoolManager::getInstance()->getPool(ETag)->requestPoolable();
+             PoolTag ETag = this->getRandomPool();
+             ObjectPoolManager::getInstance()->getPool(ETag)->requestPoolable();
         
-    // }
+     }
+}
+
+void ItemManager::cooldown(float fTime) {
+    if (this->bDamageBoost) {
+        this->fDamageCooldown += fTime;
+
+        if (this->fDamageCooldown > 5.0f) {
+            this->fDamageCooldown = 0.0f;
+            this->setItemState(ItemType::DAMAGE_BOOST, false);
+        }
+    }
+
+    else if (this->bInfiniteAmmo) {
+        this->fInfinityCooldown += fTime;
+
+        if (this->fInfinityCooldown > 5.0f) {
+            this->fInfinityCooldown = 0.0f;
+            this->setItemState(ItemType::INFINITY_AMMO, false);
+        }
+    }
 }
 
 PoolTag ItemManager::getRandomPool() {
@@ -116,16 +136,22 @@ void ItemManager::setItemState(ItemType EType, bool bState) {
     switch (EType) {
         case ItemType::DAMAGE_BOOST:
             this->bDamageBoost = bState;
+            break;
 
         case ItemType::PIERCING_SHOT:
             this->bPiercingAmmo = bState;
+            break;
 
         case ItemType::INFINITY_AMMO:
             this->bInfiniteAmmo = bState;
+            break;
 
         default:
             break;
     }
+
+    PlayerUI* pUI = (PlayerUI*)GameObjectManager::getInstance()->findObjectByName("Player UI");
+    pUI->updateActiveEffects();
 }
 
 void ItemManager::registerComponent(Obtainable* pObtainable) {

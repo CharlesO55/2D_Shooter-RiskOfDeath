@@ -17,6 +17,8 @@ void EnemyManager::kill(sf::Vector2f vecLocation) {
             else if (!this->vecKillable[i]->isKilled() && pTarget->isEnabled() && this->isLocInSprite(pTarget, vecLocation))
                 this->vecKillable[i]->damage();
         }
+
+        ItemManager::getInstance()->setItemState(ItemType::PIERCING_SHOT, false);
     }
 
     else {
