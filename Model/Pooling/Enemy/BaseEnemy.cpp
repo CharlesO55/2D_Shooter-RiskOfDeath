@@ -27,10 +27,14 @@ void BaseEnemy::initialize() {
 
     MoveForward* pMoveForward = new MoveForward(this->strName + " MoveForward");
 
+    this->pBlinker = new Blinker(this->strName + " Blinker");
+    pBlinker->setBlinkable(this);
+
     this->attachComponent(pRendererSpawanable);
     this->attachComponent(pKillableComponent);   
     this->attachComponent(pPosInterpreter);
     this->attachComponent(pMoveForward);
+    this->attachComponent(pBlinker);
 }
 
 void BaseEnemy::onActivate() {
@@ -71,4 +75,16 @@ sf::Vector3f BaseEnemy::getScenePos(){
 
 void BaseEnemy::setZPos(float fZ){
     this->vecScenePos.z = fZ;
+}
+
+void BaseEnemy::blink(){
+    sf::Color CColor;
+    CColor = (this->pSprite->getColor() != sf::Color::White) 
+        ? sf::Color::White 
+        : sf::Color::Red;
+    
+    this->pSprite->setColor(CColor);
+
+
+    std::cout << "BLINK";
 }

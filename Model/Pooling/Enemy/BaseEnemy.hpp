@@ -18,6 +18,8 @@
 #include "../../../Controller/System/PhysicsManager.hpp"
 #include "../../../Controller/System/EnemyManager.hpp"
 
+#include "../../Component/Script/Blinker.hpp"
+
 #   ifndef DISABLE_INTELLISENSE_INCLUDES
 #   include <SFML/Graphics.hpp>
 #   endif
@@ -26,7 +28,7 @@ namespace models {
     using namespace components;
     using namespace systems;
 
-    class BaseEnemy : public PoolableObject {
+    class BaseEnemy : public PoolableObject , public Blinkable {
         protected:
             int nHealth;
             int nMaxHealth;
@@ -45,6 +47,8 @@ namespace models {
             void onActivate();
             virtual void onRelease() = 0;
             virtual PoolableObject* clone() = 0;
+
+            void blink();
 
         protected:
             void randomizePosition();

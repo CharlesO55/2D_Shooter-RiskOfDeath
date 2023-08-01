@@ -8,6 +8,8 @@ Smit
 Jack
 194
 Test_Player
+129
+Test_Player
 100
 Loss
 87

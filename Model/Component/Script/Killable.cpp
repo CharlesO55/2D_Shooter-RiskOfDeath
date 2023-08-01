@@ -21,6 +21,7 @@ void Killable::perform() {
 
 void Killable::damage() {
     BaseEnemy* pEnemy = (BaseEnemy*)this->pOwner;
+    pEnemy->getBlinker()->start();
 
     if (!ItemManager::getInstance()->isItemActive(ItemType::DAMAGE_BOOST))
         pEnemy->setHealth(pEnemy->getHealth() - 1);

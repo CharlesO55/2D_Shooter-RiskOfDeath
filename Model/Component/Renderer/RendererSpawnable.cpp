@@ -12,6 +12,6 @@ void RendererSpawnable::perform(){
     if (ViewManager::getInstance()->getView(ViewTag::FRONTVIEW_SCREEN)->isEnabled()){
         this->CRenderStates = ViewManager::getInstance()->getView(ViewTag::FRONTVIEW_SCREEN)->getBackground()->getSprite()->getTransform();
     }
-
+    // this->pOwner->getSprite()->setColor(sf::Color::Red);
     Renderer::perform();
 }
