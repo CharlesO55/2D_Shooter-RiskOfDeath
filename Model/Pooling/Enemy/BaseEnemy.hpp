@@ -19,6 +19,7 @@
 #include "../../../Controller/System/EnemyManager.hpp"
 
 #include "../../Component/Script/Blinker.hpp"
+#include "../../Component/Script/Interface/Positionable.hpp"
 
 #   ifndef DISABLE_INTELLISENSE_INCLUDES
 #   include <SFML/Graphics.hpp>
@@ -27,17 +28,14 @@
 namespace models {
     using namespace components;
     using namespace systems;
+    using namespace interfaces;
 
-    class BaseEnemy : public PoolableObject , public Blinkable {
+    class BaseEnemy : public PoolableObject , public Blinkable, public Positionable {
         protected:
             int nHealth;
             int nMaxHealth;
             float fSpeed;
             float fKillableSpeed;
-            
-            float fDefaultScale;        //DEFAULT SCALE IS BASED ON THE NORMAL SIZE AS SEEN FROM SIDE VIEW
-            sf::Vector3f vecScenePos;   //TRUE POSITION IN THE GAME WORLD. vecPos will be display pos dependent on Screen/Renderer
-            //z = 0 is at player; z = 100 is away from player
 
         public:
             BaseEnemy(std::string strName, AnimatedTexture* pTexture, PoolTag ETag, int nHealth = 1, float fScale = 1.f, float fSpeed = 1.f, float fKillableSpeed = 0.1f);
@@ -57,10 +55,6 @@ namespace models {
             float getSpeed();
             int getHealth();
             void setHealth(int nHealth);
-
-            float getDefaultScale();
-            sf::Vector3f getScenePos();
-            void setZPos(float fZ);
     };
 }
 

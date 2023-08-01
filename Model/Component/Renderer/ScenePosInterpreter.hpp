@@ -4,6 +4,8 @@
 #include "../../Pooling/Enemy/BaseEnemy.hpp"
 #include "../../../Controller/System/ViewManager.hpp"
 
+#include "../Script/Interface/Positionable.hpp"
+
 namespace components{
     using namespace models;
     class ScenePosInterpreter : public Component{

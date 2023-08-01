@@ -7,10 +7,9 @@ BaseEnemy::BaseEnemy(std::string strName, AnimatedTexture* pTexture, PoolTag ETa
     this->nMaxHealth = nMaxHealth;
     this->fSpeed = fSpeed;
     this->fKillableSpeed = fKillableSpeed;
+
     this->fDefaultScale = fScale;
-
     this->vecScenePos = {0.f, 0.f, 0.f};
-
 }
 
 void BaseEnemy::initialize() {
@@ -65,18 +64,6 @@ int BaseEnemy::getHealth() {
 
 void BaseEnemy::setHealth(int nHealth) {
     this->nHealth = nHealth;
-}
-
-float BaseEnemy::getDefaultScale(){
-    return this->fDefaultScale;
-}
-
-sf::Vector3f BaseEnemy::getScenePos(){
-    return this->vecScenePos;
-}
-
-void BaseEnemy::setZPos(float fZ){
-    this->vecScenePos.z = fZ;
 }
 
 void BaseEnemy::blink(){

@@ -72,8 +72,11 @@
 #include "Model/Entity/Mr. Alien/Part/TopStamen.cpp"
 #include "Model/Entity/Mr. Alien/Part/TopTentacle.cpp"
 #include "Model/Entity/Border/Border.cpp"
-#include "Model/Entity/Blocker/Blocker.cpp"
 #include "Model/Entity/Crosshair.cpp"
+
+#include "Model/Entity/Blocker/BaseBlocker.cpp"
+#include "Model/Entity/Blocker/BoulderBlocker.cpp"
+
 
 #include "Model/Scene/MainMenuScene.cpp"
 #include "Model/Scene/GameScene.cpp"
@@ -105,6 +108,7 @@
 #include "Model/Component/Script/Blinker.cpp"
 #include "Model/Component/Script/IdleMovement.cpp"
 #include "Model/Component/Script/MoveForward.cpp"
+#include "Model/Component/Script/MoveXY.cpp"
 #include "Model/Component/Script/Killable.cpp"
 #include "Model/Component/Script/Obtainable.cpp"
 #include "Model/Component/Script/PlayerBulletMovement.cpp"

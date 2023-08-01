@@ -98,10 +98,9 @@ void GameProper::createObjectPools() {
 }
 
 
-void GameProper::createBlockers(){/* 
-    AnimatedTexture* pTex = new AnimatedTexture(TextureManager::getInstance()->getTexture(AssetType::BOULDER_ROUND));
-    Blocker* pBlocker = new Blocker("Test Blocker", pTex);
-
-    pBlocker->initialize();
-    this->registerObject(pBlocker); */
+void GameProper::createBlockers(){
+    BoulderBlocker *pBoulderL = new BoulderBlocker(sf::FloatRect(0, SCREEN_HEIGHT/2, 100, SCREEN_HEIGHT/2-200), {1,0});
+    BoulderBlocker *pBoulderR = new BoulderBlocker(sf::FloatRect(SCREEN_WIDTH/2, SCREEN_HEIGHT/2, SCREEN_WIDTH/2, SCREEN_HEIGHT/2-200), {-1,0});
+    this->registerObject(pBoulderL);
+    this->registerObject(pBoulderR);
 }
