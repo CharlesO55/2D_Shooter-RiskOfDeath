@@ -19,6 +19,26 @@ View* ViewManager::getView(ViewTag ETag) {
     return this->mapView[ETag];
 }
 
+int ViewManager::getScreenRows(){ return this->nScreenRows; }
+int ViewManager::getScreenCols(){ return this->nScreenCols; }
+
+void ViewManager::incrementRows(){ 
+    this->nScreenRows++;
+
+    if (nScreenRows > 6){
+        this->nScreenRows = 2;
+    }
+}
+
+void ViewManager::incrementCols(){  
+    this->nScreenCols++;
+
+    if (nScreenCols > 6){
+        this->nScreenCols = 2;
+    }
+}
+
+
 /* * * * * * * * * * * * * * * * * * * * * 
  *       SINGLETON-RELATED CONTENT       * 
  * * * * * * * * * * * * * * * * * * * * */

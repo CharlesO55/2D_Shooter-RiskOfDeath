@@ -31,6 +31,9 @@ namespace views {
     using namespace systems;
 
     class MainMenu : public View, public ButtonListener {
+        private:
+            views::Text *pScreenCountText[2];
+
         public:
             MainMenu();
             ~MainMenu();

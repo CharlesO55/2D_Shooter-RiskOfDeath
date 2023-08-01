@@ -1,6 +1,7 @@
 #include "MainMenu.hpp"
 
 using namespace views;
+using namespace systems;
 
 /* * * * * * * [NEW CONTENT] * * * * * * */
 /* This class renders a [MainMenu] screen
@@ -15,21 +16,6 @@ MainMenu::~MainMenu() {}
 /* Creates the [Background] and [Button],
  * and layouts it in the screen. */
 void MainMenu::initialize() {
-    /* AnimatedTexture* pTexture = new AnimatedTexture(TextureManager::getInstance()->getTexture(AssetType::BUTTON_START));
-    Button* pButton = new Button(this->getName() + " Start Button", pTexture);
-    
-    pButton->getSprite()->setScale(0.6f, 0.6f);
-    pButton->getSprite()->setPosition(SCREEN_WIDTH / 2.0f, SCREEN_HEIGHT * 0.79);
-    pButton->centerSpriteOrigin();
-
-    pButton->setListener(this);
-    this->attachChild(pButton); */
-    /* this->createButton(this, 
-        this->strName + " Start Button", 
-        AssetType::BUTTON_START, 
-        {SCREEN_WIDTH / 2, SCREEN_HEIGHT / 2}
-    ); */
-
     //GAME TITLE 
     this->attachChild (new 
         views::Text("Title", "Risk of Death",
@@ -39,16 +25,27 @@ void MainMenu::initialize() {
             true
         )
     );
-/* 
-    views::Text* pQuitText = new views::Text("Quit Text", "QUIT", {SCREEN_WIDTH / 2, SCREEN_HEIGHT / 1.5}, FontType::DEFAULT, DEFAULT_TEXT_SIZE * 2, true);
-    Button* pQuitButton = new Button("Quit Button", pQuitText->getText());
-    pQuitButton->setListener(this);
-    this->attachChild(pQuitButton); */
+
+
     float fOffset = 100;
     this->createTextButton(this, "Start Button", "Start", {SCREEN_WIDTH / 2, SCREEN_HEIGHT / 2 + fOffset}, DEFAULT_TEXT_SIZE * 1.5);
     this->createTextButton(this, "Leaderboard Button", "Leaderboard", {SCREEN_WIDTH / 2, SCREEN_HEIGHT / 2 + fOffset * 2}, DEFAULT_TEXT_SIZE * 1.5);
     this->createTextButton(this, "Quit Button", "Quit Game", {SCREEN_WIDTH / 2, SCREEN_HEIGHT / 2 + fOffset * 3}, DEFAULT_TEXT_SIZE * 1.5);
     this->createTextButton(this, "Debug Button", "Old Debug", {150.f, 50.f});
+
+
+    //SCREEN TOGGLE SETTINGS
+    int nDim[2] = {ViewManager::getInstance()->getScreenRows(), ViewManager::getInstance()->getScreenCols()}; 
+    int nFontSize = 20;
+
+    this->pScreenCountText[0] = new views::Text("Rows Text", "Screen Rows: " + std::to_string(nDim[0]), {SCREEN_WIDTH - 200, DEFAULT_TEXT_SIZE}, FontType::DEFAULT, nFontSize, true);
+    this->pScreenCountText[1] = new views::Text("Cols Text", "Screen Cols: " + std::to_string(nDim[1]), {SCREEN_WIDTH - 200, DEFAULT_TEXT_SIZE * 2.5}, FontType::DEFAULT, nFontSize, true);
+
+    this->createTextButton(this, "Change Rows Button", "Change", {SCREEN_WIDTH - 50, DEFAULT_TEXT_SIZE}, nFontSize);
+    this->createTextButton(this, "Change Cols Button", "Change", {SCREEN_WIDTH - 50, DEFAULT_TEXT_SIZE * 2.5}, nFontSize);
+
+    this->attachChild(this->pScreenCountText[0]);
+    this->attachChild(this->pScreenCountText[1]);
 }
 
 void MainMenu::onClick(Button* pButton) {
@@ -77,12 +74,21 @@ void MainMenu::onClick(Button* pButton) {
         MusicManager::getInstance()->getMusic(MusicType::LEADERBOARDS)->setVolume(40.0f);
         MusicManager::getInstance()->getMusic(MusicType::LEADERBOARDS)->play();
         MusicManager::getInstance()->getMusic(MusicType::LEADERBOARDS)->setLoop(true);
+
     }
     else if (pButton->getName() == "Quit Button"){
         bCloseGame = true;
     }
     else if (pButton->getName() == "Debug Button"){
-        systems::SceneManager::getInstance()->loadScene(SceneTag::GAME_SCENE);
+        SceneManager::getInstance()->loadScene(SceneTag::GAME_SCENE);
+    }
+    else if (pButton->getName() == "Change Rows Button"){
+        ViewManager::getInstance()->incrementRows();
+        this->pScreenCountText[0]->setText("Screen Rows: " + std::to_string(ViewManager::getInstance()->getScreenRows()));
+    }
+    else if (pButton->getName() == "Change Cols Button"){
+        ViewManager::getInstance()->incrementCols();
+        this->pScreenCountText[1]->setText("Screen Cols: " + std::to_string(ViewManager::getInstance()->getScreenCols()));
     }
 }
 

@@ -11,6 +11,9 @@ namespace systems {
     class ViewManager {
         private:
             std::unordered_map<ViewTag, View*> mapView;
+            int nScreenRows = 2;
+            int nScreenCols = 2;
+
 
         public:
             void registerView(View* pView);
@@ -18,6 +21,10 @@ namespace systems {
         
         public:
             View* getView(ViewTag ETag);
+            int getScreenRows();
+            int getScreenCols();
+            void incrementRows();
+            void incrementCols();
 
         /* * * * * * * * * * * * * * * * * * * * * 
          *       SINGLETON-RELATED CONTENT       * 
