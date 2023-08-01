@@ -9,6 +9,7 @@ namespace components{
     class GameScreenNavigation : public Component{
         private:
             GameNavigationInput* pNavInputRef;
+            bool bFreeZoomMode;
 
 
             int nCooldownTicker = 0;
@@ -25,5 +26,8 @@ namespace components{
         private:
             void resetInputFlags();
             void keepInBounds(float *pValue, float fMin, float fMax);
+
+            void freeZoomScreen();
+            void screenLockedZoomScreen();
     };
 }

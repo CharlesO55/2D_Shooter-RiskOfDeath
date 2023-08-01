@@ -26,7 +26,7 @@ void ViewManager::incrementRows(){
     this->nScreenRows++;
 
     if (nScreenRows > 6){
-        this->nScreenRows = 2;
+        this->nScreenRows = 1;
     }
 }
 
@@ -34,7 +34,7 @@ void ViewManager::incrementCols(){
     this->nScreenCols++;
 
     if (nScreenCols > 6){
-        this->nScreenCols = 2;
+        this->nScreenCols = 1;
     }
 }
 
