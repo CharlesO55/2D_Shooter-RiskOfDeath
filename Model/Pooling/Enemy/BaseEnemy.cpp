@@ -40,6 +40,7 @@ void BaseEnemy::initialize() {
 void BaseEnemy::onActivate() {
     this->randomizePosition();
     this->nHealth = this->nMaxHealth;
+    this->pSprite->setColor(sf::Color::White);
 }
 
 void BaseEnemy::randomizePosition() { 
@@ -79,12 +80,17 @@ void BaseEnemy::setZPos(float fZ){
 
 void BaseEnemy::blink(){
     sf::Color CColor;
+    //BLINK EITHER WHITE OR RED
     CColor = (this->pSprite->getColor() != sf::Color::White) 
         ? sf::Color::White 
         : sf::Color::Red;
     
+    //SET THE RED TINT TO MATCH THE ENEMY'S REMAINING HP ON LAST BLINK
+    if (this->pBlinker->getBlinksRemaining() == 1){
+        float fTint = ((float)this->nHealth / this->nMaxHealth) * 255;
+        CColor = sf::Color(255.f, fTint, fTint);
+    }
+
+
     this->pSprite->setColor(CColor);
-
-
-    std::cout << "BLINK";
 }

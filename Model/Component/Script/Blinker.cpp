@@ -55,3 +55,8 @@ void Blinker::setBlinkable(Blinkable* pBlinkable) {
 bool Blinker::isBlinking() {
     return this->bBlinking;
 }
+
+
+int Blinker::getBlinksRemaining(){
+    return this->nMaxBlinks - this->nBlinkCount;
+}

@@ -32,6 +32,7 @@ namespace components {
         public:
             void setBlinkable(Blinkable* pBlinkable);
             bool isBlinking();
+            int getBlinksRemaining();
     };
 }
 
