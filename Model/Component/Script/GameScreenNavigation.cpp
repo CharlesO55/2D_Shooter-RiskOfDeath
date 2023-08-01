@@ -25,7 +25,9 @@ void GameScreenNavigation::perform(){
         //RESET FRONT VIEW
         ViewManager::getInstance()->getView(ViewTag::FRONTVIEW_SCREEN)->setEnabled(true);     
         ViewManager::getInstance()->getView(ViewTag::FRONTVIEW_SCREEN)->getBackground()->centerSpriteOrigin();
-        ViewManager::getInstance()->getView(ViewTag::FRONTVIEW_SCREEN)->getBackground()->getSprite()->setScale(1.f, 1.f);     
+        ViewManager::getInstance()->getView(ViewTag::FRONTVIEW_SCREEN)->getBackground()->getSprite()->setScale(1.f, 1.f);
+
+        EnemyManager::getInstance()->switchEnemiesTexture(ViewTag::FRONTVIEW_SCREEN);
 
         //RESET INPUT FLAGS
         this->resetInputFlags();
@@ -35,7 +37,8 @@ void GameScreenNavigation::perform(){
         //DISABLE FRONT VIEW
         ViewManager::getInstance()->getView(ViewTag::FRONTVIEW_SCREEN)->setEnabled(false);
         //ENABLE SIDE VIEW
-        ViewManager::getInstance()->getView(ViewTag::SIDEVIEW_SCREEN)->setEnabled(true);     
+        ViewManager::getInstance()->getView(ViewTag::SIDEVIEW_SCREEN)->setEnabled(true);
+        EnemyManager::getInstance()->switchEnemiesTexture(ViewTag::SIDEVIEW_SCREEN);
 
         //RESET INPUT FLAGS
         this->resetInputFlags();

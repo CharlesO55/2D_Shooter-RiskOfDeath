@@ -53,6 +53,22 @@ bool EnemyManager::isLocInSprite(GameObject* pTarget, sf::Vector2f vecLocation){
 }
 
 
+void EnemyManager::switchEnemiesTexture(ViewTag EDir){
+    //DO NOTHING WHEN TEXTURE IS ALREADY MATCHING VIEW
+    if(EDir == ViewTag::FRONTVIEW_SCREEN && this->vecKillable[0]->getOwner()->getCurrentFrame() == 0){
+        return;
+    }
+    if(EDir == ViewTag::SIDEVIEW_SCREEN && this->vecKillable[0]->getOwner()->getCurrentFrame() == 1){
+        return;
+    }
+
+    //ELSE SWITCH BETWEEN FRAMES
+    for (Killable* pKillable : this->vecKillable){        
+        pKillable->getOwner()->incrementFrame();
+    }
+}
+
+
 void EnemyManager::perform() {
     this->fTime += this->tDeltaTime.asSeconds();
 

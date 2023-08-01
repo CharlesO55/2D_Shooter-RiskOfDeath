@@ -130,9 +130,14 @@ void TextureManager::loadEnemyFolder() {
             this->loadTexture(AssetType::BAT, "View/Image/Enemy/Bat.png");
             this->loadTexture(AssetType::GHOST, "View/Image/Enemy/Ghost.png");
 
+            
+            this->loadTexture(AssetType::SLIME, "View/Image/Enemy/Slime_Side.png");
+            this->loadTexture(AssetType::BAT, "View/Image/Enemy/Bat_Side.png");
+            this->loadTexture(AssetType::GHOST, "View/Image/Enemy/Ghost_Side.png");
+/* 
             this->loadTexture(AssetType::SLIME_SIDE, "View/Image/Enemy/Slime_Side.png");
             this->loadTexture(AssetType::BAT_SIDE, "View/Image/Enemy/Bat_Side.png");
-            this->loadTexture(AssetType::GHOST_SIDE, "View/Image/Enemy/Ghost_Side.png");
+            this->loadTexture(AssetType::GHOST_SIDE, "View/Image/Enemy/Ghost_Side.png"); */
 
         default:
             break;

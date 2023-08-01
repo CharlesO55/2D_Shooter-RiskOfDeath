@@ -10,6 +10,7 @@ BaseEnemy::BaseEnemy(std::string strName, AnimatedTexture* pTexture, PoolTag ETa
     this->fDefaultScale = fScale;
 
     this->vecScenePos = {0.f, 0.f, 0.f};
+
 }
 
 void BaseEnemy::initialize() {
@@ -90,7 +91,6 @@ void BaseEnemy::blink(){
         float fTint = ((float)this->nHealth / this->nMaxHealth) * 255;
         CColor = sf::Color(255.f, fTint, fTint);
     }
-
 
     this->pSprite->setColor(CColor);
 }

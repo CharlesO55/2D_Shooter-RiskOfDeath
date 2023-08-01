@@ -4,6 +4,7 @@
 #include "../Input/GameNavigationInput.hpp"
 #include "../Input/CrosshairMouseInput.hpp"
 #include "../../../Controller/System/ViewManager.hpp"
+#include "../../../Controller/System/EnemyManager.hpp"
 
 namespace components{
     class GameScreenNavigation : public Component{

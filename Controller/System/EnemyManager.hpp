@@ -37,6 +37,7 @@ namespace systems {
             void unregisterComponent(Killable* pKillable);
 
             bool isLocInSprite(GameObject* pTarget, sf::Vector2f vecLocation);
+            void switchEnemiesTexture(ViewTag EDir);
             
 
         private:

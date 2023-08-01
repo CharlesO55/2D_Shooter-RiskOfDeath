@@ -2,17 +2,20 @@
 
 using namespace models;
 
-Blocker::Blocker(/* sf::Texture* pTexture, std::string strName, GameObject* pParent, float fX, float fY */) {
-        // : GameObject()
-        // : GameObject(pTexture, strName + " Blocker", pParent, fX, fY){
+Blocker::Blocker(std::string strName, AnimatedTexture* pTexture) : GameObject(strName, pTexture) {
 }
 
 Blocker::~Blocker(){
 
 }
 
-void Blocker::initialize(){
-    // GameObject::initialize();
+void Blocker::initialize(){    
+    this->setFrame(0);
+    this->getSprite()->setScale(10.0f, 10.0f);
+    this->centerSpriteOrigin();
 
-    
+    RendererSpawnable* pRendererSpawanable = new RendererSpawnable(this->strName + " Sprite");
+    pRendererSpawanable->assignDrawable(this->pSprite);
+
+    this->attachComponent(pRendererSpawanable);
 }

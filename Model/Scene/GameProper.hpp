@@ -25,6 +25,8 @@
 #include "../../Controller/System/ObjectPoolManager.hpp"
 #include "../../Controller/System/ScoreManager.hpp"
 
+#include "../Entity/Blocker.hpp"
+
 namespace scenes{
     using namespace models;
     using namespace systems;
@@ -39,6 +41,7 @@ namespace scenes{
         public:
             void createNullObjectComponents();
             void createCrosshair();
+            void createBlockers();
             void createObjectPools();
     };
 }
