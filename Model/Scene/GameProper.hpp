@@ -25,7 +25,7 @@
 #include "../../Controller/System/ObjectPoolManager.hpp"
 #include "../../Controller/System/ScoreManager.hpp"
 
-#include "../Entity/Blocker.hpp"
+#include "../Entity/Blocker/Blocker.hpp"
 
 namespace scenes{
     using namespace models;

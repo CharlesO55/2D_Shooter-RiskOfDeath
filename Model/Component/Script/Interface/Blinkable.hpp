@@ -2,7 +2,6 @@
 #define INTERFACES_BLINKABLE_HPP
 
 #include "../../../AnimatedTexture.hpp"
-// #include "../Blinker.hpp"
 
 namespace components{
     class Blinker;

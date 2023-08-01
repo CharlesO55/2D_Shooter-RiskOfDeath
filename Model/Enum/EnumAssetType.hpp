@@ -42,6 +42,8 @@ enum class AssetType : int {
     BAT_SIDE,
     GHOST_SIDE,
     
+    BOULDER_ROUND,
+
     MR_ALIEN_BASE,
     MR_ALIEN_TOP_STAMEN,
     MR_ALIEN_BOTTOM_STAMEN,
