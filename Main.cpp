@@ -76,6 +76,9 @@
 
 #include "Model/Entity/Blocker/BaseBlocker.cpp"
 #include "Model/Entity/Blocker/BoulderBlocker.cpp"
+#include "Model/Entity/Blocker/ScrollBlocker.cpp"
+#include "Model/Entity/Blocker/PlaneBlocker.cpp"
+#include "Model/Entity/Blocker/CloudBlocker.cpp"
 
 
 #include "Model/Scene/MainMenuScene.cpp"
@@ -108,6 +111,7 @@
 #include "Model/Component/Script/Blinker.cpp"
 #include "Model/Component/Script/IdleMovement.cpp"
 #include "Model/Component/Script/MoveForward.cpp"
+#include "Model/Component/Script/MoveScroll.cpp"
 #include "Model/Component/Script/MoveXY.cpp"
 #include "Model/Component/Script/Killable.cpp"
 #include "Model/Component/Script/Obtainable.cpp"

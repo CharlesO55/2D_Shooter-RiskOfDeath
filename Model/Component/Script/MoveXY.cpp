@@ -19,10 +19,12 @@ void MoveXY::perform(){
     float fMove = this->tDeltaTime.asSeconds() * this->fSpeed; 
     this->fTravelled += fMove;
 
-    if (fTravelled > fMaxDistance){
+    
+
+    if (this->fTravelled > fMaxDistance){
         vecMoveDir.x *= -1;
         vecMoveDir.y *= -1;
-        fTravelled = 0.f;
+        this->fTravelled = 0.f;
     }
     
     if(this->bRotate){

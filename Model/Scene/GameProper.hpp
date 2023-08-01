@@ -26,7 +26,10 @@
 #include "../../Controller/System/ScoreManager.hpp"
 
 #include "../Entity/Blocker/BaseBlocker.hpp"
+#include "../Entity/Blocker/ScrollBlocker.hpp"
 #include "../Entity/Blocker/BoulderBlocker.hpp"
+#include "../Entity/Blocker/PlaneBlocker.hpp"
+#include "../Entity/Blocker/CloudBlocker.hpp"
 
 namespace scenes{
     using namespace models;

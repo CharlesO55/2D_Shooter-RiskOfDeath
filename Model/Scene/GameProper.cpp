@@ -103,4 +103,18 @@ void GameProper::createBlockers(){
     BoulderBlocker *pBoulderR = new BoulderBlocker(sf::FloatRect(SCREEN_WIDTH/2, SCREEN_HEIGHT/2, SCREEN_WIDTH/2, SCREEN_HEIGHT/2-200), {-1,0});
     this->registerObject(pBoulderL);
     this->registerObject(pBoulderR);
+
+    PlaneBlocker *pPlane = new PlaneBlocker(sf::FloatRect(0, 0, SCREEN_WIDTH, SCREEN_HEIGHT));
+    this->registerObject(pPlane);
+    pPlane = new PlaneBlocker(sf::FloatRect(0, 0, SCREEN_WIDTH, SCREEN_HEIGHT));
+    this->registerObject(pPlane);
+    pPlane = new PlaneBlocker(sf::FloatRect(0, 0, SCREEN_WIDTH, SCREEN_HEIGHT));
+    this->registerObject(pPlane);
+
+    CloudBlocker *pCloud = new CloudBlocker(sf::FloatRect(0, 0, SCREEN_WIDTH, SCREEN_HEIGHT));
+    this->registerObject(pCloud);
+    pCloud = new CloudBlocker(sf::FloatRect(0, 0, SCREEN_WIDTH, SCREEN_HEIGHT));
+    this->registerObject(pCloud);
+    pCloud = new CloudBlocker(sf::FloatRect(0, 0, SCREEN_WIDTH, SCREEN_HEIGHT));
+    this->registerObject(pCloud);
 }
