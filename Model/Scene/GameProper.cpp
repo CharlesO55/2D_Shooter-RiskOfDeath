@@ -18,6 +18,7 @@ void GameProper::onLoadObjects() {
 
     this->createNullObjectComponents();
     this->createObjectPools();
+    this->createBlockers();
 
     //KEEP ON TOP
     
@@ -94,4 +95,13 @@ void GameProper::createObjectPools() {
     ObjectPoolManager::getInstance()->registerObjectPool(pDamageBuffPool);
     ObjectPoolManager::getInstance()->registerObjectPool(pHealthBuffPool);
     ObjectPoolManager::getInstance()->registerObjectPool(pPiercingBuffPool);
+}
+
+
+void GameProper::createBlockers(){/* 
+    AnimatedTexture* pTex = new AnimatedTexture(TextureManager::getInstance()->getTexture(AssetType::BOULDER_ROUND));
+    Blocker* pBlocker = new Blocker("Test Blocker", pTex);
+
+    pBlocker->initialize();
+    this->registerObject(pBlocker); */
 }

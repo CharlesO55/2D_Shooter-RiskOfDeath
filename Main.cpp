@@ -72,7 +72,7 @@
 #include "Model/Entity/Mr. Alien/Part/TopStamen.cpp"
 #include "Model/Entity/Mr. Alien/Part/TopTentacle.cpp"
 #include "Model/Entity/Border/Border.cpp"
-#include "Model/Entity/Blocker.cpp"
+#include "Model/Entity/Blocker/Blocker.cpp"
 #include "Model/Entity/Crosshair.cpp"
 
 #include "Model/Scene/MainMenuScene.cpp"

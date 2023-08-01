@@ -9,6 +9,8 @@ void TextureManager::loadAll(SceneTag EScene) {
     this->loadUIFolder();
     this->loadPlayerFolder();
     this->loadEnemyFolder();
+    this->loadBlockerFolder();
+
     this->loadMrAlienFolder();
 }
 
@@ -145,6 +147,23 @@ void TextureManager::loadEnemyFolder() {
             break;
     }
 }
+
+
+
+void TextureManager::loadBlockerFolder() {
+    switch (this->EScene) {
+        case SceneTag::MAIN_MENU:
+            break;
+        case SceneTag::GAME_PROPER:
+            this->loadTexture(AssetType::BOULDER_ROUND, "View/Image/Blocker/Boulder_Round.png");
+            break;
+        default:
+            break;
+    }
+}
+
+
+
 
 void TextureManager::loadMrAlienFolder() {
     switch (this->EScene) {
