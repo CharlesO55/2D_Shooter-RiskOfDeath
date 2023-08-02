@@ -153,14 +153,23 @@ void PlayerUI::decrementHealth() {
 
 //Doesn't reload when empty
 void PlayerUI::reloadBullets() {
-    if (this->nBullets < 6) {
-        for (int i = 0; i < this->vecChildren.size(); i++) {
-            std::string strImageName = "Bullet " + std::to_string(this->nBullets);
+    // if (this->nBullets < 6) {
+    //     for (int i = 0; i < this->vecChildren.size(); i++) {
+    //         std::string strImageName = "Bullet " + std::to_string(this->nBullets);
 
-            if (this->vecChildren[i]->getName() == strImageName) {
-                this->vecChildren[i]->setEnabled(true);
-                nBullets++;
-            }
+    //         if (this->vecChildren[i]->getName() == strImageName) {
+    //             this->vecChildren[i]->setEnabled(true);
+    //             nBullets++;
+    //         }
+    //     }
+    // }
+
+    for (int i = 0; i < this->vecChildren.size(); i++) {
+        std::string strImageName = "Bullet " + std::to_string(this->nBullets + 1);
+
+        if (this->vecChildren[i]->getName() == strImageName) {
+            this->vecChildren[i]->setEnabled(true);
+            this->nBullets++;
         }
     }
 }
@@ -176,6 +185,7 @@ void PlayerUI::decrementBullets() {
         }
 
         this->nBullets--;
+        std::cout << "Bullet Count: " << this->nBullets << std::endl;
     }
 }
 

@@ -37,15 +37,11 @@ void CrosshairMouseInput::resetRightClick() {
 }
 
 void CrosshairMouseInput::processMouseInput(sf::Mouse::Button inMouse, bool bPressed) {
-    PlayerUI* pUI = (PlayerUI*)GameObjectManager::getInstance()->findObjectByName("Player UI");
-
     switch(inMouse) {
         case sf::Mouse::Left:
             this->bLeftClick = bPressed;
             if (bPressed) {
                 std::cout << "[LMB] : Pressed" << std::endl;
-
-                pUI->decrementBullets();
                 SFXManager::getInstance()->getSound(SFXType::PLAYER_BULLET)->play();
             }
             break;
@@ -54,8 +50,6 @@ void CrosshairMouseInput::processMouseInput(sf::Mouse::Button inMouse, bool bPre
             this->bRightClick = bPressed;
             if (bPressed) {
                 std::cout << "[RMB] : Pressed" << std::endl;
-
-                pUI->reloadBullets(); //MAINLY FOR TEST PURPOSES. REMOVE AFTER
             }
             break;
 

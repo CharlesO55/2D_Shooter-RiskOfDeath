@@ -45,11 +45,16 @@ void GameProper::createNullObjectComponents() {
     GameNavigationInput* pNavInput = new GameNavigationInput("Game Navigation Input");
     GameScreenNavigation* pNavScreen = new GameScreenNavigation(pNavInput);
     
+    EmptyGameObject* pInputHolder = new EmptyGameObject("Player Input Holder");
+    PlayerInput* pInput = new PlayerInput("Player Input");
+
     pHolder->attachComponent(pNavInput);
     pHolder->attachComponent(pNavScreen);
 
-    this->registerObject(pHolder);
+    pInputHolder->attachComponent(pInput);
 
+    this->registerObject(pHolder);
+    this->registerObject(pInputHolder);
 }
 
 void GameProper::createCrosshair() {
@@ -78,7 +83,7 @@ void GameProper::createObjectPools() {
     ObjectPoolManager::getInstance()->registerObjectPool(pBatPool);
     ObjectPoolManager::getInstance()->registerObjectPool(pGhostPool);
 
-    //Buff Pools - TEMPORARY ASSETS, REPLACE LATER
+    //Buff Pools
     pTexture = new AnimatedTexture(TextureManager::getInstance()->getTexture(AssetType::DAMAGE_BOOST));
     GameObjectPool* pDamageBuffPool = new GameObjectPool(PoolTag::DAMAGE_BOOST, 5, new DamageBoost("Damage Buff", pTexture), NULL);
 
@@ -104,17 +109,19 @@ void GameProper::createBlockers(){
     this->registerObject(pBoulderL);
     this->registerObject(pBoulderR);
 
-    PlaneBlocker *pPlane = new PlaneBlocker(sf::FloatRect(0, 0, SCREEN_WIDTH, SCREEN_HEIGHT));
-    this->registerObject(pPlane);
-    pPlane = new PlaneBlocker(sf::FloatRect(0, 0, SCREEN_WIDTH, SCREEN_HEIGHT));
-    this->registerObject(pPlane);
-    pPlane = new PlaneBlocker(sf::FloatRect(0, 0, SCREEN_WIDTH, SCREEN_HEIGHT));
-    this->registerObject(pPlane);
 
-    CloudBlocker *pCloud = new CloudBlocker(sf::FloatRect(0, 0, SCREEN_WIDTH, SCREEN_HEIGHT));
-    this->registerObject(pCloud);
-    pCloud = new CloudBlocker(sf::FloatRect(0, 0, SCREEN_WIDTH, SCREEN_HEIGHT));
-    this->registerObject(pCloud);
-    pCloud = new CloudBlocker(sf::FloatRect(0, 0, SCREEN_WIDTH, SCREEN_HEIGHT));
-    this->registerObject(pCloud);
+    //Commented to reduce clutter. Consult regarding blockers first so everything is within theme
+    // PlaneBlocker *pPlane = new PlaneBlocker(sf::FloatRect(0, 0, SCREEN_WIDTH, SCREEN_HEIGHT));
+    // this->registerObject(pPlane);
+    // pPlane = new PlaneBlocker(sf::FloatRect(0, 0, SCREEN_WIDTH, SCREEN_HEIGHT));
+    // this->registerObject(pPlane);
+    // pPlane = new PlaneBlocker(sf::FloatRect(0, 0, SCREEN_WIDTH, SCREEN_HEIGHT));
+    // this->registerObject(pPlane);
+
+    // CloudBlocker *pCloud = new CloudBlocker(sf::FloatRect(0, 0, SCREEN_WIDTH, SCREEN_HEIGHT));
+    // this->registerObject(pCloud);
+    // pCloud = new CloudBlocker(sf::FloatRect(0, 0, SCREEN_WIDTH, SCREEN_HEIGHT));
+    // this->registerObject(pCloud);
+    // pCloud = new CloudBlocker(sf::FloatRect(0, 0, SCREEN_WIDTH, SCREEN_HEIGHT));
+    // this->registerObject(pCloud);
 }

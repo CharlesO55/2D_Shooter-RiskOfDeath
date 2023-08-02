@@ -5,9 +5,10 @@ using namespace systems;
 void EnemyManager::kill(sf::Vector2f vecLocation) {
     int nIndex = -1;
     GameObject* pTarget;
+    PlayerUI* pUI = (PlayerUI*)GameObjectManager::getInstance()->findObjectByName("Player UI");
     
     //Allows all enemies in the proximity of the crosshair to be damaged
-    if (ItemManager::getInstance()->isItemActive(ItemType::PIERCING_SHOT)) {
+    if (ItemManager::getInstance()->isItemActive(ItemType::PIERCING_SHOT) && pUI->getBullets() != 0) {
         for (int i = 0; i < vecKillable.size(); i++) {
             pTarget = this->vecKillable[i]->getOwner();
 
@@ -19,6 +20,7 @@ void EnemyManager::kill(sf::Vector2f vecLocation) {
         }
 
         ItemManager::getInstance()->setItemState(ItemType::PIERCING_SHOT, false);
+        pUI->decrementBullets();
     }
 
     else {
@@ -29,7 +31,7 @@ void EnemyManager::kill(sf::Vector2f vecLocation) {
                 nIndex = i;
         }
 
-        if(nIndex != -1) {
+        if(nIndex != -1 && pUI->getBullets() != 0) {
             pTarget = this->vecKillable[nIndex]->getOwner();
             
             if (this->vecKillable[nIndex]->getCurrentHealth() <= 1)
@@ -38,6 +40,8 @@ void EnemyManager::kill(sf::Vector2f vecLocation) {
             else
                 this->vecKillable[nIndex]->damage();
         }
+
+        pUI->decrementBullets();
     }
 }
 

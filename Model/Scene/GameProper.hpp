@@ -16,6 +16,7 @@
 #include "../EmptyGameObject.hpp"
 
 #include "../Component/Input/GameNavigationInput.hpp"
+#include "../Component/Input/PlayerInput.hpp"
 #include "../Component/Script/GameScreenNavigation.hpp"
 
 #include "../../View/Screen/PlayerUI.hpp"

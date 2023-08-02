@@ -105,6 +105,7 @@
 #include "Model/Component/Input/CrosshairMouseInput.cpp"
 #include "Model/Component/Input/CrosshairMovement.cpp"
 #include "Model/Component/Input/GeneralInput.cpp"
+#include "Model/Component/Input/PlayerInput.cpp"
 #include "Model/Component/Input/ShipInput.cpp"
 #include "Model/Component/Input/GameNavigationInput.cpp"
 
