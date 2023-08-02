@@ -43,6 +43,7 @@ enum class AssetType : int {
     GHOST_SIDE,
     
     BOULDER_ROUND,
+    WISP,
     PLANE,
     CLOUD,
 

@@ -30,6 +30,7 @@
 #include "../Entity/Blocker/BaseBlocker.hpp"
 #include "../Entity/Blocker/ScrollBlocker.hpp"
 #include "../Entity/Blocker/BoulderBlocker.hpp"
+#include "../Entity/Blocker/WispBlocker.hpp"
 #include "../Entity/Blocker/PlaneBlocker.hpp"
 #include "../Entity/Blocker/CloudBlocker.hpp"
 

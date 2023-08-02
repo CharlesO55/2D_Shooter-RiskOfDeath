@@ -78,7 +78,7 @@ bool Hitbox::contains(sf::Vector2f vecMouse){
         case ShapeType::CIRCLE:
             return this->foundInCircle(vecMouse);
         case ShapeType::TRIANGLE:
-            return false;
+            return this->foundInTriangle(vecMouse);
         default:
             return false;
     }
@@ -110,6 +110,33 @@ bool Hitbox::foundInCircle(sf::Vector2f vecMouse){
     // std::cout << "\n[Circle Collide] YES";
     return true;
 }
+
+
+bool Hitbox::foundInTriangle(sf::Vector2f vecMouse){
+    sf::FloatRect CTransformedBounds = this->extractParentTransformedBounds();
+
+    if (!CTransformedBounds.contains(vecMouse)){
+        return false;
+    }
+
+    float fCenterX = CTransformedBounds.left + CTransformedBounds.width/2;
+    float fY = vecMouse.y - CTransformedBounds.top;
+
+    //FOR SQUARE DIMENSION IMAGES
+    if (fY > CTransformedBounds.width * 0.75){
+        // std::cout << "\nEXCEED HALF WIDTH";
+        return false;
+    } 
+
+    if (fCenterX + fY/2 > vecMouse.x && vecMouse.x > fCenterX - fY/2){
+        // std::cout << "\n\nINISDE";
+        return true;
+    }
+    
+    return false;
+}
+
+
 
 sf::FloatRect Hitbox::extractParentTransformedBounds(){
     views::View* pView = systems::ViewManager::getInstance()->getView(ViewTag::FRONTVIEW_SCREEN);

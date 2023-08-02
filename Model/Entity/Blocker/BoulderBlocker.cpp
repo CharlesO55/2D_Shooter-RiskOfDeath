@@ -18,8 +18,6 @@ void BoulderBlocker::initialize(){
     int nMaxDistance = this->nRNG(300 , SCREEN_WIDTH/2);
     MoveXY *pMovement = new MoveXY(this->strName + " MoveXY", nMaxDistance, vecStartDir, 50, true);
     this->attachComponent(pMovement); 
-
-    this->createHitboxes();
 }
 
 void BoulderBlocker::createHitboxes(){

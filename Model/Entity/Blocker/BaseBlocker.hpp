@@ -25,8 +25,8 @@ namespace models{
             ~BaseBlocker();
 
         public:
-            virtual void initialize();
-            virtual void createHitboxes(){};    //turn to pure virutal
+            virtual void initialize() = 0;
+            virtual void createHitboxes() = 0;    //turn to pure virutal
             bool isColliding(sf::Vector2f vecMouse);
 
         protected:

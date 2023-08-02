@@ -29,6 +29,7 @@ namespace models{
             void createShape();
             bool foundInRectangle(sf::Vector2f vecMouse);
             bool foundInCircle(sf::Vector2f vecMouse);
+            bool foundInTriangle(sf::Vector2f vecMouse);
             sf::FloatRect extractParentTransformedBounds();
     };
 }

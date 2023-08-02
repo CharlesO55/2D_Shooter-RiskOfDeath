@@ -110,10 +110,17 @@ void GameProper::createObjectPools() {
 void GameProper::createBlockers(){
     BoulderBlocker *pBoulderL = new BoulderBlocker("Boulder 1", sf::FloatRect(0, SCREEN_HEIGHT/2, 100, SCREEN_HEIGHT/2-200), {1,0});
     BoulderBlocker *pBoulderR = new BoulderBlocker("Boulder 2", sf::FloatRect(SCREEN_WIDTH/2, SCREEN_HEIGHT/2, SCREEN_WIDTH/2, SCREEN_HEIGHT/2-200), {-1,0});
+    WispBlocker* pWispL = new WispBlocker("WispL", sf::FloatRect(50, 0, 200, SCREEN_HEIGHT/2), {0,1});
+    WispBlocker* pWispR = new WispBlocker("WispR", sf::FloatRect(SCREEN_WIDTH/2, 0, 0, SCREEN_HEIGHT/2), {0,-1});
+    
     this->registerObject(pBoulderL);
     this->registerObject(pBoulderR);
+    this->registerObject(pWispL);
+    this->registerObject(pWispR);
     BlockerManager::getInstance()->registerBlocker(pBoulderL);
-    // BlockerManager::getInstance()->registerBlocker(pBoulderR);
+    BlockerManager::getInstance()->registerBlocker(pBoulderR);
+    BlockerManager::getInstance()->registerBlocker(pWispL);
+    BlockerManager::getInstance()->registerBlocker(pWispR);
 
 
     //Commented to reduce clutter. Consult regarding blockers first so everything is within theme

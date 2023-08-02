@@ -156,6 +156,7 @@ void TextureManager::loadBlockerFolder() {
             break;
         case SceneTag::GAME_PROPER:
             this->loadTexture(AssetType::BOULDER_ROUND, "View/Image/Blocker/Boulder_Round.png");
+            this->loadTexture(AssetType::WISP, "View/Image/Blocker/Wisp.png");
             this->loadTexture(AssetType::PLANE, "View/Image/Blocker/Plane.png");
             this->loadTexture(AssetType::CLOUD, "View/Image/Blocker/Cloud.png");
             break;

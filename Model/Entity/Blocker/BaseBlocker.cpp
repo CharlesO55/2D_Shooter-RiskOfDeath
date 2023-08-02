@@ -22,6 +22,8 @@ void BaseBlocker::initialize(){
 
     this->attachComponent(pRendererSpawanable);
     this->attachComponent(pPosInterpreter);
+
+    this->createHitboxes();
 }
 
 
