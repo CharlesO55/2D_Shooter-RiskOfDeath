@@ -31,6 +31,14 @@ void BaseBlocker::randomizeSpawn(sf::FloatRect CArea, float fZMin, float fZMax){
     this->vecScenePos.z = this->nRNG(fZMin, fZMax);
 }
 
+
+bool BaseBlocker::isColliding(sf::Vector2f vecMouse){
+    if(this->pHitbox->contains(vecMouse)){
+        return true;
+    }
+    return false;
+}
+
 int BaseBlocker::nRNG(int nMin, int nMax){
     return std::rand() % (nMax + 1 - nMin) + nMin;
 }

@@ -50,6 +50,7 @@
 #include "Controller/Singleton/TextureManager.cpp"
 #include "Controller/Singleton/FontManager.cpp"
 
+#include "Controller/System/BlockerManager.cpp"
 #include "Controller/System/EnemyManager.cpp"
 #include "Controller/System/ItemManager.cpp"
 #include "Controller/System/ObjectPoolManager.cpp"
@@ -63,6 +64,7 @@
 #include "Model/EmptyGameObject.cpp"
 #include "Model/GameObject.cpp"
 #include "Model/Scene.cpp"
+#include "Model/Hitbox.cpp"
 
 #include "Model/Entity/Background.cpp"
 #include "Model/Entity/Ship.cpp"

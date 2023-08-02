@@ -44,8 +44,11 @@ PoolableObject* GameObjectPool::requestPoolable() {
         /* Enable the requested object. */
         this->setEnabled(pPoolableObject, true);
     }
-    else
+    else{
+        #ifndef DISABLE_POOLABLE_WARNINGS
         std::cout << "[ERROR] : GameObjectPool::requestPoolable() FAILED due to no available objects." << std::endl;
+        #endif
+    }
 
     return pPoolableObject;
 }

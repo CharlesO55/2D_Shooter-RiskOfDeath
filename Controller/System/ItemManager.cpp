@@ -54,7 +54,7 @@ void ItemManager::perform() {
                 std::cout << "[ItemManager] : Left click Detected" << std::endl;
 
                 this->obtain(pCrosshairMouseInput->getLocation());
-                pCrosshairMouseInput->resetLeftClick();
+                // pCrosshairMouseInput->resetLeftClick();
             }
         }
     }

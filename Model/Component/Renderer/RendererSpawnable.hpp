@@ -6,6 +6,7 @@ CAN ARRANGE/SORT
 CAN RESIZE BASED ON BACKGROUND TRANSFORM
 */
 
+//DO NOT USE IF NOT INTENDED FOR OBJECT TO CHANGE Z POS AND SCALE DUE TO SCREEN SWITCH
 
 #include "Renderer.hpp"
 #include "../../../Controller/System/ViewManager.hpp"

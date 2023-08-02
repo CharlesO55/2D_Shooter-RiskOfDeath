@@ -177,6 +177,12 @@ sf::FloatRect GameObject::getGlobalBounds() {
     return this->pSprite->getGlobalBounds();
 }
 
+sf::FloatRect GameObject::getTransformedBounds(sf::Transform CTransform){
+    sf::FloatRect CInitialBounds = this->getGlobalBounds();
+    return CTransform.transformRect(CInitialBounds);
+}
+
+
 bool GameObject::isEnabled() {
     return this->bEnabled;
 }

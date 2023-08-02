@@ -8,7 +8,14 @@ CrosshairMouseInput::CrosshairMouseInput(std::string strName) : GeneralInput(str
     this->vecLocation = sf::Vector2f(SCREEN_WIDTH / 2.0f, SCREEN_HEIGHT / 2.0f);
 }
 
+
 void CrosshairMouseInput::perform() {
+    if(this->bResetFlags){
+        this->bLeftClick = false;
+        this->bRightClick = false;
+        this->bResetFlags = false;
+    }
+
     switch(this->eEvent.type) {
         case sf::Event::MouseButtonPressed:
             this->processMouseInput(this->eEvent.mouseButton.button, true);
@@ -68,4 +75,9 @@ bool CrosshairMouseInput::isRightClick() {
 
 sf::Vector2f CrosshairMouseInput::getLocation() {
     return this->vecLocation;
+}
+
+
+void CrosshairMouseInput::flagForReset(){
+    this->bResetFlags = true;
 }

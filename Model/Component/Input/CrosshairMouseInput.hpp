@@ -15,6 +15,7 @@ namespace components {
             bool bLeftClick;
             bool bRightClick;
             sf::Vector2f vecLocation;
+            bool bResetFlags = false;
 
         public:
             CrosshairMouseInput(std::string strName);
@@ -23,6 +24,7 @@ namespace components {
             void perform();
             void resetLeftClick();
             void resetRightClick();
+            void flagForReset();
             
         private:
             void processMouseInput(sf::Mouse::Button inMouse, bool bPressed);

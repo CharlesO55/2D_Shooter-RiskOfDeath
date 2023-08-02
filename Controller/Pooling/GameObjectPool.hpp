@@ -1,6 +1,8 @@
 #ifndef CONTROLLERS_GAME_OBJECT_POOL_HPP
 #define CONTROLLERS_GAME_OBJECT_POOL_HPP
 
+#include "../../../Config/Settings.hpp"
+
 #include "../../Model/Enum/EnumPoolTag.hpp"
 #include "../../Model/GameObject.hpp"
     

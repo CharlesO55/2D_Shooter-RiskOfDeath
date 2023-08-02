@@ -46,6 +46,7 @@ namespace models {
 
         public:
             virtual sf::FloatRect getGlobalBounds();
+            sf::FloatRect getTransformedBounds(sf::Transform CTransform);
 
         public:
             bool isEnabled();

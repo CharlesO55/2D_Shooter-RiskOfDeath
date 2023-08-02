@@ -40,6 +40,10 @@ void GameProper::createNullObjectComponents() {
     ItemManager::initialize("Item Manager System", pItemManagerHolder);
     GameObjectManager::getInstance()->addObject(pItemManagerHolder);
 
+    EmptyGameObject* pBlockerManagerHolder = new EmptyGameObject("Blocker Manager Holder");
+    BlockerManager::initialize("Item Manager System", pBlockerManagerHolder);
+    GameObjectManager::getInstance()->addObject(pBlockerManagerHolder);
+
     //View Screen Changer Components
     EmptyGameObject* pHolder = new EmptyGameObject("Game Proper Navigation");
     GameNavigationInput* pNavInput = new GameNavigationInput("Game Navigation Input");
@@ -104,10 +108,12 @@ void GameProper::createObjectPools() {
 
 
 void GameProper::createBlockers(){
-    BoulderBlocker *pBoulderL = new BoulderBlocker(sf::FloatRect(0, SCREEN_HEIGHT/2, 100, SCREEN_HEIGHT/2-200), {1,0});
-    BoulderBlocker *pBoulderR = new BoulderBlocker(sf::FloatRect(SCREEN_WIDTH/2, SCREEN_HEIGHT/2, SCREEN_WIDTH/2, SCREEN_HEIGHT/2-200), {-1,0});
+    BoulderBlocker *pBoulderL = new BoulderBlocker("Boulder 1", sf::FloatRect(0, SCREEN_HEIGHT/2, 100, SCREEN_HEIGHT/2-200), {1,0});
+    BoulderBlocker *pBoulderR = new BoulderBlocker("Boulder 2", sf::FloatRect(SCREEN_WIDTH/2, SCREEN_HEIGHT/2, SCREEN_WIDTH/2, SCREEN_HEIGHT/2-200), {-1,0});
     this->registerObject(pBoulderL);
     this->registerObject(pBoulderR);
+    BlockerManager::getInstance()->registerBlocker(pBoulderL);
+    // BlockerManager::getInstance()->registerBlocker(pBoulderR);
 
 
     //Commented to reduce clutter. Consult regarding blockers first so everything is within theme

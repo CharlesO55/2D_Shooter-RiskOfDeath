@@ -12,11 +12,13 @@ void EnemyManager::kill(sf::Vector2f vecLocation) {
         for (int i = 0; i < vecKillable.size(); i++) {
             pTarget = this->vecKillable[i]->getOwner();
 
-            if(!this->vecKillable[i]->isKilled() && this->vecKillable[i]->getCurrentHealth() <= 1 && pTarget->isEnabled() && this->isLocInSprite(pTarget, vecLocation))
-                this->vecKillable[i]->setKilled(true);
+            if (this->isLocInSprite(pTarget, vecLocation)){
+                if(!this->vecKillable[i]->isKilled() && this->vecKillable[i]->getCurrentHealth() <= 1 && pTarget->isEnabled())
+                    this->vecKillable[i]->setKilled(true);
 
-            else if (!this->vecKillable[i]->isKilled() && pTarget->isEnabled() && this->isLocInSprite(pTarget, vecLocation))
-                this->vecKillable[i]->damage();
+                else if (!this->vecKillable[i]->isKilled() && pTarget->isEnabled())
+                    this->vecKillable[i]->damage();
+            }
         }
 
         ItemManager::getInstance()->setItemState(ItemType::PIERCING_SHOT, false);
@@ -47,12 +49,14 @@ void EnemyManager::kill(sf::Vector2f vecLocation) {
 
 bool EnemyManager::isLocInSprite(GameObject* pTarget, sf::Vector2f vecLocation){
     //CONVERT THE SPRITE TO MATCH FRONT VIEW ZOOM 
-    if (ViewManager::getInstance()->getView(ViewTag::FRONTVIEW_SCREEN)->isEnabled()){
+    if (ViewManager::getInstance()->getView(ViewTag::FRONTVIEW_SCREEN)->isEnabled()){/* 
         sf::FloatRect CInitialBounds = pTarget->getSprite()->getGlobalBounds();
         sf::Transform CViewTransform = ViewManager::getInstance()->getView(ViewTag::FRONTVIEW_SCREEN)->getBackground()->getSprite()->getTransform();
         sf::FloatRect CFinalBounds = CViewTransform.transformRect(CInitialBounds);
 
-        return CFinalBounds.contains(vecLocation);
+        return CFinalBounds.contains(vecLocation); */
+        sf::Transform CViewTransform = ViewManager::getInstance()->getView(ViewTag::FRONTVIEW_SCREEN)->getBackground()->getSprite()->getTransform();
+        return pTarget->getTransformedBounds(CViewTransform).contains(vecLocation);
     }
 
     return false;

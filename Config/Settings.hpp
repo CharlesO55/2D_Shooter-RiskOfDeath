@@ -3,6 +3,7 @@
 
 //CODING/DEBUG ASSISTANT
 #define DISABLE_INTELLISENSE_INCLUDES
+#define DISABLE_POOLABLE_WARNINGS
 
 //SCREEN PROPERTIES
 const int SCREEN_WIDTH  = 1280;
@@ -13,6 +14,8 @@ const float FRAME_RATE_LIMIT = 60.0f;
 
 const int           DEFAULT_TEXT_SIZE = 24;
 const std::string   DEFAULT_PLAYER_NAME = "PLAYER";
+
+const bool          RENDER_HITBOXES = true;
 
 bool bCloseGame = false;
 

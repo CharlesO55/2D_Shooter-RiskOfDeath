@@ -23,6 +23,7 @@
 #include "../../View/Screen/FrontViewScreen.hpp"
 #include "../../View/Screen/SideViewScreen.hpp"
 
+#include "../../Controller/System/BlockerManager.hpp"
 #include "../../Controller/System/ObjectPoolManager.hpp"
 #include "../../Controller/System/ScoreManager.hpp"
 
