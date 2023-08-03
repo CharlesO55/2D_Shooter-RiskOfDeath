@@ -12,6 +12,8 @@
 #include "../Pooling/Items/DamageBoost.hpp"
 #include "../Pooling/Items/HealthBoost.hpp"
 #include "../Pooling/Items/PiercingShot.hpp"
+#include "../Pooling/Items/InfinityAmmo.hpp"
+#include "../Pooling/Items/InstantKill.hpp"
 
 #include "../EmptyGameObject.hpp"
 

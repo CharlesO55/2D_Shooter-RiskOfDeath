@@ -7,9 +7,6 @@
 namespace components {
     class PlayerInput : public GeneralInput {
         private:
-            bool bOne;
-            bool bTwo;
-            bool bThree;
             bool bR;
 
         public:
@@ -17,7 +14,6 @@ namespace components {
 
         public:
             void perform();
-            void resetKeyPress();
 
         private:
             void processKeyInput(bool bPressed);

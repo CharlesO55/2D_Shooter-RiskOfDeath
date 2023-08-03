@@ -3,9 +3,6 @@
 using namespace components;
 
 PlayerInput::PlayerInput(std::string strName) : GeneralInput(strName) {
-    this->bOne = false;
-    this->bTwo = false;
-    this->bThree = false;
     this->bR = false;
 }
 
@@ -30,15 +27,13 @@ void PlayerInput::processKeyInput(bool bPressed) {
 
     switch(inKey) {
         case sf::Keyboard::Num1:
-            this->bOne = bPressed;
+            pUI->reloadBullets();
             break;
 
         case sf::Keyboard::Num2:
-            this->bTwo = bPressed;
             break;
 
         case sf::Keyboard::Num3:
-            this->bThree = bPressed;
             break;
 
         case sf::Keyboard::R:
@@ -48,8 +43,4 @@ void PlayerInput::processKeyInput(bool bPressed) {
         default:
             break;
     }
-}
-
-void PlayerInput::resetKeyPress() {
-    this->bOne = false;
 }

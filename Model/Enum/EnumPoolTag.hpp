@@ -14,7 +14,7 @@ enum class PoolTag : int {
     DAMAGE_BOOST,
     PIERCING_SHOT,
     INFINITY_AMMO,
-    NUKE //Replaceable, not sure if overpowered
+    INSTANT_KILL
 };
 
 #endif

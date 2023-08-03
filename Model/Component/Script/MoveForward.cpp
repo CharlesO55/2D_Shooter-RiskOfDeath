@@ -17,7 +17,18 @@ void MoveForward::perform(){
     pEnemy->setZPos(fZ);
 
     if (fZ <= 0.0f) {
-        ObjectPoolManager::getInstance()->getPool(pEnemy->getTag())->releasePoolable(pEnemy);
-        pUI->decrementHealth();
+        if (pUI->getHealth() > 0) {
+            ObjectPoolManager::getInstance()->getPool(pEnemy->getTag())->releasePoolable(pEnemy);
+            pUI->decrementHealth();
+        }
+
+        else {
+            SceneManager::getInstance()->loadScene(SceneTag::LEADERBOARD);
+
+            MusicManager::getInstance()->getMusic(MusicType::GAME_PROPER)->stop();
+            MusicManager::getInstance()->getMusic(MusicType::LEADERBOARDS)->setVolume(40.0f);
+            MusicManager::getInstance()->getMusic(MusicType::LEADERBOARDS)->play();
+            MusicManager::getInstance()->getMusic(MusicType::LEADERBOARDS)->setLoop(true);
+        }
     }
 }

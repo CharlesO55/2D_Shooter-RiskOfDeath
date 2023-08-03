@@ -13,9 +13,7 @@ enum class AssetType : int {
     BUTTON_START,
     
     BULLET,
-    BULLET_CASE,
     HEART,
-    HEART_CASE,
 
     INVENTORY_1,
     INVENTORY_2,
@@ -25,7 +23,7 @@ enum class AssetType : int {
     DAMAGE_BOOST,
     PIERCING_AMMO,
     INFINITY_AMMO,
-    NUKE,
+    INSTANT_KILL,
 
     STATUS_DAMAGE,
     STATUS_PIERCE,
@@ -38,10 +36,6 @@ enum class AssetType : int {
     BAT,
     GHOST,
 
-    SLIME_SIDE,
-    BAT_SIDE,
-    GHOST_SIDE,
-    
     BOULDER_ROUND,
     WISP,
     PLANE,

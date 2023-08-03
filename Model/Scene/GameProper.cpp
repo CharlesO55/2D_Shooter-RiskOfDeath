@@ -97,13 +97,23 @@ void GameProper::createObjectPools() {
     pTexture = new AnimatedTexture(TextureManager::getInstance()->getTexture(AssetType::PIERCING_AMMO));
     GameObjectPool* pPiercingBuffPool = new GameObjectPool(PoolTag::PIERCING_SHOT, 5, new PiercingShot("Piercing Buff", pTexture), NULL);
 
+    pTexture = new AnimatedTexture(TextureManager::getInstance()->getTexture(AssetType::INFINITY_AMMO));
+    GameObjectPool* pInfinityBuffPool = new GameObjectPool(PoolTag::INFINITY_AMMO, 5, new InfinityAmmo("Infinity Buff", pTexture), NULL);
+    
+    pTexture = new AnimatedTexture(TextureManager::getInstance()->getTexture(AssetType::INSTANT_KILL));
+    GameObjectPool* pInstakillBuffPool = new GameObjectPool(PoolTag::INSTANT_KILL, 5, new InstantKill("Instakill Buff", pTexture), NULL);
+
     pDamageBuffPool->initialize();
     pHealthBuffPool->initialize();
     pPiercingBuffPool->initialize();
+    pInfinityBuffPool->initialize();
+    pInstakillBuffPool->initialize();
 
     ObjectPoolManager::getInstance()->registerObjectPool(pDamageBuffPool);
     ObjectPoolManager::getInstance()->registerObjectPool(pHealthBuffPool);
     ObjectPoolManager::getInstance()->registerObjectPool(pPiercingBuffPool);
+    ObjectPoolManager::getInstance()->registerObjectPool(pInfinityBuffPool);
+    ObjectPoolManager::getInstance()->registerObjectPool(pInstakillBuffPool);
 }
 
 

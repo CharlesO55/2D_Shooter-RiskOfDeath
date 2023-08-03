@@ -8,7 +8,7 @@ enum class ItemType : int {
     DAMAGE_BOOST,
     PIERCING_SHOT,
     INFINITY_AMMO,
-    NUKE 
+    INSTANT_KILL 
 };
 
 #endif
