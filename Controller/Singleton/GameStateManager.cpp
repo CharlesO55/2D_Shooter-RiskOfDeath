@@ -14,6 +14,11 @@ bool GameStateManager::isPaused() {
     return this->EState == GameState::PAUSED;
 }
 
+
+float GameStateManager::getGameSpeed()              {return this->fGameSpeed; }
+void GameStateManager::setGameSpeed(float fSpeed)   {this->fGameSpeed = fSpeed;}
+
+
 /* * * * * * * * * * * * * * * * * * * * * 
  *       SINGLETON-RELATED CONTENT       * 
  * * * * * * * * * * * * * * * * * * * * */

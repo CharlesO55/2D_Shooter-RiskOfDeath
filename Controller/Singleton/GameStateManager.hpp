@@ -1,6 +1,8 @@
 #ifndef CONTROLLERS_GAME_STATE_MANAGER_HPP
 #define CONTROLLERS_GAME_STATE_MANAGER_HPP
 
+#include "../../Config/Settings.hpp"
+
 #include "../../Model/Enum/EnumGameState.hpp"
 #include "../../View/View.hpp"
 
@@ -11,11 +13,14 @@ namespace controllers {
     class GameStateManager {
         private:
             GameState EState;
+            float fGameSpeed = DEFAULT_GAME_SPEED;
 
         public:
             void pause();
             void resume();
             bool isPaused();
+            float getGameSpeed();
+            void setGameSpeed(float fSpeed);
 
         /* * * * * * * * * * * * * * * * * * * * * 
          *       SINGLETON-RELATED CONTENT       * 

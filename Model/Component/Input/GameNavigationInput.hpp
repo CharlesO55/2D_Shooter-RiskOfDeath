@@ -2,6 +2,7 @@
 
 #include "GeneralInput.hpp"
 #include "../../../Controller/System/ViewManager.hpp"
+#include "../../../Controller/Singleton/GameStateManager.hpp"
 
 namespace components{
     class GameNavigationInput : public GeneralInput{
@@ -22,6 +23,7 @@ namespace components{
         private:
             void processKeyInput();
             void processMouseInput();
+            void processScreenPause();
 
         public:
             bool isNeedChangeFront();

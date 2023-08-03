@@ -14,9 +14,13 @@ Test_Player
 Test_Player
 100
 Loss
+97
+Test_Player
 87
 Lucy
 86
+Test_Player
+75
 Test_Player
 73
 Test_Player
@@ -140,6 +144,10 @@ Test_Player
 Test_Player
 5
 Test_Player
+5
+Test_Player
+4
+Test_Player
 4
 Test_Player
 4
@@ -176,6 +184,8 @@ Test_Player
 Test_Player
 0
 You
+0
+Test_Player
 0
 Test_Player
 0

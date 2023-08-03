@@ -2,6 +2,7 @@
 
 using namespace components;
 using namespace systems;
+using namespace controllers;
 
 GameNavigationInput::GameNavigationInput(std::string strName) : GeneralInput(strName){}
 
@@ -24,6 +25,9 @@ void GameNavigationInput::processKeyInput(){
         case sf::Keyboard::D:
             this->bChangeToRight = true;
             break;
+        case sf::Keyboard::Space:
+            this->processScreenPause();
+            break;
         default:
             break;
     }
@@ -39,7 +43,14 @@ void GameNavigationInput::processMouseInput(){
     } 
 }
 
-
+void GameNavigationInput::processScreenPause(){
+    if(GameStateManager::getInstance()->isPaused()){
+        GameStateManager::getInstance()->resume();
+    }
+    else{
+        GameStateManager::getInstance()->pause();
+    }
+}
 
 void GameNavigationInput::resetAllFlags(){
     this->bChangeToFront = false;
@@ -50,6 +61,7 @@ void GameNavigationInput::resetAllFlags(){
 
 bool GameNavigationInput::isNeedChangeFront(){ return this->bChangeToFront; }
 bool GameNavigationInput::isNeedChangeRight(){ return this->bChangeToRight; }
-bool GameNavigationInput::isZoomClick(){ return this->bZoomClick; }
+bool GameNavigationInput::isZoomClick()      { return this->bZoomClick; }
+
 
 sf::Vector2f GameNavigationInput::getMouseLoc(){ return this->vecMousePos; }

@@ -223,6 +223,8 @@ int PlayerUI::getBullets() {
 
 void PlayerUI::onClick(Button* pButton){
     if (pButton->getName() == "Surrender Button"){
+        GameStateManager::getInstance()->resume();
+
         ScoreManager::getInstance()->logScoreOnEnd("Test_Player");
         SceneManager::getInstance()->loadScene(SceneTag::LEADERBOARD);
 

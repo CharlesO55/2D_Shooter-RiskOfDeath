@@ -2,6 +2,7 @@
 
 using namespace components;
 using namespace systems;
+using namespace controllers;
 
 GameScreenNavigation::GameScreenNavigation(GameNavigationInput* pNavInputRef) : Component("Game Screen Navigation", ComponentType::SCRIPT){
     this->pNavInputRef = pNavInputRef;

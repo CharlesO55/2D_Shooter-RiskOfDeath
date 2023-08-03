@@ -18,7 +18,7 @@ namespace models{
 
         public:
             Hitbox(std::string strName, ShapeType EShape);
-            Hitbox(std::string strName, std::vector <sf::Vector2f> vecVerts);
+            // Hitbox(std::string strName, std::vector <sf::Vector2f> vecVerts);    //Cancelled. No convex shapes
             ~Hitbox();
 
         public:

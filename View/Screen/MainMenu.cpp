@@ -61,6 +61,7 @@ void MainMenu::onClick(Button* pButton) {
     /* * * * * * * * * * * * * * * * * * * * */
     if (pButton->getName() == "Start Button"){
         systems::SceneManager::getInstance()->loadScene(SceneTag::GAME_PROPER);
+        GameStateManager::getInstance()->resume();
         
         MusicManager::getInstance()->getMusic(MusicType::MAIN_MENU)->stop();
         MusicManager::getInstance()->getMusic(MusicType::GAME_PROPER)->setVolume(40.0f);

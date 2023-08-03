@@ -11,8 +11,9 @@ void GameObjectManager::processInput(sf::Event eEvent) {
 
 void GameObjectManager::update(sf::Time tDeltaTime) {
     for(GameObject* pGameObject : this->vecGameObject) {
-        if(pGameObject->isEnabled() && !GameStateManager::getInstance()->isPaused())
-            pGameObject->update(tDeltaTime);
+        if(pGameObject->isEnabled() && !GameStateManager::getInstance()->isPaused()){
+            pGameObject->update(tDeltaTime * GameStateManager::getInstance()->getGameSpeed());
+        }
     }
 }
 

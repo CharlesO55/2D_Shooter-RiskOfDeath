@@ -10,10 +10,10 @@ Hitbox::Hitbox(std::string strName, ShapeType EShape) : GameObject(strName, NULL
     this->EShape = EShape;
 }
  
-Hitbox::Hitbox(std::string strName, std::vector <sf::Vector2f> vecVerts) : GameObject(strName, NULL) {
+/* Hitbox::Hitbox(std::string strName, std::vector <sf::Vector2f> vecVerts) : GameObject(strName, NULL) {
     this->EShape = ShapeType::IRREGULAR;
     this->vecVerts = vecVerts;
-}
+} */
 
 
 Hitbox::~Hitbox(){}
@@ -47,16 +47,9 @@ void Hitbox::createShape(){
             this->pShape = pTriangle;
         }
             break;
-
+/* 
         case ShapeType::IRREGULAR:
         {
-            /* this->vecVerts = {
-                {2, 137},
-                {46, 39},
-                {120, 2},
-                {230, 54},
-                {253, 130}
-            }; */
             sf::ConvexShape* pConvex = new sf::ConvexShape(this->vecVerts.size());
             
             for (int i = 0; i < this->vecVerts.size(); i++){
@@ -64,7 +57,7 @@ void Hitbox::createShape(){
             }
             this->pShape = pConvex;
         }
-            break;
+            break; */
         default:
             std::cout << "\n [ERROR] UNRECOGNIZED SHAPE";
             throw 0;
@@ -103,7 +96,7 @@ bool Hitbox::foundInCircle(sf::Vector2f vecMouse){
     sf::Vector2f vecDist = vecMouse - vecOrigin;
     float fDistance = sqrt((vecDist.x * vecDist.x) + (vecDist.y * vecDist.y));
 
-    if (fDistance > CTransformedBounds.width/2){
+    if (fDistance > CTransformedBounds.width/2 * 0.8){
         // std::cout << "\n[Circle Collide] NO";
         return false;
     }

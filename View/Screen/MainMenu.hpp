@@ -18,6 +18,7 @@
 #include "../../Controller/Singleton/FontManager.hpp"
 #include "../../Controller/System/ViewManager.hpp"
 #include "../../Controller/System/SceneManager.hpp"
+#include "../../Controller/Singleton/GameStateManager.hpp"
 // #include "../../Controller/System/ScoreManager.hpp"
 
 

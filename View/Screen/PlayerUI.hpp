@@ -5,6 +5,7 @@
 #include "../../Controller/System/SceneManager.hpp"
 #include "../../Controller/System/ScoreManager.hpp"
 #include "../../Controller/System/ViewManager.hpp"
+#include "../../Controller/Singleton/GameStateManager.hpp"
 
 #include "../Text.hpp"
 #   ifndef DISABLE_INTELLISENSE_INCLUDES
