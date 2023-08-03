@@ -52,6 +52,8 @@ void MainMenuScene::onLoadResources(){
     MusicManager::getInstance()->getMusic(MusicType::MAIN_MENU)->setVolume(40.0f);
     MusicManager::getInstance()->getMusic(MusicType::MAIN_MENU)->play();
     MusicManager::getInstance()->getMusic(MusicType::MAIN_MENU)->setLoop(true);
+
+    MusicManager::getInstance()->getMusic(MusicType::LEADERBOARDS)->stop(); //LeaderboardScene::onUnloadResources does not work
 }
 
 

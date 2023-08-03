@@ -18,6 +18,8 @@ void EnemyManager::kill(sf::Vector2f vecLocation) {
 
                 else if (!this->vecKillable[i]->isKilled() && pTarget->isEnabled())
                     this->vecKillable[i]->damage();
+
+                SFXManager::getInstance()->getSound(SFXType::ENEMY_HIT)->play();
             }
         }
 
@@ -43,6 +45,8 @@ void EnemyManager::kill(sf::Vector2f vecLocation) {
 
             else
                 this->vecKillable[nIndex]->damage();
+
+            SFXManager::getInstance()->getSound(SFXType::ENEMY_HIT)->play();
         }
 
         if (!ItemManager::getInstance()->isItemActive(ItemType::INFINITY_AMMO)) 
@@ -54,6 +58,8 @@ void EnemyManager::killAll() {
     for (Killable* pKillable : this->vecKillable) {
         pKillable->setKilled(true);
     }
+
+    SFXManager::getInstance()->getSound(SFXType::KILL_ALL)->play();
 }
 
 bool EnemyManager::isLocInSprite(GameObject* pTarget, sf::Vector2f vecLocation){

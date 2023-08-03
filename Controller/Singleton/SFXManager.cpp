@@ -3,10 +3,17 @@
 using namespace controllers;
 
 void SFXManager::loadAll() {
-    this->create(SFXType::PLAYER_BULLET, "View/SFX/001.wav");
-    this->create(SFXType::ENEMY_HIT, "View/SFX/002.ogg");
-    this->create(SFXType::PLAYER_HIT, "View/SFX/003.wav");
-    this->create(SFXType::PLAYER_DEATH, "View/SFX/004.ogg");
+    this->create(SFXType::SHOOT, "View/SFX/Shoot.wav");
+    this->create(SFXType::RELOAD, "View/SFX/Reload.wav");
+
+    this->create(SFXType::ITEM_TAKEN, "View/SFX/Item_Taken.wav");
+    this->create(SFXType::ITEM_ACTIVATE, "View/SFX/Item_Activate.wav");
+
+    this->create(SFXType::HEAL_PLAYER, "View/SFX/Heal_Player.wav");
+    this->create(SFXType::KILL_ALL, "View/SFX/Kill_All.wav");
+
+    this->create(SFXType::ENEMY_HIT, "View/SFX/Enemy_Hit.wav");
+    this->create(SFXType::PLAYER_HIT, "View/SFX/Player_Hit.wav");
 }
 
 void SFXManager::unloadAll() {

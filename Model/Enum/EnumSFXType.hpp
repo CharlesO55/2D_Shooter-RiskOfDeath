@@ -3,9 +3,18 @@
 
 enum class SFXType : int {
     PLAYER_BULLET = 0,
+
+    SHOOT,
+    RELOAD,
+
+    ITEM_TAKEN,
+    ITEM_ACTIVATE,
+
+    HEAL_PLAYER,
+    KILL_ALL,
+
     ENEMY_HIT,
-    PLAYER_HIT,
-    PLAYER_DEATH
+    PLAYER_HIT
 };
 
 #endif

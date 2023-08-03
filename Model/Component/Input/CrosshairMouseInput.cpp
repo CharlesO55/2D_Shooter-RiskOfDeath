@@ -50,7 +50,7 @@ void CrosshairMouseInput::processMouseInput(sf::Mouse::Button inMouse, bool bPre
                 this->bLeftClick = bPressed;
                 if (bPressed) {
                     std::cout << "[LMB] : Pressed" << std::endl;
-                    SFXManager::getInstance()->getSound(SFXType::PLAYER_BULLET)->play();
+                    SFXManager::getInstance()->getSound(SFXType::SHOOT)->play();
                 }
                 break;
 

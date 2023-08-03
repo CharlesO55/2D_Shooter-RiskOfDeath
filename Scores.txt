@@ -20,6 +20,8 @@ Test_Player
 Loss
 97
 Test_Player
+91
+PLAYER
 87
 Lucy
 86
@@ -38,6 +40,8 @@ Test_Player
 Test_Player
 60
 Test_Player
+55
+PLAYER
 53
 Lasti
 51
@@ -78,6 +82,8 @@ Test_Player
 Test_Player
 24
 Test_Player
+24
+PLAYER
 22
 Test_Player
 21
@@ -92,6 +98,8 @@ Test_Player
 Test_Player
 17
 Test_Player
+17
+PLAYER
 16
 Test_Player
 16
@@ -204,6 +212,12 @@ Test_Player
 Test_Player
 1
 Test_Player
+1
+PLAYER
+1
+PLAYER
+1
+PLAYER
 1
 PLAYER
 0

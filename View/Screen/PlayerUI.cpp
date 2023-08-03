@@ -197,6 +197,8 @@ void PlayerUI::addItemToInventory(ItemType EType) {
     Image* pInventory2 = (Image*)this->findChildByName("Inventory 2");
     Image* pInventory3 = (Image*)this->findChildByName("Inventory 3");
 
+    SFXManager::getInstance()->getSound(SFXType::ITEM_TAKEN)->play();
+
     switch (this->nItems) {
         case 0:
             if (this->Inventory1 == ItemType::NONE) {
@@ -255,6 +257,8 @@ void PlayerUI::updateInventory(int nInventoryNumber) {
     Image* pInventory1 = (Image*)this->findChildByName("Inventory 1");
     Image* pInventory2 = (Image*)this->findChildByName("Inventory 2");
     Image* pInventory3 = (Image*)this->findChildByName("Inventory 3");
+
+    SFXManager::getInstance()->getSound(SFXType::ITEM_ACTIVATE)->play();
 
     switch (nInventoryNumber) {
         case 1:

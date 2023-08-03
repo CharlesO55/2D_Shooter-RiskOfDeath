@@ -18,6 +18,7 @@ void PlayerManager::reload(float fTime){
 
         this->fTicks = 0.0f;
         pUI->reloadBullets();
+        SFXManager::getInstance()->getSound(SFXType::RELOAD)->play();
     }
 }
 
@@ -35,11 +36,15 @@ void PlayerManager::setPlayerName(std::string strPlayerName) { this->strPlayerNa
 void PlayerManager::healPlayer() { 
     PlayerUI* pUI = (PlayerUI*)GameObjectManager::getInstance()->findObjectByName("Player UI");
     pUI->restoreHealth(); 
+
+    SFXManager::getInstance()->getSound(SFXType::HEAL_PLAYER)->play();
 }
 
 void PlayerManager::damagePlayer() { 
     PlayerUI* pUI = (PlayerUI*)GameObjectManager::getInstance()->findObjectByName("Player UI");
     pUI->decrementHealth(); 
+
+    SFXManager::getInstance()->getSound(SFXType::PLAYER_HIT)->play();
 }
 
 void PlayerManager::setReloading(bool bState) { this->bReloading = bState; }
