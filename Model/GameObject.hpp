@@ -1,6 +1,8 @@
 #ifndef MODELS_GAME_OBJECT_HPP
 #define MODELS_GAME_OBJECT_HPP
 
+#include "Enum/EnumEntityType.hpp"
+
 #include "Component/Component.hpp"
 #include "Component/Input/GeneralInput.hpp"
 
@@ -20,8 +22,10 @@ namespace models {
             std::vector<GameObject*> vecChildren;
             std::vector<Component*> vecComponent;
 
+            EntityType EEntityType;
+
         public:
-            GameObject(std::string strName, AnimatedTexture* pTexture = NULL);
+            GameObject(std::string strName, AnimatedTexture* pTexture = NULL, EntityType EEntityType = EntityType::UNSET);
             virtual ~GameObject() = default;
 
         public:
@@ -40,6 +44,7 @@ namespace models {
             Component* findComponentByName(std::string strName);
             std::vector<Component*> getComponents(ComponentType EType);
             std::vector<Component*> getComponentsRecursively(ComponentType EType, bool bInclusive = true);
+            EntityType getEntityType();
 
             void incrementFrame();
             void centerSpriteOrigin();

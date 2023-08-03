@@ -29,6 +29,7 @@
 #include "../../Controller/System/BlockerManager.hpp"
 #include "../../Controller/System/ObjectPoolManager.hpp"
 #include "../../Controller/System/ScoreManager.hpp"
+#include "../../Controller/System/LayerManager.hpp"
 
 #include "../Entity/Blocker/BaseBlocker.hpp"
 #include "../Entity/Blocker/ScrollBlocker.hpp"
@@ -56,5 +57,6 @@ namespace scenes{
             void createCrosshair();
             void createBlockers();
             void createObjectPools();
+            void createLayerManagerAsLast();
     };
 }

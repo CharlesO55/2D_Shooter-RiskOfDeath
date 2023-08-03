@@ -2,7 +2,7 @@
 
 using namespace models;
 
-GameObject::GameObject(std::string strName, AnimatedTexture* pTexture) {
+GameObject::GameObject(std::string strName, AnimatedTexture* pTexture, EntityType EEntityType) {
     this->bEnabled = true;
 
     this->strName = strName;
@@ -16,6 +16,8 @@ GameObject::GameObject(std::string strName, AnimatedTexture* pTexture) {
     this->pParent = NULL;
     this->vecChildren = {};
     this->vecComponent = {};
+
+    this->EEntityType = EEntityType;
 }
 
 void GameObject::processInput(sf::Event eEvent) {
@@ -226,4 +228,9 @@ int GameObject::getCurrentFrame() {
         return this->pTexture->getCurrentFrame();
     }
     return -1;
+}
+
+
+EntityType GameObject::getEntityType(){
+    return this->EEntityType;
 }

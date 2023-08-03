@@ -3,7 +3,7 @@
 using namespace models;
 
 PlayerBullet::PlayerBullet(std::string strName, AnimatedTexture* pTexture, Ship* pShip)
-             : PoolableObject(PoolTag::PLAYER_BULLET, strName, pTexture) {
+             : PoolableObject(PoolTag::PLAYER_BULLET, strName, EntityType::BULLET, pTexture) {
     this->pShip = pShip;
     this->pCollider = NULL;
 }

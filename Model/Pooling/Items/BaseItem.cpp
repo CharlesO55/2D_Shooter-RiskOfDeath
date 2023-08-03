@@ -2,7 +2,7 @@
 
 using namespace models;
 
-BaseItem::BaseItem(std::string strName, AnimatedTexture* pTexture, PoolTag ETag, float fScale) : PoolableObject(ETag, strName, pTexture) {}
+BaseItem::BaseItem(std::string strName, AnimatedTexture* pTexture, PoolTag ETag, float fScale) : PoolableObject(ETag, strName, EntityType::ITEM, pTexture) {}
 
 void BaseItem::initialize() {
     this->setFrame(0);

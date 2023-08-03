@@ -75,9 +75,13 @@ sf::Vector2f GameNavigationInput::getMouseLoc(){ return this->vecMousePos; }
 
 
 
-
+/*
+    FOR DEBUGGING ONLY, NOT MEANT TO BE FOR RELEASE
+*/
 using namespace controllers;
 void GameNavigationInput::processDebugCommand(){
+
+    //FOR TESTING GAMEOBJECT SORTING
     GameObjectManager::getInstance()->printAllItemsDebug();
     
     //PAUSE

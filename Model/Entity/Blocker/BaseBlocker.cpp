@@ -2,7 +2,7 @@
 
 using namespace models;
 
-BaseBlocker::BaseBlocker(std::string strName, AnimatedTexture* pTexture, float fDefaultScale) : GameObject(strName, pTexture) {
+BaseBlocker::BaseBlocker(std::string strName, AnimatedTexture* pTexture, float fDefaultScale) : GameObject(strName, pTexture, EntityType::BLOCKER) {
     this->fDefaultScale = fDefaultScale;
     this->vecScenePos = {0.f, 0.f, 0.f};
 }

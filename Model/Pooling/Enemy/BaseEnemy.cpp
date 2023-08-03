@@ -2,7 +2,7 @@
 
 using namespace models;
 
-BaseEnemy::BaseEnemy(std::string strName, AnimatedTexture* pTexture, PoolTag ETag, int nMaxHealth, float fScale, float fSpeed, float fKillableSpeed) : PoolableObject(ETag, strName, pTexture) {
+BaseEnemy::BaseEnemy(std::string strName, AnimatedTexture* pTexture, PoolTag ETag, int nMaxHealth, float fScale, float fSpeed, float fKillableSpeed) : PoolableObject(ETag, strName, EntityType::ENEMY, pTexture) {
     this->nHealth = nMaxHealth;
     this->nMaxHealth = nMaxHealth;
     this->fSpeed = fSpeed;

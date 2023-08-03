@@ -8,6 +8,8 @@
 
 #include "GameStateManager.hpp"
 
+#include "../../Model/Component/Script/Interface/Positionable.hpp"
+
 namespace controllers {
     using namespace models;
 
@@ -29,6 +31,7 @@ namespace controllers {
             void printAllItemsDebug();
 
             GameObject* findObjectByName(std::string strName);
+            std::vector<GameObject*>* getVecObjectsRef();
 
         /* * * * * * * * * * * * * * * * * * * * * 
          *       SINGLETON-RELATED CONTENT       * 

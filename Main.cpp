@@ -59,6 +59,7 @@
 #include "Controller/System/ScoreManager.cpp"
 #include "Controller/System/ViewManager.cpp"
 #include "Controller/System/PlayerManager.cpp"
+#include "Controller/System/LayerManager.cpp"
 #include "Controller/Pooling/GameObjectPool.cpp"
 
 #include "Model/AnimatedTexture.cpp"

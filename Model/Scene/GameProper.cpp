@@ -39,8 +39,8 @@ void GameProper::onLoadObjects() {
     ViewManager::getInstance()->getView(ViewTag::SIDEVIEW_SCREEN)->setEnabled(false);
 
     this->createNullObjectComponents();
-    this->createObjectPools();
     this->createBlockers();
+    this->createObjectPools();
 
     //KEEP ON TOP
     this->registerObject(new PauseScreen());
@@ -48,9 +48,18 @@ void GameProper::onLoadObjects() {
     this->createCrosshair();
 
 
-
+    this->createLayerManagerAsLast();
     GameObjectManager::getInstance()->printAllItemsDebug();
 }
+
+void GameProper::createLayerManagerAsLast(){
+    EmptyGameObject* pLayerManagerHolder = new EmptyGameObject("Layer Manager Holder");
+    this->registerObject(pLayerManagerHolder);
+
+    pLayerManagerHolder->attachComponent(LayerManager::getInstance());
+    LayerManager::getInstance()->initialize();
+}
+
 
 void GameProper::createNullObjectComponents() {
     std::srand(std::time(NULL));
@@ -145,10 +154,10 @@ void GameProper::createObjectPools() {
 
 
 void GameProper::createBlockers(){
-    BoulderBlocker *pBoulderL = new BoulderBlocker("Boulder 1", sf::FloatRect(0, SCREEN_HEIGHT/2, 100, SCREEN_HEIGHT/2-200), {1,0});
-    BoulderBlocker *pBoulderR = new BoulderBlocker("Boulder 2", sf::FloatRect(SCREEN_WIDTH/2, SCREEN_HEIGHT/2, SCREEN_WIDTH/2, SCREEN_HEIGHT/2-200), {-1,0});
-    WispBlocker* pWispL = new WispBlocker("WispL", sf::FloatRect(50, 0, 200, SCREEN_HEIGHT/2), {0,1});
-    WispBlocker* pWispR = new WispBlocker("WispR", sf::FloatRect(SCREEN_WIDTH/2, 0, 0, SCREEN_HEIGHT/2), {0,-1});
+    BoulderBlocker *pBoulderL = new BoulderBlocker("Blocker Boulder 1", sf::FloatRect(0, SCREEN_HEIGHT/2, 100, SCREEN_HEIGHT/2-200), {1,0}, 50, 75);
+    BoulderBlocker *pBoulderR = new BoulderBlocker("Blocker Boulder 2", sf::FloatRect(SCREEN_WIDTH/2, SCREEN_HEIGHT/2, SCREEN_WIDTH/2, SCREEN_HEIGHT/2-200), {-1,0});
+    WispBlocker* pWispL = new WispBlocker("Blocker WispL", sf::FloatRect(50, 0, 200, SCREEN_HEIGHT/2), {0,1});
+    WispBlocker* pWispR = new WispBlocker("Blocker WispR", sf::FloatRect(SCREEN_WIDTH/2, 0, 0, SCREEN_HEIGHT/2), {0,-1});
     
     this->registerObject(pBoulderL);
     this->registerObject(pBoulderR);
