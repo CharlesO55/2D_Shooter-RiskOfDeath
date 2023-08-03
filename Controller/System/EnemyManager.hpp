@@ -32,7 +32,7 @@ namespace systems {
             void killAll();
 
             void perform();
-            PoolTag getRandomPool();
+            void spawnWave();
 
             void registerComponent(Killable* pKillable);
             void unregisterComponent(Killable* pKillable);

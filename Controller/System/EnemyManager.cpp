@@ -111,32 +111,39 @@ void EnemyManager::perform() {
     }
 
     //This spawns a wave of enemies for every 8 seconds.
-    if (this->fTime > 0.3f) { //Adjust later, spawn set to this for testing
+    if (this->fTime > SPAWN_TIME) {
         this->fTime = 0.0f;
 
-        //This spawns the wave. Replace with the formula for enemy count per wave.
-        for (int i = 0; i < DEFAULT_WAVE_AMOUNT; i++) {
-            PoolTag ETag = this->getRandomPool();
-            ObjectPoolManager::getInstance()->getPool(ETag)->requestPoolable();
-        }
+        this->spawnWave();
     }
 }
 
 //Modify once waves are implemented.
-PoolTag EnemyManager::getRandomPool() {
-    int nPool = (std::rand() % 3) + 1;
+void EnemyManager::spawnWave() {
+    int nSpawnCount = (ScoreManager::getInstance()->getScore() * (ViewManager::getInstance()->getScreenCols() * ViewManager::getInstance()->getScreenRows())); //Use 6 for standard
+    float fLuck = nSpawnCount * ((std::rand() % 2) / 10.0f);
+    float fSpawnDecay = (0.02f * (ScoreManager::getInstance()->getScore() / 5.0f));
 
-    if (nPool == 1)
-        return PoolTag::SLIME;
+    float fCommonRate = 0.7f - fSpawnDecay;
+    float fUncommonRate = (1.0f - fCommonRate) * 0.6f;
+    float fEliteRate = 1 - (fCommonRate + fUncommonRate);
 
-    else if (nPool == 2)
-        return PoolTag::BAT;
+    nSpawnCount -= fLuck;
 
-    else if (nPool == 3)
-        return PoolTag::GHOST;
+    for (int i = 0; i < nSpawnCount; i++) {
+        float nRand = (float)std::rand() / (float)RAND_MAX;
 
-    else
-        return PoolTag::NONE;
+        std::cout << nRand << std::endl;
+
+        if (nRand <= fCommonRate)
+            ObjectPoolManager::getInstance()->getPool(PoolTag::SLIME)->requestPoolable();
+            
+        else if (nRand <= fCommonRate + fUncommonRate)
+            ObjectPoolManager::getInstance()->getPool(PoolTag::BAT)->requestPoolable();
+
+        else
+            ObjectPoolManager::getInstance()->getPool(PoolTag::GHOST)->requestPoolable();
+    }
 }
 
 void EnemyManager::registerComponent(Killable* pKillable) {

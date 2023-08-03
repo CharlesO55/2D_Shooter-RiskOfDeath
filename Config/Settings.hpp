@@ -22,7 +22,7 @@ bool bCloseGame = false;
 
 
 //SPAWNER DEFAULTS
-const float     SPAWN_TIME = 5.f;
+const float     SPAWN_TIME = 8.f;
 const int       DEFAULT_WAVE_AMOUNT = 1;
 
 #endif

@@ -25,6 +25,8 @@ namespace systems{
             void logScoreOnEnd(std::string strPlayerName = DEFAULT_PLAYER_NAME);
 
         public:
+            int getScore();
+
             const std::string getScoreAsString();
             const std::vector <Pair_nScore_strName> getLeaderboard();
             const Pair_nScore_strName getCurrPlayerScore(); 

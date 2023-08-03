@@ -17,6 +17,10 @@ void ScoreManager::incrementScore(sf::Time CDeltaTime){
     std::cout << "\nTIME: " << CScore.asSeconds() << std::endl;
 } */
 
+int ScoreManager::getScore() {
+    return this->CTime.asSeconds();
+}
+
 const std::string ScoreManager::getScoreAsString() {
     // int nScore = this->CClock.getElapsedTime().asSeconds(); 
     int nScore = this->CTime.asSeconds(); 
