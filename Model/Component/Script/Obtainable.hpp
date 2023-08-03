@@ -23,7 +23,7 @@ namespace components {
 
         public:
             void perform();
-            void toggle(PoolTag ETag, bool bState);
+            void activate(PoolTag ETag);
 
         public:
             bool isObtained();

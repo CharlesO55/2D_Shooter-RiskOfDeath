@@ -13,7 +13,7 @@ void Obtainable::perform() {
 
     if (this->bObtained) {
         std::cout << "[OBTAINABLE] : Item Obtained" << std::endl;
-        this->toggle(pObject->getTag(), true);
+        this->activate(pObject->getTag());
         ObjectPoolManager::getInstance()->getPool(pObject->getTag())->releasePoolable(pObject);
         this->bObtained = false;
     }
@@ -26,26 +26,33 @@ void Obtainable::perform() {
     }
 }
 
-void Obtainable::toggle(PoolTag ETag, bool bState) {
+void Obtainable::activate(PoolTag ETag) {
     PlayerUI* pUI = (PlayerUI*)GameObjectManager::getInstance()->findObjectByName("Player UI");
 
     switch (ETag) {
         case PoolTag::DAMAGE_BOOST:
-            std::cout << "[OBTAINABLE] : Damage Boost Active" << std::endl;
+            std::cout << "[OBTAINABLE] : Damage Boost Added to Inventory" << std::endl;
             pUI->addItemToInventory(ItemType::DAMAGE_BOOST);
-            //ItemManager::getInstance()->setItemState(ItemType::DAMAGE_BOOST, bState);
             break;
 
         case PoolTag::PIERCING_SHOT:
-            std::cout << "[OBTAINABLE] : Piercing Shot Active" << std::endl;
+            std::cout << "[OBTAINABLE] : Piercing Shot Added to Inventory" << std::endl;
             pUI->addItemToInventory(ItemType::PIERCING_SHOT);
-            //ItemManager::getInstance()->setItemState(ItemType::PIERCING_SHOT, bState);
             break;
 
         case PoolTag::INFINITY_AMMO:
-            std::cout << "[OBTAINABLE] : Infinity Active" << std::endl;
+            std::cout << "[OBTAINABLE] : Infinity Added to Inventory" << std::endl;
             pUI->addItemToInventory(ItemType::INFINITY_AMMO);
-            //ItemManager::getInstance()->setItemState(ItemType::INFINITY_AMMO, bState);
+            break;
+
+        case PoolTag::HEALTH_BOOST:
+            std::cout << "[OBTAINABLE] : Health Restored" << std::endl;
+            pUI->restoreHealth();
+            break;
+
+        case PoolTag::INSTANT_KILL:
+            std::cout << "[OBTAINABLE] : All Enemies Killed" << std::endl;
+            EnemyManager::getInstance()->killAll();
             break;
 
         default:

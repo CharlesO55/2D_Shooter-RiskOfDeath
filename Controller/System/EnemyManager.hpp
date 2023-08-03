@@ -29,6 +29,7 @@ namespace systems {
 
         public:
             void kill(sf::Vector2f vecLocation);
+            void killAll();
 
             void perform();
             PoolTag getRandomPool();

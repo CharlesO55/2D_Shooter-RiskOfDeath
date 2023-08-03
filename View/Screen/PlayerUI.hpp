@@ -43,7 +43,7 @@ namespace views{
             void createStatus();
 
         public:
-            void incrementHealth(int nHealth);
+            void restoreHealth();
             void decrementHealth();
 
             void reloadBullets();

@@ -22,7 +22,9 @@ void EnemyManager::kill(sf::Vector2f vecLocation) {
         }
 
         ItemManager::getInstance()->setItemState(ItemType::PIERCING_SHOT, false);
-        pUI->decrementBullets();
+        
+        if (!ItemManager::getInstance()->isItemActive(ItemType::INFINITY_AMMO)) 
+            pUI->decrementBullets();
     }
 
     else {
@@ -43,7 +45,14 @@ void EnemyManager::kill(sf::Vector2f vecLocation) {
                 this->vecKillable[nIndex]->damage();
         }
 
-        pUI->decrementBullets();
+        if (!ItemManager::getInstance()->isItemActive(ItemType::INFINITY_AMMO)) 
+            pUI->decrementBullets();
+    }
+}
+
+void EnemyManager::killAll() {
+    for (Killable* pKillable : this->vecKillable) {
+        pKillable->setKilled(true);
     }
 }
 

@@ -110,13 +110,21 @@ void PlayerUI::createStatus() {
     this->createImage(strName + "Infinity", pTexture, 1.5f, xPos + 80.0f, yPos);
 }
 
-void PlayerUI::incrementHealth(int nHealth) {
+void PlayerUI::restoreHealth() {
+    int nRestoredHealth = (std::rand() % 3) + 1;
+    int nCounter = 0;
+
     for (int i = 0; i < this->vecChildren.size(); i++) {
         std::string strImageName = "Heart " + std::to_string(this->nHearts + 1);
 
         if (this->vecChildren[i]->getName() == strImageName) {
             this->vecChildren[i]->setFrame(0);
             this->nHearts++;
+            
+            nCounter++;
+
+            if (nCounter == nRestoredHealth)
+                break;
         }
     }
 }
