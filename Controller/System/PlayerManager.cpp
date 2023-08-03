@@ -47,6 +47,10 @@ void PlayerManager::damagePlayer() {
     SFXManager::getInstance()->getSound(SFXType::PLAYER_HIT)->play();
 }
 
+bool PlayerManager::isReloading() {
+    return this->bReloading;
+}
+
 void PlayerManager::setReloading(bool bState) { this->bReloading = bState; }
 
 int PlayerManager::getHealth() { return this->nHealth; }

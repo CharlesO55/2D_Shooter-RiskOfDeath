@@ -44,7 +44,7 @@ void CrosshairMouseInput::resetRightClick() {
 }
 
 void CrosshairMouseInput::processMouseInput(sf::Mouse::Button inMouse, bool bPressed) {
-    if (ViewManager::getInstance()->getView(ViewTag::FRONTVIEW_SCREEN)->isEnabled()) {
+    if (ViewManager::getInstance()->getView(ViewTag::FRONTVIEW_SCREEN)->isEnabled() && !PlayerManager::getInstance()->isReloading()) {
         switch(inMouse) {
             case sf::Mouse::Left:
                 this->bLeftClick = bPressed;
@@ -67,7 +67,7 @@ void CrosshairMouseInput::processMouseInput(sf::Mouse::Button inMouse, bool bPre
     }
 
      else   
-        std::cout << "[CROSSHAIR MOUSE INPUT] : Shooting Unavailable for Side View" << std::endl;
+        std::cout << "[CROSSHAIR MOUSE INPUT] : Shooting Unavailable" << std::endl;
 }
 
 bool CrosshairMouseInput::isLeftClick() {

@@ -12,7 +12,7 @@ namespace systems{
         private:
             bool bReloading = false;
             float fTicks = 0.0f;
-            
+
             int nHealth = MAX_PLAYER_HEALTH;
             std::string strPlayerName = DEFAULT_PLAYER_NAME;
 
@@ -28,7 +28,9 @@ namespace systems{
             void healPlayer();
             void damagePlayer();
 
+            bool isReloading();
             void setReloading(bool bState);
+
             void setPlayerName(std::string strPlayerName); 
 
         private:
