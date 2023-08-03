@@ -258,11 +258,12 @@ void PlayerUI::updateInventory(int nInventoryNumber) {
     Image* pInventory2 = (Image*)this->findChildByName("Inventory 2");
     Image* pInventory3 = (Image*)this->findChildByName("Inventory 3");
 
-    SFXManager::getInstance()->getSound(SFXType::ITEM_ACTIVATE)->play();
-
     switch (nInventoryNumber) {
         case 1:
             ItemManager::getInstance()->setItemState(this->Inventory1, true);
+
+            if (this->Inventory1 != ItemType::NONE)
+                SFXManager::getInstance()->getSound(SFXType::ITEM_ACTIVATE)->play();
 
             this->Inventory1 = ItemType::NONE;
             this->nItems = 0;
@@ -273,8 +274,10 @@ void PlayerUI::updateInventory(int nInventoryNumber) {
         case 2:
             ItemManager::getInstance()->setItemState(this->Inventory2, true);
 
-            this->Inventory2 = ItemType::NONE;
+            if (this->Inventory2 != ItemType::NONE)
+                SFXManager::getInstance()->getSound(SFXType::ITEM_ACTIVATE)->play();
 
+            this->Inventory2 = ItemType::NONE;
             if (this->Inventory1 == ItemType::NONE)
                 this->nItems = 0;
 
@@ -286,6 +289,9 @@ void PlayerUI::updateInventory(int nInventoryNumber) {
 
         case 3:
             ItemManager::getInstance()->setItemState(this->Inventory3, true);
+
+            if (this->Inventory3 != ItemType::NONE)
+                SFXManager::getInstance()->getSound(SFXType::ITEM_ACTIVATE)->play();
 
             this->Inventory3 = ItemType::NONE;
 

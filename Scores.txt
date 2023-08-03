@@ -26,6 +26,8 @@ PLAYER
 Lucy
 86
 Test_Player
+80
+PLAYER
 75
 Test_Player
 74
@@ -46,6 +48,10 @@ PLAYER
 Lasti
 51
 Test_Player
+50
+PLAYER
+50
+PLAYER
 48
 PLAYER
 46
