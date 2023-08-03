@@ -143,6 +143,7 @@
 #include "View/Screen/PlayerUI.cpp"
 #include "View/Screen/FrontViewScreen.cpp"
 #include "View/Screen/SideViewScreen.cpp"
+#include "View/Screen/PauseScreen.cpp"
 
 using namespace controllers;
 

@@ -8,7 +8,8 @@ enum class ViewTag : int {
     LEADERBOARD,
     FRONTVIEW_SCREEN,
     SIDEVIEW_SCREEN,
-    PLAYER_UI
+    PLAYER_UI,
+    PAUSE_SCREEN
 };
 
 #endif

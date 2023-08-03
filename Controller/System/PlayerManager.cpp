@@ -23,12 +23,14 @@ void PlayerManager::reload(float fTime){
 }
 
 void PlayerManager::checkEndGame(){
+    #ifndef DISABLE_PLAYER_DEATH
     PlayerUI* pUI = (PlayerUI*)GameObjectManager::getInstance()->findObjectByName("Player UI");
 
     if (pUI->getHealth() <= 0){
         std::cout << "\n[GAME OVER] Player died.";
         SceneManager::getInstance()->loadScene(SceneTag::LEADERBOARD);
     }
+    #endif
 }
 
 void PlayerManager::setPlayerName(std::string strPlayerName) { this->strPlayerName = strPlayerName; }

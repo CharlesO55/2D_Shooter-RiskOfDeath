@@ -3,10 +3,15 @@
 using namespace controllers;
 
 void GameStateManager::pause() {
+    ViewManager::getInstance()->getView(ViewTag::PAUSE_SCREEN)->setEnabled(true);
+    ViewManager::getInstance()->getView(ViewTag::PLAYER_UI)->setEnabled(false);
     this->EState = GameState::PAUSED;
 }
 
 void GameStateManager::resume() {
+    ViewManager::getInstance()->getView(ViewTag::PAUSE_SCREEN)->setEnabled(false);
+    ViewManager::getInstance()->getView(ViewTag::PLAYER_UI)->setEnabled(true);
+
     this->EState = GameState::RUNNING;
 }
 

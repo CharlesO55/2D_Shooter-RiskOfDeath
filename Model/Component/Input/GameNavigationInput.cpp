@@ -28,6 +28,9 @@ void GameNavigationInput::processKeyInput(){
         case sf::Keyboard::Space:
             this->processScreenPause();
             break;
+        case sf::Keyboard::Tab:
+            this->processDebugCommand();
+            break;
         default:
             break;
     }
@@ -65,3 +68,18 @@ bool GameNavigationInput::isZoomClick()      { return this->bZoomClick; }
 
 
 sf::Vector2f GameNavigationInput::getMouseLoc(){ return this->vecMousePos; }
+
+
+
+
+
+
+
+
+using namespace controllers;
+void GameNavigationInput::processDebugCommand(){
+    GameObjectManager::getInstance()->printAllItemsDebug();
+    
+    //PAUSE
+    this->processScreenPause();
+}

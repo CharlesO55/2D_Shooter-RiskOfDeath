@@ -4,14 +4,17 @@
 #include "../../../Controller/System/ViewManager.hpp"
 #include "../../../Controller/Singleton/GameStateManager.hpp"
 
+//DeBuG Utility
+#include "../../../Controller/Singleton/GameObjectManager.hpp"
+
 namespace components{
     class GameNavigationInput : public GeneralInput{
-        public:
+        private:
             bool bChangeToFront = false; 
             bool bChangeToRight = false; 
             bool bZoomClick = false;
-            
             sf::Vector2f vecMousePos;
+
 
         public:
             GameNavigationInput(std::string strName);
@@ -24,6 +27,7 @@ namespace components{
             void processKeyInput();
             void processMouseInput();
             void processScreenPause();
+            void processDebugCommand();
 
         public:
             bool isNeedChangeFront();

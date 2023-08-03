@@ -22,7 +22,7 @@ void GameProper::onLoadResources(){
 
 void GameProper::onUnloadResources(){
     MusicManager::getInstance()->getMusic(MusicType::GAME_PROPER)->stop();
-    ScoreManager::getInstance()->logScoreOnEnd(DEFAULT_PLAYER_NAME);
+    ScoreManager::getInstance()->logScoreOnEnd(PlayerManager::getInstance()->getPlayerName());
 
 
     Scene::onUnloadResources();
@@ -43,9 +43,9 @@ void GameProper::onLoadObjects() {
     this->createBlockers();
 
     //KEEP ON TOP
-    
-    this->createCrosshair();
+    this->registerObject(new PauseScreen());
     this->registerObject(new PlayerUI());
+    this->createCrosshair();
 
 
 
