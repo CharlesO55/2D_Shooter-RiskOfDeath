@@ -33,9 +33,6 @@ namespace views{
             void createHearts();
             void createBullets();
 
-            void createHeartCases();
-            void createBulletCases();
-
             void createInventory();
             void createStatus();
 

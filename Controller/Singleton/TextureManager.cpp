@@ -89,10 +89,10 @@ void TextureManager::loadUIFolder() {
 
         case SceneTag::GAME_PROPER:
             this->loadTexture(AssetType::BULLET, "View/Image/UI/Bullet.png");
-            this->loadTexture(AssetType::BULLET_CASE, "View/Image/UI/Bullet_Case.png");
+            this->loadTexture(AssetType::BULLET, "View/Image/UI/Bullet_Case.png");
 
             this->loadTexture(AssetType::HEART, "View/Image/UI/heart.png");
-            this->loadTexture(AssetType::HEART_CASE, "View/Image/UI/Heart_Case.png");
+            this->loadTexture(AssetType::HEART, "View/Image/UI/Heart_Case.png");
 
             this->loadTexture(AssetType::INVENTORY_1, "View/Image/UI/Inventory_1.png");
             this->loadTexture(AssetType::INVENTORY_2, "View/Image/UI/Inventory_2.png");
@@ -102,7 +102,7 @@ void TextureManager::loadUIFolder() {
             this->loadTexture(AssetType::PIERCING_AMMO, "View/Image/UI/Piercing_Ammo.png");
             this->loadTexture(AssetType::INFINITY_AMMO, "View/Image/UI/Infinity_Ammo.png");
             this->loadTexture(AssetType::HEALTH_BOOST, "View/Image/UI/Health_Boost.png");
-            this->loadTexture(AssetType::NUKE, "View/Image/UI/Instant_Kill.png");
+            this->loadTexture(AssetType::INSTANT_KILL, "View/Image/UI/Instant_Kill.png");
             break;
             
         default:

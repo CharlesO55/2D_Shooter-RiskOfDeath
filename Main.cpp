@@ -101,6 +101,8 @@
 #include "Model/Pooling/Items/DamageBoost.cpp"
 #include "Model/Pooling/Items/HealthBoost.cpp"
 #include "Model/Pooling/Items/PiercingShot.cpp"
+#include "Model/Pooling/Items/InfinityAmmo.cpp"
+#include "Model/Pooling/Items/InstantKill.cpp"
 
 #include "Model/Component/Component.cpp"
 

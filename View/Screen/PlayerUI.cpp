@@ -18,9 +18,6 @@ void PlayerUI::initialize(){
     this->pScoreText = new views::Text("Score Text", ScoreManager::getInstance()->getScoreAsString(), {SCREEN_WIDTH / 2, DEFAULT_TEXT_SIZE}, FontType::DEFAULT, DEFAULT_TEXT_SIZE, true);
     this->attachChild(pScoreText);
 
-    this->createHeartCases();
-    this->createBulletCases();
-
     this->createHearts();
     this->createBullets();
 
@@ -53,32 +50,6 @@ void PlayerUI::createHearts() {
 void PlayerUI::createBullets() {
     std::string strName = "Bullet ";
     AnimatedTexture* pTexture = new AnimatedTexture(TextureManager::getInstance()->getTexture(AssetType::BULLET)); 
-
-    float xPos = SCREEN_WIDTH - 175.0f;
-    float yPos = SCREEN_HEIGHT - 40.0f;
-
-    for (int i = 0; i < 5; i++) {
-        this->createImage(strName + std::to_string(i + 1), pTexture, 2.5f, xPos, yPos);
-        xPos += 35.0f;
-    }
-}
-
-void PlayerUI::createHeartCases() {
-    std::string strName = "Heart Case ";
-    AnimatedTexture* pTexture = new AnimatedTexture(TextureManager::getInstance()->getTexture(AssetType::HEART_CASE)); 
-
-    float xPos = 50.0f;
-    float yPos = 40.0f;
-
-    for (int i = 0; i < 5; i++) {
-        this->createImage(strName + std::to_string(i + 1), pTexture, 2.5f, xPos, yPos);
-        xPos += 55.0f;
-    }
-}
-
-void PlayerUI::createBulletCases() {
-    std::string strName = "Bullet Case ";
-    AnimatedTexture* pTexture = new AnimatedTexture(TextureManager::getInstance()->getTexture(AssetType::BULLET_CASE)); 
 
     float xPos = SCREEN_WIDTH - 175.0f;
     float yPos = SCREEN_HEIGHT - 40.0f;
@@ -135,7 +106,14 @@ void PlayerUI::createStatus() {
 }
 
 void PlayerUI::incrementHealth(int nHealth) {
+    for (int i = 0; i < this->vecChildren.size(); i++) {
+        std::string strImageName = "Heart " + std::to_string(this->nHearts + 1);
 
+        if (this->vecChildren[i]->getName() == strImageName) {
+            this->vecChildren[i]->setFrame(0);
+            this->nHearts++;
+        }
+    }
 }
 
 void PlayerUI::decrementHealth() {
@@ -144,31 +122,19 @@ void PlayerUI::decrementHealth() {
 
         for(int i = 0; i < this->vecChildren.size(); i++) {
             if(this->vecChildren[i]->getName() == strImageName) 
-                this->vecChildren[i]->setEnabled(false);
+                this->vecChildren[i]->setFrame(1);
         }
 
         this->nHearts--;
     }
 }
 
-//Doesn't reload when empty
 void PlayerUI::reloadBullets() {
-    // if (this->nBullets < 6) {
-    //     for (int i = 0; i < this->vecChildren.size(); i++) {
-    //         std::string strImageName = "Bullet " + std::to_string(this->nBullets);
-
-    //         if (this->vecChildren[i]->getName() == strImageName) {
-    //             this->vecChildren[i]->setEnabled(true);
-    //             nBullets++;
-    //         }
-    //     }
-    // }
-
     for (int i = 0; i < this->vecChildren.size(); i++) {
         std::string strImageName = "Bullet " + std::to_string(this->nBullets + 1);
 
         if (this->vecChildren[i]->getName() == strImageName) {
-            this->vecChildren[i]->setEnabled(true);
+            this->vecChildren[i]->setFrame(0);
             this->nBullets++;
         }
     }
@@ -181,7 +147,7 @@ void PlayerUI::decrementBullets() {
 
         for(int i = 0; i < this->vecChildren.size(); i++) {
             if(this->vecChildren[i]->getName() == strImageName) 
-                this->vecChildren[i]->setEnabled(false);
+                this->vecChildren[i]->setFrame(1);
         }
 
         this->nBullets--;

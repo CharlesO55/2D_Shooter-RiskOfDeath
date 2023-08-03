@@ -93,7 +93,7 @@ void ItemManager::cooldown(float fTime) {
 }
 
 PoolTag ItemManager::getRandomPool() {
-    int nPool = (std::rand() % 3) + 1; //ONLY BASE POWERUPS ARE INCLUDED - Adjust later when other powerups are introduced
+    int nPool = (std::rand() % 5) + 1;
 
     switch (nPool) {
         case 1:
@@ -109,7 +109,7 @@ PoolTag ItemManager::getRandomPool() {
             return PoolTag::INFINITY_AMMO;
         
         case 5:
-            return PoolTag::NUKE;
+            return PoolTag::INSTANT_KILL;
 
         default:
             return PoolTag::NONE;
