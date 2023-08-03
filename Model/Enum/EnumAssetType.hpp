@@ -25,10 +25,6 @@ enum class AssetType : int {
     INFINITY_AMMO,
     INSTANT_KILL,
 
-    STATUS_DAMAGE,
-    STATUS_PIERCE,
-    STATUS_INFINITE,
-
     SHIP,
     CROSSHAIR,
 

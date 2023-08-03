@@ -42,6 +42,9 @@ namespace systems {
         public:
             bool isItemActive(ItemType EType);
             void setItemState(ItemType EType, bool bState);
+
+            void addItemtoInventory(ItemType EType);
+
             void registerComponent(Obtainable* pObtainable);
             void unregisterComponent(Obtainable* pObtainable);
 

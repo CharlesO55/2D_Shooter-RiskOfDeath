@@ -27,20 +27,25 @@ void Obtainable::perform() {
 }
 
 void Obtainable::toggle(PoolTag ETag, bool bState) {
+    PlayerUI* pUI = (PlayerUI*)GameObjectManager::getInstance()->findObjectByName("Player UI");
+
     switch (ETag) {
         case PoolTag::DAMAGE_BOOST:
             std::cout << "[OBTAINABLE] : Damage Boost Active" << std::endl;
-            ItemManager::getInstance()->setItemState(ItemType::DAMAGE_BOOST, bState);
+            pUI->addItemToInventory(ItemType::DAMAGE_BOOST);
+            //ItemManager::getInstance()->setItemState(ItemType::DAMAGE_BOOST, bState);
             break;
 
         case PoolTag::PIERCING_SHOT:
             std::cout << "[OBTAINABLE] : Piercing Shot Active" << std::endl;
-            ItemManager::getInstance()->setItemState(ItemType::PIERCING_SHOT, bState);
+            pUI->addItemToInventory(ItemType::PIERCING_SHOT);
+            //ItemManager::getInstance()->setItemState(ItemType::PIERCING_SHOT, bState);
             break;
 
         case PoolTag::INFINITY_AMMO:
             std::cout << "[OBTAINABLE] : Infinity Active" << std::endl;
-            ItemManager::getInstance()->setItemState(ItemType::INFINITY_AMMO, bState);
+            pUI->addItemToInventory(ItemType::INFINITY_AMMO);
+            //ItemManager::getInstance()->setItemState(ItemType::INFINITY_AMMO, bState);
             break;
 
         default:

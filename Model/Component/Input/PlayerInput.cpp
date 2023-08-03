@@ -27,13 +27,15 @@ void PlayerInput::processKeyInput(bool bPressed) {
 
     switch(inKey) {
         case sf::Keyboard::Num1:
-            pUI->reloadBullets();
+            pUI->updateInventory(1);
             break;
 
         case sf::Keyboard::Num2:
+            pUI->updateInventory(2);
             break;
 
         case sf::Keyboard::Num3:
+            pUI->updateInventory(3);
             break;
 
         case sf::Keyboard::R:

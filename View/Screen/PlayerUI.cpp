@@ -8,6 +8,11 @@ PlayerUI::PlayerUI() : View(ViewTag::PLAYER_UI, "Player UI") {
 
     this->nHearts = 5;
     this->nBullets = 5;
+    this->nItems = 0;
+
+    this->Inventory1 = ItemType::NONE;
+    this->Inventory2 = ItemType::NONE;
+    this->Inventory3 = ItemType::NONE;
 }
 
 PlayerUI::~PlayerUI() {}
@@ -177,6 +182,114 @@ void PlayerUI::updateActiveEffects() {
 
     else
         pInfiniteBuff->setEnabled(false);
+}
+
+void PlayerUI::addItemToInventory(ItemType EType) {
+    Image* pInventory1 = (Image*)this->findChildByName("Inventory 1");
+    Image* pInventory2 = (Image*)this->findChildByName("Inventory 2");
+    Image* pInventory3 = (Image*)this->findChildByName("Inventory 3");
+
+    switch (this->nItems) {
+        case 0:
+            if (EType == ItemType::DAMAGE_BOOST) 
+                pInventory1->setFrame(1);
+
+            else if (EType == ItemType::PIERCING_SHOT) 
+                pInventory1->setFrame(2);
+
+            else if (EType == ItemType::INFINITY_AMMO) 
+                pInventory1->setFrame(3);
+
+            this->Inventory1 = EType;
+            this->nItems++;
+            
+            break;
+
+        case 1:
+            if (EType == ItemType::DAMAGE_BOOST) 
+                pInventory2->setFrame(1);
+
+            else if (EType == ItemType::PIERCING_SHOT) 
+                pInventory2->setFrame(2);
+
+            else if (EType == ItemType::INFINITY_AMMO) 
+                pInventory3->setFrame(3);
+
+            this->Inventory2 = EType;
+            this->nItems++;
+
+            break;
+
+        case 2:
+            if (EType == ItemType::DAMAGE_BOOST) 
+                pInventory3->setFrame(1);
+
+            else if (EType == ItemType::PIERCING_SHOT) 
+                pInventory3->setFrame(2);
+
+            else if (EType == ItemType::INFINITY_AMMO) 
+                pInventory3->setFrame(3);
+
+            this->Inventory3 = EType;
+            this->nItems++;
+            
+            break;
+
+        default:
+            break;
+    }
+}
+
+void PlayerUI::updateInventory(int nInventoryNumber) {
+    Image* pInventory1 = (Image*)this->findChildByName("Inventory 1");
+    Image* pInventory2 = (Image*)this->findChildByName("Inventory 2");
+    Image* pInventory3 = (Image*)this->findChildByName("Inventory 3");
+
+    switch (nInventoryNumber) {
+        case 1:
+            ItemManager::getInstance()->setItemState(this->Inventory1, true);
+
+            this->Inventory1 = ItemType::NONE;
+            this->nItems = 0;
+
+            pInventory1->setFrame(0);
+            break;
+
+        case 2:
+            ItemManager::getInstance()->setItemState(this->Inventory2, true);
+
+            this->Inventory2 = ItemType::NONE;
+
+            if (this->Inventory1 == ItemType::NONE)
+                this->nItems = 0;
+
+            else
+                this->nItems = 1;
+
+            pInventory2->setFrame(0);
+            break;
+
+        case 3:
+            ItemManager::getInstance()->setItemState(this->Inventory3, true);
+
+            this->Inventory3 = ItemType::NONE;
+
+            if (this->Inventory1 == ItemType::NONE)
+                this->nItems = 0;
+
+            else if (this->Inventory2 == ItemType::NONE) 
+                this->nItems = 1;
+
+            else
+                this->nItems = 2;
+
+
+            pInventory3->setFrame(0);
+            break;
+
+        default:
+            break;
+    }
 }
 
 int PlayerUI::getHealth() {

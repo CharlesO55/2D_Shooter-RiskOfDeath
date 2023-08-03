@@ -95,8 +95,19 @@ void TextureManager::loadUIFolder() {
             this->loadTexture(AssetType::HEART, "View/Image/UI/Heart_Case.png");
 
             this->loadTexture(AssetType::INVENTORY_1, "View/Image/UI/Inventory_1.png");
+            this->loadTexture(AssetType::INVENTORY_1, "View/Image/UI/Inventory_1_Damage.png");
+            this->loadTexture(AssetType::INVENTORY_1, "View/Image/UI/Inventory_1_Piercing.png");
+            this->loadTexture(AssetType::INVENTORY_1, "View/Image/UI/Inventory_1_Infinity.png");
+
             this->loadTexture(AssetType::INVENTORY_2, "View/Image/UI/Inventory_2.png");
+            this->loadTexture(AssetType::INVENTORY_2, "View/Image/UI/Inventory_2_Damage.png");
+            this->loadTexture(AssetType::INVENTORY_2, "View/Image/UI/Inventory_2_Piercing.png");
+            this->loadTexture(AssetType::INVENTORY_2, "View/Image/UI/Inventory_2_Infinity.png");
+
             this->loadTexture(AssetType::INVENTORY_3, "View/Image/UI/Inventory_3.png");
+            this->loadTexture(AssetType::INVENTORY_3, "View/Image/UI/Inventory_3_Damage.png");
+            this->loadTexture(AssetType::INVENTORY_3, "View/Image/UI/Inventory_3_Piercing.png");
+            this->loadTexture(AssetType::INVENTORY_3, "View/Image/UI/Inventory_3_Infinity.png");
 
             this->loadTexture(AssetType::DAMAGE_BOOST, "View/Image/UI/Damage_Boost.png");
             this->loadTexture(AssetType::PIERCING_AMMO, "View/Image/UI/Piercing_Ammo.png");

@@ -19,6 +19,12 @@ namespace views{
         private:
             int nHearts;
             int nBullets;
+            int nItems;
+
+            ItemType Inventory1;
+            ItemType Inventory2;
+            ItemType Inventory3;
+
             views::Text *pScoreText;
 
         public:
@@ -44,6 +50,9 @@ namespace views{
             void decrementBullets();
 
             void updateActiveEffects();
+
+            void addItemToInventory(ItemType EType);
+            void updateInventory(int nInventoryNumber);
 
         public:
             int getHealth();

@@ -62,14 +62,14 @@ void ItemManager::perform() {
     this->cooldown(this->tDeltaTime.asSeconds());
 
     //UNCOMMENT FOR TESTING
-    //  if (this->fTime > 1.0f) {
-    //      this->fTime = 0.0f;
+    //   if (this->fTime > 1.0f) {
+    //       this->fTime = 0.0f;
 
 
-    //          PoolTag ETag = this->getRandomPool();
-    //          ObjectPoolManager::getInstance()->getPool(ETag)->requestPoolable();
+    //           PoolTag ETag = this->getRandomPool();
+    //           ObjectPoolManager::getInstance()->getPool(ETag)->requestPoolable();
         
-    //  }
+    //   }
 }
 
 void ItemManager::cooldown(float fTime) {
