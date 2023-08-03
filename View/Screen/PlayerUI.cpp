@@ -199,48 +199,51 @@ void PlayerUI::addItemToInventory(ItemType EType) {
 
     switch (this->nItems) {
         case 0:
-            if (EType == ItemType::DAMAGE_BOOST) 
-                pInventory1->setFrame(1);
+            if (this->Inventory1 == ItemType::NONE) {
+                if (EType == ItemType::DAMAGE_BOOST) 
+                    pInventory1->setFrame(1);
 
-            else if (EType == ItemType::PIERCING_SHOT) 
-                pInventory1->setFrame(2);
+                else if (EType == ItemType::PIERCING_SHOT) 
+                    pInventory1->setFrame(2);
 
-            else if (EType == ItemType::INFINITY_AMMO) 
-                pInventory1->setFrame(3);
+                else if (EType == ItemType::INFINITY_AMMO) 
+                    pInventory1->setFrame(3);
 
-            this->Inventory1 = EType;
-            this->nItems++;
-            
+                this->Inventory1 = EType;
+                this->nItems = 1;
+            }    
             break;
 
         case 1:
-            if (EType == ItemType::DAMAGE_BOOST) 
-                pInventory2->setFrame(1);
+            if (this->Inventory2 == ItemType::NONE) {
+                if (EType == ItemType::DAMAGE_BOOST) 
+                    pInventory2->setFrame(1);
 
-            else if (EType == ItemType::PIERCING_SHOT) 
-                pInventory2->setFrame(2);
+                else if (EType == ItemType::PIERCING_SHOT) 
+                    pInventory2->setFrame(2);
 
-            else if (EType == ItemType::INFINITY_AMMO) 
-                pInventory3->setFrame(3);
+                else if (EType == ItemType::INFINITY_AMMO) 
+                    pInventory2->setFrame(3);
 
-            this->Inventory2 = EType;
-            this->nItems++;
-
+                this->Inventory2 = EType;
+                this->nItems = 2;
+            }
             break;
 
         case 2:
-            if (EType == ItemType::DAMAGE_BOOST) 
-                pInventory3->setFrame(1);
+            if (this->Inventory3 == ItemType::NONE) {
+                if (EType == ItemType::DAMAGE_BOOST) 
+                    pInventory3->setFrame(1);
 
-            else if (EType == ItemType::PIERCING_SHOT) 
-                pInventory3->setFrame(2);
+                else if (EType == ItemType::PIERCING_SHOT) 
+                    pInventory3->setFrame(2);
 
-            else if (EType == ItemType::INFINITY_AMMO) 
-                pInventory3->setFrame(3);
+                else if (EType == ItemType::INFINITY_AMMO) 
+                    pInventory3->setFrame(3);
 
-            this->Inventory3 = EType;
-            this->nItems++;
-            
+                this->Inventory3 = EType;
+                this->nItems = 3;
+            }  
             break;
 
         default:
@@ -290,7 +293,6 @@ void PlayerUI::updateInventory(int nInventoryNumber) {
 
             else
                 this->nItems = 2;
-
 
             pInventory3->setFrame(0);
             break;
