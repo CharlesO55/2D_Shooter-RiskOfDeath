@@ -10,7 +10,6 @@ Killable::Killable(std::string strName, float fFrameInterval) : Component(strNam
 
 void Killable::perform() {
     this->killOnContactWithPlayer();
-
     this->killOnFlag();
 }
 
@@ -32,7 +31,7 @@ void Killable::killOnContactWithPlayer(){
         this->bKilled = true;   //FLAG FOR KILL
 
         //UPDATE THE PLAYER
-        PlayerManager::getInstance()->changeHealthBy(-1);
+        PlayerManager::getInstance()->damagePlayer();
     }
 }
 

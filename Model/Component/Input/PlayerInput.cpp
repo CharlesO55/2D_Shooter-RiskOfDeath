@@ -39,7 +39,7 @@ void PlayerInput::processKeyInput(bool bPressed) {
             break;
 
         case sf::Keyboard::R:
-            pUI->reloadBullets();
+            PlayerManager::getInstance()->setReloading(true);
             break;
 
         default:

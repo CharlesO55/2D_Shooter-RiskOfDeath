@@ -26,6 +26,8 @@ Lucy
 Test_Player
 75
 Test_Player
+74
+PLAYER
 73
 Test_Player
 63
@@ -58,6 +60,8 @@ Test_Player
 Test_Player
 38
 Test_Player
+38
+PLAYER
 36
 PLAYER
 35
@@ -141,6 +145,8 @@ Test_Player
 6
 Test_Player
 6
+PLAYER
+6
 NEWWWWW
 5
 Test_Player
@@ -198,6 +204,8 @@ Test_Player
 Test_Player
 1
 Test_Player
+1
+PLAYER
 0
 You
 0
