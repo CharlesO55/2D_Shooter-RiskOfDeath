@@ -2,6 +2,7 @@
 #define COMPONENTS_KILLABLE_HPP
 
 #include "../../../Controller/Singleton/TextureManager.hpp"
+#include "../../../Controller/System/PlayerManager.hpp"
 
 #include "../../Enum/EnumAssetType.hpp"
 #include "../../Enum/EnumComponentType.hpp"
@@ -38,6 +39,10 @@ namespace components {
             void setKilled(bool bKilled);
 
             int getCurrentHealth();
+
+        private:
+            void killOnContactWithPlayer();
+            void killOnFlag();
     };
 }
 

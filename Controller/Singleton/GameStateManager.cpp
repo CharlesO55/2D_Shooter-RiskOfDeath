@@ -10,8 +10,21 @@ void GameStateManager::resume() {
     this->EState = GameState::RUNNING;
 }
 
+void GameStateManager::closeGame() {
+    this->EState = GameState::CLOSE;
+}
+
 bool GameStateManager::isPaused() {
     return this->EState == GameState::PAUSED;
+}
+
+bool GameStateManager::isGameClose() {
+    return this->EState == GameState::CLOSE;
+}
+
+void GameStateManager::reset() {
+    this->EState = GameState::RUNNING;
+    this->fGameSpeed = DEFAULT_GAME_SPEED;
 }
 
 

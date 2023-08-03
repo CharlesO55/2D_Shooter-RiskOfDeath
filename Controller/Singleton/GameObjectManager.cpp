@@ -52,6 +52,15 @@ void GameObjectManager::deleteObjectByName(std::string strName) {
         this->deleteObject(pGameObject);
 }
 
+void GameObjectManager::printAllItemsDebug() {
+    int i = 0;
+    for (GameObject* pObject : this->vecGameObject){
+        std::cout << std::endl << i << pObject->getName();
+        i++;
+    }
+}
+
+
 /* * * * * * * [NEW CONTENT] * * * * * * */
 /* A helper function that utilizes existing
  * [delete(...)] functions to delete ALL

@@ -71,7 +71,6 @@ void MenuBar::decrementHeart() {
 
 void MenuBar::onClick(Button* pButton){
     if (pButton->getName() == "Quit Button"){
-        // systems::ScoreManager::getInstance()->getScoreAsString();
         systems::SceneManager::getInstance()->loadScene(SceneTag::LEADERBOARD);
     }
 }

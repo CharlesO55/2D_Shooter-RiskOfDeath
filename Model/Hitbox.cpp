@@ -21,13 +21,13 @@ Hitbox::~Hitbox(){}
 void Hitbox::initialize(){
     this->createShape();
     
-    if (RENDER_HITBOXES){
+    #ifdef RENDER_HITBOXES
         this->pShape->setFillColor(sf::Color(255, 100, 100, 100));
 
         Renderer* pRenderer = new Renderer(this->strName + " Sprite");
         pRenderer->assignDrawable(this->pShape);
         this->attachComponent(pRenderer);
-    }
+    #endif
 }
 
 void Hitbox::createShape(){

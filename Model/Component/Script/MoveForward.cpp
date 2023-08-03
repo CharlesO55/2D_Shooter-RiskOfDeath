@@ -16,12 +16,15 @@ void MoveForward::perform(){
 
     pEnemy->setZPos(fZ);
 
-    if (fZ <= 0.0f) {
+    //MOVE TO KILLABLE COMPONENT
+/*     if (fZ <= 0.0f) {
         if (pUI->getHealth() > 0) {
             ObjectPoolManager::getInstance()->getPool(pEnemy->getTag())->releasePoolable(pEnemy);
             pUI->decrementHealth();
         }
 
+        //CHECKS DEATH
+        #ifndef DISABLE_PLAYER_DEATH
         else {
             SceneManager::getInstance()->loadScene(SceneTag::LEADERBOARD);
 
@@ -30,5 +33,6 @@ void MoveForward::perform(){
             MusicManager::getInstance()->getMusic(MusicType::LEADERBOARDS)->play();
             MusicManager::getInstance()->getMusic(MusicType::LEADERBOARDS)->setLoop(true);
         }
-    }
+        #endif
+    } */
 }

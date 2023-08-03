@@ -47,6 +47,9 @@ namespace scenes{
 
         public:
             void onLoadObjects();
+            void onLoadResources();
+            void onUnloadResources();
+
         public:
             void createNullObjectComponents();
             void createCrosshair();

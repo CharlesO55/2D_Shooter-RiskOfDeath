@@ -3,7 +3,8 @@
 
 enum class GameState : int {
     RUNNING = 0,
-    PAUSED
+    PAUSED,
+    CLOSE
 };
 
 #endif

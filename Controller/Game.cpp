@@ -63,7 +63,7 @@ void Game::run() {
 
 void Game::processEvents() {
     sf::Event eEvent;
-    if(bCloseGame){
+    if(GameStateManager::getInstance()->isGameClose()){
         std::cout << "\nQUIT";
         this->rwWindow.close();
     }

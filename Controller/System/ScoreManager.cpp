@@ -1,7 +1,7 @@
 #include "ScoreManager.hpp"
 
 using namespace systems;
-
+using namespace controllers;
 
 void ScoreManager::resetScore(){
     this->CTime = sf::Time::Zero;
@@ -9,6 +9,13 @@ void ScoreManager::resetScore(){
 
 void ScoreManager::incrementScore(sf::Time CDeltaTime){
     this->CTime += CDeltaTime;
+    this->CTimeToSpeedUp += CDeltaTime;
+
+    if (CTimeToSpeedUp > sf::seconds(DEFAULT_SPEEDUP_TIMEFRAME)){
+        float fIncreasedSpeed = GameStateManager::getInstance()->getGameSpeed() + 0.1f;
+        GameStateManager::getInstance()->setGameSpeed(fIncreasedSpeed);
+        CTimeToSpeedUp = sf::Time::Zero;
+    }
 }
 
 

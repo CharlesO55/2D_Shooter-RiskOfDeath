@@ -17,10 +17,10 @@ using namespace scenes;
  * must create and register the [MainMenu]
  * [View] on your own.*/
 
-MainMenuScene::MainMenuScene() : Scene(SceneTag::MAIN_MENU) {
+MainMenuScene::MainMenuScene() : Scene(SceneTag::MAIN_MENU) {/* 
     MusicManager::getInstance()->getMusic(MusicType::MAIN_MENU)->setVolume(40.0f);
     MusicManager::getInstance()->getMusic(MusicType::MAIN_MENU)->play();
-    MusicManager::getInstance()->getMusic(MusicType::MAIN_MENU)->setLoop(true);
+    MusicManager::getInstance()->getMusic(MusicType::MAIN_MENU)->setLoop(true); */
 }
 
 MainMenuScene::~MainMenuScene() {}
@@ -44,4 +44,19 @@ MainMenuScene::~MainMenuScene() {}
 void MainMenuScene::onLoadObjects(){
     this->createBackground("Main Menu Background");
     this->registerObject(new MainMenu());
+}
+
+void MainMenuScene::onLoadResources(){
+    Scene::onLoadResources();
+
+    MusicManager::getInstance()->getMusic(MusicType::MAIN_MENU)->setVolume(40.0f);
+    MusicManager::getInstance()->getMusic(MusicType::MAIN_MENU)->play();
+    MusicManager::getInstance()->getMusic(MusicType::MAIN_MENU)->setLoop(true);
+}
+
+
+void MainMenuScene::onUnloadResources(){
+    MusicManager::getInstance()->getMusic(MusicType::MAIN_MENU)->stop();
+
+    Scene::onUnloadResources();
 }

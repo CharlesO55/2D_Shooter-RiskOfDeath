@@ -12,13 +12,19 @@ namespace controllers {
     
     class GameStateManager {
         private:
-            GameState EState;
+            GameState EState = GameState::RUNNING;
             float fGameSpeed = DEFAULT_GAME_SPEED;
 
         public:
             void pause();
             void resume();
+            void closeGame();
+
+            void reset();
+            
             bool isPaused();
+            bool isGameClose();
+
             float getGameSpeed();
             void setGameSpeed(float fSpeed);
 

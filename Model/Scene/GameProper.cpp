@@ -8,6 +8,28 @@ GameProper::GameProper() : Scene(SceneTag::GAME_PROPER){}
 
 GameProper::~GameProper(){}
 
+
+void GameProper::onLoadResources(){
+    Scene::onLoadResources();
+
+    MusicManager::getInstance()->getMusic(MusicType::GAME_PROPER)->setVolume(40.0f);
+    MusicManager::getInstance()->getMusic(MusicType::GAME_PROPER)->play();
+    MusicManager::getInstance()->getMusic(MusicType::GAME_PROPER)->setLoop(true);
+
+    ScoreManager::getInstance()->resetScore();
+    GameStateManager::getInstance()->reset();
+}
+
+void GameProper::onUnloadResources(){
+    MusicManager::getInstance()->getMusic(MusicType::GAME_PROPER)->stop();
+    ScoreManager::getInstance()->logScoreOnEnd(DEFAULT_PLAYER_NAME);
+
+
+    Scene::onUnloadResources();
+}
+
+
+
 void GameProper::onLoadObjects() {
     //LOAD THE SCREEN VIEWS
     this->registerObject(new FrontViewScreen());
@@ -26,7 +48,8 @@ void GameProper::onLoadObjects() {
     this->registerObject(new PlayerUI());
 
 
-    ScoreManager::getInstance()->resetScore();
+
+    GameObjectManager::getInstance()->printAllItemsDebug();
 }
 
 void GameProper::createNullObjectComponents() {

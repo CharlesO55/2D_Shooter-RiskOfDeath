@@ -9,15 +9,34 @@ Killable::Killable(std::string strName, float fFrameInterval) : Component(strNam
 }
 
 void Killable::perform() {
+    this->killOnContactWithPlayer();
+
+    this->killOnFlag();
+}
+
+void Killable::killOnFlag(){
     if (this->bKilled) {
         //Include the animation procedure once done.
-        std::cout << "[Killable] : Kill Performed" << std::endl;
+        std::cout << "[Killed] : " << this->pOwner->getName() << std::endl;
         PoolableObject* pObject = (PoolableObject*)this->pOwner;
         ObjectPoolManager::getInstance()->getPool(pObject->getTag())->releasePoolable(pObject);
 
         this->bKilled = false;
     }
 }
+
+void Killable::killOnContactWithPlayer(){
+    Positionable* pActor = dynamic_cast <Positionable*> (this->pOwner);
+    if(pActor->getScenePos().z <= 0){
+        std::cout << "[Hurt by] : " << this->pOwner->getName();
+        this->bKilled = true;   //FLAG FOR KILL
+
+        //UPDATE THE PLAYER
+        PlayerManager::getInstance()->changeHealthBy(-1);
+    }
+}
+
+
 
 void Killable::damage() {
     BaseEnemy* pEnemy = (BaseEnemy*)this->pOwner;

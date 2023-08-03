@@ -61,24 +61,23 @@ void MainMenu::onClick(Button* pButton) {
     /* * * * * * * * * * * * * * * * * * * * */
     if (pButton->getName() == "Start Button"){
         systems::SceneManager::getInstance()->loadScene(SceneTag::GAME_PROPER);
-        GameStateManager::getInstance()->resume();
-        
+        /* 
         MusicManager::getInstance()->getMusic(MusicType::MAIN_MENU)->stop();
         MusicManager::getInstance()->getMusic(MusicType::GAME_PROPER)->setVolume(40.0f);
         MusicManager::getInstance()->getMusic(MusicType::GAME_PROPER)->play();
-        MusicManager::getInstance()->getMusic(MusicType::GAME_PROPER)->setLoop(true);
+        MusicManager::getInstance()->getMusic(MusicType::GAME_PROPER)->setLoop(true); */
     }
     else if (pButton->getName() == "Leaderboard Button"){
         systems::SceneManager::getInstance()->loadScene(SceneTag::LEADERBOARD);
-
+/* 
         MusicManager::getInstance()->getMusic(MusicType::MAIN_MENU)->stop();
         MusicManager::getInstance()->getMusic(MusicType::LEADERBOARDS)->setVolume(40.0f);
         MusicManager::getInstance()->getMusic(MusicType::LEADERBOARDS)->play();
-        MusicManager::getInstance()->getMusic(MusicType::LEADERBOARDS)->setLoop(true);
+        MusicManager::getInstance()->getMusic(MusicType::LEADERBOARDS)->setLoop(true); */
 
     }
     else if (pButton->getName() == "Quit Button"){
-        bCloseGame = true;
+        GameStateManager::getInstance()->closeGame();
     }
     else if (pButton->getName() == "Debug Button"){
         SceneManager::getInstance()->loadScene(SceneTag::GAME_SCENE);

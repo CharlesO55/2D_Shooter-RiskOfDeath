@@ -15,5 +15,7 @@ namespace scenes {
 
         public:
             void onLoadObjects();
+            void onLoadResources();
+            void onUnloadResoures();
     };
 }

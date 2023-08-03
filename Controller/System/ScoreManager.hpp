@@ -9,12 +9,16 @@
 
 #include <fstream>
 
+#include "../Singleton/GameStateManager.hpp"
+
 using Pair_nScore_strName = std::pair<int, std::string>;
 
 namespace systems{
     class ScoreManager {
         private:
             sf::Time CTime;
+            sf::Time CTimeToSpeedUp; 
+            
             std::vector <Pair_nScore_strName> vecLeaderboard;
             Pair_nScore_strName pairCurrPlayerScore = Pair_nScore_strName(0, "NONE");
 
