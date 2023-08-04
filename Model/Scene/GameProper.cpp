@@ -158,16 +158,28 @@ void GameProper::createBlockers(){
     BoulderBlocker *pBoulderR = new BoulderBlocker("Blocker Boulder 2", sf::FloatRect(SCREEN_WIDTH/2, SCREEN_HEIGHT/2, SCREEN_WIDTH/2, SCREEN_HEIGHT/2-200), {-1,0});
     WispBlocker* pWispL = new WispBlocker("Blocker WispL", sf::FloatRect(50, 0, 200, SCREEN_HEIGHT/2), {0,1});
     WispBlocker* pWispR = new WispBlocker("Blocker WispR", sf::FloatRect(SCREEN_WIDTH/2, 0, 0, SCREEN_HEIGHT/2), {0,-1});
-    
+    ChestBlocker* pChestL = new ChestBlocker("Blocker Chest 1", sf::FloatRect(0, 0, SCREEN_WIDTH, SCREEN_HEIGHT), {1,1});
+    ChestBlocker* pChestR = new ChestBlocker("Blocker Chest 2", sf::FloatRect(0, 0, SCREEN_WIDTH, SCREEN_HEIGHT), {1,1});
+    CageBlocker* pCageL = new CageBlocker("Blocker Cage 1", sf::FloatRect(200, 0, SCREEN_WIDTH/2, SCREEN_HEIGHT/8), {0,0});
+    CageBlocker* pCageR = new CageBlocker("Blocker Cage 2", sf::FloatRect(SCREEN_WIDTH/2, 0, SCREEN_WIDTH/2 - 200, SCREEN_HEIGHT/8), {0,0});
+
     this->registerObject(pBoulderL);
     this->registerObject(pBoulderR);
     this->registerObject(pWispL);
     this->registerObject(pWispR);
+    this->registerObject(pChestL);
+    this->registerObject(pChestR);
+    this->registerObject(pCageL);
+    this->registerObject(pCageR);
+
     BlockerManager::getInstance()->registerBlocker(pBoulderL);
     BlockerManager::getInstance()->registerBlocker(pBoulderR);
     BlockerManager::getInstance()->registerBlocker(pWispL);
     BlockerManager::getInstance()->registerBlocker(pWispR);
-
+    BlockerManager::getInstance()->registerBlocker(pChestL);
+    BlockerManager::getInstance()->registerBlocker(pChestR);
+    BlockerManager::getInstance()->registerBlocker(pCageL);
+    BlockerManager::getInstance()->registerBlocker(pCageR);
 
     //Commented to reduce clutter. Consult regarding blockers first so everything is within theme
     // PlaneBlocker *pPlane = new PlaneBlocker(sf::FloatRect(0, 0, SCREEN_WIDTH, SCREEN_HEIGHT));

@@ -2,12 +2,13 @@
 
 using namespace models;
 
-Hitbox::Hitbox(std::string strName, ShapeType EShape) : GameObject(strName, NULL){
+Hitbox::Hitbox(std::string strName, ShapeType EShape, sf::FloatRect rectModify) : GameObject(strName, NULL){
     if (EShape == ShapeType::IRREGULAR){
         std::cout << "\n[WARNING] TO CREATE IRREGULAR SHAPES, PASS A VECTOR OF POINTS";
         throw 0;
     }
     this->EShape = EShape;
+    this->rectModify = rectModify;
 }
  
 /* Hitbox::Hitbox(std::string strName, std::vector <sf::Vector2f> vecVerts) : GameObject(strName, NULL) {
@@ -20,6 +21,7 @@ Hitbox::~Hitbox(){}
 
 void Hitbox::initialize(){
     this->createShape();
+    this->modifyShape(this->rectModify);
     
     #ifdef RENDER_HITBOXES
         this->pShape->setFillColor(sf::Color(255, 100, 100, 100));
@@ -77,6 +79,24 @@ bool Hitbox::contains(sf::Vector2f vecMouse){
     }
 }
 
+void Hitbox::modifyShape(sf::FloatRect rectModify){
+    switch (this->EShape){
+        case ShapeType::RECTANGLE:
+            this->pShape = new sf::RectangleShape({this->pShape->getLocalBounds().width + rectModify.width, this->pShape->getLocalBounds().height + rectModify.height}); 
+            this->pShape->setPosition({rectModify.left,rectModify.top});break;
+        case ShapeType::CIRCLE:
+            this->pShape = new sf::CircleShape((this->pShape->getLocalBounds().width + rectModify.width) / 2); break;
+            this->pShape->setPosition({rectModify.left,rectModify.top});break;
+        case ShapeType::TRIANGLE:
+            sf::CircleShape *pTriangle = new sf::CircleShape((this->pShape->getLocalBounds().width + rectModify.width) / 2);
+            pTriangle->setPointCount(3);
+            pTriangle->setPosition({rectModify.left,rectModify.top});break;
+            this->pShape = pTriangle;
+            break;
+            
+    }
+}
+
 bool Hitbox::foundInRectangle(sf::Vector2f vecMouse){
     sf::FloatRect CTransformedBounds = this->extractParentTransformedBounds();
 
@@ -128,7 +148,6 @@ bool Hitbox::foundInTriangle(sf::Vector2f vecMouse){
     
     return false;
 }
-
 
 
 sf::FloatRect Hitbox::extractParentTransformedBounds(){

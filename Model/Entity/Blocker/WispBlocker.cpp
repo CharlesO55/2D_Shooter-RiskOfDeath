@@ -21,6 +21,6 @@ void WispBlocker::initialize(){
 }
 
 void WispBlocker::createHitboxes(){
-    this->pHitbox = new Hitbox(this->strName + " Hitbox", ShapeType::TRIANGLE);
+    this->pHitbox = new Hitbox(this->strName + " Hitbox", ShapeType::TRIANGLE, {50,25,0,0});
     this->attachChild(pHitbox);
 }

@@ -21,6 +21,6 @@ void BoulderBlocker::initialize(){
 }
 
 void BoulderBlocker::createHitboxes(){
-    this->pHitbox = new Hitbox(this->strName + " Hitbox", ShapeType::CIRCLE);
+    this->pHitbox = new Hitbox(this->strName + " Hitbox", ShapeType::CIRCLE, {0,0,0,0});
     this->attachChild(pHitbox);
 }

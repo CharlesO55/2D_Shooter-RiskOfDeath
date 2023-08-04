@@ -15,15 +15,17 @@ namespace models{
             sf::Shape* pShape;
             ShapeType EShape;
             std::vector <sf::Vector2f> vecVerts;
+            sf::FloatRect rectModify;
 
         public:
-            Hitbox(std::string strName, ShapeType EShape);
+            Hitbox(std::string strName, ShapeType EShape, sf::FloatRect rectModify);
             // Hitbox(std::string strName, std::vector <sf::Vector2f> vecVerts);    //Cancelled. No convex shapes
             ~Hitbox();
 
         public:
             void initialize();
             bool contains(sf::Vector2f vecMouse);
+            void modifyShape(sf::FloatRect rectModify);
 
         private:
             void createShape();

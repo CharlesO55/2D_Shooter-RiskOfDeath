@@ -147,7 +147,7 @@ void EnemyManager::spawnWave() {
     for (int i = 0; i < nSpawnCount; i++) {
         float nRand = (float)std::rand() / (float)RAND_MAX;
 
-        std::cout << nRand << std::endl;
+        //std::cout << nRand << std::endl;
 
         if (nRand <= fCommonRate)
             ObjectPoolManager::getInstance()->getPool(PoolTag::BAT)->requestPoolable();

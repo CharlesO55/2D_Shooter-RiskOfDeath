@@ -34,6 +34,14 @@ void MoveXY::perform(){
 
     
     sf::Vector3f vec3 = pTarget->getScenePos();
+    if(this->pOwner->getSprite()->getPosition().x > SCREEN_WIDTH ||
+       this->pOwner->getSprite()->getPosition().x < 0)
+        vecMoveDir.x *= -1;
+        
+    if(this->pOwner->getSprite()->getPosition().y > SCREEN_HEIGHT || 
+       this->pOwner->getSprite()->getPosition().y < 0)
+        vecMoveDir.y *= -1;
+
     vec3.x += fMove * vecMoveDir.x;
     vec3.y += fMove * vecMoveDir.y;
 
