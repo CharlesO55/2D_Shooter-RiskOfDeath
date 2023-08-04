@@ -150,10 +150,10 @@ void EnemyManager::spawnWave() {
         std::cout << nRand << std::endl;
 
         if (nRand <= fCommonRate)
-            ObjectPoolManager::getInstance()->getPool(PoolTag::SLIME)->requestPoolable();
+            ObjectPoolManager::getInstance()->getPool(PoolTag::BAT)->requestPoolable();
             
         else if (nRand <= fCommonRate + fUncommonRate)
-            ObjectPoolManager::getInstance()->getPool(PoolTag::BAT)->requestPoolable();
+            ObjectPoolManager::getInstance()->getPool(PoolTag::SLIME)->requestPoolable();
 
         else
             ObjectPoolManager::getInstance()->getPool(PoolTag::GHOST)->requestPoolable();
