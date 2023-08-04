@@ -62,7 +62,7 @@ void PlayerUI::createBullets() {
     float yPos = SCREEN_HEIGHT - 5.0f;
 
     for (int i = 0; i < this->nTotalBullets; i++) {
-        if (i % 10 == 0) {
+        if (i % 15 == 0) {
             xPos = SCREEN_WIDTH - 15.0f;
             yPos -= 20.0f;
         } 
