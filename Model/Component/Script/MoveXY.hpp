@@ -11,13 +11,14 @@ namespace components{
     class MoveXY : public Component{
         private:
             bool bRotate;
+            bool bCanFlip;
             sf::Vector2f vecMoveDir;
             float fMaxDistance;
             float fTravelled = 0;
             float fSpeed;
         
         public:
-            MoveXY(std::string strName, float fMaxDistance, sf::Vector2f vecMoveDir = {1, 0}, float fSpeed = 50, bool bRotating = false);
+            MoveXY(std::string strName, float fMaxDistance, sf::Vector2f vecMoveDir = {1, 0}, float fSpeed = 50, bool bRotating = false, bool bCanFlip = false);
             ~MoveXY();
 
         public:

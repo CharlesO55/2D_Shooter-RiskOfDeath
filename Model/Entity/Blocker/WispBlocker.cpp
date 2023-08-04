@@ -16,7 +16,7 @@ void WispBlocker::initialize(){
     BaseBlocker::initialize();
 
     int nMaxDistance = this->nRNG(300 , SCREEN_HEIGHT/2);
-    MoveXY *pMovement = new MoveXY(this->strName + " MoveXY", nMaxDistance, vecStartDir, 20, true);
+    MoveXY *pMovement = new MoveXY(this->strName + " MoveXY", nMaxDistance, vecStartDir, 20, false, false);
     this->attachComponent(pMovement); 
 }
 

@@ -80,8 +80,9 @@
 
 #include "Model/Entity/Blocker/BaseBlocker.cpp"
 #include "Model/Entity/Blocker/BoulderBlocker.cpp"
-#include "Model/Entity/Blocker/CageBlocker.cpp"
-#include "Model/Entity/Blocker/ChestBlocker.cpp"
+#include "Model/Entity/Blocker/CageBlocker/CageBlocker.cpp"
+#include "Model/Entity/Blocker/CageBlocker/CageChain.cpp"
+#include "Model/Entity/Blocker/ShadowBlocker.cpp"
 #include "Model/Entity/Blocker/WispBlocker.cpp"
 #include "Model/Entity/Blocker/ScrollBlocker.cpp"
 #include "Model/Entity/Blocker/PlaneBlocker.cpp"

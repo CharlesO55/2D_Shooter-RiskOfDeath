@@ -3,10 +3,11 @@
 using namespace components;
 using namespace interfaces;
 
-MoveXY::MoveXY(std::string strName, float fMaxDistance, sf::Vector2f vecMoveDir, float fSpeed, bool bRotating ) : Component(strName, ComponentType::SCRIPT){
+MoveXY::MoveXY(std::string strName, float fMaxDistance, sf::Vector2f vecMoveDir, float fSpeed, bool bRotating, bool bCanFlip) : Component(strName, ComponentType::SCRIPT){
     this->fMaxDistance = fMaxDistance;
     this->vecMoveDir = vecMoveDir;
     this->bRotate = bRotating;
+    this->bCanFlip = bCanFlip;
     this->fSpeed = fSpeed;
 }
 
@@ -30,6 +31,9 @@ void MoveXY::perform(){
     if(this->bRotate){
         float fRot = this->pOwner->getSprite()->getRotation() + fMove * vecMoveDir.x;
         this->pOwner->getSprite()->setRotation(fRot);
+    }
+    if(this->bCanFlip){
+        this->pOwner->getSprite()->setScale({this->pOwner->getSprite()->getScale().x * vecMoveDir.x, this->pOwner->getSprite()->getScale().y});
     }
 
     
