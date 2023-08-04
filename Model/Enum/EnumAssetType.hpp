@@ -26,7 +26,6 @@ enum class AssetType : int {
     INFINITY_AMMO,
     INSTANT_KILL,
 
-    SHIP,
     CROSSHAIR,
 
     SLIME,
@@ -40,12 +39,6 @@ enum class AssetType : int {
     WISP,
     PLANE,
     CLOUD,
-
-    MR_ALIEN_BASE,
-    MR_ALIEN_TOP_STAMEN,
-    MR_ALIEN_BOTTOM_STAMEN,
-    MR_ALIEN_TOP_TENTACLE,
-    MR_ALIEN_BOTTOM_TENTACLE
 };
 
 #endif

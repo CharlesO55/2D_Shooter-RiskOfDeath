@@ -1,4 +1,5 @@
-#pragma once
+#ifndef COMPONENTS_GAME_SCREEN_NAVIGATION_HPP
+#define COMPONENTS_GAME_SCREEN_NAVIGATION_HPP
 
 #include "../Component.hpp"
 #include "../Input/GameNavigationInput.hpp"
@@ -32,3 +33,5 @@ namespace components{
             void screenLockedZoomScreen();
     };
 }
+
+#endif

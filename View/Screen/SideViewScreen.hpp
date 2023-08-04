@@ -1,11 +1,9 @@
-#pragma once
-
+#ifndef VIEWS_SIDE_VIEW_SCREEN_HPP
+#define VIEWS_SIDE_VIEW_SCREEN_HPP
 
 #include "../View.hpp"
-#include "../../Controller/System/ViewManager.hpp"
-
 #include "../Text.hpp"
-
+#include "../../Controller/System/ViewManager.hpp"
 
 namespace views{
     using namespace listeners;
@@ -18,3 +16,5 @@ namespace views{
             void initialize();
     };
 }
+
+#endif

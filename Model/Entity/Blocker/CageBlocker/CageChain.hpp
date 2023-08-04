@@ -1,4 +1,5 @@
-#pragma once
+#ifndef MODELS_CAGE_CHAIN_HPP
+#define MODELS_CAGE_CHAIN_HPP
 
 #include "../../../GameObject.hpp"
 
@@ -17,6 +18,7 @@ namespace models{
         public:
             void initialize();
             void createHitboxes();
-
     };
 }
+
+#endif

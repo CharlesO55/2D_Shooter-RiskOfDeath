@@ -4,7 +4,7 @@
 #include "../../Component/Script/MoveScroll.hpp"
 
 namespace models{
-    class PlaneBlocker : public ScrollBlocker{
+    class PlaneBlocker : public ScrollBlocker{ //TO BE REMOVED
         private:
             sf::Vector2f vecStartDir;
             

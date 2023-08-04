@@ -17,7 +17,7 @@
 
 namespace models{
     using namespace interfaces;
-    class ScrollBlocker : public GameObject , public Positionable {
+    class ScrollBlocker : public GameObject , public Positionable { //TO BE REMOVED
         protected:
             EnumBlockerType Etype;
             bool bIsReversed;

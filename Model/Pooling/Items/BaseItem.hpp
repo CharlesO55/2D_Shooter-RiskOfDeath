@@ -25,6 +25,7 @@
 
 namespace models {
     using namespace components;
+    using namespace interfaces;
     using namespace systems;
 
     class BaseItem : public PoolableObject , public Shootable {

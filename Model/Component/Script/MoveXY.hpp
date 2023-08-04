@@ -1,4 +1,5 @@
-#pragma once
+#ifndef COMPONENTS_MOVE_XY_HPP
+#define COMPONENTS_MOVE_XY_HPP
 
 #include "../Component.hpp"
 #include "Interface/Positionable.hpp"
@@ -28,3 +29,5 @@ namespace components{
             void setMoveDir(sf::Vector2f vecDir);
     };
 }
+
+#endif

@@ -1,4 +1,5 @@
-#pragma once
+#ifndef INTERFACES_POSITIONABLE_HPP
+#define INTERFACES_POSITIONABLE_HPP
 
 namespace interfaces {
     class Positionable {
@@ -17,3 +18,5 @@ namespace interfaces {
             void setScenePos(sf::Vector3f vec3)      {this->vecScenePos = vec3;};
     };
 }
+
+#endif

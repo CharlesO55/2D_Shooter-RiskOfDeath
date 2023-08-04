@@ -1,4 +1,5 @@
-#pragma once
+#ifndef MODELS_BASE_BLOCKER_HPP
+#define MODELS_BASE_BLOCKER_HPP
 
 #include "../../GameObject.hpp"
 
@@ -40,3 +41,5 @@ namespace models{
             int nRNG(int nMin, int nMax);
     };
 }
+
+#endif

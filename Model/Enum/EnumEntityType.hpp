@@ -1,4 +1,5 @@
-#pragma once
+#ifndef ENUM_ENTITY_TYPE_HPP
+#define ENUM_ENTITY_TYPE_HPP
 
 enum class EntityType : int {
     BLOCKER,
@@ -7,3 +8,5 @@ enum class EntityType : int {
     BULLET,
     UNSET
 };
+
+#endif

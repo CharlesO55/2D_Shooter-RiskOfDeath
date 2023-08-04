@@ -1,4 +1,5 @@
-#pragma once
+#ifndef SYSTEMS_LAYER_MANAGER_HPP
+#define SYSTEMS_LAYER_MANAGER_HPP
 
 #include "../Singleton/GameObjectManager.hpp"
 #include "../System/ViewManager.hpp"
@@ -12,6 +13,7 @@
 
 namespace systems{
     using namespace components;
+    using namespace interfaces;
     using namespace models;
 
     class LayerManager : public Component{
@@ -50,3 +52,5 @@ namespace systems{
             LayerManager& operator = (const LayerManager&) = delete;
     };
 }
+
+#endif

@@ -3,18 +3,10 @@
 using namespace views;
 using namespace systems;
 
-/* * * * * * * [NEW CONTENT] * * * * * * */
-/* This class renders a [MainMenu] screen
- * containing a [Background] and a START
- * [Button]. */
-MainMenu::MainMenu() : View(ViewTag::MAIN_MENU, "Main Menu View") {
-    ViewManager::getInstance()->registerView(this);
-}
+MainMenu::MainMenu() : View(ViewTag::MAIN_MENU, "Main Menu View") { ViewManager::getInstance()->registerView(this);}
 
 MainMenu::~MainMenu() {}
 
-/* Creates the [Background] and [Button],
- * and layouts it in the screen. */
 void MainMenu::initialize() {
     //GAME TITLE 
     this->attachChild (new 
@@ -49,43 +41,20 @@ void MainMenu::initialize() {
 }
 
 void MainMenu::onClick(Button* pButton) {
-    /* * * * *  [PRACTICE EXERCISE]  * * * * */
-    /* Check if [pButton] (which is the clicked
-     * [Button]) is equal to your START [Button].
-     * If so, LOAD the [GameScene].
-     * 
-     * You must use [SceneManager] in your
-     * solution. Also, try to do this WITHOUT
-     * making the START [Button] into a
-     * field. */
-    /* * * * * * * * * * * * * * * * * * * * */
-    if (pButton->getName() == "Start Button"){
+    if (pButton->getName() == "Start Button")
         systems::SceneManager::getInstance()->loadScene(SceneTag::GAME_PROPER);
-        /* 
-        MusicManager::getInstance()->getMusic(MusicType::MAIN_MENU)->stop();
-        MusicManager::getInstance()->getMusic(MusicType::GAME_PROPER)->setVolume(40.0f);
-        MusicManager::getInstance()->getMusic(MusicType::GAME_PROPER)->play();
-        MusicManager::getInstance()->getMusic(MusicType::GAME_PROPER)->setLoop(true); */
-    }
-    else if (pButton->getName() == "Leaderboard Button"){
+    
+    else if (pButton->getName() == "Leaderboard Button")
         systems::SceneManager::getInstance()->loadScene(SceneTag::LEADERBOARD);
-/* 
-        MusicManager::getInstance()->getMusic(MusicType::MAIN_MENU)->stop();
-        MusicManager::getInstance()->getMusic(MusicType::LEADERBOARDS)->setVolume(40.0f);
-        MusicManager::getInstance()->getMusic(MusicType::LEADERBOARDS)->play();
-        MusicManager::getInstance()->getMusic(MusicType::LEADERBOARDS)->setLoop(true); */
 
-    }
-    else if (pButton->getName() == "Quit Button"){
+    else if (pButton->getName() == "Quit Button")
         GameStateManager::getInstance()->closeGame();
-    }
-    else if (pButton->getName() == "Debug Button"){
-        SceneManager::getInstance()->loadScene(SceneTag::GAME_SCENE);
-    }
+
     else if (pButton->getName() == "Change Rows Button"){
         ViewManager::getInstance()->incrementRows();
         this->pScreenCountText[0]->setText("Screen Rows: " + std::to_string(ViewManager::getInstance()->getScreenRows()));
     }
+
     else if (pButton->getName() == "Change Cols Button"){
         ViewManager::getInstance()->incrementCols();
         this->pScreenCountText[1]->setText("Screen Cols: " + std::to_string(ViewManager::getInstance()->getScreenCols()));
@@ -93,4 +62,3 @@ void MainMenu::onClick(Button* pButton) {
 }
 
 void MainMenu::onRelease(Button* pButton) {}
-/* * * * * * * * * * * * * * * * * * * * */

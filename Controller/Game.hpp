@@ -13,7 +13,6 @@
 #include "System/SceneManager.hpp"
 
 #include "../Model/Scene/MainMenuScene.hpp"
-#include "../Model/Scene/GameScene.hpp"
 #include "../Model/Scene/GameProper.hpp"
 #include "../Model/Scene/LeaderboardScene.hpp"
 #include "../Model/Scene/LoadingScene.hpp"

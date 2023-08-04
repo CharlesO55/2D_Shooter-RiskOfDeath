@@ -4,7 +4,7 @@
 #include "../../Component/Script/MoveScroll.hpp"
 
 namespace models{
-    class CloudBlocker : public ScrollBlocker{
+    class CloudBlocker : public ScrollBlocker{ //TO BE REMOVED
         private:
             sf::Vector2f vecStartDir;
             

@@ -1,4 +1,5 @@
-#pragma once
+#ifndef SYSTEMS_SCORE_MANAGER_HPP
+#define SYSTEMS_SCORE_MANAGER_HPP
 
 #include "../../Config/Settings.hpp"
 
@@ -50,3 +51,5 @@ namespace systems{
             static ScoreManager* getInstance();
     }; 
 }
+
+#endif

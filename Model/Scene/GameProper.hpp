@@ -1,4 +1,5 @@
-#pragma once
+#ifndef SCENES_GAME_PROPER_HPP
+#define SCENES_GAME_PROPER_HPP
 
 #include "../Scene.hpp"
 #include "../Entity/Crosshair.hpp"
@@ -63,3 +64,5 @@ namespace scenes{
             void createLayerManagerAsLast();
     };
 }
+
+#endif

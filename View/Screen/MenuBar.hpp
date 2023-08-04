@@ -21,7 +21,7 @@ namespace views {
     using namespace models;
     using namespace listeners;
 
-    class MenuBar : public View , public ButtonListener{
+    class MenuBar : public View , public ButtonListener{ //TO BE REMOVED
         private:
             Text* pText;
             int nScore;

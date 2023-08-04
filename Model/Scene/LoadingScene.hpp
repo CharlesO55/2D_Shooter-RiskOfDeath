@@ -1,4 +1,5 @@
-#pragma once
+#ifndef SCENES_LOADING_SCENE_HPP
+#define SCENES_LOADING_SCENE_HPP
 
 #include "../Scene.hpp"
 #include "../../../View/Screen/LoadingScreen.hpp"
@@ -14,3 +15,5 @@ namespace scenes{
             void onLoadObjects();
     };
 }
+
+#endif

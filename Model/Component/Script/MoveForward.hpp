@@ -1,4 +1,5 @@
-#pragma once
+#ifndef COMPONENTS_MOVE_FORWARD_HPP
+#define COMPONENTS_MOVE_FORWARD_HPP
 
 #include "../../Pooling/Enemy/BaseEnemy.hpp"
 #include "../Component.hpp"
@@ -13,3 +14,5 @@ namespace components{
             void perform();
     };
 }
+
+#endif

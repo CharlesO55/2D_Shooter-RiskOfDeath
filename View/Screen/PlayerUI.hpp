@@ -1,4 +1,5 @@
-#pragma once
+#ifndef VIEWS_PLAYER_UI_HPP
+#define VIEWS_PLAYER_UI_HPP
 
 #include "../View.hpp"
 #include "../Interface/ButtonListener.hpp"
@@ -66,3 +67,5 @@ namespace views{
             void onRelease(Button* pButton);
     };
 }
+
+#endif

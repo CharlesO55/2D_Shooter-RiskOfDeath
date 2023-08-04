@@ -1,4 +1,5 @@
-#pragma once
+#ifndef MODELS_SHADOW_BLOCKER_HPP
+#define MODELS_SHADOW_BLOCKER_HPP
 
 #include "BaseBlocker.hpp"
 #include "../../Component/Script/MoveXY.hpp"
@@ -17,3 +18,5 @@ namespace models{
             void createHitboxes();
     };
 }
+
+#endif

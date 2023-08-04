@@ -1,4 +1,5 @@
-#pragma once
+#ifndef COMPONENTS_SCENE_POS_INTERPRETER_HPP
+#define COMPONENTS_SCENE_POS_INTERPRETER_HPP
 
 #include "../Component.hpp"
 #include "../../Pooling/Enemy/BaseEnemy.hpp"
@@ -17,3 +18,5 @@ namespace components{
             void perform();
     };
 }
+
+#endif

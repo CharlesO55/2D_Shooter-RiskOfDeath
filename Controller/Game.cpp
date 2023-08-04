@@ -5,38 +5,17 @@ using namespace controllers;
 Game::Game() : rwWindow(sf::VideoMode(SCREEN_WIDTH, SCREEN_HEIGHT), "GALURA, URSUA, ONG | RISK OF DEATH", sf::Style::Titlebar | sf::Style::Close) {
     this->rwWindow.setFramerateLimit(FRAME_RATE_LIMIT);
     AnimatedTexture* pTexture;
-    /* [IMPORTANT] : Typically, we add a TAG to
-     * these RESOURCE Managers, telling them
-     * which scene-specific resources to load.
-     * Then, we do their call in a scene's
-     * [onLoadResources()] function. Since this
-     * sample project is small, there's no need
-     * to do that yet. However, remember to do
-     * so in your MP. */
-    // TextureManager::getInstance()->loadAll();
+
     MusicManager::getInstance()->loadAll();
     SFXManager::getInstance()->loadAll();
     FontManager::getInstance()->loadAll();
 
-    /* * * * *  [PRACTICE EXERCISE]  * * * * */
-    /* Create ALL your scenes. Once you have
-     * properly implemented [MainMenuScene],
-     * remember to register it here. */
     SceneManager::getInstance()->registerScene(new LoadingScene());
     SceneManager::getInstance()->registerScene(new MainMenuScene());
-    SceneManager::getInstance()->registerScene(new GameScene());
     SceneManager::getInstance()->registerScene(new GameProper());
     SceneManager::getInstance()->registerScene(new LeaderboardScene());
-    /* * * * * * * * * * * * * * * * * * * * */
-    
-    /* * * * *  [PRACTICE EXERCISE]  * * * * */
-    /* Once you have properly implemented
-     * [MainMenuScene], change this part of the
-     * code such that the first scene loaded
-     * is [MainMenuScene] as opposed to the
-     * [GameScene]. */
+
     SceneManager::getInstance()->loadScene(SceneTag::MAIN_MENU);
-    /* * * * * * * * * * * * * * * * * * * * */
 }
 
 void Game::run() {
@@ -52,12 +31,8 @@ void Game::run() {
             tLastUpdate -= tTimePerFrame;
             this->update(tTimePerFrame);
         }
-        
-        /* * * * * * * [NEW CONTENT] * * * * * * */
-        /* Check the [Slides] for more information
-         * about this function call placement. */
+
         SceneManager::getInstance()->checkLoadScene();
-        /* * * * * * * * * * * * * * * * * * * * */
         this->render();
     }
 }

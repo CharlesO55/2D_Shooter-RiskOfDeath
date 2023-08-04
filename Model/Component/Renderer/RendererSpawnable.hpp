@@ -1,4 +1,5 @@
-#pragma once
+#ifndef COMPONENTS_RENDERER_SPAWNABLE
+#define COMPONENTS_RENDERER_SPAWNABLE
 
 /*
 ALTERNATE RENDERER FOR SPAWANABLE OBJ: ENEMY, BLOCKERS, AND ITEMS
@@ -21,3 +22,5 @@ namespace components{
             void perform();
     };
 }
+
+#endif

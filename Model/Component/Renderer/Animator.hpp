@@ -1,4 +1,5 @@
-#pragma once
+#ifndef COMPONENTS_ANIMATOR_HPP
+#define COMPONENTS_ANIMATOR_HPP
 
 #include "../Component.hpp"
 #include "../../GameObject.hpp"
@@ -23,3 +24,5 @@ namespace components{
             void perform();
     };
 }
+
+#endif

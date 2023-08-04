@@ -1,4 +1,5 @@
-#pragma once
+#ifndef MODELS_HITBOX_HPP
+#define MODELS_HITBOX_HPP
 
 #include "GameObject.hpp"
 #include "Component/Renderer/Renderer.hpp"
@@ -35,3 +36,5 @@ namespace models{
             sf::FloatRect extractParentTransformedBounds();
     };
 }
+
+#endif

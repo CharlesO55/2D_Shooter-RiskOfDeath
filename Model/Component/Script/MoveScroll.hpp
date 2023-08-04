@@ -7,7 +7,7 @@
 #   include <SFML/Graphics.hpp>
 #   endif
 
-namespace components{
+namespace components{ //TO BE REMOVED
     class MoveScroll : public Component{
         private:
             sf::Vector2f vecMoveDir;

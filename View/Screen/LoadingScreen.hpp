@@ -1,4 +1,5 @@
-#pragma once
+#ifndef VIEWS_LOADING_SCREEN_HPP
+#define VIEWS_LOADING_SCREEN_HPP
 
 #include "../View.hpp"
 #include "../Text.hpp"
@@ -14,3 +15,5 @@ namespace views{
             void initialize();
     };
 }
+
+#endif

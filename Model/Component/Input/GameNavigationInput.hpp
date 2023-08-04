@@ -1,4 +1,5 @@
-#pragma once
+#ifndef COMPONENTS_GAME_NAVIGATION_INPUT_HPP
+#define COMPONENTS_GAME_NAVIGATION_INPUT_HPP
 
 #include "GeneralInput.hpp"
 #include "../../../Controller/System/ViewManager.hpp"
@@ -42,3 +43,5 @@ namespace components{
             sf::Vector2f getMouseLoc();
     };
 }
+
+#endif

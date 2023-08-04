@@ -1,4 +1,5 @@
-#pragma once
+#ifndef VIEWS_LEADERBOARD_HPP
+#define VIEWS_LEADERBOARD_HPP
 
 #include "../View.hpp"
 #include "../Text.hpp"
@@ -26,3 +27,5 @@ namespace views{
             std::string convertToTenthsString(int nValue);
     };
 }
+
+#endif

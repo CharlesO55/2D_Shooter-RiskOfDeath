@@ -1,4 +1,5 @@
-#pragma once
+#ifndef INTERFACES_SHOOTABLE_HPP
+#define INTERFACES_SHOOTABLE_HPP
 
 namespace interfaces{
     class Shootable{
@@ -10,3 +11,5 @@ namespace interfaces{
             virtual bool isVecInHitbox(sf::Vector2f vecLoc) = 0; 
     };
 }
+
+#endif

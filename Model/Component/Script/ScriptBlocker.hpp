@@ -1,4 +1,5 @@
-#pragma once
+#ifndef COMPONENTS_SCRIPT_BLOCKER_HPP
+#define COMPONENTS_SCRIPT_BLOCKER_HPP
 
 #include "../Component.hpp"
 #include "../../Enum/EnumBlockerType.hpp"
@@ -24,3 +25,5 @@ namespace components{
 
     };
 }
+
+#endif

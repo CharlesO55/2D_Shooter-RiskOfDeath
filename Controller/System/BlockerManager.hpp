@@ -1,4 +1,5 @@
-#pragma once
+#ifndef SYSTEMS_BLOCKER_MANAGER_HPP
+#define SYSTEMS_BLOCKER_MANAGER_HPP
 
 #include "../../Model/Component/Component.hpp"
 
@@ -37,3 +38,5 @@ namespace systems{
             static void initialize(std::string strName, GameObject* pHolder);
     };
 }
+
+#endif

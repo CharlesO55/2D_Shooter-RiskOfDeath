@@ -1,4 +1,5 @@
-#pragma once
+#ifndef VIEWS_FRONT_VIEW_SCREEN_HPP
+#define VIEWS_FRONT_VIEW_SCREEN_HPP
 
 #include "../View.hpp"
 #include "../Interface/ButtonListener.hpp"
@@ -14,10 +15,7 @@
 namespace views{
     using namespace listeners;
 
-    class FrontViewScreen : public View/* , public ButtonListener */ {
-   /*      private:
-            views::Text* pScoreText;
- */
+    class FrontViewScreen : public View {
         public:
             FrontViewScreen();
             ~FrontViewScreen();
@@ -25,11 +23,7 @@ namespace views{
         public:
             void initialize();
             void update(sf::Time tDeltaTime);
-
-/*             void createHearts();
-            void createBullets();
-
-            void onClick(Button* pButton);
-            void onRelease(Button* pButton); */
     };
 }
+
+#endif

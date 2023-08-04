@@ -13,7 +13,7 @@ namespace models {
     using namespace listeners;
     using namespace systems;
     
-    class Border : public GameObject, public CollisionListener {
+    class Border : public GameObject, public CollisionListener { //TO BE REMOVED
         private:
             sf::FloatRect CBounds;
 

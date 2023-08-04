@@ -26,7 +26,6 @@ namespace controllers {
             void loadUIFolder();
             void loadPlayerFolder();
             void loadEnemyFolder();
-            void loadMrAlienFolder();
             void loadBlockerFolder();
 
         /* * * * * * * * * * * * * * * * * * * * * 

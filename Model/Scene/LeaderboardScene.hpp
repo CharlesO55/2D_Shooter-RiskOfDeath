@@ -1,8 +1,8 @@
-#pragma once
+#ifndef SCENES_LEADERBOARD_SCENE_HPP
+#define SCENES_LEADERBOARD_SCENE_HPP
 
 #include "../../View/Screen/Leaderboard.hpp"
 #include "../Scene.hpp"
-
 
 namespace scenes {
     using namespace models;
@@ -19,3 +19,5 @@ namespace scenes {
             void onUnloadResources();
     };
 }
+
+#endif

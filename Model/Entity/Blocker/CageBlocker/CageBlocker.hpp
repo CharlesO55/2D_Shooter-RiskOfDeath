@@ -1,4 +1,5 @@
-#pragma once
+#ifndef MODELS_CAGE_BLOCKER_HPP
+#define MODELS_CAGE_BLOCKER_HPP
 
 #include "CageChain.hpp"
 #include "../BaseBlocker.hpp"
@@ -23,3 +24,5 @@ namespace models{
         
     };
 }
+
+#endif

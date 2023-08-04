@@ -1,4 +1,5 @@
-#pragma once
+#ifndef VIEWS_PAUSE_SCREEN_HPP
+#define VIEWS_PAUSE_SCREEN_HPP
 
 #include "../View.hpp"
 #include "../Text.hpp"
@@ -15,3 +16,5 @@ namespace views{
             void initialize();
     };
 }
+
+#endif

@@ -10,8 +10,6 @@ void TextureManager::loadAll(SceneTag EScene) {
     this->loadPlayerFolder();
     this->loadEnemyFolder();
     this->loadBlockerFolder();
-
-    this->loadMrAlienFolder();
 }
 
 void TextureManager::unloadAll(){
@@ -31,32 +29,23 @@ void TextureManager::unloadAll(){
 
 void TextureManager::loadTexture(AssetType ETag, std::string strAddress){
     sf::Texture* pTexture = new sf::Texture();
-    if (!pTexture->loadFromFile(strAddress)){
-        pTexture->loadFromFile("View/Image/error.png");
-    }    
+    if (!pTexture->loadFromFile(strAddress))
+        pTexture->loadFromFile("View/Image/error.png");  
+
     this->mapTexture[ETag].push_back(pTexture);
 }
 
 
 void TextureManager::loadBackgroundFolder() {
-    /* sf::Texture* pTexture = NULL;
-
-    pTexture = new sf::Texture();
-    pTexture->loadFromFile("View/Image/Background/main_menu.png");
-    this->mapTexture[AssetType::BACKGROUND].push_back(pTexture);
-
-    pTexture = new sf::Texture();
-    pTexture->loadFromFile("View/Image/Background/game_space.png");
-    this->mapTexture[AssetType::BACKGROUND].push_back(pTexture); */
-    
-
-    switch (this->EScene){
+ switch (this->EScene){
         case SceneTag::LOADING:
             this->loadTexture(AssetType::BACKGROUND, "View/Image/Background/LoadingScreen.png");
             break;
+
         case SceneTag::MAIN_MENU:
             this->loadTexture(AssetType::BACKGROUND, "View/Image/Background/ENTRANCE.png");
             break;
+
         case SceneTag::LEADERBOARD:
             {
                 for (int i = 0; i <= 20/*64*/; i++){
@@ -68,17 +57,13 @@ void TextureManager::loadBackgroundFolder() {
                 }
             }
             break;
+
         case SceneTag::GAME_PROPER:
             this->loadTexture(AssetType::BACKGROUND, "View/Image/Background/FRONT_VIEW.png");
             this->loadTexture(AssetType::BACKGROUND, "View/Image/Background/SIDE_VIEW.png");
             this->loadTexture(AssetType::BACKGROUND, "View/Image/Background/PAUSE_VIEW.png");
             break;
-        
 
-        //OBSOLETE
-        case SceneTag::GAME_SCENE:
-            this->loadTexture(AssetType::BACKGROUND, "View/Image/Background/game_space.png");
-            break;
         default:
             break;
     }
@@ -129,11 +114,11 @@ void TextureManager::loadPlayerFolder() {
     switch (this->EScene) {
         case SceneTag::MAIN_MENU:
             break;
+
         case SceneTag::GAME_PROPER:
-            this->loadTexture(AssetType::SHIP, "View/Image/Player/this_ship_be_otp.png");
-            //this->loadTexture(AssetType::BULLET, "View/Image/Player/bullet.png");
             this->loadTexture(AssetType::CROSSHAIR, "View/Image/Player/Crosshair.png");
             break;
+
         default:
             break;
     }
@@ -146,29 +131,24 @@ void TextureManager::loadEnemyFolder() {
 
         case SceneTag::GAME_PROPER:
             this->loadTexture(AssetType::SLIME, "View/Image/Enemy/Slime.png");
-            this->loadTexture(AssetType::BAT, "View/Image/Enemy/Bat.png");
-            this->loadTexture(AssetType::GHOST, "View/Image/Enemy/Ghost.png");
-
-            
             this->loadTexture(AssetType::SLIME, "View/Image/Enemy/Slime_Side.png");
+
+            this->loadTexture(AssetType::BAT, "View/Image/Enemy/Bat.png");
             this->loadTexture(AssetType::BAT, "View/Image/Enemy/Bat_Side.png");
+
+            this->loadTexture(AssetType::GHOST, "View/Image/Enemy/Ghost.png");
             this->loadTexture(AssetType::GHOST, "View/Image/Enemy/Ghost_Side.png");
-/* 
-            this->loadTexture(AssetType::SLIME_SIDE, "View/Image/Enemy/Slime_Side.png");
-            this->loadTexture(AssetType::BAT_SIDE, "View/Image/Enemy/Bat_Side.png");
-            this->loadTexture(AssetType::GHOST_SIDE, "View/Image/Enemy/Ghost_Side.png"); */
 
         default:
             break;
     }
 }
 
-
-
 void TextureManager::loadBlockerFolder() {
     switch (this->EScene) {
         case SceneTag::MAIN_MENU:
             break;
+
         case SceneTag::GAME_PROPER:
             this->loadTexture(AssetType::BOULDER_ROUND, "View/Image/Blocker/Boulder_Round.png");
             this->loadTexture(AssetType::CAGE_BODY, "View/Image/Blocker/Cage_body.png");
@@ -177,25 +157,6 @@ void TextureManager::loadBlockerFolder() {
             this->loadTexture(AssetType::WISP, "View/Image/Blocker/Wisp.png");
             this->loadTexture(AssetType::PLANE, "View/Image/Blocker/Plane.png");
             this->loadTexture(AssetType::CLOUD, "View/Image/Blocker/Cloud.png");
-            break;
-        default:
-            break;
-    }
-}
-
-
-
-
-void TextureManager::loadMrAlienFolder() {
-    switch (this->EScene) {
-        case SceneTag::MAIN_MENU:
-            break;
-        case SceneTag::GAME_SCENE:
-            this->loadTexture(AssetType::MR_ALIEN_BASE, "View/Image/Mr. Alien/mr_alien_base.png");
-            this->loadTexture(AssetType::MR_ALIEN_TOP_STAMEN, "View/Image/Mr. Alien/mr_alien_top_stamen.png");
-            this->loadTexture(AssetType::MR_ALIEN_BOTTOM_STAMEN, "View/Image/Mr. Alien/mr_alien_bottom_stamen.png");
-            this->loadTexture(AssetType::MR_ALIEN_TOP_TENTACLE, "View/Image/Mr. Alien/mr_alien_top_tentacle.png");
-            this->loadTexture(AssetType::MR_ALIEN_BOTTOM_TENTACLE, "View/Image/Mr. Alien/mr_alien_bottom_tentacle.png");
             break;
         default:
             break;

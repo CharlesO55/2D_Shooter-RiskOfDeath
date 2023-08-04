@@ -13,10 +13,6 @@
 
 #include "../../Pooling/Enemy/BaseEnemy.hpp"
 
-namespace models {
-    class PlayerBullet;
-}
-
 namespace components {
     using namespace controllers;
     using namespace models;
