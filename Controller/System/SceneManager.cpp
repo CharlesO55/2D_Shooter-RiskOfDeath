@@ -37,8 +37,20 @@ void SceneManager::unloadScene() {
  * whose tag is held by [ESceneToLoad]. */
 void SceneManager::checkLoadScene() {
     if(this->bLoading) {
+        //UNLOAD CURRENT SCENE
         this->unloadScene();
-        this->pActiveScene = this->mapScene[this->ESceneToLoad];
+
+        // ALLOW LOADING SCENE TO LOAD BETWEEN SCREEN SWITCHING
+        if (pActiveScene == this->mapScene[SceneTag::LOADING]){
+            //WHEN ALREADY LOADED LOADING SCENE, PROCEED TO LOAD TARGET SCENE
+            this->pActiveScene = this->mapScene[this->ESceneToLoad];
+            this->bLoading = false;
+        }
+        else{
+            this->pActiveScene = this->mapScene[SceneTag::LOADING];
+        }
+
+        // this->pActiveScene = this->mapScene[this->ESceneToLoad];
 
         /* When LOADING a scene, load the RESOURCES
          * before the OBJECTS. This is the OPPOSITE
@@ -49,7 +61,7 @@ void SceneManager::checkLoadScene() {
         /* Remember to set this to false, else your
          * scene will keep getting reloaded again
          * and again. */
-        this->bLoading = false;
+        // this->bLoading = false;
     }
 }
 

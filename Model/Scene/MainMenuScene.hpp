@@ -2,7 +2,6 @@
 #define SCENES_MAIN_MENU_SCENE_HPP
 
 #include "../../View/Screen/MainMenu.hpp"
-#include "../../View/Screen/LoadingScreen.hpp"
 #include "../Scene.hpp"
 
 

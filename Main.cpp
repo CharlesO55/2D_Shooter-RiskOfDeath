@@ -93,6 +93,7 @@
 #include "Model/Scene/GameScene.cpp"
 #include "Model/Scene/GameProper.cpp"
 #include "Model/Scene/LeaderboardScene.cpp"
+#include "Model/Scene/LoadingScene.cpp"
 
 #include "Model/Pooling/PoolableObject.cpp"
 #include "Model/Pooling/Bullet/PlayerBullet.cpp"

@@ -44,7 +44,6 @@ MainMenuScene::~MainMenuScene() {}
 void MainMenuScene::onLoadObjects(){
     this->createBackground("Main Menu Background");
     this->registerObject(new MainMenu());
-    this->registerObject(new LoadingScreen());
 }
 
 void MainMenuScene::onLoadResources(){

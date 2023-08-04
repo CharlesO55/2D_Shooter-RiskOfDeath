@@ -16,6 +16,7 @@
 #include "../Model/Scene/GameScene.hpp"
 #include "../Model/Scene/GameProper.hpp"
 #include "../Model/Scene/LeaderboardScene.hpp"
+#include "../Model/Scene/LoadingScene.hpp"
 
 #   ifndef DISABLE_INTELLISENSE_INCLUDES
 #   include <SFML/Graphics.hpp>

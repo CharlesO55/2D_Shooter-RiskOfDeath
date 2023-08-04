@@ -22,10 +22,11 @@ Game::Game() : rwWindow(sf::VideoMode(SCREEN_WIDTH, SCREEN_HEIGHT), "GALURA, URS
     /* Create ALL your scenes. Once you have
      * properly implemented [MainMenuScene],
      * remember to register it here. */
+    SceneManager::getInstance()->registerScene(new LoadingScene());
     SceneManager::getInstance()->registerScene(new MainMenuScene());
     SceneManager::getInstance()->registerScene(new GameScene());
     SceneManager::getInstance()->registerScene(new GameProper());
-    SceneManager::getInstance()->registerScene(new scenes::LeaderboardScene());
+    SceneManager::getInstance()->registerScene(new LeaderboardScene());
     /* * * * * * * * * * * * * * * * * * * * */
     
     /* * * * *  [PRACTICE EXERCISE]  * * * * */
