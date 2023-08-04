@@ -31,6 +31,7 @@ void GameScreenNavigation::perform(){
         EnemyManager::getInstance()->switchEnemiesTexture(ViewTag::FRONTVIEW_SCREEN);
 
         //RESET INPUT FLAGS
+        this->pNavInputRef->setZooming(false);
         this->resetInputFlags();
     }
     else if(this->pNavInputRef->isNeedChangeRight()){
@@ -42,6 +43,7 @@ void GameScreenNavigation::perform(){
         EnemyManager::getInstance()->switchEnemiesTexture(ViewTag::SIDEVIEW_SCREEN);
 
         //RESET INPUT FLAGS
+        this->pNavInputRef->setZooming(false);
         this->resetInputFlags();
     }
 
@@ -60,6 +62,7 @@ void GameScreenNavigation::perform(){
         }
         
         //RESET INPUT FLAGS
+        this->pNavInputRef->setZooming(true);
         this->resetInputFlags();
     }
 }

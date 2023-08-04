@@ -134,7 +134,7 @@ void EnemyManager::perform() {
 
 //Modify once waves are implemented.
 void EnemyManager::spawnWave() {
-    int nSpawnCount = (ScoreManager::getInstance()->getScore() * (ViewManager::getInstance()->getScreenCols() * ViewManager::getInstance()->getScreenRows())); //Use 6 for standard
+    int nSpawnCount = (ScoreManager::getInstance()->getScore() * (ViewManager::getInstance()->getScreenCols() * ViewManager::getInstance()->getScreenRows()));
     float fLuck = nSpawnCount * ((std::rand() % 2) / 10.0f);
     float fSpawnDecay = (0.02f * (ScoreManager::getInstance()->getScore() / 5.0f));
 

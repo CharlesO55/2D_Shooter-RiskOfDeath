@@ -49,6 +49,12 @@ void PlayerManager::damagePlayer() {
     SFXManager::getInstance()->getSound(SFXType::PLAYER_HIT)->play();
 }
 
+int PlayerManager::getBullets() {
+    PlayerUI* pUI = (PlayerUI*)GameObjectManager::getInstance()->findObjectByName("Player UI");
+
+    return pUI->getBullets();
+}
+
 bool PlayerManager::isReloading() {
     return this->bReloading;
 }

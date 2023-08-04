@@ -107,10 +107,10 @@ void GameProper::createCrosshair() {
 void GameProper::createObjectPools() {
     //Enemy Pools
     AnimatedTexture* pTexture = new AnimatedTexture(TextureManager::getInstance()->getTexture(AssetType::SLIME));
-    GameObjectPool* pSlimePool = new GameObjectPool(PoolTag::SLIME, 20, new EnemySlime("Enemy Slime", pTexture), NULL);
+    GameObjectPool* pSlimePool = new GameObjectPool(PoolTag::SLIME, 10, new EnemySlime("Enemy Slime", pTexture), NULL);
 
     pTexture = new AnimatedTexture(TextureManager::getInstance()->getTexture(AssetType::BAT));
-    GameObjectPool* pBatPool = new GameObjectPool(PoolTag::BAT, 20, new EnemyBat("Enemy Bat", pTexture), NULL);
+    GameObjectPool* pBatPool = new GameObjectPool(PoolTag::BAT, 10, new EnemyBat("Enemy Bat", pTexture), NULL);
 
     pTexture = new AnimatedTexture(TextureManager::getInstance()->getTexture(AssetType::GHOST));
     GameObjectPool* pGhostPool = new GameObjectPool(PoolTag::GHOST, 20, new EnemyGhost("Enemy Ghost", pTexture), NULL);

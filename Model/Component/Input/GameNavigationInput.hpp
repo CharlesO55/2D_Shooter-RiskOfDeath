@@ -13,6 +13,7 @@ namespace components{
             bool bChangeToFront = false; 
             bool bChangeToRight = false; 
             bool bZoomClick = false;
+            bool bZooming = false;
             sf::Vector2f vecMousePos;
 
 
@@ -32,7 +33,11 @@ namespace components{
         public:
             bool isNeedChangeFront();
             bool isNeedChangeRight();
+
             bool isZoomClick();
+            bool isZooming();
+            void setZooming(bool bState);
+
             void resetAllFlags();
             sf::Vector2f getMouseLoc();
     };

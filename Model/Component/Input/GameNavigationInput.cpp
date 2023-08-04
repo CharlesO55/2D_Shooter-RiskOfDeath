@@ -65,6 +65,8 @@ void GameNavigationInput::resetAllFlags(){
 bool GameNavigationInput::isNeedChangeFront(){ return this->bChangeToFront; }
 bool GameNavigationInput::isNeedChangeRight(){ return this->bChangeToRight; }
 bool GameNavigationInput::isZoomClick()      { return this->bZoomClick; }
+bool GameNavigationInput::isZooming()      { return this->bZooming; }
+void GameNavigationInput::setZooming(bool bState) { this->bZooming = bState; }
 
 
 sf::Vector2f GameNavigationInput::getMouseLoc(){ return this->vecMousePos; }

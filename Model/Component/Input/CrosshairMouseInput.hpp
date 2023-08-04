@@ -5,8 +5,10 @@
 #include "../../Enum/EnumComponentType.hpp"
 
 #include "../../../Controller/Singleton/SFXManager.hpp"
+#include "../../Scene.hpp"
 
 #include "GeneralInput.hpp"
+#include "GameNavigationInput.hpp"
 
 namespace components {
     using namespace controllers;
