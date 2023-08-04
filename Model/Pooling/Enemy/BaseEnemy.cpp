@@ -2,11 +2,11 @@
 
 using namespace models;
 
-BaseEnemy::BaseEnemy(std::string strName, AnimatedTexture* pTexture, PoolTag ETag, int nMaxHealth, float fScale, float fSpeed, float fKillableSpeed) : PoolableObject(ETag, strName, EntityType::ENEMY, pTexture) {
+BaseEnemy::BaseEnemy(std::string strName, AnimatedTexture* pTexture, PoolTag ETag, int nMaxHealth, float fScale, float fSpeed, float fSpeedScaling) : PoolableObject(ETag, strName, EntityType::ENEMY, pTexture) {
     this->nHealth = nMaxHealth;
     this->nMaxHealth = nMaxHealth;
     this->fSpeed = fSpeed;
-    this->fKillableSpeed = fKillableSpeed;
+    this->fSpeedScaling = fSpeedScaling;
 
     this->fDefaultScale = fScale;
     this->vecScenePos = {0.f, 0.f, 0.f};
@@ -20,7 +20,7 @@ void BaseEnemy::initialize() {
     RendererSpawnable* pRendererSpawanable = new RendererSpawnable(this->strName + " Sprite");
     pRendererSpawanable->assignDrawable(this->pSprite);
 
-    Killable* pKillableComponent = new Killable(this->strName + " Killable", this->fKillableSpeed);
+    Killable* pKillableComponent = new Killable(this->strName + " Killable", this->fSpeedScaling);
     systems::EnemyManager::getInstance()->registerComponent(pKillableComponent);
 
     ScenePosInterpreter* pPosInterpreter = new ScenePosInterpreter(this->strName + " Interpreter");
@@ -56,6 +56,10 @@ void BaseEnemy::randomizePosition() {
 
 float BaseEnemy::getSpeed() {
     return this->fSpeed;
+}
+
+void BaseEnemy::scaleSpeed() {
+    this->fSpeed = this->fSpeed * this->fSpeedScaling;
 }
 
 int BaseEnemy::getHealth() {

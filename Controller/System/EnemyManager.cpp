@@ -62,6 +62,14 @@ void EnemyManager::killAll() {
     SFXManager::getInstance()->getSound(SFXType::KILL_ALL)->play();
 }
 
+void EnemyManager::scaleEnemySpeed() {
+    for (Killable* pKillable : this->vecKillable) {
+        BaseEnemy* pEnemy = (BaseEnemy*)pKillable->getOwner();
+
+        pEnemy->scaleSpeed();
+    }
+}
+
 bool EnemyManager::isLocInSprite(GameObject* pTarget, sf::Vector2f vecLocation){
     //CONVERT THE SPRITE TO MATCH FRONT VIEW ZOOM 
     if (ViewManager::getInstance()->getView(ViewTag::FRONTVIEW_SCREEN)->isEnabled()){/* 

@@ -2,7 +2,7 @@
 
 using namespace models;
 
-EnemyGhost::EnemyGhost(std::string strName, AnimatedTexture* pTexture) : BaseEnemy(strName, pTexture, PoolTag::GHOST, 5, 5.0f, 5.0f, 0.1f) {}
+EnemyGhost::EnemyGhost(std::string strName, AnimatedTexture* pTexture) : BaseEnemy(strName, pTexture, PoolTag::GHOST, 5, 5.0f, 3.0f, 1.3f) {}
 
 void EnemyGhost::onRelease() {
     int nRand = std::rand() % 100;

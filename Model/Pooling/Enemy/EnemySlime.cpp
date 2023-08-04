@@ -2,8 +2,7 @@
 
 using namespace models;
 
-//Inheritance not properly implemented yet. 
-EnemySlime::EnemySlime(std::string strName, AnimatedTexture* pTexture) : BaseEnemy(strName, pTexture, PoolTag::SLIME, 1, 3.f, 1.5f, 0.1f) {}
+EnemySlime::EnemySlime(std::string strName, AnimatedTexture* pTexture) : BaseEnemy(strName, pTexture, PoolTag::SLIME, 1, 3.f, 1.5f, 1.1f) {}
 
 void EnemySlime::onRelease() {
     int nRand = std::rand() % 100;

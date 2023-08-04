@@ -35,10 +35,10 @@ namespace models {
             int nHealth;
             int nMaxHealth;
             float fSpeed;
-            float fKillableSpeed;
+            float fSpeedScaling;
 
         public:
-            BaseEnemy(std::string strName, AnimatedTexture* pTexture, PoolTag ETag, int nHealth = 1, float fScale = 1.f, float fSpeed = 1.f, float fKillableSpeed = 0.1f);
+            BaseEnemy(std::string strName, AnimatedTexture* pTexture, PoolTag ETag, int nHealth = 1, float fScale = 1.f, float fSpeed = 1.f, float fSpeedScaling = 0.1f);
 
         public:
             virtual void initialize();
@@ -53,6 +53,8 @@ namespace models {
 
         public:
             float getSpeed();
+            void scaleSpeed();
+
             int getHealth();
             void setHealth(int nHealth);
     };

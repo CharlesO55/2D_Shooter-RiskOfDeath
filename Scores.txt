@@ -6,6 +6,8 @@ Hilly
 Smit
 863
 Jack
+814
+PLAYER
 289
 Test_Player
 210

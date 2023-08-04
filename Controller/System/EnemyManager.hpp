@@ -31,6 +31,8 @@ namespace systems {
             void kill(sf::Vector2f vecLocation);
             void killAll();
 
+            void scaleEnemySpeed();
+
             void perform();
             void spawnWave();
 

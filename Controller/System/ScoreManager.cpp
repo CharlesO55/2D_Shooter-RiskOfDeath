@@ -12,8 +12,9 @@ void ScoreManager::incrementScore(sf::Time CDeltaTime){
     this->CTimeToSpeedUp += CDeltaTime;
 
     if (CTimeToSpeedUp > sf::seconds(DEFAULT_SPEEDUP_TIMEFRAME)){
-        float fIncreasedSpeed = GameStateManager::getInstance()->getGameSpeed() + 0.1f;
-        GameStateManager::getInstance()->setGameSpeed(fIncreasedSpeed);
+        EnemyManager::getInstance()->scaleEnemySpeed();
+        // float fIncreasedSpeed = GameStateManager::getInstance()->getGameSpeed() + 0.1f;
+        // GameStateManager::getInstance()->setGameSpeed(fIncreasedSpeed);
         CTimeToSpeedUp = sf::Time::Zero;
     }
 }
