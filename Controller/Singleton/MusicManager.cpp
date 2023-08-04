@@ -6,6 +6,8 @@ void MusicManager::loadAll() {
     this->create(MusicType::MAIN_MENU, "View/Music/MAIN_MENU.wav");
     this->create(MusicType::GAME_PROPER, "View/Music/GAME_PROPER.wav");
     this->create(MusicType::LEADERBOARDS, "View/Music/LEADERBOARDS.wav");
+    this->create(MusicType::Lead_BAKEMONOGATARI, "View/Music/Bakemonogatari - Suruga Monkey.wav");
+    this->create(MusicType::Main_OWARIMONOGATARI, "View/Music/Owarimonogatari - Decent Black.wav");
 }
 
 void MusicManager::unloadAll() {

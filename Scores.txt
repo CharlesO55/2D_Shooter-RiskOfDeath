@@ -14,6 +14,8 @@ Test_Player
 Test_Player
 194
 Test_Player
+146
+PLAYER
 141
 Test_Player
 129
@@ -29,6 +31,8 @@ Lucy
 86
 Test_Player
 80
+PLAYER
+79
 PLAYER
 75
 Test_Player
@@ -118,6 +122,8 @@ Test_Player
 Test_Player
 14
 Test_Player
+14
+PLAYER
 12
 Test_Player
 11
@@ -180,6 +186,8 @@ Test_Player
 Test_Player
 5
 Test_Player
+5
+PLAYER
 4
 Test_Player
 4
@@ -206,6 +214,8 @@ Test_Player
 Test_Player
 2
 Test_Player
+2
+PLAYER
 2
 PLAYER
 1

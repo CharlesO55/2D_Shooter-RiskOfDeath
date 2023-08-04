@@ -2,8 +2,11 @@
 #define MODELS_SCENE_HPP
 
 #include "../Controller/Singleton/GameObjectManager.hpp"
+#include "../Controller/Singleton/MusicManager.hpp"
 #include "Enum/EnumSceneTag.hpp"
 #include "GameObject.hpp"
+
+
 
 namespace models {
     using namespace controllers;
