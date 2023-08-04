@@ -64,9 +64,9 @@ void GameProper::createLayerManagerAsLast(){
 void GameProper::createNullObjectComponents() {
     std::srand(std::time(NULL));
 
-    EmptyGameObject* pEnemyManagerHolder = new EmptyGameObject("Enemy Manager Holder");
-    EnemyManager::initialize("Enemy Manager System", pEnemyManagerHolder);
-    GameObjectManager::getInstance()->addObject(pEnemyManagerHolder);
+    EmptyGameObject* pPlayerManagerHolder = new EmptyGameObject("Player Manager Holder");
+    PlayerManager::initialize("Player Manager System", pPlayerManagerHolder);
+    GameObjectManager::getInstance()->addObject(pPlayerManagerHolder);
 
     EmptyGameObject* pItemManagerHolder = new EmptyGameObject("Item Manager Holder");
     ItemManager::initialize("Item Manager System", pItemManagerHolder);
@@ -74,11 +74,11 @@ void GameProper::createNullObjectComponents() {
 
     EmptyGameObject* pBlockerManagerHolder = new EmptyGameObject("Blocker Manager Holder");
     BlockerManager::initialize("Item Manager System", pBlockerManagerHolder);
-    GameObjectManager::getInstance()->addObject(pBlockerManagerHolder);
+    GameObjectManager::getInstance()->addObject(pBlockerManagerHolder);    
 
-    EmptyGameObject* pPlayerManagerHolder = new EmptyGameObject("Player Manager Holder");
-    PlayerManager::initialize("Player Manager System", pPlayerManagerHolder);
-    GameObjectManager::getInstance()->addObject(pPlayerManagerHolder);
+    EmptyGameObject* pEnemyManagerHolder = new EmptyGameObject("Enemy Manager Holder");
+    EnemyManager::initialize("Enemy Manager System", pEnemyManagerHolder);
+    GameObjectManager::getInstance()->addObject(pEnemyManagerHolder);
 
     //View Screen Changer Components
     EmptyGameObject* pHolder = new EmptyGameObject("Game Proper Navigation");

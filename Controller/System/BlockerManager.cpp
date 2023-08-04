@@ -21,7 +21,7 @@ void BlockerManager::perform(){
     }
 
     //ONLY RESET WHEN NO OTHER MANAGERS NEED LEFT CLICK READING
-    this->pCrosshairRef->resetLeftClick();
+    //this->pCrosshairRef->resetLeftClick();
 }
 
 void BlockerManager::registerBlocker(BaseBlocker* pBlocker){
