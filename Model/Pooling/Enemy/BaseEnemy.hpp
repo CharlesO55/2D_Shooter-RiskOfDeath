@@ -15,7 +15,6 @@
 #include "../../../View/Text.hpp"
 
 #include "../../../Controller/System/ObjectPoolManager.hpp"
-#include "../../../Controller/System/PhysicsManager.hpp"
 #include "../../../Controller/System/EnemyManager.hpp"
 
 #include "../../Component/Script/Blinker.hpp"

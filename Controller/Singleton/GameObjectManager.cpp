@@ -57,74 +57,29 @@ std::vector<GameObject*>* GameObjectManager::getVecObjectsRef(){
     return &this->vecGameObject;
 }
 
-/* 
-using namespace interfaces;
-struct {
-    bool operator()(GameObject* a, GameObject* b) const { 
-        Positionable* posA = dynamic_cast <Positionable*> (a);
-        Positionable* posB = dynamic_cast <Positionable*> (b);
-        //GREATER STARTS FROM FURTHEST BACK FIRST TO FRONT
-        //THE NORMAL ORDER FOR RENDERING
-        return posA->getScenePos().z > posB->getScenePos().z; 
-    }
-} sortZBackFirst; */
-
 void GameObjectManager::printAllItemsDebug() {
     /*************************************************/
     /*ASSUMES THAT ENEMIES ARE CREATED AFTER BLOCKERS*/
     /*************************************************/
 
-/*     bool bFoundBlockerStart = false;
-    int nIndexFirstBlocker;
-    int nIndexLastEnemy;
- */
     //SORT BETWEEN THE BLOCKERS AND ENEMIES
     int i = 0;
 
     for (GameObject* pObject : this->vecGameObject){
-/*         
-        //FIND THE FIRST BLOCKER
-        if (!bFoundBlockerStart && (pObject->getEntityType() == EntityType::BLOCKER)){
-            bFoundBlockerStart = true;
-            nIndexFirstBlocker = i;
-        }
-
-        //FIND THE LAST ENEMY
-        if (pObject->getEntityType() == EntityType::ENEMY){
-            nIndexLastEnemy = i;
-        }
- */
         std::cout << std::endl << i << pObject->getName();
         i++;
     }
-
-
-/* 
-    std::vector <GameObject*>::iterator itr_Start = vecGameObject.begin() + nIndexFirstBlocker;
-    std::vector <GameObject*>::iterator itr_End   = vecGameObject.begin() + nIndexLastEnemy + 1;
-    std::sort(itr_Start, itr_End, sortZBackFirst); */
 }
 
-
-/* * * * * * * [NEW CONTENT] * * * * * * */
-/* A helper function that utilizes existing
- * [delete(...)] functions to delete ALL
- * [GameObjects] in the [vector] and [HashMap].
- * This is used by [SceneManager]. */
 void GameObjectManager::deleteAllObjects() {
     std::vector<GameObject*> vecGameObject = this->vecGameObject;
 
-    /* Iterate through your [vector] and
-     * delete each [GameObject]. */
     for(GameObject* pGameObject : vecGameObject)
         this->deleteObject(pGameObject);
 
-    /* Don't forget to CLEAR the stored 
-     * pointers from your fields. */
     this->vecGameObject.clear();
     this->mapGameObject.clear();
 }
-/* * * * * * * * * * * * * * * * * * * * */
 
 GameObject* GameObjectManager::findObjectByName(std::string strName) {
     if(this->mapGameObject[strName] != NULL)

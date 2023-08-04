@@ -8,7 +8,6 @@ CrosshairMouseInput::CrosshairMouseInput(std::string strName) : GeneralInput(str
     this->vecLocation = sf::Vector2f(SCREEN_WIDTH / 2.0f, SCREEN_HEIGHT / 2.0f);
 }
 
-
 void CrosshairMouseInput::perform() {
     if(this->bResetFlags){
         this->bLeftClick = false;
@@ -48,6 +47,7 @@ void CrosshairMouseInput::processMouseInput(sf::Mouse::Button inMouse, bool bPre
     GameNavigationInput* pNavigation = (GameNavigationInput*)pNavigationHolder->findComponentByName("Game Navigation Input");
 
     if (ViewManager::getInstance()->getView(ViewTag::FRONTVIEW_SCREEN)->isEnabled() && 
+       !ViewManager::getInstance()->getView(ViewTag::PAUSE_SCREEN)->isEnabled() &&
        !PlayerManager::getInstance()->isReloading() && pNavigation->isZooming() &&
         PlayerManager::getInstance()->getBullets() != 0) {
         switch(inMouse) {

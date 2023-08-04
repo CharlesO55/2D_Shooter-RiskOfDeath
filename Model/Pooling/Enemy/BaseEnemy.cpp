@@ -90,6 +90,7 @@ void BaseEnemy::blink(){
 
 void BaseEnemy::onShot(int nKnockbackPower){
     std::cout << "\n[SHOT Enemy] : " << this->strName;
+    SFXManager::getInstance()->getSound(SFXType::ENEMY_HIT)->play();
 
     //INCREASE DAMAGE TAKEN WHEN BUFF IS ACTIVE
     this->nHealth = (ItemManager::getInstance()->isItemActive(ItemType::DAMAGE_BOOST)) 

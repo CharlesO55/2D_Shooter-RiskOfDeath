@@ -105,13 +105,13 @@ void GameProper::createCrosshair() {
 void GameProper::createObjectPools() {
     //Enemy Pools
     AnimatedTexture* pTexture = new AnimatedTexture(TextureManager::getInstance()->getTexture(AssetType::SLIME));
-    GameObjectPool* pSlimePool = new GameObjectPool(PoolTag::SLIME, 10, new EnemySlime("Enemy Slime", pTexture), NULL);
+    GameObjectPool* pSlimePool = new GameObjectPool(PoolTag::SLIME, 15, new EnemySlime("Enemy Slime", pTexture), NULL);
 
     pTexture = new AnimatedTexture(TextureManager::getInstance()->getTexture(AssetType::BAT));
     GameObjectPool* pBatPool = new GameObjectPool(PoolTag::BAT, 10, new EnemyBat("Enemy Bat", pTexture), NULL);
 
     pTexture = new AnimatedTexture(TextureManager::getInstance()->getTexture(AssetType::GHOST));
-    GameObjectPool* pGhostPool = new GameObjectPool(PoolTag::GHOST, 20, new EnemyGhost("Enemy Ghost", pTexture), NULL);
+    GameObjectPool* pGhostPool = new GameObjectPool(PoolTag::GHOST, 5, new EnemyGhost("Enemy Ghost", pTexture), NULL);
 
     pSlimePool->initialize();
     pBatPool->initialize();
@@ -154,44 +154,38 @@ void GameProper::createObjectPools() {
 void GameProper::createBlockers(){
     BoulderBlocker *pBoulderL = new BoulderBlocker("Blocker Boulder 1", sf::FloatRect(0, 0, SCREEN_WIDTH, SCREEN_HEIGHT), {1,1});
     BoulderBlocker *pBoulderR = new BoulderBlocker("Blocker Boulder 2", sf::FloatRect(0, 0, SCREEN_WIDTH, SCREEN_HEIGHT), {1,1});
+
     WispBlocker* pWispL = new WispBlocker("Blocker WispL", sf::FloatRect(50, 0, 200, SCREEN_HEIGHT/2), {0,1});
     WispBlocker* pWispR = new WispBlocker("Blocker WispR", sf::FloatRect(SCREEN_WIDTH/2, 0, 0, SCREEN_HEIGHT/2), {0,-1});
+
     ShadowBlocker* pShadowL = new ShadowBlocker("Blocker Shadow 1", sf::FloatRect(0, SCREEN_HEIGHT/2, 100, SCREEN_HEIGHT/2-200), {1,0}, 50, 75);
     ShadowBlocker* pShadowR = new ShadowBlocker("Blocker Shadow 2", sf::FloatRect(SCREEN_WIDTH/2, SCREEN_HEIGHT/2, SCREEN_WIDTH/2, SCREEN_HEIGHT/2-200), {-1,0});
+
     CageBlocker* pCageL = new CageBlocker("Blocker Cage 1", sf::FloatRect(200, SCREEN_WIDTH/4, SCREEN_WIDTH/2, SCREEN_HEIGHT/2), {0,0});
     CageBlocker* pCageR = new CageBlocker("Blocker Cage 2", sf::FloatRect(SCREEN_WIDTH/2, SCREEN_WIDTH/4, SCREEN_WIDTH/2 - 200, SCREEN_HEIGHT/2), {0,0});
 
 
     this->registerObject(pBoulderL);
     this->registerObject(pBoulderR);
+
     this->registerObject(pWispL);
     this->registerObject(pWispR);
+
     this->registerObject(pShadowL);
     this->registerObject(pShadowR);
+
     this->registerObject(pCageL);
     this->registerObject(pCageR);
 
     BlockerManager::getInstance()->registerBlocker(pBoulderL);
     BlockerManager::getInstance()->registerBlocker(pBoulderR);
+
     BlockerManager::getInstance()->registerBlocker(pWispL);
     BlockerManager::getInstance()->registerBlocker(pWispR);
+
     BlockerManager::getInstance()->registerBlocker(pShadowL);
     BlockerManager::getInstance()->registerBlocker(pShadowR);
+
     BlockerManager::getInstance()->registerBlocker(pCageL);
     BlockerManager::getInstance()->registerBlocker(pCageR);
-
-    //Commented to reduce clutter. Consult regarding blockers first so everything is within theme
-    // PlaneBlocker *pPlane = new PlaneBlocker(sf::FloatRect(0, 0, SCREEN_WIDTH, SCREEN_HEIGHT));
-    // this->registerObject(pPlane);
-    // pPlane = new PlaneBlocker(sf::FloatRect(0, 0, SCREEN_WIDTH, SCREEN_HEIGHT));
-    // this->registerObject(pPlane);
-    // pPlane = new PlaneBlocker(sf::FloatRect(0, 0, SCREEN_WIDTH, SCREEN_HEIGHT));
-    // this->registerObject(pPlane);
-
-    // CloudBlocker *pCloud = new CloudBlocker(sf::FloatRect(0, 0, SCREEN_WIDTH, SCREEN_HEIGHT));
-    // this->registerObject(pCloud);
-    // pCloud = new CloudBlocker(sf::FloatRect(0, 0, SCREEN_WIDTH, SCREEN_HEIGHT));
-    // this->registerObject(pCloud);
-    // pCloud = new CloudBlocker(sf::FloatRect(0, 0, SCREEN_WIDTH, SCREEN_HEIGHT));
-    // this->registerObject(pCloud);
 }

@@ -33,14 +33,11 @@
 #include "../../Controller/System/LayerManager.hpp"
 
 #include "../Entity/Blocker/BaseBlocker.hpp"
-#include "../Entity/Blocker/ScrollBlocker.hpp"
 #include "../Entity/Blocker/BoulderBlocker.hpp"
 #include "../Entity/Blocker/CageBlocker/CageBlocker.hpp"
 #include "../Entity/Blocker/CageBlocker/CageChain.hpp"
 #include "../Entity/Blocker/ShadowBlocker.hpp"
 #include "../Entity/Blocker/WispBlocker.hpp"
-#include "../Entity/Blocker/PlaneBlocker.hpp"
-#include "../Entity/Blocker/CloudBlocker.hpp"
 
 namespace scenes{
     using namespace models;

@@ -28,7 +28,6 @@
 #include "Controller/System/EnemyManager.cpp"
 #include "Controller/System/ItemManager.cpp"
 #include "Controller/System/ObjectPoolManager.cpp"
-#include "Controller/System/PhysicsManager.cpp"
 #include "Controller/System/SceneManager.cpp"
 #include "Controller/System/ScoreManager.cpp"
 #include "Controller/System/ViewManager.cpp"
@@ -43,7 +42,6 @@
 #include "Model/Hitbox.cpp"
 
 #include "Model/Entity/Background.cpp"
-#include "Model/Entity/Border/Border.cpp"
 #include "Model/Entity/Crosshair.cpp"
 
 #include "Model/Entity/Blocker/BaseBlocker.cpp"
@@ -52,9 +50,6 @@
 #include "Model/Entity/Blocker/CageBlocker/CageChain.cpp"
 #include "Model/Entity/Blocker/ShadowBlocker.cpp"
 #include "Model/Entity/Blocker/WispBlocker.cpp"
-#include "Model/Entity/Blocker/ScrollBlocker.cpp"
-#include "Model/Entity/Blocker/PlaneBlocker.cpp"
-#include "Model/Entity/Blocker/CloudBlocker.cpp"
 
 #include "Model/Scene/MainMenuScene.cpp"
 #include "Model/Scene/GameProper.cpp"
@@ -86,7 +81,6 @@
 
 #include "Model/Component/Script/Blinker.cpp"
 #include "Model/Component/Script/MoveForward.cpp"
-#include "Model/Component/Script/MoveScroll.cpp"
 #include "Model/Component/Script/MoveXY.cpp"
 #include "Model/Component/Script/Killable.cpp"
 #include "Model/Component/Script/Obtainable.cpp"
@@ -97,14 +91,12 @@
 #include "Model/Component/Renderer/RendererSpawnable.cpp"
 #include "Model/Component/Renderer/Animator.cpp"
 #include "Model/Component/Renderer/ScenePosInterpreter.cpp"
-#include "Model/Component/Physics/Collider.cpp"
 
 #include "View/Button.cpp"
 #include "View/Image.cpp"
 #include "View/Text.cpp"
 #include "View/View.cpp"
 #include "View/Screen/MainMenu.cpp"
-#include "View/Screen/MenuBar.cpp"
 #include "View/Screen/Leaderboard.cpp"
 #include "View/Screen/PlayerUI.cpp"
 #include "View/Screen/FrontViewScreen.cpp"

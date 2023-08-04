@@ -24,9 +24,6 @@ namespace systems{
             void unregisterAll();
 
         private:
-            // void findCrosshairRef();
-
-        private:
             static BlockerManager* P_SHARED_INSTANCE;
 
             BlockerManager(std::string strName);

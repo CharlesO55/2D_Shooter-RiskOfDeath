@@ -13,24 +13,16 @@ void ScoreManager::incrementScore(sf::Time CDeltaTime){
 
     if (CTimeToSpeedUp > sf::seconds(DEFAULT_SPEEDUP_TIMEFRAME)){
         EnemyManager::getInstance()->scaleEnemySpeed();
-        // float fIncreasedSpeed = GameStateManager::getInstance()->getGameSpeed() + 0.1f;
-        // GameStateManager::getInstance()->setGameSpeed(fIncreasedSpeed);
         CTimeToSpeedUp = sf::Time::Zero;
     }
 }
 
-
-/* void ScoreManager::logEndTime(){
-    sf::Time CScore = this->CClock.restart();
-    std::cout << "\nTIME: " << CScore.asSeconds() << std::endl;
-} */
 
 int ScoreManager::getScore() {
     return this->CTime.asSeconds();
 }
 
 const std::string ScoreManager::getScoreAsString() {
-    // int nScore = this->CClock.getElapsedTime().asSeconds(); 
     int nScore = this->CTime.asSeconds(); 
     std::string strScore = std::to_string(nScore);
 
@@ -104,13 +96,9 @@ void ScoreManager::logScoreOnEnd(std::string strPlayerName){
     this->resetScore();
 }
 
-
 const Pair_nScore_strName ScoreManager::getCurrPlayerScore(){
     return this->pairCurrPlayerScore;
 }
-
-
-
 
 ScoreManager* ScoreManager::P_SHARED_INSTANCE = NULL;
 
