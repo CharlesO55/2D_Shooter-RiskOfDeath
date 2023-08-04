@@ -34,12 +34,23 @@ void BaseBlocker::randomizeSpawn(sf::FloatRect CArea, float fZMin, float fZMax){
 }
 
 
+bool BaseBlocker::isVecInHitbox(sf::Vector2f vecLoc){
+    return this->pHitbox->contains(vecLoc);
+}
+/* 
 bool BaseBlocker::isColliding(sf::Vector2f vecMouse){
     if(this->pHitbox->contains(vecMouse)){
         return true;
     }
     return false;
+} */
+
+
+void BaseBlocker::onShot(int nKnockbackPower){
+    std::cout << "\n[SHOT Blocker] : " << this->strName;
+    this->vecScenePos.z += nKnockbackPower;
 }
+
 
 int BaseBlocker::nRNG(int nMin, int nMax){
     return std::rand() % (nMax + 1 - nMin) + nMin;

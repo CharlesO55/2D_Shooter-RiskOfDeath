@@ -17,6 +17,8 @@
 #include "../../../Controller/System/ObjectPoolManager.hpp"
 #include "../../../Controller/System/ItemManager.hpp"
 
+#include "../../Component/Script/Interface/Shootable.hpp"
+
 #   ifndef DISABLE_INTELLISENSE_INCLUDES
 #   include <SFML/Graphics.hpp>
 #   endif
@@ -25,7 +27,10 @@ namespace models {
     using namespace components;
     using namespace systems;
 
-    class BaseItem : public PoolableObject {
+    class BaseItem : public PoolableObject , public Shootable {
+        protected:
+            Obtainable* pObtainable_Ref;
+
         public:
             BaseItem(std::string strName, AnimatedTexture* pTexture, PoolTag ETag, float fScale);
 
@@ -35,6 +40,10 @@ namespace models {
 
             void onRelease();
             virtual PoolableObject* clone() = 0;
+
+        //INTERFACE
+            virtual void onShot(int nKnockbackPower = 5);
+            bool isVecInHitbox(sf::Vector2f vecLoc);
 
         protected:
             void randomizePosition();

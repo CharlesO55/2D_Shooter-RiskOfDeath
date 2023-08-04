@@ -33,7 +33,7 @@ namespace systems {
             void obtain(sf::Vector2f vecLocation);
             void spawn();
 
-            bool isLocInSprite(GameObject* pTarget, sf::Vector2f vecLocation);
+            // bool isLocInSprite(GameObject* pTarget, sf::Vector2f vecLocation);
             void perform();
             void cooldown(float fTime);
 

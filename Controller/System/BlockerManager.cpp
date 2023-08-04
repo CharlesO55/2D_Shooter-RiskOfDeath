@@ -4,9 +4,10 @@ using namespace components;
 using namespace systems;
 using namespace models;
 
-
+//DOESN'T REALLY DO ANYTHING
+//LAYER MANAGER AND PLAYER MANAGER CAN REQUEST ONSHOT() INSTEAD
 void BlockerManager::perform(){
-    this->findCrosshairRef();
+    /*this->findCrosshairRef();
 
     if (!pCrosshairRef->isLeftClick()){
         return;
@@ -15,10 +16,10 @@ void BlockerManager::perform(){
     for (BaseBlocker* pBlocker : this->vecBlockers){
         if (pBlocker->isColliding(this->pCrosshairRef->getLocation())){
             std::cout << "\n[BLOCKER HIT] " << pBlocker->getName();
-            this->pCrosshairRef->resetLeftClick();
+            // this->pCrosshairRef->resetLeftClick();
             break;
         }
-    }
+    }*/
 
     //ONLY RESET WHEN NO OTHER MANAGERS NEED LEFT CLICK READING
     //this->pCrosshairRef->resetLeftClick();
@@ -39,21 +40,21 @@ void BlockerManager::unregisterAll(){
 
 
 //SET UP
-
+/*
 void BlockerManager::findCrosshairRef(){
     Crosshair* pCrosshair = (Crosshair*)GameObjectManager::getInstance()->findObjectByName("Crosshair");
     if (pCrosshair == NULL){
-        std::cout << "[ERROR] : One or more dependencies are missing." << std::endl;
+        std::cout << "[ERROR] : Crosshair holder missing." << std::endl;
         throw 0;
     }
 
     CrosshairMouseInput* pCrosshairMouseInput = (CrosshairMouseInput*)pCrosshair->findComponentByName("Crosshair Mouse Input");
     if(pCrosshairMouseInput == NULL){
-        std::cout << "[ERROR] : One or more dependencies are missing." << std::endl;
+        std::cout << "[ERROR] : Crosshair input component missing." << std::endl;
         throw 0;
     }
     this->pCrosshairRef = pCrosshairMouseInput;
-}
+}*/
 
 
 void BlockerManager::initialize(std::string strName, GameObject* pHolder){

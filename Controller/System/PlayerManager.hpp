@@ -1,8 +1,21 @@
 #ifndef SYSTEMS_PLAYER_MANAGER_HPP
 #define SYSTEMS_PLAYER_MANAGER_HPP
 
-#include "../../Model/Component/Component.hpp"
 #include "../../Config/Settings.hpp"
+
+#include "../../Model/Component/Component.hpp"
+#include "../../Model/Component/Input/CrosshairMouseInput.hpp"
+#include "../../Model/Component/Script/Interface/Shootable.hpp"
+
+#include "../../View/Screen/PlayerUI.hpp"
+
+#include "../../Controller/Singleton/SFXManager.hpp"
+#include "../../Controller/Singleton/GameObjectManager.hpp"
+#include "../../Controller/System/LayerManager.hpp"
+#include "../../Controller/System/ItemManager.hpp"
+
+
+
 #include <fstream>
 
 namespace systems{
@@ -10,16 +23,28 @@ namespace systems{
 
     class PlayerManager : public Component{
         private:
+            CrosshairMouseInput* pCrosshairRef = NULL; //External reference from GameObjects
+            PlayerUI* pUI_Ref = NULL;
+
+        private:
+            int nBullets;
             bool bReloading = false;
+            int nHealth = MAX_PLAYER_HEALTH;
+            
             float fTicks = 0.0f;
 
-            int nHealth = MAX_PLAYER_HEALTH;
             std::string strPlayerName = DEFAULT_PLAYER_NAME;
 
         public:
             void perform();
             void reload(float fTime);
+            void shoot();
+
+        private:
+            void findDependencies();    //PSEUDO INITIALIZER
             void checkEndGame();
+
+            bool isAmmoEmpty();
 
         public:
             int getHealth();

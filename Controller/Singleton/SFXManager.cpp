@@ -14,6 +14,9 @@ void SFXManager::loadAll() {
 
     this->create(SFXType::ENEMY_HIT, "View/SFX/Enemy_Hit.wav");
     this->create(SFXType::PLAYER_HIT, "View/SFX/Player_Hit.wav");
+
+    this->create(SFXType::NO_AMMO, "View/SFX/NoAmmo.wav");
+    this->create(SFXType::V_NO_AMMO, "View/SFX/V_NoAmmo.wav");
 }
 
 void SFXManager::unloadAll() {

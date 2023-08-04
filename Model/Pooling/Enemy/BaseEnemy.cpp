@@ -20,8 +20,8 @@ void BaseEnemy::initialize() {
     RendererSpawnable* pRendererSpawanable = new RendererSpawnable(this->strName + " Sprite");
     pRendererSpawanable->assignDrawable(this->pSprite);
 
-    Killable* pKillableComponent = new Killable(this->strName + " Killable", this->fSpeedScaling);
-    systems::EnemyManager::getInstance()->registerComponent(pKillableComponent);
+    this->pKillableRef = new Killable(this->strName + " Killable", this->fSpeedScaling);
+    systems::EnemyManager::getInstance()->registerComponent(pKillableRef);
 
     ScenePosInterpreter* pPosInterpreter = new ScenePosInterpreter(this->strName + " Interpreter");
 
@@ -31,7 +31,7 @@ void BaseEnemy::initialize() {
     pBlinker->setBlinkable(this);
 
     this->attachComponent(pRendererSpawanable);
-    this->attachComponent(pKillableComponent);   
+    this->attachComponent(this->pKillableRef);   
     this->attachComponent(pPosInterpreter);
     this->attachComponent(pMoveForward);
     this->attachComponent(pBlinker);
@@ -84,4 +84,27 @@ void BaseEnemy::blink(){
     }
 
     this->pSprite->setColor(CColor);
+}
+
+
+
+void BaseEnemy::onShot(int nKnockbackPower){
+    std::cout << "\n[SHOT Enemy] : " << this->strName;
+
+    //INCREASE DAMAGE TAKEN WHEN BUFF IS ACTIVE
+    this->nHealth = (ItemManager::getInstance()->isItemActive(ItemType::DAMAGE_BOOST)) 
+        ? this->nHealth - 2 
+        : this->nHealth - 1;
+
+
+    if (this->nHealth <= 0){
+        this->pKillableRef->setKilled(true);
+        return;
+    }
+    this->pBlinker->start();
+    this->vecScenePos.z += nKnockbackPower;
+}
+
+bool BaseEnemy::isVecInHitbox(sf::Vector2f vecLoc){
+    return this->getTransformedBounds(ViewManager::getInstance()->getView(ViewTag::FRONTVIEW_SCREEN)->getBackground()->getSprite()->getTransform()).contains(vecLoc);
 }

@@ -12,11 +12,11 @@ void BaseItem::initialize() {
     RendererSpawnable* pSpawnableComponent = new RendererSpawnable(this->strName + " Sprite");
     pSpawnableComponent->assignDrawable(this->pSprite);
 
-    Obtainable* pObtainableComponent = new Obtainable(this->strName + " Obtainable");
-    ItemManager::getInstance()->registerComponent(pObtainableComponent);
+    this->pObtainable_Ref = new Obtainable(this->strName + " Obtainable");
+    ItemManager::getInstance()->registerComponent(pObtainable_Ref);
 
     this->attachComponent(pSpawnableComponent);
-    this->attachComponent(pObtainableComponent);   
+    this->attachComponent(this->pObtainable_Ref);   
 }
 
 void BaseItem::onActivate() {
@@ -31,4 +31,16 @@ void BaseItem::randomizePosition() {
 
     this->getSprite()->setPosition(std::rand() % (int)(SCREEN_WIDTH - fHalfWidth + 1 - fHalfWidth) + fHalfWidth,
                                 std::rand() % (int)(SCREEN_HEIGHT - fHalfHeight + 1 - fHalfHeight) + fHalfHeight);
+}
+
+
+
+void BaseItem::onShot(int nKnockbackPower){
+    this->pObtainable_Ref->setObtained(true);
+}
+
+
+
+bool BaseItem::isVecInHitbox(sf::Vector2f vecLoc){
+    return this->getTransformedBounds(ViewManager::getInstance()->getView(ViewTag::FRONTVIEW_SCREEN)->getBackground()->getSprite()->getTransform()).contains(vecLoc);
 }

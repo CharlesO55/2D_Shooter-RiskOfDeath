@@ -8,6 +8,7 @@
 #include "../../Pooling/PoolableObject.hpp"
 
 #include "../Component.hpp"
+#include "../../../Controller/System/PlayerManager.hpp"
 
 namespace components {
     using namespace controllers;

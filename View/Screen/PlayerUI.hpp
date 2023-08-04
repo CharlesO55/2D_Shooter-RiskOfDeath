@@ -7,6 +7,7 @@
 #include "../../Controller/System/ViewManager.hpp"
 #include "../../Controller/Singleton/GameStateManager.hpp"
 
+#include "../../Model/Enum/EnumItemType.hpp"
 #include "../Text.hpp"
 #   ifndef DISABLE_INTELLISENSE_INCLUDES
 #   include <SFML/Graphics.hpp>
@@ -45,7 +46,7 @@ namespace views{
             void createStatus();
 
         public:
-            void restoreHealth();
+            void restoreHealth(int nRestoredHealth);
             void decrementHealth();
 
             void reloadBullets();

@@ -2,7 +2,7 @@
 
 using namespace systems;
 
-void EnemyManager::kill(sf::Vector2f vecLocation) {
+/*void EnemyManager::kill(sf::Vector2f vecLocation) {
     int nIndex = -1;
     GameObject* pTarget;
     PlayerUI* pUI = (PlayerUI*)GameObjectManager::getInstance()->findObjectByName("Player UI");
@@ -52,7 +52,7 @@ void EnemyManager::kill(sf::Vector2f vecLocation) {
         if (!ItemManager::getInstance()->isItemActive(ItemType::INFINITY_AMMO)) 
             pUI->decrementBullets();
     }
-}
+}*/
 
 void EnemyManager::killAll() {
     for (Killable* pKillable : this->vecKillable) {
@@ -69,21 +69,21 @@ void EnemyManager::scaleEnemySpeed() {
         pEnemy->scaleSpeed();
     }
 }
-
+/* 
 bool EnemyManager::isLocInSprite(GameObject* pTarget, sf::Vector2f vecLocation){
     //CONVERT THE SPRITE TO MATCH FRONT VIEW ZOOM 
-    if (ViewManager::getInstance()->getView(ViewTag::FRONTVIEW_SCREEN)->isEnabled()){/* 
-        sf::FloatRect CInitialBounds = pTarget->getSprite()->getGlobalBounds();
-        sf::Transform CViewTransform = ViewManager::getInstance()->getView(ViewTag::FRONTVIEW_SCREEN)->getBackground()->getSprite()->getTransform();
-        sf::FloatRect CFinalBounds = CViewTransform.transformRect(CInitialBounds);
+    if (ViewManager::getInstance()->getView(ViewTag::FRONTVIEW_SCREEN)->isEnabled()){ 
+        // sf::FloatRect CInitialBounds = pTarget->getSprite()->getGlobalBounds();
+        // sf::Transform CViewTransform = ViewManager::getInstance()->getView(ViewTag::FRONTVIEW_SCREEN)->getBackground()->getSprite()->getTransform();
+        // sf::FloatRect CFinalBounds = CViewTransform.transformRect(CInitialBounds);
 
-        return CFinalBounds.contains(vecLocation); */
+        // return CFinalBounds.contains(vecLocation);
         sf::Transform CViewTransform = ViewManager::getInstance()->getView(ViewTag::FRONTVIEW_SCREEN)->getBackground()->getSprite()->getTransform();
         return pTarget->getTransformedBounds(CViewTransform).contains(vecLocation);
     }
 
     return false;
-}
+} */
 
 
 void EnemyManager::switchEnemiesTexture(ViewTag EDir){
@@ -105,7 +105,8 @@ void EnemyManager::switchEnemiesTexture(ViewTag EDir){
 void EnemyManager::perform() {
     this->fTime += this->tDeltaTime.asSeconds();
 
-    Crosshair* pCrosshair = (Crosshair*)GameObjectManager::getInstance()->findObjectByName("Crosshair");
+    //HANDLED BY isVecInLoc
+    /* Crosshair* pCrosshair = (Crosshair*)GameObjectManager::getInstance()->findObjectByName("Crosshair");
     if(pCrosshair == NULL) 
         std::cout << "[ERROR] : One or more dependencies are missing." << std::endl;
     
@@ -122,9 +123,9 @@ void EnemyManager::perform() {
                 pCrosshairMouseInput->resetLeftClick();
             }
         }
-    }
+    } */
 
-    //This spawns a wave of enemies for every 8 seconds.
+    //This spawns a wave of enemies for every x seconds.
     if (this->fTime > SPAWN_TIME) {
         this->fTime = 0.0f;
 

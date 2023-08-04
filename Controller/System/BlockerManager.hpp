@@ -23,7 +23,7 @@ namespace systems{
             void unregisterAll();
 
         private:
-            void findCrosshairRef();
+            // void findCrosshairRef();
 
         private:
             static BlockerManager* P_SHARED_INSTANCE;

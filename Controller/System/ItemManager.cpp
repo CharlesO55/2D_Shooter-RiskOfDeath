@@ -2,7 +2,7 @@
 
 using namespace systems;
 
-void ItemManager::obtain(sf::Vector2f vecLocation) {
+/* void ItemManager::obtain(sf::Vector2f vecLocation) {
     int nIndex = -1;
     GameObject* pOwner;
     
@@ -17,14 +17,14 @@ void ItemManager::obtain(sf::Vector2f vecLocation) {
         pOwner = this->vecObtainable[nIndex]->getOwner();
         this->vecObtainable[nIndex]->setObtained(true);
     }
-}
+} */
 
 void ItemManager::spawn() {
     PoolTag ETag = this->getRandomPool();
     ObjectPoolManager::getInstance()->getPool(ETag)->requestPoolable();
 }
 
-bool ItemManager::isLocInSprite(GameObject* pTarget, sf::Vector2f vecLocation) {
+/* bool ItemManager::isLocInSprite(GameObject* pTarget, sf::Vector2f vecLocation) {
     if (ViewManager::getInstance()->getView(ViewTag::FRONTVIEW_SCREEN)->isEnabled()){
         sf::FloatRect CInitialBounds = pTarget->getSprite()->getGlobalBounds();
         sf::Transform CViewTransform = ViewManager::getInstance()->getView(ViewTag::FRONTVIEW_SCREEN)->getBackground()->getSprite()->getTransform();
@@ -34,11 +34,11 @@ bool ItemManager::isLocInSprite(GameObject* pTarget, sf::Vector2f vecLocation) {
     }
 
     return false;
-}
+} */
 
 void ItemManager::perform() {
     this->fTime += this->tDeltaTime.asSeconds();
-    Crosshair* pCrosshair = (Crosshair*)GameObjectManager::getInstance()->findObjectByName("Crosshair");
+    /* Crosshair* pCrosshair = (Crosshair*)GameObjectManager::getInstance()->findObjectByName("Crosshair");
 
     if(pCrosshair == NULL) 
         std::cout << "[ERROR] : One or more dependencies are missing." << std::endl;
@@ -58,7 +58,7 @@ void ItemManager::perform() {
             }
         }
     }
-
+ */
     this->cooldown(this->tDeltaTime.asSeconds());
 
     //UNCOMMENT FOR TESTING

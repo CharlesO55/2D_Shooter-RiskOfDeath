@@ -20,6 +20,7 @@
 
 #include "../../Component/Script/Blinker.hpp"
 #include "../../Component/Script/Interface/Positionable.hpp"
+#include "../../Component/Script/Interface/Shootable.hpp"
 
 #   ifndef DISABLE_INTELLISENSE_INCLUDES
 #   include <SFML/Graphics.hpp>
@@ -30,12 +31,13 @@ namespace models {
     using namespace systems;
     using namespace interfaces;
 
-    class BaseEnemy : public PoolableObject , public Blinkable, public Positionable {
+    class BaseEnemy : public PoolableObject , public Blinkable, public Positionable, public Shootable {
         protected:
             int nHealth;
             int nMaxHealth;
             float fSpeed;
             float fSpeedScaling;
+            Killable* pKillableRef;
 
         public:
             BaseEnemy(std::string strName, AnimatedTexture* pTexture, PoolTag ETag, int nHealth = 1, float fScale = 1.f, float fSpeed = 1.f, float fSpeedScaling = 0.1f);
@@ -46,7 +48,10 @@ namespace models {
             virtual void onRelease() = 0;
             virtual PoolableObject* clone() = 0;
 
+            //INTERFACES
             void blink();
+            void onShot(int nKnockbackPower = 5);
+            bool isVecInHitbox(sf::Vector2f vecLoc); 
 
         protected:
             void randomizePosition();

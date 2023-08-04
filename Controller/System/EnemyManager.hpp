@@ -28,7 +28,7 @@ namespace systems {
             std::vector<Killable*> vecKillable;
 
         public:
-            void kill(sf::Vector2f vecLocation);
+            // void kill(sf::Vector2f vecLocation);
             void killAll();
 
             void scaleEnemySpeed();
@@ -39,7 +39,7 @@ namespace systems {
             void registerComponent(Killable* pKillable);
             void unregisterComponent(Killable* pKillable);
 
-            bool isLocInSprite(GameObject* pTarget, sf::Vector2f vecLocation);
+            // bool isLocInSprite(GameObject* pTarget, sf::Vector2f vecLocation);
             void switchEnemiesTexture(ViewTag EDir);
             
 

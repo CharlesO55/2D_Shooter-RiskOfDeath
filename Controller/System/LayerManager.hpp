@@ -4,6 +4,7 @@
 #include "../System/ViewManager.hpp"
 
 #include "../../../Model/Component/Component.hpp"
+#include "../../../Model/Component/Script/Interface/Shootable.hpp"
 
 /**************************************/
 /*Assitant in sorting the render order*/
@@ -19,10 +20,22 @@ namespace systems{
             std::vector <GameObject*>* vecGameObjectRef = NULL;     //USE ONLY FOR SORTING. DO NOT DELETE OR ADD ANY OBJECTS
             std::vector<GameObject*>::iterator itr_Start;
             std::vector<GameObject*>::iterator itr_End;
-        
+            
+            //FOR SORTING SHOOTABLES
+            int nIndexFirstBoulder;
+            int nIndexLastEnemy;
+            int nIndexLastItem;
+
+
         private:
             void findIndices();
+
+
+        public:
             void sortGameObjects();
+            Shootable* getFrontmostHit(sf::Vector2f vecMouse);
+            std::vector <Shootable*> getAllLineHit(sf::Vector2f vecMouse);
+
 
         public:
             void initialize();

@@ -47,7 +47,8 @@ void Obtainable::activate(PoolTag ETag) {
 
         case PoolTag::HEALTH_BOOST:
             std::cout << "[OBTAINABLE] : Health Restored" << std::endl;
-            pUI->restoreHealth();
+            // pUI->restoreHealth();
+            PlayerManager::getInstance()->healPlayer();
             break;
 
         case PoolTag::INSTANT_KILL:

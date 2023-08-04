@@ -14,7 +14,10 @@ enum class SFXType : int {
     KILL_ALL,
 
     ENEMY_HIT,
-    PLAYER_HIT
+    PLAYER_HIT,
+
+    NO_AMMO,
+    V_NO_AMMO
 };
 
 #endif

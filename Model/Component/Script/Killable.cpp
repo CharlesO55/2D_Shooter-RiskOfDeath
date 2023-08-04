@@ -37,16 +37,19 @@ void Killable::killOnContactWithPlayer(){
 
 
 
-void Killable::damage() {
+    //Handled by on shot
+/*void Killable::damage() {
+
     BaseEnemy* pEnemy = (BaseEnemy*)this->pOwner;
-    pEnemy->getBlinker()->start();
+
+    /* pEnemy->getBlinker()->start();
 
     if (!ItemManager::getInstance()->isItemActive(ItemType::DAMAGE_BOOST))
         pEnemy->setHealth(pEnemy->getHealth() - 1);
 
     else
         pEnemy->setHealth(pEnemy->getHealth() - 2);
-}
+}*/
 
 bool Killable::isKilled() {
     return this->bKilled;

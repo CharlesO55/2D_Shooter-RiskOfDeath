@@ -32,7 +32,7 @@ namespace components {
 
         public:
             void perform();
-            void damage();
+            // void damage();
 
         public:
             bool isKilled();

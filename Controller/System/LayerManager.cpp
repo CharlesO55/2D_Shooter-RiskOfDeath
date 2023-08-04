@@ -31,32 +31,40 @@ void LayerManager::initialize(){
     this->findIndices();
 }
 
+
+//PART OF INITIALIZATION
+//Marks the vector indices for sorting shootables
 void LayerManager::findIndices(){
     bool bFoundFirstBlocker = false;
     int nIndex = 0;
-    int nLastEnemy;
 
     for (GameObject* pObject : *(this->vecGameObjectRef)){
         //FIND THE FIRST BLOCKER
         if (!bFoundFirstBlocker && pObject->getEntityType() == EntityType::BLOCKER){
             bFoundFirstBlocker = true;
-            this->itr_Start = this->vecGameObjectRef->begin() + nIndex;
+            this->nIndexFirstBoulder = nIndex;
         }
 
         //FIND THE LAST ENEMY BEFORE ITEMS/BUFFS
         if (pObject->getEntityType() == EntityType::ENEMY){
-            nLastEnemy = nIndex;
+            this->nIndexLastEnemy = nIndex;
+        }
+
+        //FIND THE LAST ITEM AND END OF ALL SHOOTABLES
+        if (pObject->getEntityType() == EntityType::ITEM){
+            this->nIndexLastItem = nIndex;
         }
         nIndex++;
     }
-    this->itr_End = this->vecGameObjectRef->begin() + nLastEnemy + 1;
+
+    this->itr_Start = this->vecGameObjectRef->begin() + this->nIndexFirstBoulder;
+    this->itr_End = this->vecGameObjectRef->begin() + this->nIndexLastEnemy + 1;
 }
 
 
 void LayerManager::perform(){
     if (this->nTicks > 100){
         this->sortGameObjects();
-        nTicks = 0;
     }
     nTicks++;
 }
@@ -68,9 +76,48 @@ void LayerManager::sortGameObjects(){
     else if (ViewManager::getInstance()->getView(ViewTag::SIDEVIEW_SCREEN)->isEnabled()){
         std::sort(itr_Start, itr_End, sortXLeftFirst);
     }
+
+    this->nTicks = 0;
+
     // GameObjectManager::getInstance()->printAllItemsDebug();
 }
 
+Shootable* LayerManager::getFrontmostHit(sf::Vector2f vecMouse){
+    //SCAN THROUGH FROM THE LAST SHOOTABLE(items) TO THE FIRST SHOOTABLE (blockers)
+    for (int i = nIndexLastItem; i > this->nIndexFirstBoulder; i--){
+        //CHECK FIRST IF ACTIVE
+        if (this->vecGameObjectRef->at(i)->isEnabled()){
+            Shootable* pShootable = dynamic_cast <Shootable*> (this->vecGameObjectRef->at(i));        
+            
+            //CHECK IF COLLIDING WITH SHOOTABLE OBJECT
+            if (pShootable->isVecInHitbox(vecMouse)){
+                return pShootable;
+            }
+        }
+    }
+
+    //ALWAYS CHECK IF NULL IN CASE NO ITEM WAS SHOT    
+    return NULL;
+}
+
+std::vector <Shootable*> LayerManager::getAllLineHit(sf::Vector2f vecMouse){
+    std::vector <Shootable*> vecShot;
+    //SCAN THROUGH FROM THE LAST SHOOTABLE(items) TO THE FIRST SHOOTABLE (blockers)
+    for (int i = nIndexLastItem; i > this->nIndexFirstBoulder; i--){
+        //CHECK FIRST IF ACTIVE
+        if (this->vecGameObjectRef->at(i)->isEnabled()){
+            Shootable* pShootable = dynamic_cast <Shootable*> (this->vecGameObjectRef->at(i));        
+            
+            //CHECK IF COLLIDING WITH SHOOTABLE OBJECT
+            if (pShootable->isVecInHitbox(vecMouse)){
+                vecShot.push_back(pShootable);
+            }
+        }
+    }
+
+    //ALWAYS CHECK IF NULL IN CASE NO ITEM WAS SHOT    
+    return vecShot;
+}
 
 
 
