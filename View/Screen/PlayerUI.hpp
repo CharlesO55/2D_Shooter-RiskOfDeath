@@ -18,8 +18,10 @@ namespace views{
     class PlayerUI : public View, public ButtonListener {
         private:
             int nHearts;
-            int nBullets;
             int nItems;
+
+            int nTotalBullets;
+            int nBullets;
 
             ItemType Inventory1;
             ItemType Inventory2;

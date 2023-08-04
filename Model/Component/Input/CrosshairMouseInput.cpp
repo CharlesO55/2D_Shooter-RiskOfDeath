@@ -44,20 +44,18 @@ void CrosshairMouseInput::resetRightClick() {
 }
 
 void CrosshairMouseInput::processMouseInput(sf::Mouse::Button inMouse, bool bPressed) {
-    if (ViewManager::getInstance()->getView(ViewTag::FRONTVIEW_SCREEN)->isEnabled() && !PlayerManager::getInstance()->isReloading()) {
+    EmptyGameObject* pNavigationHolder = (EmptyGameObject*)GameObjectManager::getInstance()->findObjectByName("Game Proper Navigation");
+    GameNavigationInput* pNavigation = (GameNavigationInput*)pNavigationHolder->findComponentByName("Game Navigation Input");
+
+    if (ViewManager::getInstance()->getView(ViewTag::FRONTVIEW_SCREEN)->isEnabled() && 
+       !PlayerManager::getInstance()->isReloading() && pNavigation->isZooming() &&
+        PlayerManager::getInstance()->getBullets() != 0) {
         switch(inMouse) {
             case sf::Mouse::Left:
                 this->bLeftClick = bPressed;
                 if (bPressed) {
                     std::cout << "[LMB] : Pressed" << std::endl;
                     SFXManager::getInstance()->getSound(SFXType::SHOOT)->play();
-                }
-                break;
-
-            case sf::Mouse::Right:
-                this->bRightClick = bPressed;
-                if (bPressed) {
-                    std::cout << "[RMB] : Pressed" << std::endl;
                 }
                 break;
 

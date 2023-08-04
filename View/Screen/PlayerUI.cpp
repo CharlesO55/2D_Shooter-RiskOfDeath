@@ -7,8 +7,10 @@ PlayerUI::PlayerUI() : View(ViewTag::PLAYER_UI, "Player UI") {
     ViewManager::getInstance()->registerView(this);
 
     this->nHearts = 5;
-    this->nBullets = 5;
     this->nItems = 0;
+
+    this->nTotalBullets = 5 * (ViewManager::getInstance()->getScreenCols() * ViewManager::getInstance()->getScreenRows());
+    this->nBullets = this->nTotalBullets;
 
     this->Inventory1 = ItemType::NONE;
     this->Inventory2 = ItemType::NONE;
@@ -56,12 +58,17 @@ void PlayerUI::createBullets() {
     std::string strName = "Bullet ";
     AnimatedTexture* pTexture = new AnimatedTexture(TextureManager::getInstance()->getTexture(AssetType::BULLET)); 
 
-    float xPos = SCREEN_WIDTH - 175.0f;
-    float yPos = SCREEN_HEIGHT - 40.0f;
+    float xPos = SCREEN_WIDTH - 15.0f;
+    float yPos = SCREEN_HEIGHT - 5.0f;
 
-    for (int i = 0; i < 5; i++) {
-        this->createImage(strName + std::to_string(i + 1), pTexture, 2.5f, xPos, yPos);
-        xPos += 35.0f;
+    for (int i = 0; i < this->nTotalBullets; i++) {
+        if (i % 10 == 0) {
+            xPos = SCREEN_WIDTH - 15.0f;
+            yPos -= 20.0f;
+        } 
+
+        this->createImage(strName + std::to_string(i + 1), pTexture, 1.0f, xPos, yPos);
+        xPos -= 10.0f;        
     }
 }
 
@@ -151,9 +158,11 @@ void PlayerUI::reloadBullets() {
             this->nBullets++;
         }
     }
+
+    this->nBullets = this->nTotalBullets;
+    std::cout << "Player now has " << this->nBullets << " bullets" << std::endl;
 }
 
-//Doesn't decrement first bullet after reloading
 void PlayerUI::decrementBullets() {
     if(this->nBullets > 0) {
         std::string strImageName = "Bullet " + std::to_string(this->nBullets);
@@ -164,7 +173,6 @@ void PlayerUI::decrementBullets() {
         }
 
         this->nBullets--;
-        std::cout << "Bullet Count: " << this->nBullets << std::endl;
     }
 }
 

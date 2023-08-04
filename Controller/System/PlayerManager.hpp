@@ -28,6 +28,7 @@ namespace systems{
             void healPlayer();
             void damagePlayer();
 
+            int getBullets();
             bool isReloading();
             void setReloading(bool bState);
 
