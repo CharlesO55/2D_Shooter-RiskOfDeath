@@ -16,5 +16,10 @@ namespace models{
         public:
             void initialize();
             void createHitboxes();
+
+        //Virtual 
+            void onShot(int nKnockbackPower = 5);
+            void update(sf::Time tDeltaTime);
+        
     };
 }

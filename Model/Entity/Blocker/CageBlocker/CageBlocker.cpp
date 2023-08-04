@@ -15,8 +15,8 @@ CageBlocker::~CageBlocker(){}
 void CageBlocker::initialize(){
     BaseBlocker::initialize();
 
-    int nMaxDistance = this->nRNG(300 , SCREEN_WIDTH/2);
-    MoveXY *pMovement = new MoveXY(this->strName + " MoveXY", nMaxDistance, vecStartDir, 50, false, false);
+    int nMaxDistance = 9999;
+    MoveXY *pMovement = new MoveXY(this->strName + " MoveXY", nMaxDistance, vecStartDir, 500, false, false, false);
     this->attachComponent(pMovement); 
 
     CageChain *pCageChain = new CageChain(this->strName+"Chain");
@@ -27,4 +27,22 @@ void CageBlocker::initialize(){
 void CageBlocker::createHitboxes(){
     this->pHitbox = new Hitbox(this->strName + " Hitbox", ShapeType::RECTANGLE, {0,0,0,0});
     this->attachChild(pHitbox);
+}
+
+void CageBlocker::onShot(int nKnockbackPower){
+    MoveXY* pMoveComp = (MoveXY*) this->findComponentByName(this->strName + " MoveXY");
+    
+    //DROPS THE CAGE WHEN SHOT
+    if(pMoveComp!= NULL){
+        pMoveComp->setMoveDir({0, 1});
+    }
+}
+
+void CageBlocker::update(sf::Time tDeltaTime){
+    //STOP IT WHEN OUT OF SCREEN
+    BaseBlocker::update(tDeltaTime);
+    if(this->getScenePos().y > SCREEN_HEIGHT + this->pSprite->getGlobalBounds().height){
+        MoveXY* pMoveComp = (MoveXY*) this->findComponentByName(this->strName + " MoveXY");
+        pMoveComp->setComponentEnabled(false);
+    }
 }
