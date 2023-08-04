@@ -11,6 +11,7 @@ enum class AssetType : int {
 
     BACKGROUND,
     BUTTON_START,
+    LOADING_SCREEN_BG,
     
     BULLET,
     HEART,

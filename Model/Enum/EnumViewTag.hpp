@@ -9,7 +9,8 @@ enum class ViewTag : int {
     FRONTVIEW_SCREEN,
     SIDEVIEW_SCREEN,
     PLAYER_UI,
-    PAUSE_SCREEN
+    PAUSE_SCREEN,
+    LOADING_SCREEN
 };
 
 #endif

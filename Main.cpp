@@ -148,6 +148,7 @@
 #include "View/Screen/FrontViewScreen.cpp"
 #include "View/Screen/SideViewScreen.cpp"
 #include "View/Screen/PauseScreen.cpp"
+#include "View/Screen/LoadingScreen.cpp"
 
 using namespace controllers;
 

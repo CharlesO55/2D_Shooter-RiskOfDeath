@@ -18,6 +18,8 @@ Test_Player
 Test_Player
 129
 Test_Player
+121
+PLAYER
 100
 Loss
 97
@@ -102,6 +104,8 @@ Test_Player
 Test_Player
 24
 PLAYER
+23
+PLAYER
 22
 Test_Player
 21
@@ -174,6 +178,8 @@ Test_Player
 Test_Player
 6
 Test_Player
+6
+PLAYER
 6
 PLAYER
 6

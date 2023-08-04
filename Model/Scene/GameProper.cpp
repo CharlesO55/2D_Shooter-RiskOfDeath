@@ -24,7 +24,6 @@ void GameProper::onUnloadResources(){
     MusicManager::getInstance()->getMusic(MusicType::GAME_PROPER)->stop();
     ScoreManager::getInstance()->logScoreOnEnd(PlayerManager::getInstance()->getPlayerName());
 
-
     Scene::onUnloadResources();
 }
 
@@ -46,7 +45,7 @@ void GameProper::onLoadObjects() {
     this->registerObject(new PauseScreen());
     this->registerObject(new PlayerUI());
     this->createCrosshair();
-
+    this->registerObject(new LoadingScreen());
 
     this->createLayerManagerAsLast();
     GameObjectManager::getInstance()->printAllItemsDebug();

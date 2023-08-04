@@ -53,6 +53,7 @@ void TextureManager::loadBackgroundFolder() {
     switch (this->EScene){
         case SceneTag::MAIN_MENU:
             this->loadTexture(AssetType::BACKGROUND, "View/Image/Background/ENTRANCE.png");
+            this->loadTexture(AssetType::LOADING_SCREEN_BG, "View/Image/Background/LoadingScreen.png");
             break;
         case SceneTag::LEADERBOARD:
             {
@@ -69,6 +70,8 @@ void TextureManager::loadBackgroundFolder() {
             this->loadTexture(AssetType::BACKGROUND, "View/Image/Background/FRONT_VIEW.png");
             this->loadTexture(AssetType::BACKGROUND, "View/Image/Background/SIDE_VIEW.png");
             this->loadTexture(AssetType::BACKGROUND, "View/Image/Background/PAUSE_VIEW.png");
+            this->loadTexture(AssetType::LOADING_SCREEN_BG, "View/Image/Background/LoadingScreen.png");
+
             break;
         
 
