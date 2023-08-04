@@ -154,21 +154,22 @@ void GameProper::createObjectPools() {
 
 
 void GameProper::createBlockers(){
-    BoulderBlocker *pBoulderL = new BoulderBlocker("Blocker Boulder 1", sf::FloatRect(0, SCREEN_HEIGHT/2, 100, SCREEN_HEIGHT/2-200), {1,0}, 50, 75);
-    BoulderBlocker *pBoulderR = new BoulderBlocker("Blocker Boulder 2", sf::FloatRect(SCREEN_WIDTH/2, SCREEN_HEIGHT/2, SCREEN_WIDTH/2, SCREEN_HEIGHT/2-200), {-1,0});
+    BoulderBlocker *pBoulderL = new BoulderBlocker("Blocker Boulder 1", sf::FloatRect(0, 0, SCREEN_WIDTH, SCREEN_HEIGHT), {1,1});
+    BoulderBlocker *pBoulderR = new BoulderBlocker("Blocker Boulder 2", sf::FloatRect(0, 0, SCREEN_WIDTH, SCREEN_HEIGHT), {1,1});
     WispBlocker* pWispL = new WispBlocker("Blocker WispL", sf::FloatRect(50, 0, 200, SCREEN_HEIGHT/2), {0,1});
     WispBlocker* pWispR = new WispBlocker("Blocker WispR", sf::FloatRect(SCREEN_WIDTH/2, 0, 0, SCREEN_HEIGHT/2), {0,-1});
-    ChestBlocker* pChestL = new ChestBlocker("Blocker Chest 1", sf::FloatRect(0, 0, SCREEN_WIDTH, SCREEN_HEIGHT), {1,1});
-    ChestBlocker* pChestR = new ChestBlocker("Blocker Chest 2", sf::FloatRect(0, 0, SCREEN_WIDTH, SCREEN_HEIGHT), {1,1});
-    CageBlocker* pCageL = new CageBlocker("Blocker Cage 1", sf::FloatRect(200, 0, SCREEN_WIDTH/2, SCREEN_HEIGHT/8), {0,0});
-    CageBlocker* pCageR = new CageBlocker("Blocker Cage 2", sf::FloatRect(SCREEN_WIDTH/2, 0, SCREEN_WIDTH/2 - 200, SCREEN_HEIGHT/8), {0,0});
+    ShadowBlocker* pShadowL = new ShadowBlocker("Blocker Shadow 1", sf::FloatRect(0, SCREEN_HEIGHT/2, 100, SCREEN_HEIGHT/2-200), {1,0}, 50, 75);
+    ShadowBlocker* pShadowR = new ShadowBlocker("Blocker Shadow 2", sf::FloatRect(SCREEN_WIDTH/2, SCREEN_HEIGHT/2, SCREEN_WIDTH/2, SCREEN_HEIGHT/2-200), {-1,0});
+    CageBlocker* pCageL = new CageBlocker("Blocker Cage 1", sf::FloatRect(200, SCREEN_WIDTH/4, SCREEN_WIDTH/2, SCREEN_HEIGHT/2), {0,0});
+    CageBlocker* pCageR = new CageBlocker("Blocker Cage 2", sf::FloatRect(SCREEN_WIDTH/2, SCREEN_WIDTH/4, SCREEN_WIDTH/2 - 200, SCREEN_HEIGHT/2), {0,0});
+
 
     this->registerObject(pBoulderL);
     this->registerObject(pBoulderR);
     this->registerObject(pWispL);
     this->registerObject(pWispR);
-    this->registerObject(pChestL);
-    this->registerObject(pChestR);
+    this->registerObject(pShadowL);
+    this->registerObject(pShadowR);
     this->registerObject(pCageL);
     this->registerObject(pCageR);
 
@@ -176,8 +177,8 @@ void GameProper::createBlockers(){
     BlockerManager::getInstance()->registerBlocker(pBoulderR);
     BlockerManager::getInstance()->registerBlocker(pWispL);
     BlockerManager::getInstance()->registerBlocker(pWispR);
-    BlockerManager::getInstance()->registerBlocker(pChestL);
-    BlockerManager::getInstance()->registerBlocker(pChestR);
+    BlockerManager::getInstance()->registerBlocker(pShadowL);
+    BlockerManager::getInstance()->registerBlocker(pShadowR);
     BlockerManager::getInstance()->registerBlocker(pCageL);
     BlockerManager::getInstance()->registerBlocker(pCageR);
 

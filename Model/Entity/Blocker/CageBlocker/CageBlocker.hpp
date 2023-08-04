@@ -1,7 +1,8 @@
 #pragma once
 
-#include "BaseBlocker.hpp"
-#include "../../Component/Script/MoveXY.hpp"
+#include "CageChain.hpp"
+#include "../BaseBlocker.hpp"
+#include "../../../Component/Script/MoveXY.hpp"
 
 namespace models{
     class CageBlocker : public BaseBlocker{

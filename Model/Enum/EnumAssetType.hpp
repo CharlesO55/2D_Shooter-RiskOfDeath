@@ -33,7 +33,8 @@ enum class AssetType : int {
     GHOST,
 
     BOULDER_ROUND,
-    CAGE,
+    CAGE_BODY,
+    CAGE_CHAIN,
     CHEST,
     WISP,
     PLANE,

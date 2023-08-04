@@ -15,8 +15,8 @@ BoulderBlocker::~BoulderBlocker(){}
 void BoulderBlocker::initialize(){
     BaseBlocker::initialize();
 
-    int nMaxDistance = this->nRNG(300 , SCREEN_WIDTH/2);
-    MoveXY *pMovement = new MoveXY(this->strName + " MoveXY", nMaxDistance, vecStartDir, 50, true);
+    int nMaxDistance = 9999;
+    MoveXY *pMovement = new MoveXY(this->strName + " MoveXY", nMaxDistance, vecStartDir, 50, true, false);
     this->attachComponent(pMovement); 
 }
 

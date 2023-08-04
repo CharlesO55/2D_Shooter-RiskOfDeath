@@ -168,8 +168,9 @@ void TextureManager::loadBlockerFolder() {
             break;
         case SceneTag::GAME_PROPER:
             this->loadTexture(AssetType::BOULDER_ROUND, "View/Image/Blocker/Boulder_Round.png");
-            this->loadTexture(AssetType::CAGE, "View/Image/Blocker/Cage.png");
-            this->loadTexture(AssetType::CHEST, "View/Image/Blocker/Chest.png");
+            this->loadTexture(AssetType::CAGE_BODY, "View/Image/Blocker/Cage_body.png");
+            this->loadTexture(AssetType::CAGE_CHAIN, "View/Image/Blocker/Cage_chain.png");
+            this->loadTexture(AssetType::CHEST, "View/Image/Blocker/Shadow.png");
             this->loadTexture(AssetType::WISP, "View/Image/Blocker/Wisp.png");
             this->loadTexture(AssetType::PLANE, "View/Image/Blocker/Plane.png");
             this->loadTexture(AssetType::CLOUD, "View/Image/Blocker/Cloud.png");
