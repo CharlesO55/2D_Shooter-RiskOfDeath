@@ -5,7 +5,9 @@ enum class MusicType : int {
     NONE = 0,
     MAIN_MENU,
     GAME_PROPER,
-    LEADERBOARDS
+    LEADERBOARDS,
+    Main_OWARIMONOGATARI,    //New Leaderboard
+    Lead_BAKEMONOGATARI      //New Main Menu
 };
 
 #endif

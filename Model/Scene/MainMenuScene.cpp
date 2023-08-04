@@ -48,17 +48,21 @@ void MainMenuScene::onLoadObjects(){
 
 void MainMenuScene::onLoadResources(){
     Scene::onLoadResources();
-
+/* 
     MusicManager::getInstance()->getMusic(MusicType::MAIN_MENU)->setVolume(40.0f);
     MusicManager::getInstance()->getMusic(MusicType::MAIN_MENU)->play();
-    MusicManager::getInstance()->getMusic(MusicType::MAIN_MENU)->setLoop(true);
+    MusicManager::getInstance()->getMusic(MusicType::MAIN_MENU)->setLoop(true); */
+    
 
-    MusicManager::getInstance()->getMusic(MusicType::LEADERBOARDS)->stop(); //LeaderboardScene::onUnloadResources does not work
+    MusicManager::getInstance()->getMusic(MusicType::Main_OWARIMONOGATARI)->setVolume(40.0f);
+    MusicManager::getInstance()->getMusic(MusicType::Main_OWARIMONOGATARI)->play();
+    MusicManager::getInstance()->getMusic(MusicType::Main_OWARIMONOGATARI)->setLoop(true);
 }
 
 
 void MainMenuScene::onUnloadResources(){
-    MusicManager::getInstance()->getMusic(MusicType::MAIN_MENU)->stop();
+    // MusicManager::getInstance()->getMusic(MusicType::MAIN_MENU)->stop();
+    MusicManager::getInstance()->getMusic(MusicType::Main_OWARIMONOGATARI)->stop();
 
     Scene::onUnloadResources();
 }
