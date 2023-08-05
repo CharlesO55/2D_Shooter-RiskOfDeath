@@ -27,7 +27,7 @@ void PlayerManager::shoot(){
         if (this->isAmmoEmpty()){
                 //STOP WHEN CAN'T EVEN SHOOT
                 return;
-            }
+         }
     }    
     
     //SORT FIRST
@@ -57,10 +57,7 @@ void PlayerManager::shoot(){
 }
 
 bool PlayerManager::isAmmoEmpty(){
-    this->pUI_Ref->decrementBullets(); 
-    this->nBullets--;
-    
-    if(this->nBullets <= 0){
+    if(this->nBullets == 0){
         SFXManager::getInstance()->getSound(SFXType::NO_AMMO)->play();
 
         if ((std::rand() % 5) == 2){
@@ -68,6 +65,11 @@ bool PlayerManager::isAmmoEmpty(){
         } 
         return true;
     }
+
+    SFXManager::getInstance()->getSound(SFXType::SHOOT)->play();
+    this->pUI_Ref->decrementBullets(); 
+    this->nBullets--;
+    
     return false;
 }
 

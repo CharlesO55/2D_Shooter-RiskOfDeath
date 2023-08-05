@@ -48,15 +48,12 @@ void CrosshairMouseInput::processMouseInput(sf::Mouse::Button inMouse, bool bPre
 
     if (ViewManager::getInstance()->getView(ViewTag::FRONTVIEW_SCREEN)->isEnabled() && 
        !ViewManager::getInstance()->getView(ViewTag::PAUSE_SCREEN)->isEnabled() &&
-       !PlayerManager::getInstance()->isReloading() && pNavigation->isZooming() &&
-        PlayerManager::getInstance()->getBullets() != 0) {
+       !PlayerManager::getInstance()->isReloading() && pNavigation->isZooming()) {
         switch(inMouse) {
             case sf::Mouse::Left:
                 this->bLeftClick = bPressed;
-                if (bPressed) {
+                if (bPressed) 
                     std::cout << "[LMB] : Pressed" << std::endl;
-                    SFXManager::getInstance()->getSound(SFXType::SHOOT)->play();
-                }
                 break;
 
             default:
