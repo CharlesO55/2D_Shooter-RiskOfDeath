@@ -29,7 +29,6 @@ namespace components{
             void processKeyInput();
             void processMouseInput();
             void processScreenPause();
-            void processDebugCommand();
 
         public:
             bool isNeedChangeFront();

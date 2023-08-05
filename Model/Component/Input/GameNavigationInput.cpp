@@ -28,9 +28,6 @@ void GameNavigationInput::processKeyInput(){
         case sf::Keyboard::Space:
             this->processScreenPause();
             break;
-        case sf::Keyboard::Tab:
-            this->processDebugCommand();
-            break;
         default:
             break;
     }
@@ -70,22 +67,3 @@ void GameNavigationInput::setZooming(bool bState) { this->bZooming = bState; }
 
 
 sf::Vector2f GameNavigationInput::getMouseLoc(){ return this->vecMousePos; }
-
-
-
-
-
-
-
-/*
-    FOR DEBUGGING ONLY, NOT MEANT TO BE FOR RELEASE
-*/
-using namespace controllers;
-void GameNavigationInput::processDebugCommand(){
-
-    //FOR TESTING GAMEOBJECT SORTING
-    GameObjectManager::getInstance()->printAllItemsDebug();
-    
-    //PAUSE
-    this->processScreenPause();
-}
