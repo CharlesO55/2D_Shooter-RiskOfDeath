@@ -58,8 +58,9 @@ void PlayerManager::shoot(){
 
 bool PlayerManager::isAmmoEmpty(){
     this->pUI_Ref->decrementBullets(); 
-
-    if(this->nBullets == 0){
+    this->nBullets--;
+    
+    if(this->nBullets <= 0){
         SFXManager::getInstance()->getSound(SFXType::NO_AMMO)->play();
 
         if ((std::rand() % 5) == 2){
